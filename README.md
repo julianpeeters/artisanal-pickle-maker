@@ -26,3 +26,7 @@ Why? Because existing Java bytecode-engineering tools can't see or alter a pickl
   _Integration_ - Javassist(?), ASM for dynamic case class generation.
 
   _Documentation_ - Better examples.
+
+
+_PS_ I'm relatively new at all this, so any constructive advice is appreciated!
+-Julian
