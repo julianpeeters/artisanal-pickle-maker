@@ -6,18 +6,21 @@ Make your own Scala pickled signatures.
 Takes class info as strings and gives back a pickled Scala signatures. For use with Java bytecode engineering libraries. 
 
 ##Currently supports:##
-  _Classes_ - Both regular and case classes *that have value members only* (signatures will not reflect user-defined defs, i.e., no defs!)
+  _Use Cases_ - 1) Pickle the signtature and add it to an ASMified dynamic class template. 2) Pickle the Signature and use Javassist to alter an existing class and replace its annotation with onen containing the new pickled Scala Signature.
 
-  _Datatypes_ - Basic Scala datatypes //TODO most need tests!
+  _Classes_ - The generation of Scala sigs for regular and case classes *that have value members only* (signatures will not reflect user-defined defs, i.e., no defs!).
 
+  _Datatypes_ - All basic Scala datatypes //TODO most need tests!
 
 ##In the future:##
-  _Datatypes_ - Collections, custom classes
+  _Pickling_ - currently we only generate an unpickled signature, but pickling is straigtforward.
 
-  _Method Members_ - Support for user defined defs(?)
+  _Datatypes_ - Collections, custom classes.
 
-  _Classes_ - Support for flags other than "case class"(?)
+  _Method Members_ - Support for user defined defs(?).
 
-  _Integration_ - Javassist(?), ASM for dynamic case class generation
+  _Classes_ - Support for flags other than "case class"(?).
 
-  _Documentation_ - Better examples 
+  _Integration_ - Javassist(?), ASM for dynamic case class generation.
+
+  _Documentation_ - Better examples.
