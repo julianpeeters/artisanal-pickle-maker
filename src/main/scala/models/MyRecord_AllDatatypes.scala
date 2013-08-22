@@ -14,7 +14,9 @@ case class MyRecord_AllDatatypes(
   k: Null,
   l: Nothing,
   m: Any,
-  n: AnyRef
+  n: AnyRef,
+
+  o: Object
 )
 
 case class MyRecord_Byte(a: Byte)
@@ -31,3 +33,5 @@ case class MyRecord_Null(k: Null)
 case class MyRecord_Nothing(l: Nothing)
 case class MyRecord_Any(m: Any)
 case class MyRecord_AnyRef(n: AnyRef)
+
+case class MyRecord_Object(o: Object)

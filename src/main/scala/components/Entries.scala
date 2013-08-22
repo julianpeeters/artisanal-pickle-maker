@@ -7,17 +7,16 @@ import tags._
 import types._
 
 class Entries(sigResources: SigResources, flags: List[String], names: List[String], args: List[(String, String)]) {
-
+//write the class info
   val classInfo = ClassInfo(sigResources, flags, names)
 
+//write the value members
   val valueMembers = args.map(arg => new ValueMember(sigResources.myPickleBuffer, arg._1, arg._2, sigResources.typeRefTpes))
-  val initMethod = Init(
-    sigResources.myPickleBuffer, 
-    valueMembers, 
-    sigResources.typeRefTpes.modelsMyRecord, 
-    sigResources.thisTpes.owner, 
-    sigResources.extModClassRefs.owner)
 
+//write the <init> method
+  val initMethod = Init(sigResources, valueMembers)
+
+//then we're done unless there are flags
   if (flags.contains("case class")) {
 //write the class methods that case classes give us for free
     val caseClassMethods = new CaseClassMethods(sigResources, valueMembers)
