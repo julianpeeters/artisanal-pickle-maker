@@ -17,13 +17,7 @@ class CaseClassMethods(sigResources: SigResources, valueMembers: List[ValueMembe
     valueMembers, 
     sigResources.typeRefTpes.uncheckedVariance, 
     sigResources.typeRefTpes.annotInfo)
-  val productPrefixMethod = ProductPrefix(
-    sigResources.myPickleBuffer, 
-    sigResources.typeRefTpes.javaLangString, 
-    sigResources.thisTpes.javaLang, 
-    sigResources.typeRefTpes.string, 
-    sigResources.extModClassRefs.lang, 
-    sigResources.extModClassRefs.java)
+  val productPrefixMethod = ProductPrefix(sigResources)
   val productArityMethod = ProductArity(
     sigResources.myPickleBuffer, 
     sigResources.typeRefTpes.int)

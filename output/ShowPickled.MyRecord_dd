@@ -1,0 +1,18 @@
+Version 5.0
+0,3: CLASSsym 4: 1(dd) 2 0[] 5
+1,9: TYPEname 2: dd
+2,13: EXTMODCLASSref 1: 3(avocet)
+3,16: TERMname 6: avocet
+4,24: NONEsym 0:
+5,26: CLASSINFOtpe 2: 0 6
+6,30: TYPEREFtpe 2: 7 10
+7,34: THIStpe 1: 8
+8,37: EXTMODCLASSref 1: 9(scala)
+9,40: TERMname 5: scala
+10,47: EXTref 2: 11(AnyRef) 8
+11,51: TYPEname 6: AnyRef
+12,59: VALsym 5: 13(<init>) 0 200[<method>] 14
+13,66: TERMname 6: <init>
+14,74: METHODtpe 1: 15
+15,77: TYPEREFtpe 2: 16 0
+16,81: THIStpe 1: 2

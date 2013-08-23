@@ -17,11 +17,11 @@ class ObjectSpec extends mutable.Specification {
     Arrays.copyOf(encodedBytes, len)
   }
 
-    /*        
+            
   "a ScalaSig for case class MyRecord_Object(o: Object)" should {
     "have the correct bytes" in {
       mySig.bytes === correctBytes
     }
   }
-*/
+
 }

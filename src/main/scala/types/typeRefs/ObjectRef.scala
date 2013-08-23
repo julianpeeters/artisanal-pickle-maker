@@ -3,12 +3,13 @@ package types
 import tags._
 import scala.reflect.internal.pickling._
 
-case class TypeRefTpe_Object(thisTpe_scala: ThisTpe_scala, thisTpe_lang: ThisTpe_lang,lang: ExtModClassRef_lang, java: ExtModClassRef_java) extends Tpe {
+
+case class TypeRefTpe_Object(thisTpe_scala: ThisTpe_scala, thisTpe_lang: ThisTpe_lang, lang: ExtModClassRef_lang, java: ExtModClassRef_java) extends Tpe {
   var position = 0
   var polyTpePosition = 0
   def write(myPickleBuffer: PickleBuffer) = {
     position = Position.current
-    TypeRefTpe_nonGeneric(thisTpe_scala.position + 1, Position.current + 6).writeEntry(myPickleBuffer)
+    TypeRefTpe_nonGeneric(Position.current + 1, Position.current + 6).writeEntry(myPickleBuffer)
     thisTpe_lang.write(myPickleBuffer)
     lang.write(myPickleBuffer)
     TermName("lang").write(myPickleBuffer)

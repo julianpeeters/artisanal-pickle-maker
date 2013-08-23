@@ -26,7 +26,7 @@ class TypeRefTpes(thisTpes: ThisTpes, extModClassRefs: ExtModClassRefs) {
   val obj = TypeRefTpe_Object(thisTpes.scala, thisTpes.lang, extModClassRefs.lang, extModClassRefs.java)
   val option = TypeRefTpe_Option(thisTpes.scala, extModClassRefs.scala)
   val iterator = TypeRefTpe_Iterator(thisTpes.collection, any, extModClassRefs.collection, extModClassRefs.scala)
-  val javaLangString = TypeRefTpe_javaLangString()
+  val javaLangString = TypeRefTpe_javaLangString(thisTpes)
   val objectReadResolve = TypeRefTpe_ObjectReadResolve(thisTpes.javaLang, extModClassRefs.lang)
   val product = TypeRefTpe_Product(thisTpes.scala, extModClassRefs.scala)
   val serializable = TypeRefTpe_Serializable(thisTpes.scala, extModClassRefs.scala)
