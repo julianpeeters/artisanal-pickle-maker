@@ -12,14 +12,14 @@ class dd{println("Hello World")}
 object ArtisinalPickleMaker extends App {
 //first, output what I know to be a correct scala signature
   val bytes: Array[Byte] = {
-    val scalaSigAnnot = classOf[dd].getAnnotation(classOf[scala.reflect.ScalaSignature])
+    val scalaSigAnnot = classOf[MyRecord_AnyAny].getAnnotation(classOf[scala.reflect.ScalaSignature])
     val encodedBytes  = scalaSigAnnot.bytes.getBytes
     val len           = ByteCodecs.decode(encodedBytes)
 
     Arrays.copyOf(encodedBytes, len)
   }
   val pickleBuffer = new PickleBuffer(bytes, 0, bytes.length)
-  val p = new PrintStream(new File("output/ShowPickled.MyRecord_dd"))
+  val p = new PrintStream(new File("output/ShowPickled.MyRecord_AnyAny"))
   ShowPickled.printFile(pickleBuffer, p)
 //
 
@@ -28,7 +28,7 @@ object ArtisinalPickleMaker extends App {
 
  // val mySig = new ScalaSig(List("models", "MyRecord_Byte"), List(("a", "Byte")))
  // val mySig_Short = new ScalaSig(buf_Short, pos_Short, List("models", "MyRecord_Short"), List(("c", "Int")))
-  val mySig_Int = new ScalaSig(List("case class"), List("models", "MyRecord_Int"), List(("c", "Int")))
+  val mySig_ByteByte = new ScalaSig(List("case class"), List("models", "MyRecord_AnyAny"), List(("m1", "Any"), ("m2", "Any")))
  // val mySig = new ScalaSig(List("models", "MyRecord_Long"), List(("d", "Long")))
  // val mySig = new ScalaSig(List("models", "MyRecord_Byte"), List(("a", "Byte")))
  // val mySig = new ScalaSig(List("models", "MyRecord_Byte"), List(("a", "Byte")))
@@ -39,13 +39,13 @@ object ArtisinalPickleMaker extends App {
  // val mySig = new ScalaSig(List("models", "MyRecord_Byte"), List(("a", "Byte")))
  // val mySig = new ScalaSig(List("models", "MyRecord_Byte"), List(("a", "Byte")))
  // val mySig = new ScalaSig(List("models", "MyRecord_Byte"), List(("a", "Byte")))
-
+/*
 //A "collector" PickleBuffer is used to collect the bytes of the sig we made so we can display it
-  val myPickleBuffer_Int = new PickleBuffer(mySig_Int.bytes, 0, mySig_Int.bytes.length-1)
-  val ps_Int = new PrintStream(new File("output/ShowPickled.myPickleBuffer_Int"))
+  val myPickleBuffer_ByteByte = new PickleBuffer(mySig_ByteByte.bytes, 0, mySig_ByteByte.bytes.length-1)
+  val ps_ByteByte = new PrintStream(new File("output/ShowPickled.myPickleBuffer_AnyAny"))
 
-  ShowPickled.printFile(myPickleBuffer_Int, ps_Int)
-
+  ShowPickled.printFile(myPickleBuffer_ByteByte, ps_ByteByte)
+*/
 /*
   val myPickleBuffer = new PickleBuffer(mySig.bytes, 0, mySig.bytes.length)
   val ps = new PrintStream(new File("output/ShowPickled.myPickleBuffer"))

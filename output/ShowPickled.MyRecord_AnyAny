@@ -1,6 +1,6 @@
 Version 5.0
-0,4: CLASSsym 4: 1(MyRecord_ByteByte) 2 40[case] 5
-1,10: TYPEname 17: MyRecord_ByteByte
+0,4: CLASSsym 4: 1(MyRecord_NullNull) 2 40[case] 5
+1,10: TYPEname 17: MyRecord_NullNull
 2,29: EXTMODCLASSref 1: 3(models)
 3,32: TERMname 6: models
 4,40: NONEsym 0:
@@ -17,30 +17,30 @@ Version 5.0
 15,94: TYPEREFtpe 2: 7 16
 16,98: EXTref 2: 17(Serializable) 8
 17,102: TYPEname 12: Serializable
-18,116: VALsym 8: 19(a1) 0 29400200[<method> <stable> <caseaccessor> <accessor> <paramaccessor>] 20
-19,126: TERMname 2: a1
+18,116: VALsym 8: 19(k1) 0 29400200[<method> <stable> <caseaccessor> <accessor> <paramaccessor>] 20
+19,126: TERMname 2: k1
 20,130: POLYtpe 1: 21
 21,133: TYPEREFtpe 2: 7 22
-22,137: EXTref 2: 23(Byte) 8
-23,141: TYPEname 4: Byte
-24,147: VALsym 8: 25(a1 ) 0 21080004[private <local> <caseaccessor> <paramaccessor>] 21
-25,157: TERMname 3: a1 
-26,162: VALsym 8: 27(a2) 0 29400200[<method> <stable> <caseaccessor> <accessor> <paramaccessor>] 20
-27,172: TERMname 2: a2
-28,176: VALsym 8: 29(a2 ) 0 21080004[private <local> <caseaccessor> <paramaccessor>] 21
-29,186: TERMname 3: a2 
+22,137: EXTref 2: 23(Null) 8
+23,141: TYPEname 4: Null
+24,147: VALsym 8: 25(k1 ) 0 21080004[private <local> <caseaccessor> <paramaccessor>] 21
+25,157: TERMname 3: k1 
+26,162: VALsym 8: 27(k2) 0 29400200[<method> <stable> <caseaccessor> <accessor> <paramaccessor>] 20
+27,172: TERMname 2: k2
+28,176: VALsym 8: 29(k2 ) 0 21080004[private <local> <caseaccessor> <paramaccessor>] 21
+29,186: TERMname 3: k2 
 30,191: VALsym 5: 31(<init>) 0 200[<method>] 32
 31,198: TERMname 6: <init>
 32,206: METHODtpe 3: 33 35 36
 33,211: TYPEREFtpe 2: 34 0
 34,215: THIStpe 1: 2
-35,218: VALsym 5: 19(a1) 30 2000[<param>] 21
-36,225: VALsym 5: 27(a2) 30 2000[<param>] 21
+35,218: VALsym 5: 19(k1) 30 2000[<param>] 21
+36,225: VALsym 5: 27(k2) 30 2000[<param>] 21
 37,232: VALsym 7: 38(copy) 0 200200[<method> <synthetic>] 39
 38,241: TERMname 4: copy
 39,247: METHODtpe 3: 33 40 41
-40,252: VALsym 7: 19(a1) 37 2002000[<param> <defaultparam/trait>] 21
-41,261: VALsym 7: 27(a2) 37 2002000[<param> <defaultparam/trait>] 21
+40,252: VALsym 7: 19(k1) 37 2002000[<param> <defaultparam/trait>] 21
+41,261: VALsym 7: 27(k2) 37 2002000[<param> <defaultparam/trait>] 21
 42,270: VALsym 7: 43(copy$default$1) 0 2200200[<method> <synthetic> <defaultparam/trait>] 44
 43,279: TERMname 14: copy$default$1
 44,295: POLYtpe 1: 45
@@ -107,10 +107,10 @@ Version 5.0
 105,720: TERMname 6: equals
 106,728: METHODtpe 2: 94 107
 107,732: VALsym 7: 81(x$1) 104 202000[<param> <synthetic>] 77
-108,741: MODULEsym 7: 109(MyRecord_ByteByte) 2 200400[<module> <synthetic>] 110
-109,750: TERMname 17: MyRecord_ByteByte
+108,741: MODULEsym 7: 109(MyRecord_NullNull) 2 200400[<module> <synthetic>] 110
+109,750: TERMname 17: MyRecord_NullNull
 110,769: TYPEREFtpe 2: 34 111
-111,773: CLASSsym 7: 1(MyRecord_ByteByte) 2 200400[<module> <synthetic>] 112
+111,773: CLASSsym 7: 1(MyRecord_NullNull) 2 200400[<module> <synthetic>] 112
 112,782: CLASSINFOtpe 3: 111 113 15
 113,787: TYPEREFtpe 5: 114 117 21 21 33
 114,794: THIStpe 1: 115
@@ -124,8 +124,8 @@ Version 5.0
 122,852: VALsym 7: 123(apply) 111 200240[<method> case <synthetic>] 124
 123,861: TERMname 5: apply
 124,868: METHODtpe 3: 33 125 126
-125,873: VALsym 5: 19(a1) 122 2000[<param>] 21
-126,880: VALsym 5: 27(a2) 122 2000[<param>] 21
+125,873: VALsym 5: 19(k1) 122 2000[<param>] 21
+126,880: VALsym 5: 27(k2) 122 2000[<param>] 21
 127,887: VALsym 9: 128(unapply) 111 200240[<method> case <synthetic>] 129
 128,898: TERMname 7: unapply
 129,907: METHODtpe 4: 130 136

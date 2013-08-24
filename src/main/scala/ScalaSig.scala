@@ -18,7 +18,7 @@ class ScalaSig(flags: List[String], names: List[String], args: List[(String, Str
 //after writing entries, how many were written?
   val entriesNumber = Position.current
 
-// get the bytes, trimming the excess 0s but leaving one 0. Header written last so we know # entries
+// get the bytes, trimming the excess 0s but leaving one 0. (Header written last so we know # entries)
   val bytes = Array.concat(SigHeader().bytes, sigResources.myPickleBuffer.bytes).reverse.dropWhile(b => b == 0).reverse:+(0.toByte)
 
 //reset position keeper

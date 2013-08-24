@@ -128,11 +128,11 @@ Version 5.0
 126,880: VALsym 5: 27(a2) 122 2000[<param>] 21
 127,887: VALsym 9: 128(unapply) 111 200240[<method> case <synthetic>] 129
 128,898: TERMname 7: unapply
-129,907: METHODtpe 4: 130 136
+129,907: METHODtpe 4: 130 133
 130,913: TYPEREFtpe 5: 7 131 133
 131,920: EXTref 3: 132(Option) 8
 132,925: TYPEname 6: Option
-133,933: TYPEREFtpe 5: 7 134 21 21
+133,933: TYPEREFtpe 5: 8 134 21 21
 134,940: EXTref 3: 135(Tuple2) 8
 135,945: TYPEname 6: Tuple2
 136,953: VALsym 8: 137(x$0) 127 202000[<param> <synthetic>] 33
