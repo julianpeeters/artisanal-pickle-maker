@@ -1,24 +1,24 @@
 package models
 
 case class MyRecord_AllDatatypes(
-  a: Byte, b: Short)
-/*,
+  a: Byte, 
+  b: Short, 
   c: Int,
   d: Long,
   e: Float,
+
   f: Double,
   g: Char,
   h: String,
   i: Boolean,
+
   j: Unit,
   k: Null,
   l: Nothing,
   m: Any,
-  n: AnyRef,
+  n: Byte,
+  o: Object)
 
-  o: Object
-)
-*/
 //single value member
 case class MyRecord_Byte(a: Byte)
 case class MyRecord_Short(b: Short)
@@ -77,3 +77,8 @@ case class MyRecord_AnyRefAnyRefAnyRef(n1: AnyRef, n2: AnyRef, n3: AnyRef)
 
 case class MyRecord_ObjectObjectObject(o1: Object, o2:Object, o3: Object)
 
+//quadruple value member
+case class MyRecord_ByteByteByteByte(a1: Byte, a2: Byte, a3: Byte, a4: Byte)
+
+//quintuple value member
+case class MyRecord_ByteByteByteByteByte(a1: Byte, a2: Byte, a3: Byte, a4: Byte, a5: Byte)
