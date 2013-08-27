@@ -10,9 +10,9 @@ Why? Because existing Java bytecode-engineering tools can't see or alter a pickl
 ##Currently supports:##
   _Potential Use Cases_ - 
 
-    1) ASM: Generating Scala Classes? Have an ASMified class template? Pickle your desired signtature and add it to the class generator template. 
+  1) ASM: Generating Scala Classes? Have an ASMified class template? Pickle your desired signtature and add it to the class generator template. 
 
-    2) Javassist:  Adding value members to an existing class? Use Javassist to alter an existing class, then read and update its Scala signature annotation with with your custom pickled Scala Signature.
+  2) Javassist:  Adding value members to an existing class? Use Javassist to alter an existing class, then read and update its Scala signature annotation with with your custom pickled Scala Signature.
 
   _Classes_ - The generation of Scala sigs for regular and case classes *that have value members only* (signatures will not reflect user-defined defs, i.e., this doesn't yet support classes with defs!).
 
