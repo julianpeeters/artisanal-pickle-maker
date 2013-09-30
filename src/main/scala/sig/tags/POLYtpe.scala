@@ -1,7 +1,7 @@
 package avocet
 package tags
 import types._
-import scala.reflect.internal.pickling._
+import scala.reflect.generic._
 
 case class PolyTpe[X <: Tpe](typeRef: X) {
  // val args = List(Position.current + 1, typeRef.position)

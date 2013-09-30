@@ -1,0 +1,2 @@
+package models
+case class myRecord(x: String, y: Int)

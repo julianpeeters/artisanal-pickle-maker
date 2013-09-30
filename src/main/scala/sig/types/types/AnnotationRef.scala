@@ -1,7 +1,7 @@
 package avocet 
 package types
 import tags._
-import scala.reflect.internal.pickling._
+import scala.reflect.generic._
 
 case class Annotation(valueMember: ValueMember, annotInfo: AnnotInfo) extends Tpe {
   var position = 0

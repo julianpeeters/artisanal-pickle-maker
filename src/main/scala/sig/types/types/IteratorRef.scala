@@ -1,7 +1,7 @@
 package avocet 
 package types
 import tags._
-import scala.reflect.internal.pickling._
+import scala.reflect.generic._
 
 case class TypeRefTpe_Iterator(thisTpe_collection: ThisTpe_collection, Any: TypeRefTpe_Any, collection: ExtModClassRef_collection, scala: ExtModClassRef_scala) extends Tpe{
   var position = 0

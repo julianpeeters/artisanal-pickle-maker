@@ -1,5 +1,5 @@
 package avocet
-import scala.reflect.internal.pickling._
+import scala.reflect.generic._
 import PickleFormat._
 
 

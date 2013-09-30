@@ -4,7 +4,7 @@ package cls
 
 import tags._
 import types._
-import scala.reflect.internal.pickling._
+import scala.reflect.generic._
 
 case class ProductIterator(myPickleBuffer: PickleBuffer, Iterator: TypeRefTpe_Iterator) {
   val valSymPosition = Position.current

@@ -8,18 +8,16 @@ Takes class info as strings and gives back a pickled Scala signatures. For use w
 Why? Because existing Java bytecode-engineering tools can't see or alter a pickled Scala signature, thus the altered classes are incomplete in cases where Scala code has no Java equivalent. Artisinal-Pickle-Maker hopes to solve this by updating an altered class's Scala signtature to reflect changes made to the bytecode.
 
 ##Currently supports:##
-  _Potential Use Cases_ - 
-
-  1) ASM: Generating Scala Classes? Have an ASMified class template? Pickle your desired signtature and add it to the class generator template. 
-
-  2) Javassist:  Adding value members to an existing class? Use Javassist to alter an existing class, then read and update its Scala signature annotation with with your custom pickled Scala Signature.
+  _Potential Use Cases_ - ASM: Generating Scala Classes? Have an ASMified class template? Pickle your desired signtature and add it to the class generator template. 
 
   _Classes_ - The generation of Scala sigs for regular and case classes *that have value members only* (signatures will not reflect user-defined defs, i.e., this doesn't yet support classes with defs!).
 
-  _Datatypes_ - All basic Scala datatypes
+  _Datatypes_ - All basic Scala datatypes (but see the note below on pickling)
+
+  _Scala Version_ - Reproduces a Scala 2.10.2 signature byte-for-byte. May serve as a signature for Scala 2.9.1 depending on how you need to use it, but be warned: some of the signature for a given class does indeed differ between versions.
 
 ##In the future:##
-  _Pickling_ - currently we only generate an unpickled signature, but pickling is straigtforward.
+  _Pickling_ - Artisinal-Pickle-Maker only generates an unpickled signature, and despite being able to generate the unpickled signature byte-for-byte, pickling succeeds on classes of only a couple fields and only of types Int String and Boolean. Thus this encoding bug needs to be fixed, allowing the number of fields to be increased to the 22-field max for case classes.
 
   _Datatypes_ - Collections, custom classes.
 

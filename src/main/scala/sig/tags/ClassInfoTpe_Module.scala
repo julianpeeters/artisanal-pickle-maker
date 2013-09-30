@@ -1,7 +1,7 @@
 package avocet
 package tags
 import types._
-import scala.reflect.internal.pickling._
+import scala.reflect.generic._
 
 case class ClassInfoTpe_Module(valueMembers: List[ValueMember], modelsMyRecord: TypeRefTpe_modelsMyRecord, thisTpe_runtime: ThisTpe_runtime, runtime: ExtModClassRef_runtime, scala: ExtModClassRef_scala) {
   val args = List(Position.current + 1, ClassSym_Module.position)

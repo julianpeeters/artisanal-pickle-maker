@@ -1,7 +1,7 @@
 package avocet
 import tags._
 import types._
-import scala.reflect.internal.pickling._
+import scala.reflect.generic._
 
 case class ClassInfo(sigResources: SigResources, flags: List[String], names: List[String]) {
 //entry 0 CLASSsym 

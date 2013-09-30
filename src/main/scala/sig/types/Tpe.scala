@@ -1,6 +1,6 @@
 package avocet 
 package types
-import scala.reflect.internal.pickling._
+import scala.reflect.generic._
 
 trait Tpe {
   var polyTpePosition: Int

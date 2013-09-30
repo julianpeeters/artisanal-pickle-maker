@@ -4,7 +4,7 @@ package cls
 
 import tags._
 import types._
-import scala.reflect.internal.pickling._
+import scala.reflect.generic._
 
 case class ToString(myPickleBuffer: PickleBuffer, javaLangString: TypeRefTpe_javaLangString) {
   val valSymPosition = Position.current

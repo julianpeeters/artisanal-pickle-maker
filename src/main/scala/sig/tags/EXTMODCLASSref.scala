@@ -1,6 +1,6 @@
 package avocet
 package tags
-import scala.reflect.internal.pickling._
+import scala.reflect.generic._
 
 
 case class ExtModClassRef_scala extends ExtModClassRef_topLevel

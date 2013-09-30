@@ -1,7 +1,7 @@
 package avocet 
 package types
 import tags._
-import scala.reflect.internal.pickling._
+import scala.reflect.generic._
 
 case class TypeRefTpe_AbstractFunction(valueMembers: List[ValueMember], modelsMyRecord: TypeRefTpe_modelsMyRecord, thisTpe_runtime: ThisTpe_runtime, runtime: ExtModClassRef_runtime, scala: ExtModClassRef_scala) extends Tpe {
   var position = 0

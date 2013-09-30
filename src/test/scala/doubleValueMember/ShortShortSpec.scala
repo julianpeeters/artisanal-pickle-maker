@@ -2,7 +2,7 @@ package avocet
 
 import models._
 import java.util.Arrays
-import scala.reflect.internal.pickling._
+import scala.reflect.generic._
 
 import org.specs2._
 import mutable._

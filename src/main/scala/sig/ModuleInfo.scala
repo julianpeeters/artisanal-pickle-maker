@@ -1,7 +1,7 @@
 package avocet 
 import tags._
 import types._
-import scala.reflect.internal.pickling._
+import scala.reflect.generic._
 
 class ModuleInfo(myPickleBuffer: PickleBuffer, names: List[String], valueMembers: List[ValueMember], moduleClass: TypeRefTpe_moduleClass, modelsMyRecord: TypeRefTpe_modelsMyRecord, thisTpe_runtime: ThisTpe_runtime, runtime: ExtModClassRef_runtime, scala: ExtModClassRef_scala) {
   ModuleSym.write(myPickleBuffer)

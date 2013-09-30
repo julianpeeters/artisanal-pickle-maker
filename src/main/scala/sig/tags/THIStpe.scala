@@ -1,6 +1,6 @@
 package avocet
 package tags
-import scala.reflect.internal.pickling._
+import scala.reflect.generic._
 
 case class ThisTpe_scala      extends ThisTpe//(Position.current + 1)
 case class ThisTpe_package    extends ThisTpe//(Position.current + 1)

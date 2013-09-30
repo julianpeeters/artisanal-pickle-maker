@@ -1,6 +1,6 @@
 package avocet
 package tags
-import scala.reflect.internal.pickling._
+import scala.reflect.generic._
 
 case class TypeRefTpe_nonGeneric(ownerRef: Int, extRef: Int) {
   val args = List(ownerRef, extRef)

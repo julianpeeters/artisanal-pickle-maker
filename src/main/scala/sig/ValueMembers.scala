@@ -1,7 +1,7 @@
 package avocet
 import tags._
 import types._
-import scala.reflect.internal.pickling._
+import scala.reflect.generic._
 
  class ValueMember(myPickleBuffer: PickleBuffer, termName: String, typeName: String, typeRefTpes: TypeRefTpes){
   val tpeName = typeName

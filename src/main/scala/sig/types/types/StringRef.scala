@@ -1,7 +1,7 @@
 package avocet 
 package types
 import tags._
-import scala.reflect.internal.pickling._
+import scala.reflect.generic._
 
 case class TypeRefTpe_String(thisTpe_scala: ThisTpe_scala, scala: ExtModClassRef_scala, predef: ExtModClassRef_predef) extends Tpe {
   var position = 0

@@ -3,7 +3,7 @@ package avocet
 import models._
 import java.util.Arrays
 
-import scala.reflect.internal.pickling._
+import scala.reflect.generic._
 import scala.tools.nsc.util.ShowPickled
 import java.io.{File, PrintStream}
 

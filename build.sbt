@@ -1,12 +1,10 @@
 name := "artisinal-pickle-maker"
 
-version := "0.1-SNAPSHOT"
+version := "0.2-SNAPSHOT"
 
 organization := "com.julianpeeters"
 
-scalaVersion := "2.10.2"
-//sbt test
-//scalacOptions in Test ++= Seq("-Yrangepos")
+scalaVersion := "2.9.1"
 
 resolvers ++= Seq(
   "sonatype" at "https://oss.sonatype.org/content/groups/public",
@@ -14,7 +12,7 @@ resolvers ++= Seq(
 )
 
 libraryDependencies ++= Seq( 
-  "org.specs2" %% "specs2" % "2.1.1" % "test",
-  "org.scala-lang" % "scala-compiler" % "2.10.2"
+  "org.specs2" %% "specs2" % "1.12" % "test",
+  "org.scala-lang" % "scala-compiler" % "2.9.1"
 )
 

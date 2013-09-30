@@ -5,7 +5,7 @@ package module
 import tags._
 import types._
 import cls._
-import scala.reflect.internal.pickling._
+import scala.reflect.generic._
 
 case class Unapply(sigResources: SigResources, valueMembers: List[ValueMember], init: Init) { 
 

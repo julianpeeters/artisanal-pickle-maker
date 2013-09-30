@@ -4,7 +4,7 @@ package cls
 
 import tags._
 import types._
-import scala.reflect.internal.pickling._
+import scala.reflect.generic._
 
 case class ProductArity(myPickleBuffer: PickleBuffer, Int: TypeRefTpe_Int) {
   val valSymPosition = Position.current

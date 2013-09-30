@@ -1,7 +1,7 @@
 package avocet 
 package types
 import tags._
-import scala.reflect.internal.pickling._
+import scala.reflect.generic._
 
 case class TypeRefTpe_Stream(scala: ExtModClassRef_scala) extends Tpe {
   var polyTpePosition = 0

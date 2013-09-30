@@ -4,7 +4,7 @@ package module
 
 import tags._
 import cls._
-import scala.reflect.internal.pickling._
+import scala.reflect.generic._
 
 case class Apply(sigResources: SigResources, valueMembers: List[ValueMember], init: Init) {
   val valSymPosition = Position.current
