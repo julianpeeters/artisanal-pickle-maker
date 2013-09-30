@@ -77,6 +77,8 @@ case class MyRecord_AnyRefAnyRefAnyRef(n1: AnyRef, n2: AnyRef, n3: AnyRef)
 
 case class MyRecord_ObjectObjectObject(o1: Object, o2:Object, o3: Object)
 
+case class MyRecord_StringIntBoolean(x: String, y: Int, z: Boolean)
+
 //quadruple value member
 case class MyRecord_ByteByteByteByte(a1: Byte, a2: Byte, a3: Byte, a4: Byte)
 

@@ -18,7 +18,7 @@ class AllDatatypesSpec extends mutable.Specification {
 
   val correctBytes: Array[Byte] = {
     val scalaSigAnnot = classOf[MyRecord_AllDatatypes].getAnnotation(classOf[scala.reflect.ScalaSignature])
-    val encodedBytes  = scalaSigAnnot.bytes.getBytes
+    val encodedBytes  = scalaSigAnnot.bytes.getBytes("UTF-8")
     val len           = ByteCodecs.decode(encodedBytes)
 
     Arrays.copyOf(encodedBytes, len)
