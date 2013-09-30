@@ -1,7 +1,7 @@
 package avocet 
 package types
 import tags._
-import scala.reflect.generic._
+import scala.reflect.internal.pickling._
 
 case class TypeRefTpe_Tuple(valueMembers: List[ValueMember], thisTpe_scala: ThisTpe_scala, scala: ExtModClassRef_scala) extends Tpe {
   var position = 0

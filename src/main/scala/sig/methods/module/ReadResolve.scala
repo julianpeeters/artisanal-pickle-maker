@@ -5,7 +5,7 @@ package module
 
 import tags._
 import types._
-import scala.reflect.generic._
+import scala.reflect.internal.pickling._
 
 case class ReadResolve(sigResources: SigResources) {
 //myPickleBuffer: PickleBuffer, Object: TypeRefTpe_Object, ObjectReadResolve: TypeRefTpe_ObjectReadResolve){

@@ -4,7 +4,7 @@ package module
 
 import tags._
 import cls._
-import scala.reflect.generic._
+import scala.reflect.internal.pickling._
 
 case class ToString_Module(sigResources: SigResources, valueMembers: List[ValueMember], toStringMethod: ToString) {
   val position = Position.current

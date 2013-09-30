@@ -1,7 +1,7 @@
 package avocet 
 package types
 import tags._
-import scala.reflect.generic._
+import scala.reflect.internal.pickling._
 
 
 case class TypeRefTpe_Object(thisTpe_scala: ThisTpe_scala, thisTpe_lang: ThisTpe_lang, lang: ExtModClassRef_lang, java: ExtModClassRef_java) extends Tpe {

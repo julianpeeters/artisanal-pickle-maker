@@ -4,7 +4,7 @@ package cls
 
 import tags._
 import types._
-import scala.reflect.generic._
+import scala.reflect.internal.pickling._
 
 case class Copy(sigResources: SigResources, valueMembers: List[ValueMember]) {
 

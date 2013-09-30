@@ -5,7 +5,7 @@ package module
 import tags._
 import types._
 import cls._
-import scala.reflect.generic._
+import scala.reflect.internal.pickling._
 
 case class Init_Module(sigResources: SigResources, init: Init) {
   val position = Position.current

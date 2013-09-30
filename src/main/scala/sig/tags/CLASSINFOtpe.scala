@@ -1,7 +1,7 @@
 package avocet
 package tags
 import types._
-import scala.reflect.generic._
+import scala.reflect.internal.pickling._
 
 case class CaseClassInfoTpe(AnyRef: TypeRefTpe_AnyRef, Product: TypeRefTpe_Product, Serializable: TypeRefTpe_Serializable) {
   var position = 0

@@ -2,7 +2,7 @@
 package avocet
 import methods.cls._
 import methods.module._
-import scala.reflect.generic._
+import scala.reflect.internal.pickling._
 
 import tags._
 import types._

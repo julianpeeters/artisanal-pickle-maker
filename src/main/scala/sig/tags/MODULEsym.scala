@@ -1,6 +1,6 @@
 package avocet
 package tags
-import scala.reflect.generic._
+import scala.reflect.internal.pickling._
 
 object ModuleSym {
   var position = 0

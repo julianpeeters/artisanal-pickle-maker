@@ -1,7 +1,7 @@
 package avocet
 package tags
 import scala.math._
-import scala.reflect.generic._
+import scala.reflect.internal.pickling._
 
 case class ValSym(termNamePos: Int, classSymPos: Int, flags: Long, typeRefPos: Int) {
   val args = List(termNamePos, classSymPos, flags, typeRefPos)

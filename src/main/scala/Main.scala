@@ -3,13 +3,13 @@ package avocet
 //import models._
 import methods.cls._
 import methods.module._
-import scala.reflect.generic._
+import scala.reflect.internal.pickling._
 import scala.tools.nsc.util.ShowPickled
 import java.util.Arrays
 import java.io.{PrintStream, File}
 
 
-
+//for debug purposes
 object ArtisinalPickleMaker extends App {
 //first, output what I know to be a correct scala signature
 /*

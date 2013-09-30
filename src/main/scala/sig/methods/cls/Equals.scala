@@ -4,7 +4,7 @@ package cls
 
 import tags._
 import types._
-import scala.reflect.generic._
+import scala.reflect.internal.pickling._
 
 case class Equals(myPickleBuffer: PickleBuffer, productElement: ProductElement, Boolean: TypeRefTpe_Boolean, Any: TypeRefTpe_Any) {
   val valSymPosition = Position.current

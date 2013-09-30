@@ -1,7 +1,7 @@
 package avocet 
 package types
 import tags._
-import scala.reflect.generic._
+import scala.reflect.internal.pickling._
 
 case class TypeRefTpe_UncheckedVariance(unchecked: ExtModClassRef_unchecked, annotation: ExtModClassRef_annotation, scala: ExtModClassRef_scala) extends Tpe {
   var position = 0
