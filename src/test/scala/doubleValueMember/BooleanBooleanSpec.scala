@@ -10,16 +10,15 @@ import specification._
 
 class BooleanBooleanSpec extends mutable.Specification {
   val mySig = new ScalaSig(List("case class"), List("models", "MyRecord_BooleanBoolean"), List(("i1", "Boolean"), ("i2", "Boolean")))
-  val correctBytes: Array[Byte] = {
+  val correctSig: String = {
     val scalaSigAnnot = classOf[MyRecord_BooleanBoolean].getAnnotation(classOf[scala.reflect.ScalaSignature])
-    val encodedBytes  = scalaSigAnnot.bytes.getBytes
-    val len           = ByteCodecs.decode(encodedBytes)
-    Arrays.copyOf(encodedBytes, len)
+    val encodedBytes  = scalaSigAnnot.bytes
+    encodedBytes
   }
 
   "a ScalaSig for case class MyRecord_BooleanBoolean(i2: Boolean, i2: Boolean)" should {
-    "have the correct bytes" in {
-      mySig.bytes === correctBytes
+    "have the correct string" in {
+      mySig.bytes === correctSig
     }
   }
 

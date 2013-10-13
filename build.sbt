@@ -1,6 +1,6 @@
 name := "artisinal-pickle-maker"
 
-version := "0.2-SNAPSHOT"
+version := "0.2-1-SNAPSHOT"
 
 organization := "com.julianpeeters"
 
@@ -15,7 +15,8 @@ resolvers ++= Seq(
 libraryDependencies ++= Seq( 
  // "org.specs2" %% "specs2" % "1.12" % "test",
   "org.specs2" %% "specs2" % "2.2" % "test",
- // "org.scala-lang" % "scala-compiler" % "2.9.1"
+//  "org.scala-lang" % "scala-compiler" % "2.9.1"
+   "com.novus" %% "salat" % "1.9.2",
   "org.scala-lang" % "scala-compiler" % "2.10.2"
 )
 

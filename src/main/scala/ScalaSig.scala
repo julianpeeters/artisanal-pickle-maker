@@ -19,7 +19,9 @@ class ScalaSig(flags: List[String], names: List[String], args: List[(String, Str
   val entriesNumber = Position.current
 
 // get the bytes, trimming the excess 0s but leaving one 0. (Header written last so we know # entries)
-  val bytes = Array.concat(SigHeader().bytes, sigResources.myPickleBuffer.bytes).reverse.dropWhile(b => b == 0).reverse:+(0.toByte)
+  val array = Array.concat(SigHeader().bytes, sigResources.myPickleBuffer.bytes).reverse.dropWhile(b => b == 0).reverse
+  val encoded = ByteCodecs.encode(array)
+  val bytes =  (new String(encoded, "UTF-8"))
 
 //reset position keeper
   Position.current = 0

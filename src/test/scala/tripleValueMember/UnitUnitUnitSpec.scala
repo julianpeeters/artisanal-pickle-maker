@@ -10,16 +10,15 @@ import specification._
 
 class UnitUnitUnitSpec extends mutable.Specification {
   val mySig = new ScalaSig(List("case class"), List("models", "MyRecord_UnitUnitUnit"), List(("j1", "Unit"), ("j2", "Unit"), ("j3", "Unit")))
-  val correctBytes: Array[Byte] = {
+  val correctSig: String = {
     val scalaSigAnnot = classOf[MyRecord_UnitUnitUnit].getAnnotation(classOf[scala.reflect.ScalaSignature])
-    val encodedBytes  = scalaSigAnnot.bytes.getBytes
-    val len           = ByteCodecs.decode(encodedBytes)
-    Arrays.copyOf(encodedBytes, len)
+    val encodedBytes  = scalaSigAnnot.bytes
+    encodedBytes
   }
 
   "a ScalaSig for case class MyRecord_UnitUnitUnit(j1: Unit, j2: Unit, j3: Unit)" should {
-    "have the correct bytes" in {
-      mySig.bytes === correctBytes
+    "have the correct string" in {
+      mySig.bytes === correctSig
     }
   }
 

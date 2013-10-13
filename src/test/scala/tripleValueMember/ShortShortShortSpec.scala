@@ -10,16 +10,15 @@ import specification._
 
 class ShortShortShortSpec extends mutable.Specification {
   val mySig = new ScalaSig(List("case class"), List("models", "MyRecord_ShortShortShort"), List(("b1", "Short"), ("b2", "Short"), ("b3", "Short")))
-  val correctBytes: Array[Byte] = {
+  val correctSig: String = {
     val scalaSigAnnot = classOf[MyRecord_ShortShortShort].getAnnotation(classOf[scala.reflect.ScalaSignature])
-    val encodedBytes  = scalaSigAnnot.bytes.getBytes
-    val len           = ByteCodecs.decode(encodedBytes)
-    Arrays.copyOf(encodedBytes, len)
+    val encodedBytes  = scalaSigAnnot.bytes
+    encodedBytes
   }
 
   "a ScalaSig for case class MyRecord_ShortShortShort(b1: Short, b2: Short, b3: Short)" should {
-    "have the correct bytes" in {
-      mySig.bytes === correctBytes
+    "have the correct string" in {
+      mySig.bytes === correctSig
     }
   }
 
