@@ -1,1024 +1,15 @@
-[0m[[33mwarn[0m] [0mThe global sbt directory is now versioned and is located at /home/julianpeeters/.sbt/0.13.1-20130924-062513.[0m
-[0m[[33mwarn[0m] [0m  You are seeing this warning because there is global configuration in /home/julianpeeters/.sbt but not in /home/julianpeeters/.sbt/0.13.1-20130924-062513.[0m
-[0m[[33mwarn[0m] [0m  The global sbt directory may be changed via the sbt.global.base system property.[0m
-[0m[[0minfo[0m] [0mSet current project to artisinal-pickle-maker (in build file:/home/julianpeeters/artisinal-pickle-maker/)[0m
-[0m[[0minfo[0m] [0mCompiling 1 Scala source to /home/julianpeeters/artisinal-pickle-maker/target/scala-2.10/test-classes...[0m
-[0m[[0minfo[0m] [0mNothingNothingNothingSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_NothingNothingNothing(l1: Nothing, l2: Nothing, l3: Nothing) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification NothingNothingNothingSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 16 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mStringStringStringSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_StringStringString(h1: String, h2: String, h3: String) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification StringStringStringSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 0 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mIteratorSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification IteratorSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 1 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m0 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mObjectObjectSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_ObjectObject(o1: Object, o2: Object) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification ObjectObjectSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 7 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mByteByteByteSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_ByteByteByte(a1: Byte, a2: Byte, a3: Byte) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification ByteByteByteSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 0 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mObjectObjectObjectSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_ObjectObjectObject(o1: Object, o2: Object, o3: Object) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification ObjectObjectObjectSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 0 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mStringIntBooleanSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_StringIntBoolean(x: String, y: Int, z: Boolean) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[33mx[0m have the correct string[0m[0m
-[0m[[31merror[0m] [0m   'cB$T=SK|'Z0TiJLgnZ%oi[0m
-[0m[[31merror[0m] [0m   {w\3b]*	1!n_,Gn]'aDQQ"%	Qa]2bYL!asPU3g!	9Q"	9K]8ek$CA		BTKJL\5{C[0m
-[0m[[31merror[0m] [0m   dW	U"AX#AYIbBA	A"Qe$WMZ5maa;sS:<'B	!iA!E!)A=!!yA!f[0m
-[0m[[31merror[0m] [0m   !A="a[0m
-[0m[[31merror[0m] [0m   B!aA%oi"AQB	B%%zA!AqBK&A{+ICA+	YBAC_>dW-8	5!#Q[0m
-[0m[[31merror[0m] [0m   %[0m
-[0m[[31merror[0m] [0m   !A	=AqJg.;?)	4NIQ"	MqA	}qA	rA	]!Cq!1m9z)	HO	M1!a+!9qDI	bB7!!{	[0m
-[0m[[31merror[0m] [0m   "?9w]=%I4-7uIE*a+[!	ka	"8dQ7.3CAC1o]>$^5p]&jk:.Z2lK4M]5b],b&#%	aSG>[0m
-[0m[[31merror[0m] [0m   3fM,H3+a%FAAq!%A=abY8qs"WMZ1vYR$3'FQU	I	CSII*AxZ;diBXMZ5y+!CA+[1&BA,YaM\4eAA[1wC&!D9		"!1(o3vGR%/;zq!!A}a:pIVG/7f[tGaGBq!YE"1!8z!W,!AA[0m
-[0m[[31merror[0m] [0m   121!!ABq:pIVG/;fe$xN]QB1)T!a|G\3di&|g.nU[0m
-[0m[[31merror[0m] [0m   A[0m
-[0m[[31merror[0m] [0m   ^3sCR|'CpI9g.R9vC2$"!K9	t!aA"91AA[0m
-[0m[[31merror[0m] [0m   "5bg"uZ3BqAs/u_N#(/8h)!bB=%	E_KF,\:%Zb3yY{[0m
-[0m[[31merror[0m] [0m   		#eiPU3d_J$wl;sS:<J;C_>dW-8IzhCE	!!	}a			Y!F*c5qAa:v]RLW.Z	9AA	BEN$(/Y2uVt7^5p]NBaaL@EA#@	Y|!C#o"IqC@DCBH.cmQDAQa+!1q$!ABaaJAI"CAIQA)h.9qYf$B!a[0m
-[0m[[31merror[0m] [0m   4A)q!!.%1=H/[8o!9qF"S%Q+\34%	)$!	'AyIAB"!��%I!aI,*fg>dg/{2!VA 		E[0m
-[0m[[31merror[0m] [0m   TWm;'[0m
-[0m[[31merror[0m] [0m    is not equal to [0m
-[0m[[31merror[0m] [0m   'cB$T=SK|'Z0TiJLgnZ%oi[0m
-[0m[[31merror[0m] [0m   {w\3b]*	1!n_,Gn]'aDQQ"%	Qa]2bYL!asPU3g!	9Q"	9K]8ek$CA		BTKJL\5{C[0m
-[0m[[31merror[0m] [0m   dW	U"AX#AYIbBA	A"Qe$WMZ5maa;sS:<'B	!iA!E!)A=!!yA!f[0m
-[0m[[31merror[0m] [0m   !A="a[0m
-[0m[[31merror[0m] [0m   B!aA%oi"AQB	B%%zA!AqBK&A{+ICA+	YBAC_>dW-8	5!#Q[0m
-[0m[[31merror[0m] [0m   %[0m
-[0m[[31merror[0m] [0m   !A	=AqJg.;?)	4NIQ"	MqA	}qA	rA	]!Cq!1m9z)	HO	M1!a+!9qDI	bB7!!{	[0m
-[0m[[31merror[0m] [0m   "?9w]=%I4-7uIE*a+[!	ka	"8dQ7.3CAC1o]>$^5p]&jk:.Z2lK4M]5b],b&#%	aSG>[0m
-[0m[[31merror[0m] [0m   3fM,H3+a%FAAq!%A=abY8qs"WMZ1vYR$3'FQU	I	CSII*AxZ;diBXMZ5y+!CA+[1&BA,YaM\4eAA[1wC&!D9		"!1(o3vGR%/;zq!!A}a:pIVG/7f[tGaGBq!YE"1!8z!W,!AA[0m
-[0m[[31merror[0m] [0m   121!!ABq:pIVG/;fe$xN]QB1)T!a|G\3di&|g.nU[0m
-[0m[[31merror[0m] [0m   A[0m
-[0m[[31merror[0m] [0m   ^3sCR|'CpI9g.R9vC2$"!K9	t!aA"91AA[0m
-[0m[[31merror[0m] [0m   "5bg"uZ3BqAs/u_N#(/8h)!bB=%	E_KF,\:%Zb3yY{[0m
-[0m[[31merror[0m] [0m   		#eiPU3d_J$wl;sS:<J;C_>dW-8IzhCE	!!	}a			Y!F*c5qAa:v]RLW.Z	9AA	BEN$(/Y2uVt7^5p]NBaaL@EA#@	Y|!C#o"IqC@DCBH.cmQDAQa+!1q$!ABaaJAI"CAIQA)h.9qYf$B!a[0m
-[0m[[31merror[0m] [0m   4A)q!!.%1=H/[8o!9qF"S%Q+\34%	)$!	'AyIAB"! %I!aI,*fg>dg/{2!VA 		E[0m
-[0m[[31merror[0m] [0m   TWm;' (StringIntBooleanSpec.scala:24)[0m
-[0m[[31merror[0m] [0mExpected: ...nZ%oi[0m
-[0m[[31merror[0m] [0m...\5{C[0m
-[0m[[31merror[0m] [0m...A!f[0m
-[0m[[31merror[0m] [0m..."a[0m
-[0m[[31merror[0m] [0m...!#Q[0m
-[0m[[31merror[0m] [0m%[0m
-[0m[[31merror[0m] [0m...{	[0m
-[0m[[31merror[0m] [0m["?9w]=%...+[!	ka	"8dQ7.3CAC1o]>$^...[0m
-[0m[[31merror[0m] [0m...!CA+...AA1w...7ftG...[0m
-[0m[[31merror[0m] [0mAA[0m
-[0m[[31merror[0m] [0m....nU[0m
-[0m[[31merror[0m] [0mA[0m
-[0m[[31merror[0m] [0m...1AA[0m
-[0m[[31merror[0m] [0m...Y{[0m
-[0m[[31merror[0m] [0m...JA[0m
-[0m[[31merror[0m] [0m...f$B!a[0m
-[0m[[31merror[0m] [0m...=H/8o...![ ]%I!...[0m
-[0m[[31merror[0m] [0mTWm;[0m
-[0m[[31merror[0m] [0mActual:   ...nZ%oi[0m
-[0m[[31merror[0m] [0m...\5{C[0m
-[0m[[31merror[0m] [0m...A!f[0m
-[0m[[31merror[0m] [0m..."a[0m
-[0m[[31merror[0m] [0m...!#Q[0m
-[0m[[31merror[0m] [0m%[0m
-[0m[[31merror[0m] [0m...{	[0m
-[0m[[31merror[0m] [0m["?9w]=%...+[!	ka	"8dQ7.3CAC1o]>$^...[0m
-[0m[[31merror[0m] [0m...!CA+...AA1w...7ftG...[0m
-[0m[[31merror[0m] [0mAA[0m
-[0m[[31merror[0m] [0m....nU[0m
-[0m[[31merror[0m] [0mA[0m
-[0m[[31merror[0m] [0m...1AA[0m
-[0m[[31merror[0m] [0m...Y{[0m
-[0m[[31merror[0m] [0m...JA[0m
-[0m[[31merror[0m] [0m...f$B!a[0m
-[0m[[31merror[0m] [0m...=H/8o...![��]%I!...[0m
-[0m[[31merror[0m] [0mTWm;[0m
-[0m[[0minfo[0m] [0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification StringIntBooleanSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 0 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 1 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mFloatSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_Float(e: Float) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[33mx[0m have the correct string[0m[0m
-[0m[[31merror[0m] [0m   '%aBa"T=SK|'Z0GY>GOCiwZ3mg1="a!Q!CgG.Y!a!8z%4CA	qBAQe>$Wo;BA		1VM]5bY&TM7f!A!f[0m
-[0m[[31merror[0m] [0m   !!A3U"a[0m
-[0m[[31merror[0m] [0m   ]A!!$m_$C#B"B	aAj]&$h?AaA!)1Ca+!9AA[0m
-[0m[[31merror[0m] [0m   B2paf$"!H	M!a+!9QAI[0m
-[0m[[31merror[0m] [0m   1AD2paf$C-4bk2$H%MO)QKSA!fLW)A&L[0m
-[0m[[31merror[0m] [0m   k:.Z2lKT!Atgn;bi&|g.1W		RO\2iK\W,be&gnY3	I!C!giO]8ek$K]3gSb,	kijAoa[0m
-[0m[[31merror[0m] [0m   A\1oO*	(kCZBA7FO]5oO"9QAA[0m
-[0m[[31merror[0m] [0m   q9s_,8^!sSRLX#A BA!	Ie		"E9(o3vGR,E.Z7f]R$"!%1BA$		e.[0m
-[0m[[31merror[0m] [0m   	1@AH%		"M=(o3vGRLE/:bi>X#A'9V)DP	"d_2dWm;j_:L!AU(%#XM]1u_JDqQ+dC:,/^1m)	1/&>|G.Z1oI5+!AACqaC,iCND7i3f)yb0%	eX	i>FO]5oOR	ACbI	2X/7t)	16CJA	A#!EMqQ**fG>Hm$m_$Ch	!!!A	!2aZ5!QW.F-T!I,h^5nK&an[0m
-[0m[[31merror[0m] [0m   HO]1di+hn;j_:"Bh	H#4	y;!C#?"91oZA[0m
-[0m[[31merror[0m] [0m   #!B1qa2LHCAv"19x-!Abq!8baBdzyBqA_[0m
-[0m[[31merror[0m] [0m   mD!AB(qi&|gC~m	Aa$��OIBA-X-3SKN|GN^3cA%q='.Z2u'[0m
-[0m[[31merror[0m] [0m    is not equal to [0m
-[0m[[31merror[0m] [0m   '%aBa"T=SK|'Z0GY>GOCiwZ3mg1="a!Q!CgG.Y!a!8z%4CA	qBAQe>$Wo;BA		1VM]5bY&TM7f!A!f[0m
-[0m[[31merror[0m] [0m   !!A3U"a[0m
-[0m[[31merror[0m] [0m   ]A!!$m_$C#B"B	aAj]&$h?AaA!)1Ca+!9AA[0m
-[0m[[31merror[0m] [0m   B2paf$"!H	M!a+!9QAI[0m
-[0m[[31merror[0m] [0m   1AD2paf$C-4bk2$H%MO)QKSA!fLW)A&L[0m
-[0m[[31merror[0m] [0m   k:.Z2lKT!Atgn;bi&|g.1W		RO\2iK\W,be&gnY3	I!C!giO]8ek$K]3gSb,	kijAoa[0m
-[0m[[31merror[0m] [0m   A\1oO*	(kCZBA7FO]5oO"9QAA[0m
-[0m[[31merror[0m] [0m   q9s_,8^!sSRLX#A BA!	Ie		"E9(o3vGR,E.Z7f]R$"!%1BA$		e.[0m
-[0m[[31merror[0m] [0m   	1@AH%		"M=(o3vGRLE/:bi>X#A'9V)DP	"d_2dWm;j_:L!AU(%#XM]1u_JDqQ+dC:,/^1m)	1/&>|G.Z1oI5+!AACqaC,iCND7i3f)yb0%	eX	i>FO]5oOR	ACbI	2X/7t)	16CJA	A#!EMqQ**fG>Hm$m_$Ch	!!!A	!2aZ5!QW.F-T!I,h^5nK&an[0m
-[0m[[31merror[0m] [0m   HO]1di+hn;j_:"Bh	H#4	y;!C#?"91oZA[0m
-[0m[[31merror[0m] [0m   #!B1qa2LHCAv"19x-!Abq!8baBdzyBqA_[0m
-[0m[[31merror[0m] [0m   mD!AB(qi&|gC~m	Aa$ OIBA-X-3SKN|GN^3cA%q='.Z2u' (FloatSpec.scala:21)[0m
-[0m[[31merror[0m] [0mExpected: ...A!f[0m
-[0m[[31merror[0m] [0m..."a[0m
-[0m[[31merror[0m] [0m...AA[0m
-[0m[[31merror[0m] [0m...QAI[0m
-[0m[[31merror[0m] [0m...A&L[0m
-[0m[[31merror[0m] [0m...oa[0m
-[0m[[31merror[0m] [0m...QAA[0m
-[0m[[31merror[0m] [0m....[0m
-[0m[[31merror[0m] [0m...Cb[0m
-[0m[[31merror[0m] [0m...n[0m
-[0m[[31merror[0m] [0m...1oZA[0m
-[0m[[31merror[0m] [0m...qA_[0m
-[0m[[31merror[0m] [0m...$[ ]OI...[0m
-[0m[[31merror[0m] [0mActual:   ...A!f[0m
-[0m[[31merror[0m] [0m..."a[0m
-[0m[[31merror[0m] [0m...AA[0m
-[0m[[31merror[0m] [0m...QAI[0m
-[0m[[31merror[0m] [0m...A&L[0m
-[0m[[31merror[0m] [0m...oa[0m
-[0m[[31merror[0m] [0m...QAA[0m
-[0m[[31merror[0m] [0m....[0m
-[0m[[31merror[0m] [0m...Cb[0m
-[0m[[31merror[0m] [0m...n[0m
-[0m[[31merror[0m] [0m...1oZA[0m
-[0m[[31merror[0m] [0m...qA_[0m
-[0m[[31merror[0m] [0m...$[��]OI...[0m
-[0m[[0minfo[0m] [0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification FloatSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 1 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 1 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mNothingNothingSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_NothingNothing(l1: Nothing, l2: Nothing) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[33mx[0m have the correct string[0m[0m
-[0m[[31merror[0m] [0m   'bBq#T=SK|'Z0O_RDN\4O_RDN\4	a!\8eK28A[0m
-[0m[[31merror[0m] [0m   aq5	BC[0m
-[0m[[31merror[0m] [0m   8-7b	YBB]fVM	5I!AAxZ;diBqE#!AbU3sSdN_1cYDb%	FYF*!	YI!a9{G[5oO"AB	B%Q#AmcBb%	FYJB"I!FYJ"B	Aj]&$hF"G"A		AQaAUAQaAUAqA[0m
-[0m[[31merror[0m] [0m   q%d_BLHcA)S!91#[0m
-[0m[[31merror[0m] [0m   I)bB&!!W	[0m
-[0m[[31merror[0m] [0m   "-9w]=%I4-7uIE*!+9Za	aUj!eM[0m
-[0m[[31merror[0m] [0m   "8dQ7.3QBAC1o]>$^5p]&a'k:.Z2lK4M]5b],b#%	LG>[0m
-[0m[[31merror[0m] [0m   3fM,H3Q!!ABm[0m
-[0m[[31merror[0m] [0m   Q:pIVG:fM&DX#uU" }7b]T!QU4-D}	11:j]Dq!a)qe>$Wo;Be&$0FH!	9*J	J;	-!CqO]8ek$X	\3nK:$HCA'Q!	9a*P	I\=	ES!aJ	M!C!)yO]8ek$[0m
-[0m[[31merror[0m] [0m   ^3sCR|'/FV!1,T/*CG>dG.Z2uS>tB.X!IE/:bi>b/%	!X	GtW)];bYRa,	}K!	{w\3b]"9kWAibB2%	Z	QnQ8eKR	q	CgII4Q|7:j]$S		"k)/^1mgRal#"	1Ni'!!A	9q#T=SK|'Z0O_RDN\4O_RDN\4	zgaBE	][0m
-[0m[[31merror[0m] [0m   _F|#:v+U	S"A:QDa:v]RLW.ZmN#2tiJ7$v]$n83yr"y)qb4p%)ew>	"!}	7z)	SP 'i!7i![0m
-[0m[[31merror[0m] [0m   y!CA	q!8baBdE#B-bAA	1q[0m
-[0m[[31merror[0m] [0m   ;j_:RaBA+UI1!a	!V7fe!A1C@%AyIAB"ap%I!!I,*fg>dg/72!PA	yB[0m
-[0m[[31merror[0m] [0m   TWm;'[0m
-[0m[[31merror[0m] [0m    is not equal to [0m
-[0m[[31merror[0m] [0m   Vector(, , , , b, , B, , , , , , q, #, T, =, S, K, , |, ', , Z, 0, O, _, R, D, , N, \, 4, O, _, R, D, , N, \, 4, , , , 	, a, !, \, 8, e, K, 2, , 8, , A, [0m
-[0m[[31merror[0m] [0m   , , , , a, q, , , , , , 5, 	, , B, C, , [0m
-[0m[[31merror[0m] [0m   , , , , 8, -, , 7, b, , 	, Y, , B, , , B, ], f, , V, M, , 	, , , 5, I, !, A, , , , , A, , x, , Z, ;, d, i, B, , q, , E, , , #, !, , A, b, U, 3, s, S, , d, , N, _, 1, c, Y, , D, , b, , , , , , %, 	, , F, , , Y, F, *, , !, , 	, , , Y, I, !, a, , , , , 9, {, G, , [, 5, o, O, ", A, , , , B, 	, B, , %, Q, #, A, , m, c, , B, , b, , , , , , %, 	, , F, , , Y, J, B, , ", , , , , , , I, !, F, , , Y, J, , , ", B, , , 	, , , , A, , , j, ], &, $, h, , F, , ", G, , , ", A, 	, , , , 	, A, Q, a, , , A, , U, A, Q, a, , , A, , U, A, q, A, [0m
-[0m[[31merror[0m] [0m   , , , , , , q, %, , , d, _, B, L, H, c, A, , ), S, !, 9, 1, #, [0m
-[0m[[31merror[0m] [0m   , I, , , , ), , b, B, , &, !, , , , !, , , , W, , 	, [0m
-[0m[[31merror[0m] [0m   , , ", , -, , 9, , w, , ], =, %, I, , 4, , -, , 7, u, I, E, *, , !, , , , +, 9, Z, , a, , 	, , a, U, j, , !, , , , e, M, [0m
-[0m[[31merror[0m] [0m   , , ", , 8, d, Q, , , 7, ., , 3, , , Q, B, , A, C, 1, o, ], >, $, , , ^, 5, p, ], &, , a, ', , , , k, :, , , ., Z, 2, l, K, , 4, , M, ], 5, b, ], , ,, , b, , , , #, , %, 	, , L, , , G, >, , , , [0m
-[0m[[31merror[0m] [0m   , 3, f, M, , ,, H, , , , 3, , , Q, , !, !, A, , B, m, [0m
-[0m[[31merror[0m] [0m   , Q, , , :, p, I, V, , G, , , :, f, M, &, D, X, #, , , , , u, , U, ", ,  , , , }, , , , , 7, b, ], , T, , !, Q, , , U, , 4, , -, , , D, }, 	, 1, 1, , , :, j, ], , D, q, !, , , , , , , a, ), , , q, e, >, $, W, o, , ;, B, e, &, $, , 0, F, , H, !, 	, 9, , *, , , J, , 	, , , J, , ;, 	, , -, , , , !, C, , , , q, , O, ], 8, e, k, , $, X, 	, \, 3, n, K, :, $, H, C, A, ', Q, !, 	, 9, a, *, , , P, , 	, , , I, \, =, 	, , E, S, , , !, a, , , , , , , J, , 	, , M, , , , !, C, !, ), , y, , O, ], 8, e, k, , $, , [0m
-[0m[[31merror[0m] [0m   , ^, 3, s, C, R, |, ', /, F, , V, !, , 1, , ,, T, , , /, *, , , , C, , , G, >, d, G, ., Z, 2, u, S, >, t, , B, , ., X, , !, I, E, /, , :, b, i, >, , , b, , /, , , , %, 	, !, X, , 	, G, , t, W, ), ], ;, b, Y, R, , a, ,, , 	, , , }, K, !, , , , , , 	, {, w, , \, 3, b, ], ", 9, , k, W, A, , , , i, , b, B, 2, , , , %, 	, , Z, , 	, Q, , , , n, Q, 8, e, K, R, 	, q, 	, C, , g, , , , I, , I, 4, , , Q, |, 7, , , :, j, ], , $, , , , , , S, , 	, 	, , ", , k, , , ), , /, ^, 1, m, g, R, , a, l, , , , #, ", , 	, , 1, , N, , , i, ', !, !, A, 	, , 9, , q, #, T, =, S, K, , |, ', , Z, 0, O, _, R, D, , N, \, 4, O, _, R, D, , N, \, 4, , , 	, z, g, a, B, , , , , E, 	, , ], [0m
-[0m[[31merror[0m] [0m   , , _, F, |, , #, , :, v, +, U, 	, S, ", A, :, , , Q, D, , a, , :, v, ], R, L, W, ., Z, , , m, N, , , #, , 2, t, i, J, , 7, , , $, v, ], , $, , n, , 8, 3, , , y, r, , ", , y, ), , q, , b, , 4, p, , , %, ), e, , , , w, >, , 	, , ", !, }, , , 	, , , , 7, z, ), , 	, S, P,  , , , ', i, , , !, , , , 7, i, , , !, , , [0m
-[0m[[31merror[0m] [0m   , , , y, , , !, C, A, , , 	, q, !, , 8, b, a, B, d, , , , , , , , E, , #, B, , , , , -, , b, A, A, , , 	, 1, q, [0m
-[0m[[31merror[0m] [0m   , , ;, j, _, :, , R, a, B, A, , +, U, I, 1, !, a, , 	, , , !, V, , , 7, f, e, !, A, , 1, C, @, , , , , , %, A, , y, I, A, B, , ", a, , p, , , %, I, !, !, , , , I, ,, , , , *, f, g, >, d, g, /, , , , , 7, , 2, !, P, A, , , , 	, y, B, , , , , [0m
-[0m[[31merror[0m] [0m   , T, W, m, , ;, 0) (NothingNothingSpec.scala:23)[0m
-[0m[[31merror[0m] [0mExpected: Vector(, , , , b, , B, , , , , , q, #, T, =, S, K, , |, ', , Z, 0, O, _, R, D, , N, \, 4, O, _, R, D, , N, \, 4, , , , 	, a, !, \, 8, e, K, 2, , 8, , A, [0m
-[0m[[31merror[0m] [0m, , , , a, q, , , , , , 5, 	, , B, C, , [0m
-[0m[[31merror[0m] [0m, , , , 8, -, , 7, b, , 	, Y, , B, , , B, ], f, , V, M, , 	, , , 5, I, !, A, , , , , A, , x, , Z, ;, d, i, B, , q, , E, , , #, !, , A, b, U, 3, s, S, , d, , N, _, 1, c, Y, , D, , b, , , , , , %, 	, , F, , , Y, F, *, , !, , 	, , , Y, I, !, a, , , , , 9, {, G, , [, 5, o, O, ", A, , , , B, 	, B, , %, Q, #, A, , m, c, , B, , b, , , , , , %, 	, , F, , , Y, J, B, , ", , , , , , , I, !, F, , , Y, J, , , ", B, , , 	, , , , A, , , j, ], &, $, h, , F, , ", G, , , ", A, 	, , , , 	, A, Q, a, , , A, , U, A, Q, a, , , A, , U, A, q, A, [0m
-[0m[[31merror[0m] [0m, , , , , , q, %, , , d, _, B, L, H, c, A, , ), S, !, 9, 1, #, [0m
-[0m[[31merror[0m] [0m, I, , , , ), , b, B, , &, !, , , , !, , , , W, , 	, [0m
-[0m[[31merror[0m] [0m, , ", , -, , 9, , w, , ], =, %, I, , 4, , -, , 7, u, I, E, *, , !, , , , +, 9, Z, , a, , 	, , a, U, j, , !, , , , e, M, [0m
-[0m[[31merror[0m] [0m, , ", , 8, d, Q, , , 7, ., , 3, , , Q, B, , A, C, 1, o, ], >, $, , , ^, 5, p, ], &, , a, ', , , , k, :, , , ., Z, 2, l, K, , 4, , M, ], 5, b, ], , ,, , b, , , , #, , %, 	, , L, , , G, >, , , , [0m
-[0m[[31merror[0m] [0m, 3, f, M, , ,, H, , , , 3, , , Q, , !, !, A, , B, m, [0m
-[0m[[31merror[0m] [0m, Q, , , :, p, I, V, , G, , , :, f, M, &, D, X, #, , , , , u, , U, ", ,  , , , }, , , , , 7, b, ], , T, , !, Q, , , U, , 4, , -, , , D, }, 	, 1, 1, , , :, j, ], , D, q, !, , , , , , , a, ), , , q, e, >, $, W, o, , ;, B, e, &, $, , 0, F, , H, !, 	, 9, , *, , , J, , 	, , , J, , ;, 	, , -, , , , !, C, , , , q, , O, ], 8, e, k, , $, X, 	, \, 3, n, K, :, $, H, C, A, ', Q, !, 	, 9, a, *, , , P, , 	, , , I, \, =, 	, , E, S, , , !, a, , , , , , , J, , 	, , M, , , , !, C, !, ), , y, , O, ], 8, e, k, , $, , [0m
-[0m[[31merror[0m] [0m, ^, 3, s, C, R, |, ', /, F, , V, !, , 1, , ,, T, , , /, *, , , , C, , , G, >, d, G, ., Z, 2, u, S, >, t, , B, , ., X, , !, I, E, /, , :, b, i, >, , , b, , /, , , , %, 	, !, X, , 	, G, , t, W, ), ], ;, b, Y, R, , a, ,, , 	, , , }, K, !, , , , , , 	, {, w, , \, 3, b, ], ", 9, , k, W, A, , , , i, , b, B, 2, , , , %, 	, , Z, , 	, Q, , , , n, Q, 8, e, K, R, 	, q, 	, C, , g, , , , I, , I, 4, , , Q, |, 7, , , :, j, ], , $, , , , , , S, , 	, 	, , ", , k, , , ), , /, ^, 1, m, g, R, , a, l, , , , #, ", , 	, , 1, , N, , , i, ', !, !, A, 	, , 9, , q, #, T, =, S, K, , |, ', , Z, 0, O, _, R, D, , N, \, 4, O, _, R, D, , N, \, 4, , , 	, z, g, a, B, , , , , E, 	, , ], [0m
-[0m[[31merror[0m] [0m, , _, F, |, , #, , :, v, +, U, 	, S, ", A, :, , , Q, D, , a, , :, v, ], R, L, W, ., Z, , , m, N, , , #, , 2, t, i, J, , 7, , , $, v, ], , $, , n, , 8, 3, , , y, r, , ", , y, ), , q, , b, , 4, p, , , %, ), e, , , , w, >, , 	, , ", !, }, , , 	, , , , 7, z, ), , 	, S, P,  , , , ', i, , , !, , , , 7, i, , , !, , , [0m
-[0m[[31merror[0m] [0m, , , y, , , !, C, A, , , 	, q, !, , 8, b, a, B, d, , , , , , , , E, , #, B, , , , , -, , b, A, A, , , 	, 1, q, [0m
-[0m[[31merror[0m] [0m, , ;, j, _, :, , R, a, B, A, , +, U, I, 1, !, a, , 	, , , !, V, , , 7, f, e, !, A, , 1, C, @, , , , , , %, A, , y, I, A, B, , ", a, , p, , , %, I, !, !, , , , I, ,, , , , *, f, g, >, d, g, /, , , , , 7, , 2, !, P, A, , , , 	, y, B, , , , , [0m
-[0m[[31merror[0m] [0m, T, W, m, , ;, 0)[0m
-[0m[[31merror[0m] [0mActual:   bBq#T=SK|'Z0O_RDN\4O_RDN\4	a!\8eK28A[0m
-[0m[[31merror[0m] [0maq5	BC[0m
-[0m[[31merror[0m] [0m8-7b	YBB]fVM	5I!AAxZ;diBqE#!AbU3sSdN_1cYDb%	FYF*!	YI!a9{G[5oO"AB	B%Q#AmcBb%	FYJB"I!FYJ"B	Aj]&$hF"G"A		AQaAUAQaAUAqA[0m
-[0m[[31merror[0m] [0mq%d_BLHcA)S!91#[0m
-[0m[[31merror[0m] [0mI)bB&!!W	[0m
-[0m[[31merror[0m] [0m"-9w]=%I4-7uIE*!+9Za	aUj!eM[0m
-[0m[[31merror[0m] [0m"8dQ7.3QBAC1o]>$^5p]&a'k:.Z2lK4M]5b],b#%	LG>[0m
-[0m[[31merror[0m] [0m3fM,H3Q!!ABm[0m
-[0m[[31merror[0m] [0mQ:pIVG:fM&DX#uU" }7b]T!QU4-D}	11:j]Dq!a)qe>$Wo;Be&$0FH!	9*J	J;	-!CqO]8ek$X	\3nK:$HCA'Q!	9a*P	I\=	ES!aJ	M!C!)yO]8ek$[0m
-[0m[[31merror[0m] [0m^3sCR|'/FV!1,T/*CG>dG.Z2uS>tB.X!IE/:bi>b/%	!X	GtW)];bYRa,	}K!	{w\3b]"9kWAibB2%	Z	QnQ8eKR	q	CgII4Q|7:j]$S		"k)/^1mgRal#"	1Ni'!!A	9q#T=SK|'Z0O_RDN\4O_RDN\4	zgaBE	][0m
-[0m[[31merror[0m] [0m_F|#:v+U	S"A:QDa:v]RLW.ZmN#2tiJ7$v]$n83yr"y)qb4p%)ew>	"!}	7z)	SP 'i!7i![0m
-[0m[[31merror[0m] [0my!CA	q!8baBdE#B-bAA	1q[0m
-[0m[[31merror[0m] [0m;j_:RaBA+UI1!a	!V7fe!A1C@%AyIAB"ap%I!!I,*fg>dg/72!PA	yB[0m
-[0m[[31merror[0m] [0mTWm;[0m
-[0m[[0minfo[0m] [0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification NothingNothingSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 8 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 1 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mOptionOptionSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification OptionOptionSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 0 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m0 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mLongLongLongSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_LongLongLong(d1: Long, d2: Long, d3: Long) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification LongLongLongSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 0 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mCharCharCharSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_CharCharChar(g1: Char, g2: Char, g3: Char) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification CharCharCharSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 0 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mDoubleDoubleDoubleSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_DoubleDoubleDouble(f1: Double, f2: Double, f3: Double) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification DoubleDoubleDoubleSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 0 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mAnyAnyAnySpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_AnyAnyAny(m1: Any, m2: Any, m3: Any) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification AnyAnyAnySpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 1 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mStringSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_String(h: String) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification StringSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 0 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mLongSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_Long(d: Long) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification LongSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 3 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mShortShortShortSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_ShortShortShort(b1: Short, b2: Short, b3: Short) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification ShortShortShortSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 5 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mCharCharSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_CharChar(g1: Char, g2: Char) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification CharCharSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 3 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mAllDatatypesSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for a case class with all supported datatypes (MyRecord_AllDatatypes)  should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification AllDatatypesSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 1 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mAnyRefAnyRefSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_AnyRefAnyRef(n1: AnyRef, n2: AnyRef) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification AnyRefAnyRefSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 1 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mAnyRefAnyRefAnyRefSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_AnyRefAnyRefAnyRef(n1: AnyRef, n2: AnyRef, n3: AnyRef) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification AnyRefAnyRefAnyRefSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 0 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mCharSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_Char(g: Char) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification CharSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 1 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mByteSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_Byte(a: Byte) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification ByteSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 1 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mNothingSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_Nothing(l: Nothing) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification NothingSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 1 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mIteratorIteratorSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification IteratorIteratorSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 0 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m0 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mNullNullNullSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_NullNullNull(k1: Null, k2: Null, k3: Null) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification NullNullNullSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 1 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mUnitUnitSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_UnitUnit(j1: Unit, j2: Unit) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification UnitUnitSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 1 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-872
-876
-127
-54
-2
-6
-79
-98
-106
-101
-99
-116
-0
+Loading /usr/share/sbt/bin/sbt-launch-lib.bash
+[0m[[0minfo[0m] [0mSet current project to artisinal-pickle-maker (in build file:/home/julian/artisinal-pickle-maker/)[0m
+[0m[[0minfo[0m] [0mCompiling 1 Scala source to /home/julian/artisinal-pickle-maker/target/scala-2.10/test-classes...[0m
++++++++++++++_++++++++++++++++++++++++++++++++++++++++++++++++++
 [0m[[0minfo[0m] [0mIntSpec[37m[0m[0m
 [0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
 [0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_Int(c: Int) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[33mx[0m have the correct string[0m[0m
-[0m[[31merror[0m] [0m   '872' is not equal to '876' (IntSpec.scala:37)[0m
-[0m[[0minfo[0m] [0m[37m[0m[0m
+[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
 [0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
 [0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
 [0m[[0minfo[0m] [0m[37m[0mTotal for specification IntSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 0 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 1 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mIntIntSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_IntInt(c1: Int, c2: Int) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification IntIntSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 0 ms[0m[0m
+[0m[[0minfo[0m] [0m[34mFinished in 21 ms[0m[0m
 [0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mUnitSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_Unit(j: Unit) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification UnitSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 1 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-true
-
-true
-false
-true
-884
-884
-[0m[[0minfo[0m] [0mBooleanSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_Boolean(i: Boolean) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification BooleanSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 4 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mStringStringSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_StringString(h1: String, h2: String) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[33mx[0m have the correct string[0m[0m
-[0m[[31merror[0m] [0m   'bBQ#T=SK|'Z0TiJLgnZ*ue&twMCiwZ3mg1="a!Q!CgG.Y!a!8z%4CA	qBAQe>$Wo;BA		1VM]5bY&TM7f!A!f[0m
-[0m[[31merror[0m] [0m   !A52+)C	9q#1K]3eKL!AGM#(/8h	A	E	!A		?)!C)N	C	)A+N	AqJg.;?))s	MiA'	!?	!U		",w]=bSCSA	A	}I!a+!9qAI[0m
-[0m[[31merror[0m] [0m   AD2paf$C-4bk2$H%Mc)QCMgAA'Ok)agN[0m
-[0m[[31merror[0m] [0m   k:.Z2lKT!tgn;bi&|g.;k		RO\2iK\W,be&gnY3	q!Caq1m9zI,g-Y;mib %	ePaJ|G-^2u!J,g-="!$	S!a#	1gn!!.<b	Q"	CIIA%AxZ;di^=)"aB&[0m
-[0m[[31merror[0m] [0m   1C!aA%oi"9a[0m
-[0m[[31merror[0m] [0m   AA[0m
-[0m[[31merror[0m] [0m   yA9s_,8^#mK6,g!N"aB)[0m
-[0m[[31merror[0m] [0m   IC!aA!os"9A+TAQa=%c!9aAA[0m
-[0m[[31merror[0m] [0m   :a9s_,8^%uKJGo:a2!/QQ&BA.	)w7fGRLwN\;j";fe$xN?		"a!M\#rkdGCA1e!	9!-d	9!i\8mKtb+_M		"h!Am5D_,G#&	%!C!UAAo\*ue&twFAa!!AB5a!Z9vC2HCA1o!6.!AAA;q#/ANsJ+7m:e?N#(/8h'RN\4haBE	a][0m
-[0m[[31merror[0m] [0m   eR|#B;y+U)S"<]Da:v]RLW.ZsZ#2tiJ7$v]$n83#"|)	bB5s%)E}J	"!��	7z))AAR1yR1%	9A]A[0m
-[0m[[31merror[0m] [0m   I!Av]\=	-q	5CA!AB(qi&|gE')R#C!aV;qY"CA		1&AH[0m
-[0m[[31merror[0m] [0m   ;!C?	1B]3bIJ+7o7wKR	bAA[0m
-[0m[[31merror[0m] [0m   1qJ6fGR'[0m
-[0m[[31merror[0m] [0m    is not equal to [0m
-[0m[[31merror[0m] [0m   'bBQ#T=SK|'Z0TiJLgnZ*ue&twMCiwZ3mg1="a!Q!CgG.Y!a!8z%4CA	qBAQe>$Wo;BA		1VM]5bY&TM7f!A!f[0m
-[0m[[31merror[0m] [0m   !A52+)C	9q#1K]3eKL!AGM#(/8h	A	E	!A		?)!C)N	C	)A+N	AqJg.;?))s	MiA'	!?	!U		",w]=bSCSA	A	}I!a+!9qAI[0m
-[0m[[31merror[0m] [0m   AD2paf$C-4bk2$H%Mc)QCMgAA'Ok)agN[0m
-[0m[[31merror[0m] [0m   k:.Z2lKT!tgn;bi&|g.;k		RO\2iK\W,be&gnY3	q!Caq1m9zI,g-Y;mib %	ePaJ|G-^2u!J,g-="!$	S!a#	1gn!!.<b	Q"	CIIA%AxZ;di^=)"aB&[0m
-[0m[[31merror[0m] [0m   1C!aA%oi"9a[0m
-[0m[[31merror[0m] [0m   AA[0m
-[0m[[31merror[0m] [0m   yA9s_,8^#mK6,g!N"aB)[0m
-[0m[[31merror[0m] [0m   IC!aA!os"9A+TAQa=%c!9aAA[0m
-[0m[[31merror[0m] [0m   :a9s_,8^%uKJGo:a2!/QQ&BA.	)w7fGRLwN\;j";fe$xN?		"a!M\#rkdGCA1e!	9!-d	9!i\8mKtb+_M		"h!Am5D_,G#&	%!C!UAAo\*ue&twFAa!!AB5a!Z9vC2HCA1o!6.!AAA;q#/ANsJ+7m:e?N#(/8h'RN\4haBE	a][0m
-[0m[[31merror[0m] [0m   eR|#B;y+U)S"<]Da:v]RLW.ZsZ#2tiJ7$v]$n83#"|)	bB5s%)E}J	"! 	7z))AAR1yR1%	9A]A[0m
-[0m[[31merror[0m] [0m   I!Av]\=	-q	5CA!AB(qi&|gE')R#C!aV;qY"CA		1&AH[0m
-[0m[[31merror[0m] [0m   ;!C?	1B]3bIJ+7o7wKR	bAA[0m
-[0m[[31merror[0m] [0m   1qJ6fGR' (StringStringSpec.scala:21)[0m
-[0m[[31merror[0m] [0mExpected: ...A!f[0m
-[0m[[31merror[0m] [0m...qAI[0m
-[0m[[31merror[0m] [0m...agN[0m
-[0m[[31merror[0m] [0m..."aB&[0m
-[0m[[31merror[0m] [0m...oi"9a[0m
-[0m[[31merror[0m] [0mAA[0m
-[0m[[31merror[0m] [0m..."aB)[0m
-[0m[[31merror[0m] [0m...aAA[0m
-[0m[[31merror[0m] [0m...CA1o[0m
-[0m[[31merror[0m] [0m...E	a][0m
-[0m[[31merror[0m] [0m[eR|#B;y+U)S"<]D...:v[ ]	...[0m
-[0m[[31merror[0m] [0m...AH[0m
-[0m[[31merror[0m] [0m...bAA[0m
-[0m[[31merror[0m] [0m...6fGR[0m
-[0m[[31merror[0m] [0mActual:   ...A!f[0m
-[0m[[31merror[0m] [0m...qAI[0m
-[0m[[31merror[0m] [0m...agN[0m
-[0m[[31merror[0m] [0m..."aB&[0m
-[0m[[31merror[0m] [0m...oi"9a[0m
-[0m[[31merror[0m] [0mAA[0m
-[0m[[31merror[0m] [0m..."aB)[0m
-[0m[[31merror[0m] [0m...aAA[0m
-[0m[[31merror[0m] [0m...CA1o[0m
-[0m[[31merror[0m] [0m...E	a][0m
-[0m[[31merror[0m] [0m[eR|#B;y+U)S"<]D...:v[��]	...[0m
-[0m[[31merror[0m] [0m...AH[0m
-[0m[[31merror[0m] [0m...bAA[0m
-[0m[[31merror[0m] [0m...6fGR[0m
-[0m[[0minfo[0m] [0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification StringStringSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 0 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 1 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mUnitUnitUnitSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_UnitUnitUnit(j1: Unit, j2: Unit, j3: Unit) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification UnitUnitUnitSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 0 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mOptionOptionOptionSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification OptionOptionOptionSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 0 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m0 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mAnySpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_Any(m: Any) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[33mx[0m have the correct string[0m[0m
-[0m[[31merror[0m] [0m   'aBA"T=SK|'Z0B]fTaA[>$W\:M!A!	9!"D	I!B:dC2BA		e.*fMBq!D!q:pIVG!%'.7juG.	')!C)	Q.F!	9a#	I\=	e!#Q[0m
-[0m[[31merror[0m] [0m   U	!!	mAqJg.;?)	ir5	!C5QC"I	|/;BqaQC&EI|/eKW;%cU	qEQ-[0m
-[0m[[31merror[0m] [0m   +_5	1F-[IQO\2iK\W]!	!"8o_RG/[8o	4FA	v]DWmY6fIZ'/[1oGDqA3'Aqe>$Wo;Qe4_iAQGOm)qOYtwMC:QM^1[0m
-[0m[[31merror[0m] [0m   m2$AB*ue&twC>I AxZ;di^=}"a![0m
-[0m[[31merror[0m] [0m   C!aA%oi"91	AA[0m
-[0m[[31merror[0m] [0m   !A9s_,8^#mK6,g+CqA"q(AyIEBq*Aqe>$Wo;Ji^8s+QcA&O+5	AJNQ1m7mK$n8[0m
-[0m[[31merror[0m] [0m   =c%C%uKJGo:	E!C%A1-8FcVGT-BqV+"qAQ8pYgCG!	A	a!C!3A.Y:i>$WF@Y!!ABq^8TiJLgni!9aAA[0m
-[0m[[31merror[0m] [0m   zAB3rkd7TA"9a)XA)ra2E	aYfVmY8sI~e.	=4q!#QmEeM>Ba6;5	Nj9!/8uS6,BA6iE	%m;sC$h)8di&|g.7$	!G"91ZA[0m
-[0m[[31merror[0m] [0m   bb9e%	)]CBH.;IDQaE8AUAq3U/Av]\=YLcAx+%B$n8	i!a;[0m
-[0m[[31merror[0m] [0m   	q$!C{Y!/Z1e%x<f)qCA��		A[0m
-[0m[[31merror[0m] [0m   TWm;'[0m
-[0m[[31merror[0m] [0m    is not equal to [0m
-[0m[[31merror[0m] [0m   'aBA"T=SK|'Z0B]fTaA[>$W\:M!A!	9!"D	I!B:dC2BA		e.*fMBq!D!q:pIVG!%'.7juG.	')!C)	Q.F!	9a#	I\=	e!#Q[0m
-[0m[[31merror[0m] [0m   U	!!	mAqJg.;?)	ir5	!C5QC"I	|/;BqaQC&EI|/eKW;%cU	qEQ-[0m
-[0m[[31merror[0m] [0m   +_5	1F-[IQO\2iK\W]!	!"8o_RG/[8o	4FA	v]DWmY6fIZ'/[1oGDqA3'Aqe>$Wo;Qe4_iAQGOm)qOYtwMC:QM^1[0m
-[0m[[31merror[0m] [0m   m2$AB*ue&twC>I AxZ;di^=}"a![0m
-[0m[[31merror[0m] [0m   C!aA%oi"91	AA[0m
-[0m[[31merror[0m] [0m   !A9s_,8^#mK6,g+CqA"q(AyIEBq*Aqe>$Wo;Ji^8s+QcA&O+5	AJNQ1m7mK$n8[0m
-[0m[[31merror[0m] [0m   =c%C%uKJGo:	E!C%A1-8FcVGT-BqV+"qAQ8pYgCG!	A	a!C!3A.Y:i>$WF@Y!!ABq^8TiJLgni!9aAA[0m
-[0m[[31merror[0m] [0m   zAB3rkd7TA"9a)XA)ra2E	aYfVmY8sI~e.	=4q!#QmEeM>Ba6;5	Nj9!/8uS6,BA6iE	%m;sC$h)8di&|g.7$	!G"91ZA[0m
-[0m[[31merror[0m] [0m   bb9e%	)]CBH.;IDQaE8AUAq3U/Av]\=YLcAx+%B$n8	i!a;[0m
-[0m[[31merror[0m] [0m   	q$!C{Y!/Z1e%x<f)qCA 		A[0m
-[0m[[31merror[0m] [0m   TWm;' (AnySpec.scala:21)[0m
-[0m[[31merror[0m] [0mExpected: [aBA"T=SK|'Z0B]fT...>$W\...[0m
-[0m[[31merror[0m] [0m...Q-[0m
-[0m[[31merror[0m] [0m...1F-[IQO\2iK\W]!	...G/[8o	4FA	v]D...'/1oGD...[0m
-[0m[[31merror[0m] [0m..."a![0m
-[0m[[31merror[0m] [0m...1	AA[0m
-[0m[[31merror[0m] [0m...$n8[0m
-[0m[[31merror[0m] [0m...aAA[0m
-[0m[[31merror[0m] [0m...1ZA[0m
-[0m[[31merror[0m] [0m...;[0m
-[0m[[31merror[0m] [0m...qCA[ ]		A...[0m
-[0m[[31merror[0m] [0mTWm;[0m
-[0m[[31merror[0m] [0mActual:   [aBA"T=SK|'Z0B]fT...>$W\...[0m
-[0m[[31merror[0m] [0m...Q-[0m
-[0m[[31merror[0m] [0m...1F-[IQO\2iK\W]!	...G/[8o	4FA	v]D...'/1oGD...[0m
-[0m[[31merror[0m] [0m..."a![0m
-[0m[[31merror[0m] [0m...1	AA[0m
-[0m[[31merror[0m] [0m...$n8[0m
-[0m[[31merror[0m] [0m...aAA[0m
-[0m[[31merror[0m] [0m...1ZA[0m
-[0m[[31merror[0m] [0m...;[0m
-[0m[[31merror[0m] [0m...qCA[��]		A...[0m
-[0m[[31merror[0m] [0mTWm;[0m
-[0m[[0minfo[0m] [0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification AnySpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 0 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 1 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mAnyRefSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_AnyRef(n: AnyRef) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification AnyRefSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 0 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mShortShortSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_ShortShort(b1: Short, b2: Short) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification ShortShortSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 1 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mNullSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_Byte(k: Null) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification NullSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 0 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mByteByteSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_ByteByte(a1: Byte, a2: Byte) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification ByteByteSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 1 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mObjectSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_Object(o: Object) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification ObjectSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 0 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mAnyAnySpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_AnyAny(m1: Any, m2: Any) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[33mx[0m have the correct string[0m[0m
-[0m[[31merror[0m] [0m   'maBq"T=SK|'Z0B]fe.1Qn3fYNa1yCAA!"AM\1[0m
-[0m[[31merror[0m] [0m   -A!AB!osJ+g%a!J|G-^2u!	9#	a1+:jC2L'02mK"A1BKA#ncU	Q-%q:LC#B5	U"	i'	E	!i'	?!	Iy%t C#5	!C=QC=QC'IA	|/C!JbB[0m
-[0m[[31merror[0m] [0m   &!!7[0m
-[0m[[31merror[0m] [0m   1Y!%A1[0m
-[0m[[31merror[0m] [0m   abY8qs"WMZ1vYR$'F.U	)bfK0!	T'D2	4'Av]DWmY6fI*ACC:tw^1uS>tB2E)hn5fG.,GMV1sSt7-q	[0m
-[0m[[31merror[0m] [0m   "-9w]=%I4-7uIIBqA3(Aqe>$Wo;Qe4_yAQHQ})qQYtwMCBQM^1[0m
-[0m[[31merror[0m] [0m   s$AB*ue&twCFI$AxZ;di^="a%[0m
-[0m[[31merror[0m] [0m   %C!aA%oi"91[0m
-[0m[[31merror[0m] [0m   AA[0m
-[0m[[31merror[0m] [0m   aA9s_,8^#mK6,g+5CqA&q)AyIEBq+Aqe>$Wo;Ji^8s+cA*W+5	AKVQ1m7mK$n8[0m
-[0m[[31merror[0m] [0m   ]#&C%uKJGo:	e!C5A1-8FcVG\=BqX;"qAQ8pYgCO1	A	!C!CA.Y:i>$WFH!!AB^8TiJLgny!9aAA[0m
-[0m[[31merror[0m] [0m   :AB3rkd7\Q"9a*ZA)ra6E	a[fVmY8sI~e._!osB!			#n'agn	_J,R#Ia*CeVtG/[7f	OA	BEN$(/Y2uVt7^5p]JBQa7U$aG2	"eAH.!AfQ!9qYf$2!	>|r1Yr1iH.!Azq!8baBdF��RaBAI1!a	y^5p]B)q!a+%Q+\33!	i`A	a=%a!I7%1CeGMU3t_24XAQ(a[0m
-[0m[[31merror[0m] [0m   eaHPE*,7'[0m
-[0m[[31merror[0m] [0m    is not equal to [0m
-[0m[[31merror[0m] [0m   'maBq"T=SK|'Z0B]fe.1Qn3fYNa1yCAA!"AM\1[0m
-[0m[[31merror[0m] [0m   -A!AB!osJ+g%a!J|G-^2u!	9#	a1+:jC2L'02mK"A1BKA#ncU	Q-%q:LC#B5	U"	i'	E	!i'	?!	Iy%t C#5	!C=QC=QC'IA	|/C!JbB[0m
-[0m[[31merror[0m] [0m   &!!7[0m
-[0m[[31merror[0m] [0m   1Y!%A1[0m
-[0m[[31merror[0m] [0m   abY8qs"WMZ1vYR$'F.U	)bfK0!	T'D2	4'Av]DWmY6fI*ACC:tw^1uS>tB2E)hn5fG.,GMV1sSt7-q	[0m
-[0m[[31merror[0m] [0m   "-9w]=%I4-7uIIBqA3(Aqe>$Wo;Qe4_yAQHQ})qQYtwMCBQM^1[0m
-[0m[[31merror[0m] [0m   s$AB*ue&twCFI$AxZ;di^="a%[0m
-[0m[[31merror[0m] [0m   %C!aA%oi"91[0m
-[0m[[31merror[0m] [0m   AA[0m
-[0m[[31merror[0m] [0m   aA9s_,8^#mK6,g+5CqA&q)AyIEBq+Aqe>$Wo;Ji^8s+cA*W+5	AKVQ1m7mK$n8[0m
-[0m[[31merror[0m] [0m   ]#&C%uKJGo:	e!C5A1-8FcVG\=BqX;"qAQ8pYgCO1	A	!C!CA.Y:i>$WFH!!AB^8TiJLgny!9aAA[0m
-[0m[[31merror[0m] [0m   :AB3rkd7\Q"9a*ZA)ra6E	a[fVmY8sI~e._!osB!			#n'agn	_J,R#Ia*CeVtG/[7f	OA	BEN$(/Y2uVt7^5p]JBQa7U$aG2	"eAH.!AfQ!9qYf$2!	>|r1Yr1iH.!Azq!8baBdF RaBAI1!a	y^5p]B)q!a+%Q+\33!	i`A	a=%a!I7%1CeGMU3t_24XAQ(a[0m
-[0m[[31merror[0m] [0m   eaHPE*,7' (AnyAnySpec.scala:21)[0m
-[0m[[31merror[0m] [0mExpected: ...\1[0m
-[0m[[31merror[0m] [0m...IA[0m
-[0m[[31merror[0m] [0m...!JbB[0m
-[0m[[31merror[0m] [0m...7[0m
-[0m[[31merror[0m] [0m...%A1[0m
-[0m[[31merror[0m] [0m...q	[0m
-[0m[[31merror[0m] [0m...QM^1[0m
-[0m[[31merror[0m] [0m..."a%[0m
-[0m[[31merror[0m] [0m...oi"91[0m
-[0m[[31merror[0m] [0mAA[0m
-[0m[[31merror[0m] [0m...$n8[0m
-[0m[[31merror[0m] [0m...aAA[0m
-[0m[[31merror[0m] [0m...E	a...G/[7f	OA	BEN$(/Y2uVt7^5p]JBQa...[0m
-[0m[[31merror[0m] [0m...dF[ ]Ra...[0m
-[0m[[31merror[0m] [0m...*,7[0m
-[0m[[31merror[0m] [0mActual:   ...\1[0m
-[0m[[31merror[0m] [0m...IA[0m
-[0m[[31merror[0m] [0m...!JbB[0m
-[0m[[31merror[0m] [0m...7[0m
-[0m[[31merror[0m] [0m...%A1[0m
-[0m[[31merror[0m] [0m...q	[0m
-[0m[[31merror[0m] [0m...QM^1[0m
-[0m[[31merror[0m] [0m..."a%[0m
-[0m[[31merror[0m] [0m...oi"91[0m
-[0m[[31merror[0m] [0mAA[0m
-[0m[[31merror[0m] [0m...$n8[0m
-[0m[[31merror[0m] [0m...aAA[0m
-[0m[[31merror[0m] [0m...E	a...G/[7f	OA	BEN$(/Y2uVt7^5p]JBQa...[0m
-[0m[[31merror[0m] [0m...dF[��]Ra...[0m
-[0m[[31merror[0m] [0m...*,7[0m
-[0m[[0minfo[0m] [0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification AnyAnySpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 4 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 1 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mFloatFloatFloatSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_FloatFloatFloat(e1: Float, e2: Float, e3: Float) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification FloatFloatFloatSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 0 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mByteByteByteByteByteSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_ByteByteByteByteByte(a1: Byte, a2: Byte, a3: Byte, a4: Byte, a5: Byte) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification ByteByteByteByteByteSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 1 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mNullNullSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_NullNull(k1: Null, k2: Null) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification NullNullSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 1 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mIteratorIteratorIteratorSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification IteratorIteratorIteratorSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 0 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m0 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mShortSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_Short(b: Short) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[33mx[0m have the correct string[0m[0m
-[0m[[31merror[0m] [0m   '%aBa"T=SK|'Z0TQ>HOCiwZ3mg1="a!Q!CgG.Y!a!8z%4CA	qBAQe>$Wo;BA		1VM]5bY&TM7f!A!f[0m
-[0m[[31merror[0m] [0m   !!2U"a[0m
-[0m[[31merror[0m] [0m   ]A!!B*i_J$C#B	"B	aAj]&$h?AaA!)1Ca+!9AA[0m
-[0m[[31merror[0m] [0m   B2paf$"!H	M!a+!9QAI[0m
-[0m[[31merror[0m] [0m   1AD2paf$C-4bk2$H%MO)QKSA!fLW)A&L[0m
-[0m[[31merror[0m] [0m   k:.Z2lKT!Atgn;bi&|g.1W		RO\2iK\W,be&gnY3	I!C!giO]8ek$K]3gSb,	kijAoa[0m
-[0m[[31merror[0m] [0m   A\1oO*	(kCZBA7FO]5oO"9QAA[0m
-[0m[[31merror[0m] [0m   q9s_,8^!sSRLX#A BA!	Ie		"E9(o3vGR,E.Z7f]R$"!%1BA$		e.[0m
-[0m[[31merror[0m] [0m   	1@AH%		"M=(o3vGRLE/:bi>X#A'9V)DP	"d_2dWm;j_:L!AU(%#XM]1u_JDqQ+dC:,/^1m)	1/&>|G.Z1oI5+!AACqaC,iCND7i3f)yb0%	eX	i>FO]5oOR	ACbI	2X/7t)	16CJA	A#!EMqQ**fG>HmX*i_J$Ch	!!!A	!2aZ5!QW.F-T!I,h^5nK&an[0m
-[0m[[31merror[0m] [0m   HO]1di+hn;j_:"Bh	H#4	y;!C#?"91oZA[0m
-[0m[[31merror[0m] [0m   #!B1qa2LHCAv"19x-!Abq!8baBdzyBqA_[0m
-[0m[[31merror[0m] [0m   mD!AB(qi&|gC~m	Aa$��OIBA-X-3SKN|GN^3cA%q='.Z2u'[0m
-[0m[[31merror[0m] [0m    is not equal to [0m
-[0m[[31merror[0m] [0m   '%aBa"T=SK|'Z0TQ>HOCiwZ3mg1="a!Q!CgG.Y!a!8z%4CA	qBAQe>$Wo;BA		1VM]5bY&TM7f!A!f[0m
-[0m[[31merror[0m] [0m   !!2U"a[0m
-[0m[[31merror[0m] [0m   ]A!!B*i_J$C#B	"B	aAj]&$h?AaA!)1Ca+!9AA[0m
-[0m[[31merror[0m] [0m   B2paf$"!H	M!a+!9QAI[0m
-[0m[[31merror[0m] [0m   1AD2paf$C-4bk2$H%MO)QKSA!fLW)A&L[0m
-[0m[[31merror[0m] [0m   k:.Z2lKT!Atgn;bi&|g.1W		RO\2iK\W,be&gnY3	I!C!giO]8ek$K]3gSb,	kijAoa[0m
-[0m[[31merror[0m] [0m   A\1oO*	(kCZBA7FO]5oO"9QAA[0m
-[0m[[31merror[0m] [0m   q9s_,8^!sSRLX#A BA!	Ie		"E9(o3vGR,E.Z7f]R$"!%1BA$		e.[0m
-[0m[[31merror[0m] [0m   	1@AH%		"M=(o3vGRLE/:bi>X#A'9V)DP	"d_2dWm;j_:L!AU(%#XM]1u_JDqQ+dC:,/^1m)	1/&>|G.Z1oI5+!AACqaC,iCND7i3f)yb0%	eX	i>FO]5oOR	ACbI	2X/7t)	16CJA	A#!EMqQ**fG>HmX*i_J$Ch	!!!A	!2aZ5!QW.F-T!I,h^5nK&an[0m
-[0m[[31merror[0m] [0m   HO]1di+hn;j_:"Bh	H#4	y;!C#?"91oZA[0m
-[0m[[31merror[0m] [0m   #!B1qa2LHCAv"19x-!Abq!8baBdzyBqA_[0m
-[0m[[31merror[0m] [0m   mD!AB(qi&|gC~m	Aa$ OIBA-X-3SKN|GN^3cA%q='.Z2u' (ShortSpec.scala:21)[0m
-[0m[[31merror[0m] [0mExpected: ...A!f[0m
-[0m[[31merror[0m] [0m..."a[0m
-[0m[[31merror[0m] [0m...AA[0m
-[0m[[31merror[0m] [0m...QAI[0m
-[0m[[31merror[0m] [0m...A&L[0m
-[0m[[31merror[0m] [0m...oa[0m
-[0m[[31merror[0m] [0m...QAA[0m
-[0m[[31merror[0m] [0m....[0m
-[0m[[31merror[0m] [0m...Cb[0m
-[0m[[31merror[0m] [0m...n[0m
-[0m[[31merror[0m] [0m...1oZA[0m
-[0m[[31merror[0m] [0m...qA_[0m
-[0m[[31merror[0m] [0m...$[ ]OI...[0m
-[0m[[31merror[0m] [0mActual:   ...A!f[0m
-[0m[[31merror[0m] [0m..."a[0m
-[0m[[31merror[0m] [0m...AA[0m
-[0m[[31merror[0m] [0m...QAI[0m
-[0m[[31merror[0m] [0m...A&L[0m
-[0m[[31merror[0m] [0m...oa[0m
-[0m[[31merror[0m] [0m...QAA[0m
-[0m[[31merror[0m] [0m....[0m
-[0m[[31merror[0m] [0m...Cb[0m
-[0m[[31merror[0m] [0m...n[0m
-[0m[[31merror[0m] [0m...1oZA[0m
-[0m[[31merror[0m] [0m...qA_[0m
-[0m[[31merror[0m] [0m...$[��]OI...[0m
-[0m[[0minfo[0m] [0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification ShortSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 1 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 1 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mBooleanBooleanBooleanSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_BooleanBooleanBoolean(i2: Boolean, i2: Boolean, i3: Boolean) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification BooleanBooleanBooleanSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 0 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mIntIntIntSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_IntIntInt(c1: Int, c2: Int, c3: Int) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification IntIntIntSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 1 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mBooleanBooleanSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_BooleanBoolean(i2: Boolean, i2: Boolean) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification BooleanBooleanSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 0 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mDoubleSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_Double(f: Double) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification DoubleSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 1 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mFloatFloatSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_FloatFloat(e1: Float, e2: Float) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification FloatFloatSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 0 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mOptionSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_Byte(a: Byte) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[33mx[0m have the correct string[0m[0m
-[0m[[31merror[0m] [0m   '%aBa"T=SK|'Z0TQ>HOCiwZ3mg1="a!Q!CgG.Y!a!8z%4CA	qBAQe>$Wo;BA		1VM]5bY&TM7f!A!f[0m
-[0m[[31merror[0m] [0m   !!2U"a[0m
-[0m[[31merror[0m] [0m   ]A!!B*i_J$C#B	"B	aAj]&$h?AaA!)1Ca+!9AA[0m
-[0m[[31merror[0m] [0m   B2paf$"!H	M!a+!9QAI[0m
-[0m[[31merror[0m] [0m   1AD2paf$C-4bk2$H%MO)QKSA!fLW)A&L[0m
-[0m[[31merror[0m] [0m   k:.Z2lKT!Atgn;bi&|g.1W		RO\2iK\W,be&gnY3	I!C!giO]8ek$K]3gSb,	kijAoa[0m
-[0m[[31merror[0m] [0m   A\1oO*	(kCZBA7FO]5oO"9QAA[0m
-[0m[[31merror[0m] [0m   q9s_,8^!sSRLX#A BA!	Ie		"E9(o3vGR,E.Z7f]R$"!%1BA$		e.[0m
-[0m[[31merror[0m] [0m   	1@AH%		"M=(o3vGRLE/:bi>X#A'9V)DP	"d_2dWm;j_:L!AU(%#XM]1u_JDqQ+dC:,/^1m)	1/&>|G.Z1oI5+!AACqaC,iCND7i3f)yb0%	eX	i>FO]5oOR	ACbI	2X/7t)	16CJA	A#!EMqQ**fG>HmX*i_J$Ch	!!!A	!2aZ5!QW.F-T!I,h^5nK&an[0m
-[0m[[31merror[0m] [0m   HO]1di+hn;j_:"Bh	H#4	y;!C#?"91oZA[0m
-[0m[[31merror[0m] [0m   #!B1qa2LHCAv"19x-!Abq!8baBdzyBqA_[0m
-[0m[[31merror[0m] [0m   mD!AB(qi&|gC~m	Aa$��OIBA-X-3SKN|GN^3cA%q='.Z2u'[0m
-[0m[[31merror[0m] [0m    is not equal to [0m
-[0m[[31merror[0m] [0m   '%aBa"T=SK|'Z0TQ>HOCiwZ3mg1="a!Q!CgG.Y!a!8z%4CA	qBAQe>$Wo;BA		1VM]5bY&TM7f!A!f[0m
-[0m[[31merror[0m] [0m   !!2U"a[0m
-[0m[[31merror[0m] [0m   ]A!!B*i_J$C#B	"B	aAj]&$h?AaA!)1Ca+!9AA[0m
-[0m[[31merror[0m] [0m   B2paf$"!H	M!a+!9QAI[0m
-[0m[[31merror[0m] [0m   1AD2paf$C-4bk2$H%MO)QKSA!fLW)A&L[0m
-[0m[[31merror[0m] [0m   k:.Z2lKT!Atgn;bi&|g.1W		RO\2iK\W,be&gnY3	I!C!giO]8ek$K]3gSb,	kijAoa[0m
-[0m[[31merror[0m] [0m   A\1oO*	(kCZBA7FO]5oO"9QAA[0m
-[0m[[31merror[0m] [0m   q9s_,8^!sSRLX#A BA!	Ie		"E9(o3vGR,E.Z7f]R$"!%1BA$		e.[0m
-[0m[[31merror[0m] [0m   	1@AH%		"M=(o3vGRLE/:bi>X#A'9V)DP	"d_2dWm;j_:L!AU(%#XM]1u_JDqQ+dC:,/^1m)	1/&>|G.Z1oI5+!AACqaC,iCND7i3f)yb0%	eX	i>FO]5oOR	ACbI	2X/7t)	16CJA	A#!EMqQ**fG>HmX*i_J$Ch	!!!A	!2aZ5!QW.F-T!I,h^5nK&an[0m
-[0m[[31merror[0m] [0m   HO]1di+hn;j_:"Bh	H#4	y;!C#?"91oZA[0m
-[0m[[31merror[0m] [0m   #!B1qa2LHCAv"19x-!Abq!8baBdzyBqA_[0m
-[0m[[31merror[0m] [0m   mD!AB(qi&|gC~m	Aa$ OIBA-X-3SKN|GN^3cA%q='.Z2u' (OptionSpec.scala:21)[0m
-[0m[[31merror[0m] [0mExpected: ...A!f[0m
-[0m[[31merror[0m] [0m..."a[0m
-[0m[[31merror[0m] [0m...AA[0m
-[0m[[31merror[0m] [0m...QAI[0m
-[0m[[31merror[0m] [0m...A&L[0m
-[0m[[31merror[0m] [0m...oa[0m
-[0m[[31merror[0m] [0m...QAA[0m
-[0m[[31merror[0m] [0m....[0m
-[0m[[31merror[0m] [0m...Cb[0m
-[0m[[31merror[0m] [0m...n[0m
-[0m[[31merror[0m] [0m...1oZA[0m
-[0m[[31merror[0m] [0m...qA_[0m
-[0m[[31merror[0m] [0m...$[ ]OI...[0m
-[0m[[31merror[0m] [0mActual:   ...A!f[0m
-[0m[[31merror[0m] [0m..."a[0m
-[0m[[31merror[0m] [0m...AA[0m
-[0m[[31merror[0m] [0m...QAI[0m
-[0m[[31merror[0m] [0m...A&L[0m
-[0m[[31merror[0m] [0m...oa[0m
-[0m[[31merror[0m] [0m...QAA[0m
-[0m[[31merror[0m] [0m....[0m
-[0m[[31merror[0m] [0m...Cb[0m
-[0m[[31merror[0m] [0m...n[0m
-[0m[[31merror[0m] [0m...1oZA[0m
-[0m[[31merror[0m] [0m...qA_[0m
-[0m[[31merror[0m] [0m...$[��]OI...[0m
-[0m[[0minfo[0m] [0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification OptionSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 0 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 1 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mByteByteByteByteSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_ByteByteByteByte(a1: Byte, a2: Byte, a3: Byte, a4: Byte) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[33mx[0m have the correct string[0m[0m
-[0m[[31merror[0m] [0m   'cB$T=SK|'Z0CsR,');ff$XMQ=uK*	1!n_,Gn]'aDQQ"%	Qa]2bYL!asPU3g!	9Q"	9K]8ek$CA		BTKJL\5{C[0m
-[0m[[31merror[0m] [0m   dW	U"		'F!	9a#	!!);f!IA!E!)aA12A!A1BKA#be!AQB	B%Q#AbeBb%	FCNB"	I!FCNC+I$C#B$C(&=S:LGOS-bSF	UiA'!7!?!G!a		"2w]=%4N	My!a+!91dI)bB0!!G=[0m
-[0m[[31merror[0m] [0m   19!%Aa[0m
-[0m[[31merror[0m] [0m   abY8qs"WMZ1vYR$'F:U	)"hK<!	a)D>	qt(Av]DWmY6fI*	CC:tw^1uS>tB">E)hn5fG.,GMV1sSt7-		[0m
-[0m[[31merror[0m] [0m   "99w]=%I4-7uIIBqA(d_BLHZ3gCVdGJ	!!Cqq1m9zI,g-Y;mi"b&%	eSaJ|G-^2u!J,g-=1"!*9S!a)	1gn#!!.<b	fJTiJLgn+		"W1(o3vGR%/;z+9CAY	IBAJ]RDqaA,qe>$Wo;FYlWM;uCA_	yBAB]fDq!.q+AyIEBqaC-Aqe>$Wo;Ji^8s+)c4j;6	qMiQ1m7mK$n8[0m
-[0m[[31merror[0m] [0m   )<'C%uKJGo:	1!C[A1-8FcVGocBqa\a"qAQ8pYgCbW	A/	M!C!iA.Y:i>$WFX1!!AB]^8TiJLgn"9AA[0m
-[0m[[31merror[0m] [0m   RAB3rkd7ow"9_AivaB?E	A`fVmY8sI~^3CsR,');ff$X+AAAA		a��y#CA)R#F*		9AC[0m
-[0m[[31merror[0m] [0m   !	qA];oi&lW-!!E!cgRm;Gk:G/[8oi!1qe C#!A m~	"x%	9b`A[0m
-[0m[[31merror[0m] [0m   I"AbaBdF*7	i"a"!11#!AUAaaGA)BBQ$+![0m
-[0m[[31merror[0m] [0m   Ky!CAO	q!8baBd*U#B,=bAA	1q[0m
-[0m[[31merror[0m] [0m   ;j_:raBA+U)R#C4!aV;qY$"CAG		1*AH[0m
-[0m[[31merror[0m] [0m   wy!C{	1B]3bIJ+7o7wKRq	bAA"[0m
-[0m[[31merror[0m] [0m   1qJ6fGR'[0m
-[0m[[31merror[0m] [0m    is not equal to [0m
-[0m[[31merror[0m] [0m   'cB$T=SK|'Z0CsR,');ff$XMQ=uK*	1!n_,Gn]'aDQQ"%	Qa]2bYL!asPU3g!	9Q"	9K]8ek$CA		BTKJL\5{C[0m
-[0m[[31merror[0m] [0m   dW	U"		'F!	9a#	!!);f!IA!E!)aA12A!A1BKA#be!AQB	B%Q#AbeBb%	FCNB"	I!FCNC+I$C#B$C(&=S:LGOS-bSF	UiA'!7!?!G!a		"2w]=%4N	My!a+!91dI)bB0!!G=[0m
-[0m[[31merror[0m] [0m   19!%Aa[0m
-[0m[[31merror[0m] [0m   abY8qs"WMZ1vYR$'F:U	)"hK<!	a)D>	qt(Av]DWmY6fI*	CC:tw^1uS>tB">E)hn5fG.,GMV1sSt7-		[0m
-[0m[[31merror[0m] [0m   "99w]=%I4-7uIIBqA(d_BLHZ3gCVdGJ	!!Cqq1m9zI,g-Y;mi"b&%	eSaJ|G-^2u!J,g-=1"!*9S!a)	1gn#!!.<b	fJTiJLgn+		"W1(o3vGR%/;z+9CAY	IBAJ]RDqaA,qe>$Wo;FYlWM;uCA_	yBAB]fDq!.q+AyIEBqaC-Aqe>$Wo;Ji^8s+)c4j;6	qMiQ1m7mK$n8[0m
-[0m[[31merror[0m] [0m   )<'C%uKJGo:	1!C[A1-8FcVGocBqa\a"qAQ8pYgCbW	A/	M!C!iA.Y:i>$WFX1!!AB]^8TiJLgn"9AA[0m
-[0m[[31merror[0m] [0m   RAB3rkd7ow"9_AivaB?E	A`fVmY8sI~^3CsR,');ff$X+AAAA		a y#CA)R#F*		9AC[0m
-[0m[[31merror[0m] [0m   !	qA];oi&lW-!!E!cgRm;Gk:G/[8oi!1qe C#!A m~	"x%	9b`A[0m
-[0m[[31merror[0m] [0m   I"AbaBdF*7	i"a"!11#!AUAaaGA)BBQ$+![0m
-[0m[[31merror[0m] [0m   Ky!CAO	q!8baBd*U#B,=bAA	1q[0m
-[0m[[31merror[0m] [0m   ;j_:raBA+U)R#C4!aV;qY$"CAG		1*AH[0m
-[0m[[31merror[0m] [0m   wy!C{	1B]3bIJ+7o7wKRq	bAA"[0m
-[0m[[31merror[0m] [0m   1qJ6fGR' (ByteByteByteByteSpec.scala:25)[0m
-[0m[[31merror[0m] [0mExpected: ...\5{C[0m
-[0m[[31merror[0m] [0m...7[0m
-[0m[[31merror[0m] [0m...G=[0m
-[0m[[31merror[0m] [0m...%Aa[0m
-[0m[[31merror[0m] [0m...		[0m
-[0m[[31merror[0m] [0m...J]RDq[0m
-[0m[[31merror[0m] [0m...$n8[0m
-[0m[[31merror[0m] [0m...!C[A1-8FcVGocBqa\a"qAQ8pYgCbW	A/	M!C!iA.Y:i>$WFX1!!AB]^8...[0m
-[0m[[31merror[0m] [0m...		a[ ]y#...[0m
-[0m[[31merror[0m] [0m[!	qA];o...G/8oi!1...[0m
-[0m[[31merror[0m] [0m...![0m
-[0m[[31merror[0m] [0m...	1q[0m
-[0m[[31merror[0m] [0m...AH[0m
-[0m[[31merror[0m] [0m...bAA"[0m
-[0m[[31merror[0m] [0m...6fGR[0m
-[0m[[31merror[0m] [0mActual:   ...\5{C[0m
-[0m[[31merror[0m] [0m...7[0m
-[0m[[31merror[0m] [0m...G=[0m
-[0m[[31merror[0m] [0m...%Aa[0m
-[0m[[31merror[0m] [0m...		[0m
-[0m[[31merror[0m] [0m...J]RDq[0m
-[0m[[31merror[0m] [0m...$n8[0m
-[0m[[31merror[0m] [0m...!C[A1-8FcVGocBqa\a"qAQ8pYgCbW	A/	M!C!iA.Y:i>$WFX1!!AB]^8...[0m
-[0m[[31merror[0m] [0m...		a[��]y#...[0m
-[0m[[31merror[0m] [0m[!	qA];o...G/8oi!1...[0m
-[0m[[31merror[0m] [0m...![0m
-[0m[[31merror[0m] [0m...	1q[0m
-[0m[[31merror[0m] [0m...AH[0m
-[0m[[31merror[0m] [0m...bAA"[0m
-[0m[[31merror[0m] [0m...6fGR[0m
-[0m[[0minfo[0m] [0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification ByteByteByteByteSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 1 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 1 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mDoubleDoubleSpec[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_DoubleDouble(f1: Double, f2: Double) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification DoubleDoubleSpec[0m
-[0m[[0minfo[0m] [0m[34mFinished in 0 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[0minfo[0m] [0mLongSpecLong[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37ma ScalaSig for case class MyRecord_LongLong(d1: Long, d2: Long) should[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[32m+[0m have the correct string[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0m[37m[0m[0m
-[0m[[0minfo[0m] [0m[37m[0mTotal for specification LongSpecLong[0m
-[0m[[0minfo[0m] [0m[34mFinished in 0 ms[0m[0m
-[0m[[0minfo[0m] [0m[34m[0m[34m1 example, 0 failure, 0 error[0m[0m
-[0m[[31merror[0m] [0mFailed: Total 50, Failed 10, Errors 0, Passed 40[0m
-[0m[[31merror[0m] [0mFailed tests:[0m
-[0m[[31merror[0m] [0m	avocet.AnyAnySpec[0m
-[0m[[31merror[0m] [0m	avocet.IntSpec[0m
-[0m[[31merror[0m] [0m	avocet.AnySpec[0m
-[0m[[31merror[0m] [0m	avocet.ByteByteByteByteSpec[0m
-[0m[[31merror[0m] [0m	avocet.OptionSpec[0m
-[0m[[31merror[0m] [0m	avocet.StringStringSpec[0m
-[0m[[31merror[0m] [0m	avocet.NothingNothingSpec[0m
-[0m[[31merror[0m] [0m	avocet.ShortSpec[0m
-[0m[[31merror[0m] [0m	avocet.FloatSpec[0m
-[0m[[31merror[0m] [0m	avocet.StringIntBooleanSpec[0m
-[0m[[31merror[0m] [0m(test:[31mtest[0m) sbt.TestsFailedException: Tests unsuccessful[0m
-[0m[[31merror[0m] [0mTotal time: 24 s, completed Oct 7, 2013 4:28:05 PM[0m
+[0m[[0minfo[0m] [0mPassed: Total 1, Failed 0, Errors 0, Passed 1[0m
+[0m[[32msuccess[0m] [0mTotal time: 23 s, completed Oct 14, 2013 5:07:40 PM[0m

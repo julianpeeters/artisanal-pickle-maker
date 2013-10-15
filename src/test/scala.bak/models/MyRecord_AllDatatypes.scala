@@ -77,10 +77,27 @@ case class MyRecord_AnyRefAnyRefAnyRef(n1: AnyRef, n2: AnyRef, n3: AnyRef)
 
 case class MyRecord_ObjectObjectObject(o1: Object, o2:Object, o3: Object)
 
-case class MyRecord_StringIntBoolean(x: String, y: Int, z: Boolean)
 
 //quadruple value member
 case class MyRecord_ByteByteByteByte(a1: Byte, a2: Byte, a3: Byte, a4: Byte)
+case class MyRecord_ShortShortShortShort(b1: Short, b2: Short, b3: Short, b4: Short)
+case class MyRecord_IntIntIntInt(c1: Int, c2: Int, c3: Int, c4: Int)
+case class MyRecord_LongLongLongLong(d1: Long, d2: Long, d3: Long, d4: Long)
+case class MyRecord_FloatFloatFloatFloat(e1: Float, e2: Float, e3: Float, e4: Float)
+case class MyRecord_DoubleDoubleDoubleDouble(f1: Double, f2: Double, f3: Double, f4: Double)
+case class MyRecord_CharCharCharChar(g1: Char, g2: Char, g3: Char, g4: Char)
+case class MyRecord_StringStringStringString(h1: String, h2: String, h3: String, h4: String)
+case class MyRecord_BooleanBooleanBooleanBoolean(i1: Boolean, i2: Boolean, i3: Boolean, i4: Boolean)
+case class MyRecord_UnitUnitUnitUnit(j1: Unit, j2: Unit, j3: Unit, j4: Unit)
+case class MyRecord_NullNullNullNull(k1: Null, k2: Null, k3: Null, k4: Null)
+case class MyRecord_NothingNothingNothingNothing(l1: Nothing, l2: Nothing, l3: Nothing, l4: Nothing)
+case class MyRecord_AnyAnyAnyAny(m1: Any, m2: Any, m3: Any)
+case class MyRecord_AnyRefAnyRefAnyRefAnyRef(n1: AnyRef, n2: AnyRef, n3: AnyRef, n4: AnyRef)
+
+case class MyRecord_ObjectObjectObjectObject(o1: Object, o2:Object, o3: Object, o4:Object)
+
+case class MyRecord_StringIntBoolean(x: String, y: Int, z: Boolean)
+
 
 //quintuple value member
 case class MyRecord_ByteByteByteByteByte(a1: Byte, a2: Byte, a3: Byte, a4: Byte, a5: Byte)

@@ -9,14 +9,14 @@ import mutable._
 import specification._
 
 class CharCharCharSpec extends mutable.Specification {
-  val mySig = new ScalaSig(List("case class"), List("models", "MyRecord_CharCharChar"), List(("g1", "Char"), ("g2", "Char"), ("g3", "Char")))
+  val mySig = new ScalaSig(List("case class"), List("models", "MyRecord_CharCharCharChar"), List(("g1", "Char"), ("g2", "Char"), ("g3", "Char"), ("g4", "Char")))
   val correctSig: String = {
-    val scalaSigAnnot = classOf[MyRecord_CharCharChar].getAnnotation(classOf[scala.reflect.ScalaSignature])
+    val scalaSigAnnot = classOf[MyRecord_CharCharCharChar].getAnnotation(classOf[scala.reflect.ScalaSignature])
     val encodedBytes  = scalaSigAnnot.bytes
     encodedBytes
   }
 
-  "a ScalaSig for case class MyRecord_CharCharChar(g1: Char, g2: Char, g3: Char)" should {
+  "a ScalaSig for case class MyRecord_CharCharCharChar(g1: Char, g2: Char, g3: Char, g4: Char)" should {
     "have the correct string" in {
       mySig.bytes === correctSig
     }
