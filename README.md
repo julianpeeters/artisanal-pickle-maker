@@ -16,10 +16,11 @@ Not yet published anywhere, sorry. You'll have to do `sbt publish-local` to try 
 
   _Datatypes_ - All basic Scala datatypes (but see the note below on pickling)
 
-  _Scala Version_ - Reproduces a Scala 2.10.2 signature byte-for-byte. May serve as a signature for Scala 2.9.1 depending on how you need to use it, but be warned: some of the signature for a given class does indeed differ between versions.
+  _Scala Version_ - Reproduces a Scala 2.10.2 signature byte-for-byte.
+
+( May serve as a signature for Scala 2.9.1 depending on how you need to use it, but be warned: some of the signature for a given class does indeed differ between versions.)
 
 ##In the future:##
-  _Pickling_ - Artisinal-Pickle-Maker only generates an unpickled signature, and despite being able to generate the unpickled signature byte-for-byte, pickling succeeds on classes of only a couple fields and only of types Int String and Boolean. Thus this encoding bug needs to be fixed, allowing the number of fields to be increased to the 22-field max for case classes.
 
   _Datatypes_ - Collections, custom classes.
 
