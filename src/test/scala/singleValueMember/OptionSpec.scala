@@ -14,6 +14,7 @@ import scala.reflect.ScalaSignature
 
 
 class OptionSpec extends mutable.Specification {
+/*
   val mySig = new ScalaSig(List("case class"), List("models", "MyRecord_Short"), List(("b", "Short")))
   def parseByteCodeFromAnnotation(clazz: Class[_]): Option[ByteCode] = {
     clazz.annotation[ScalaSignature] match {
@@ -26,19 +27,19 @@ class OptionSpec extends mutable.Specification {
     }
   }
 
-  def parseByteCodeFromMySig(sig: ScalaSig): ByteCode = {
+  def parseByteCodeFromMySig(sig: ScalaSig): Option[ByteCode] = {
     val bytes = sig.bytes.getBytes("UTF-8")
     val len = ByteCodecs.decode(bytes)
-    ByteCode(bytes.take(len))   
+    Option(ByteCode(bytes.take(len)))   
   }
 
   "a ScalaSig for case class MyRecord_Byte(a: Byte)" should {
     "have the correct string" in {
-    val correctParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_Int]).map(ScalaSigAttributeParsers.parse(_)).get
-    val myParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_Int]).map(ScalaSigAttributeParsers.parse(_)).get
+    val correctParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_Option]).map(ScalaSigAttributeParsers.parse(_)).get
+    val myParsedSig = parseByteCodeFromMySig(mySig).map(ScalaSigAttributeParsers.parse(_)).get
  
     correctParsedSig.toString === myParsedSig.toString
     }
   }
-
+*/
 }

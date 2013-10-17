@@ -8,12 +8,12 @@ import types._
 
 
 class ModuleMethods(sigResources: SigResources, valueMembers: List[ValueMember], initMethod: Init, toStringMethod: ToString) {
-  val initMethod_Module = Init_Module(sigResources, initMethod)//, sigResources.typeRefTpes.moduleClass)
+  val initMethod_Module = Init_Module(sigResources, initMethod)
 
   val toStringMethod_Module = ToString_Module(sigResources, valueMembers, toStringMethod)
   val applyMethod = Apply(sigResources, valueMembers, initMethod)
-  val UnapplyMethod = Unapply(sigResources, valueMembers, initMethod)//myPickleBuffer, valueMembers, initMethod, thisTpes_scala, typeRefTpes_option, extModClassRefs_scala)
-  val readResolveMethod = ReadResolve(sigResources)//, typeRefTpes_obj, typeRefTpes_objectReadResolve)
+  val UnapplyMethod = Unapply(sigResources, valueMembers, initMethod)
+  val readResolveMethod = ReadResolve(sigResources)
 }
 
 

@@ -25,17 +25,17 @@ class ObjectSpec extends mutable.Specification {
     }
   }
 
-  def parseByteCodeFromMySig(sig: ScalaSig): ByteCode = {
+  def parseByteCodeFromMySig(sig: ScalaSig): Option[ByteCode] = {
     val bytes = sig.bytes.getBytes("UTF-8")
     val len = ByteCodecs.decode(bytes)
-    ByteCode(bytes.take(len))   
+    Option(ByteCode(bytes.take(len)))
   }
 
             
   "a ScalaSig for case class MyRecord_Object(o: Object)" should {
     "have the correct string" in {
-    val correctParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_Int]).map(ScalaSigAttributeParsers.parse(_)).get
-    val myParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_Int]).map(ScalaSigAttributeParsers.parse(_)).get
+    val correctParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_Object]).map(ScalaSigAttributeParsers.parse(_)).get
+    val myParsedSig = parseByteCodeFromMySig(mySig).map(ScalaSigAttributeParsers.parse(_)).get
  
     correctParsedSig.toString === myParsedSig.toString
     }

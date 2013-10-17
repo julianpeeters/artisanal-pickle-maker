@@ -8,7 +8,6 @@ import types._
 import scala.reflect.internal.pickling._
 
 case class ReadResolve(sigResources: SigResources) {
-//myPickleBuffer: PickleBuffer, Object: TypeRefTpe_Object, ObjectReadResolve: TypeRefTpe_ObjectReadResolve){
   val valSymPosition = Position.current
   ValSym(Position.current + 1, ClassSym_Module.position, 2097668L, Position.current + 2).write(sigResources.myPickleBuffer)
   TermName("readResolve").write(sigResources.myPickleBuffer)
