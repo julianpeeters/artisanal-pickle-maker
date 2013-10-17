@@ -23,7 +23,6 @@ case class MyRecord_AllDatatypes(
 case class MyRecord_Byte(a: Byte)
 case class MyRecord_Short(b: Short)
 case class MyRecord_Int(c: Int)
-case class MyRecord(c: Int)
 case class MyRecord_I(c: Int)
 case class MyRecord_In(c: Int)
 case class MyRecord_Ins(c: Int)
