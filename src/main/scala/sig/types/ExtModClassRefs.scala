@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package avocet
+package artisinal.pickle.maker
 import methods.cls._
 import methods.module._
 import scala.reflect.internal.pickling._

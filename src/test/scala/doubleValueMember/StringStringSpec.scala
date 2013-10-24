@@ -1,4 +1,4 @@
-package avocet 
+package artisinal.pickle.maker 
 import models._
 
 import org.specs2._

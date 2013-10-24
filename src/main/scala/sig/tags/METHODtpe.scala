@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package avocet
+package artisinal.pickle.maker
 package tags
 import scala.reflect.internal.pickling._
 
