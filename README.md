@@ -7,10 +7,21 @@ Takes class info as strings and gives back a pickled Scala signatures. For use w
 
 Why? Because existing Java bytecode-engineering tools can't see or alter a pickled Scala signature, thus the altered classes are incomplete in cases where Scala code has no Java equivalent. Artisinal-Pickle-Maker hopes to solve this by updating an altered class's Scala signtature to reflect changes made to the bytecode.
 
-Not yet published anywhere, sorry. You'll have to do `sbt publish-local` to try it out.
+##Usage:##
+Add the following dependency to your `build.sbt` file:
+`libraryDependencies += "com.julianpeeters" %% "artisinal-pickle-maker" % "0.3-SNAPSHOT"`
+
+Get an `artisinal.pickle.maker.ScalaSig` with:  
+`val scalaSig = new ScalaSig(List("case class"), List("models", "MyRecord"), List(("x", "String"), ("y", "Int"))`
+
+`scalaSig.bytes` gives the encoded bytes as a UTF-8 String. This is the normal storage format of a natural pickled Scala signature.
+
+Thus, `scalaSig.bytes` generates a ScalaSig identical to one that of: 
+'package models
+case class MyRecord(x: String, y: Int)'
 
 ##Currently supports:##
-  _Potential Use Cases_ - Generating Scala Classes with ASM? Have an ASMified class template? Pickle your desired signtature and add it to the class generator template. 
+  _Potential Use Cases_ - Are you generating Scala Classes with ASM? Do you have an ASMified class template? Then add desired and make your class whole!
 
   _Classes_ - The generation of Scala sigs for regular and case classes *that have value members only* (signatures will not reflect user-defined defs, i.e., this doesn't yet support classes with defs!).
 
@@ -22,15 +33,13 @@ Not yet published anywhere, sorry. You'll have to do `sbt publish-local` to try 
 
 ##In the future:##
 
-  _Datatypes_ - Collections, custom classes.
+  _Datatypes_ - Support for collections, custom classes.
 
   _Method Members_ - Support for user defined defs(?).
 
   _Classes_ - Support for flags other than "case class"(?).
 
   _Integration_ - Javassist(?), ASM for dynamic case class generation.
-
-  _Documentation_ - Better examples.
 
 
 ####PS#### I'm relatively new at all this, so any constructive advice is appreciated!
