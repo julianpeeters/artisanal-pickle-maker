@@ -9,16 +9,16 @@ Why? Because existing Java bytecode-engineering tools can't see or alter a pickl
 
 ##Usage:##
 Add the following dependency to your `build.sbt` file:
-`libraryDependencies += "com.julianpeeters" %% "artisinal-pickle-maker" % "0.3-SNAPSHOT"`
+`libraryDependencies += "com.julianpeeters" %% "artisinal-pickle-maker" % "0.3"`
 
 Get an `artisinal.pickle.maker.ScalaSig` with:  
 `val scalaSig = new ScalaSig(List("case class"), List("models", "MyRecord"), List(("x", "String"), ("y", "Int"))`
 
 `scalaSig.bytes` gives the encoded bytes as a UTF-8 String. This is the normal storage format of a natural pickled Scala signature.
 
-Thus, `scalaSig.bytes` generates a ScalaSig identical to one that of: 
-'package models
-case class MyRecord(x: String, y: Int)'
+Thus, `scalaSig.bytes` is identical to the encoded string that would be found in the `ScalaSignature` annotation of the conventionally defined class:
+        package models
+        case class MyRecord(x: String, y: Int)
 
 ##Currently supports:##
   _Potential Use Cases_ - Are you generating Scala Classes with ASM? Do you have an ASMified class template? Then add desired and make your class whole!

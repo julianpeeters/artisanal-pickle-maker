@@ -3,7 +3,7 @@ import Keys._
 
 name := "artisinal-pickle-maker"
 
-version := "0.3-SNAPSHOT"
+version := "0.3"
 
 organization := "com.julianpeeters"
 
@@ -16,6 +16,7 @@ libraryDependencies ++= Seq(
 )
 
 publishMavenStyle := true
+
 
 publishArtifact in Test := false
 
