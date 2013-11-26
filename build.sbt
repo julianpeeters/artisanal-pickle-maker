@@ -3,20 +3,19 @@ import Keys._
 
 name := "artisinal-pickle-maker"
 
-version := "0.3"
+version := "0.5"
 
 organization := "com.julianpeeters"
 
-scalaVersion := "2.10.2"
+scalaVersion := "2.10.3"
 
 libraryDependencies ++= Seq( 
   "org.specs2" %% "specs2" % "2.2" % "test",
-  "com.novus" %% "salat" % "1.9.4" % "test",
+  "com.novus" %% "salat" % "1.9.3",// % "test",
   "org.scala-lang" % "scala-compiler" % "2.10.2"
 )
 
 publishMavenStyle := true
-
 
 publishArtifact in Test := false
 
@@ -46,6 +45,3 @@ pomExtra := (
           <url>http://github.com/julianpeeters</url>
         </developer>
       </developers>)
-
-
-   

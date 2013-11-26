@@ -86,6 +86,8 @@ import scala.reflect.internal.pickling._
     case "Iterator" => writeTpe(typeRefTpes.iterator) 
    // case "List" => writeTpe(TypeRefTpe_List) 
    // case "Stream" => writeTpe(TypeRefTpe_Stream) 
+    //user-defined
+    case _          => error("unsupported type")
   }
 
   ValSym(Position.current + 1, ClassSym.position, 554172420L, typeRefPosition).write(myPickleBuffer)

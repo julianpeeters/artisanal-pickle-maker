@@ -15,7 +15,7 @@
  */
 package artisinal.pickle.maker
 
-//import models._
+import models._
 import methods.cls._
 import methods.module._
 import scala.reflect.internal.pickling._
@@ -25,14 +25,14 @@ import java.io.{PrintStream, File}
 
 //import scala.tools.scalap.scalax.rules.scalasig._
 
-//import com.novus.salat.annotations.util._ //using Salat's method for getting a sig simply to ensure this works with Salat
+import com.novus.salat.annotations.util._ //using Salat's method for getting a sig simply to ensure this works with Salat
 import scala.reflect.ScalaSignature
 
-case class MyRecord(x: String, y: Int, z: Boolean)
+//case class MyRecord(x: String, y: Int, z: Boolean)
 //for debug purposes
 object ArtisinalPickleMaker extends App {
-/*
-  val mySig = new ScalaSig(List("case class"), List("models", "MyRecord"), List(("x", "String"), ("y", "Int"), ("z", "Boolean")))
+
+  val mySig = new ScalaSig(List("case class"), List("models", "MyRecord"), List(("myRec", "MyRecord")))
 
   val clz = classOf[MyRecord]
 
@@ -105,5 +105,5 @@ object ArtisinalPickleMaker extends App {
 
  // ShowPickled.printFile(myPickleBuffer, myPs)
 
-*/
+
 }
