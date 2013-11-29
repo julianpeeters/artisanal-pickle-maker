@@ -9,7 +9,7 @@ Why? Because existing Java bytecode-engineering tools can't see or alter a pickl
 
 ##Usage:##
 Add the following dependency to your `build.sbt` file:
-`libraryDependencies += "com.julianpeeters" %% "artisinal-pickle-maker" % "0.3"`
+`libraryDependencies += "com.julianpeeters" %% "artisinal-pickle-maker" % "0.5"`
 
 Get an `artisinal.pickle.maker.ScalaSig` with:  
 `val scalaSig = new ScalaSig(List("case class"), List("models", "MyRecord"), List(("x", "String"), ("y", "Int"))`
