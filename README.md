@@ -21,19 +21,19 @@ Thus, `scalaSig.bytes` is identical to the encoded string that would be found in
         case class MyRecord(x: String, y: Int)
 
 ##Currently supports:##
-  _Potential Use Cases_ - Are you generating Scala Classes with ASM? Do you have an ASMified class template? Then add desired and make your class whole!
+  Are you generating or modifying Scala classes with ASM or another bytecode engineering library? Then add an updated pickled sig and make your class whole!
 
   _Classes_ - The generation of Scala sigs for regular and case classes *that have value members only* (signatures will not reflect user-defined defs, i.e., this doesn't yet support classes with defs!).
 
   _Datatypes_ - All basic Scala datatypes (but see the note below on pickling)
 
-  _Scala Version_ - Reproduces a Scala 2.10.2 signature byte-for-byte.
+  _Scala Version_ - Reproduces a Scala 2.10.2 and 2.10.3 signature byte-for-byte.
 
 ( May serve as a signature for Scala 2.9.1 depending on how you need to use it, but be warned: some of the signature for a given class does indeed differ between versions.)
 
 ##In the future:##
 
-  _Datatypes_ - Support for collections, custom classes.
+  _Datatypes_ - Support for collections.
 
   _Method Members_ - Support for user defined defs(?).
 
