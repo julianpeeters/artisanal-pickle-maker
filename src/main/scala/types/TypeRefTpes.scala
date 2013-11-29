@@ -52,11 +52,12 @@ class TypeRefTpes(thisTpes: ThisTpes, extModClassRefs: ExtModClassRefs) {
   val stream = TypeRefTpe_Stream(extModClassRefs.scala)
   val list = TypeRefTpe_List(extModClassRefs.scala)
 
-//module class
+//this class
+  val modelsMyRecord = TypeRefTpe_modelsMyRecord(thisTpes.owner)
   val moduleClass = TypeRefTpe_moduleClass(thisTpes.owner)
 
-//custom classes
-  val modelsMyRecord = TypeRefTpe_modelsMyRecord()
+//user-defined classes
+  def userDefined(x: String) = TypeRefTpe_userDefined(x, thisTpes.owner, extModClassRefs )
 
 //misc
   val noneSym = NoneSym()

@@ -44,7 +44,7 @@ case class Init(sigResources: SigResources, valueMembers: List[ValueMember]) {
       }
       case i: Int => { // is already defined, so won't need to be defined next
         MethodTpe(List(Position.current + 1, Position.current + 2)).write(sigResources.myPickleBuffer); 
-        sigResources.typeRefTpes.modelsMyRecord.write(sigResources.myPickleBuffer) 
+        sigResources.typeRefTpes.modelsMyRecord.write(sigResources.myPickleBuffer)
       }
     } 
 

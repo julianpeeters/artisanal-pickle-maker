@@ -72,21 +72,22 @@ import scala.reflect.internal.pickling._
     case "Long" => writeTpe(typeRefTpes.long) 
     case "Float" => writeTpe(typeRefTpes.float) 
     case "Double" => writeTpe(typeRefTpes.double)
-    case "Char" => writeTpe(typeRefTpes.char)
-    case "String" => writeTpe(typeRefTpes.string) 
-    case "Boolean" => writeTpe(typeRefTpes.boolean) 
-    case "Unit" => writeTpe(typeRefTpes.unit) 
-    case "Null" => writeTpe(typeRefTpes.nul) 
-    case "Nothing" => writeTpe(typeRefTpes.nothing) 
-    case "Any" => writeTpe(typeRefTpes.any) 
-    case "AnyRef" => writeTpe(typeRefTpes.anyRef)
-    case "Object" => writeTpe(typeRefTpes.obj) 
+    case "Char"     => writeTpe(typeRefTpes.char)
+    case "String"   => writeTpe(typeRefTpes.string) 
+    case "Boolean"  => writeTpe(typeRefTpes.boolean) 
+    case "Unit"     => writeTpe(typeRefTpes.unit) 
+    case "Null"     => writeTpe(typeRefTpes.nul) 
+    case "Nothing"  => writeTpe(typeRefTpes.nothing) 
+    case "Any"      => writeTpe(typeRefTpes.any) 
+    case "AnyRef"   => writeTpe(typeRefTpes.anyRef)
+    case "Object"   => writeTpe(typeRefTpes.obj) 
     //generics
-    case "Option" => writeTpe(typeRefTpes.option) 
+    case "Option"   => writeTpe(typeRefTpes.option) 
     case "Iterator" => writeTpe(typeRefTpes.iterator) 
-   // case "List" => writeTpe(TypeRefTpe_List) 
+   // case "List"   => writeTpe(TypeRefTpe_List) 
    // case "Stream" => writeTpe(TypeRefTpe_Stream) 
     //user-defined
+    case x: String  => {println("value members found a user defined type " + x);writeTpe(typeRefTpes.userDefined(x))}
     case _          => error("unsupported type")
   }
 

@@ -19,6 +19,10 @@ case class MyRecord_AllDatatypes(
   n: Byte,
   o: Object)
 
+//user-defined
+case class MyRec(x: String)
+case class MyRecord_User(myRec: MyRec)
+
 //single value member
 case class MyRecord_Byte(a: Byte)
 case class MyRecord_Short(b: Short)
