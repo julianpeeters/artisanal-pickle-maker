@@ -19,6 +19,8 @@ import tags._
 import scala.reflect.internal.pickling._
 
 case class TypeRefTpe_String(thisTpe_scala: ThisTpe_scala, scala: ExtModClassRef_scala, predef: ExtModClassRef_predef) extends Tpe {
+
+
   var position = 0
   var polyTpePosition = 0
   var typeNamePosition = 0
@@ -34,4 +36,5 @@ case class TypeRefTpe_String(thisTpe_scala: ThisTpe_scala, scala: ExtModClassRef
     TypeName("String").write(myPickleBuffer)
     predef.write(myPickleBuffer, scala)
   }
+
 }

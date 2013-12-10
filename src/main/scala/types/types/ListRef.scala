@@ -18,23 +18,34 @@ package types
 import tags._
 import scala.reflect.internal.pickling._
 
-case class TypeRefTpe_List( scala: ExtModClassRef_scala) extends Tpe {
+
+//case class TypeRefTpe_List(noSymbol: NoneSym, scala: ExtModClassRef_scala) extends Tpe{
+case class TypeRefTpe_List(noSymbol: NoneSym, scala: ExtModClassRef_scala, thisTpe_scala: ThisTpe_scala, predef: ExtModClassRef_predef, types: TypeRefTpes) extends Tpe{
   var position = 0
   var polyTpePosition = 0
   var annotPos = 0
+  var typeNamePosition = 0
   def write(myPickleBuffer: PickleBuffer) = {
     position = Position.current
-    TypeRefTpe_generic(Position.current + 1, Position.current + 9, Position.current + 12) 
-    SingleTpe(Position.current + 1, Position.current + 6)
-    SingleTpe(Position.current + 1, Position.current + 4)
-    val thisTpe_root = ThisTpe_root
-    ExtModClassRef_root
-    TermName("<root>")
-    ExtRef_topLevel(9)
-    ExtRef_nested(Position.current + 1, scala.position)
-    TermName("package")
-    ExtRef_nested(Position.current + 1, Position.current + 2)
-    TypeName("List")
-    new ExtModClassRef_nested(Position.current - 3, scala.position)
+
+    TypeRefTpe_generic(Position.current + 1, Position.current + 9, Position.current + 12) .writeEntry(myPickleBuffer)
+    SingleTpe(Position.current + 1, Position.current + 6).write(myPickleBuffer)
+    SingleTpe(Position.current + 1, Position.current + 4).write(myPickleBuffer)
+    val thisTpe_root = ThisTpe_root()
+    thisTpe_root.write(myPickleBuffer)
+    ExtModClassRef_root.write(myPickleBuffer, noSymbol)
+    TermName("<root>").write(myPickleBuffer)
+    ExtRef_topLevel(9).write(myPickleBuffer)
+    ExtRef_nested(Position.current + 1, scala.position).write(myPickleBuffer)
+    TermName("package").write(myPickleBuffer)
+    ExtRef_nested(Position.current + 1, Position.current + 2).write(myPickleBuffer)
+    TypeName("List").write(myPickleBuffer)
+    new ExtModClassRef_nested(Position.current - 3, scala.position).write(myPickleBuffer)
+
+
+
+    types.string.write(myPickleBuffer)
+
+
   }
 }

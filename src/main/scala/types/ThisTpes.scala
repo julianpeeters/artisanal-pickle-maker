@@ -28,4 +28,6 @@ class ThisTpes {
   val javaLang = ThisTpe_javaLang()
   val collection = ThisTpe_collection()
   val runtime = ThisTpe_runtime()
+  val root = ThisTpe_root()
+  val noSymbol = ThisTpe_noSymbol()
 }

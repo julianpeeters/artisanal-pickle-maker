@@ -17,15 +17,16 @@ package artisinal.pickle.maker
 package tags
 import scala.reflect.internal.pickling._
 
-case class ThisTpe_scala      extends ThisTpe//(Position.current + 1)
-case class ThisTpe_package    extends ThisTpe//(Position.current + 1)
-case class ThisTpe_lang       extends ThisTpe//(Position.current + 1)
-case class ThisTpe_javaLang   extends ThisTpe//(Position.current + 1)
-case class ThisTpe_root       extends ThisTpe//(Position.current + 1) 
-case class ThisTpe_unchecked  extends ThisTpe//(Position.current + 1)
-case class ThisTpe_collection extends ThisTpe//(Position.current + 1)
-case class ThisTpe_runtime    extends ThisTpe//(Position.current + 1) 
-case class ThisTpe_owner      extends ThisTpe_owner_//(ExtModClassRef_owner.position)
+case class ThisTpe_scala      extends ThisTpe
+case class ThisTpe_package    extends ThisTpe
+case class ThisTpe_lang       extends ThisTpe
+case class ThisTpe_javaLang   extends ThisTpe
+case class ThisTpe_root       extends ThisTpe
+case class ThisTpe_noSymbol   extends ThisTpe
+case class ThisTpe_unchecked  extends ThisTpe
+case class ThisTpe_collection extends ThisTpe
+case class ThisTpe_runtime    extends ThisTpe 
+case class ThisTpe_owner      extends ThisTpe_owner_
 
 class ThisTpe {
   var position = 0

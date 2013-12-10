@@ -38,6 +38,10 @@ class TypeRefTpes(thisTpes: ThisTpes, extModClassRefs: ExtModClassRefs) {
   val any = TypeRefTpe_Any(thisTpes.scala, extModClassRefs.scala)
   val anyRef = TypeRefTpe_AnyRef(thisTpes.scala, extModClassRefs.scala)
 
+//misc
+  val noneSym = NoneSym()
+  val annotInfo = AnnotInfo()
+
 //more datatypes
   val obj = TypeRefTpe_Object(thisTpes.scala, thisTpes.lang, extModClassRefs.lang, extModClassRefs.java)
   val option = TypeRefTpe_Option(thisTpes.scala, extModClassRefs.scala)
@@ -50,7 +54,9 @@ class TypeRefTpes(thisTpes: ThisTpes, extModClassRefs: ExtModClassRefs) {
 
 //collections
   val stream = TypeRefTpe_Stream(extModClassRefs.scala)
-  val list = TypeRefTpe_List(extModClassRefs.scala)
+  //val list = TypeRefTpe_List(noneSym, extModClassRefs.scala)
+//  val list = TypeRefTpe_List(noneSym, extModClassRefs.scala, thisTpes.scala, extModClassRefs.predef, this)
+  val list = TypeRefTpe_List(noneSym, extModClassRefs.scala, thisTpes.scala, extModClassRefs.predef, this)
 
 //this class
   val modelsMyRecord = TypeRefTpe_modelsMyRecord(thisTpes.owner)
@@ -59,9 +65,7 @@ class TypeRefTpes(thisTpes: ThisTpes, extModClassRefs: ExtModClassRefs) {
 //user-defined classes
   def userDefined(x: String) = TypeRefTpe_userDefined(x, thisTpes.owner, extModClassRefs )
 
-//misc
-  val noneSym = NoneSym()
-  val annotInfo = AnnotInfo()
+
 
 
 }

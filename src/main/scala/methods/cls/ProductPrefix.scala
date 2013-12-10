@@ -28,7 +28,7 @@ case class ProductPrefix(sigResources: SigResources) {
   TermName("productPrefix").write(sigResources.myPickleBuffer)
   PolyTpe(sigResources.typeRefTpes.javaLangString).write(sigResources.myPickleBuffer)
   sigResources.thisTpes.lang.position match {
-    case 0 => {  //if a java type hasn't been used as a value member's type, then write the full type name
+    case 0 => {  println("product prefix found a new type")//if a java type hasn't been used as a value member's type, then write the full type name
       sigResources.typeRefTpes.javaLangString.write(sigResources.myPickleBuffer)
       sigResources.thisTpes.javaLang.write(sigResources.myPickleBuffer)
       sigResources.extModClassRefs.lang.write(sigResources.myPickleBuffer)

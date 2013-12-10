@@ -20,7 +20,7 @@ import scala.reflect.internal.pickling._
 case class NoneSym {
   var position = 0
   def write(myPickleBuffer: PickleBuffer)  = {
-    Position.current
+    position = Position.current
   //tag
     myPickleBuffer.writeByte(3)
   //len

@@ -32,4 +32,6 @@ class ExtModClassRefs {
   val annotation = ExtModClassRef_annotation()
   val collection = ExtModClassRef_collection()
   val predef = ExtModClassRef_predef()
+  val root = ExtModClassRef_root()
+  val noSymbol = ExtModClassRef_noSymbol()
 }

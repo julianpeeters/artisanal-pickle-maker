@@ -37,7 +37,7 @@ import scala.reflect.internal.pickling._
       }
       case 6      => {//AnyRef gets special treatement, since it's the only type defined before all other value member types
         typeRefTpes.anyRef.polyTpePosition match {
-          case 0      => {//if there is no polyTpe, write one after ther termname
+          case 0      => {//if there is no polyTpe, write one after the termName
             polyTpePosition = Position.current + 2
             typeRefPosition = typeRef.position 
             ValSym(Position.current + 1, ClassSym.position, 692060672L, polyTpePosition).write(myPickleBuffer)
@@ -64,8 +64,11 @@ import scala.reflect.internal.pickling._
       }
     }
   }
+  
 
-  typeName match {
+
+  def matchTypes(tpeName: String): Unit = { println("matching " + tpeName)
+      typeName match {
     case "Byte" => writeTpe(typeRefTpes.byte) 
     case "Short" => writeTpe(typeRefTpes.short) 
     case "Int" => writeTpe(typeRefTpes.int) 
@@ -82,14 +85,22 @@ import scala.reflect.internal.pickling._
     case "AnyRef"   => writeTpe(typeRefTpes.anyRef)
     case "Object"   => writeTpe(typeRefTpes.obj) 
     //generics
+    case typeName: String if typeName.startsWith("List") => writeTpe(typeRefTpes.list)
+//    case g: String if g.endsWith("]") => { matchTypes("List")}//; writeTpe(typeRefTpes.list)}
+//    case "List[String]" => {  writeTpe(typeRefTpes.list); typeRefTpes.string}
+   // case "List[String]" =>   writeTpe(typeRefTpes.list)//, typeRefTpes.string)//; typeRefTpes.string
     case "Option"   => writeTpe(typeRefTpes.option) 
     case "Iterator" => writeTpe(typeRefTpes.iterator) 
-   // case "List"   => writeTpe(TypeRefTpe_List) 
+    case "List"   => writeTpe(typeRefTpes.list) 
    // case "Stream" => writeTpe(TypeRefTpe_Stream) 
     //user-defined
+  //  case "rec"      => {println("what could have gone wrong? "); writeTpe(typeRefTpes.string)}//TODO not right! just for debug this line
     case x: String  => {println("value members found a user defined type " + x);writeTpe(typeRefTpes.userDefined(x))}
     case _          => error("unsupported type")
+    }
   }
+
+  matchTypes(typeName)
 
   ValSym(Position.current + 1, ClassSym.position, 554172420L, typeRefPosition).write(myPickleBuffer)
   TermName(termName + " ").write(myPickleBuffer)
