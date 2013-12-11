@@ -56,7 +56,7 @@ class TypeRefTpes(thisTpes: ThisTpes, extModClassRefs: ExtModClassRefs) {
   val stream = TypeRefTpe_Stream(extModClassRefs.scala)
   //val list = TypeRefTpe_List(noneSym, extModClassRefs.scala)
 //  val list = TypeRefTpe_List(noneSym, extModClassRefs.scala, thisTpes.scala, extModClassRefs.predef, this)
-  val list = TypeRefTpe_List(noneSym, extModClassRefs.scala, thisTpes.scala, extModClassRefs.predef, this)
+  val list = TypeRefTpe_List(noneSym, extModClassRefs.scala, thisTpes.scala, extModClassRefs.predef)
 
 //this class
   val modelsMyRecord = TypeRefTpe_modelsMyRecord(thisTpes.owner)

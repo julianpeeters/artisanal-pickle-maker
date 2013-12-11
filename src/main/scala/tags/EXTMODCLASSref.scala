@@ -138,16 +138,13 @@ case class ExtModClassRef_root {
     position = Position.current
   //tag
     myPickleBuffer.writeByte(10)
-  //len
-   // if ((Position.current + 1) > 127 && noneSym.position > 127) myPickleBuffer.writeNat(4);  
-//    else if ((Position.current + 1) > 127 || noneSym.position > 127) myPickleBuffer.writeNat(3);  
+  //len 
      if ((Position.current + 1) > 127 ) myPickleBuffer.writeNat(3);  
     else myPickleBuffer.writeNat(2)
   //data {
     //reference to the next entry, TERMname 
     myPickleBuffer.writeNat(Position.current + 1)
     //reference to the next entry, TERMname
-println(noSymbol.position) 
     myPickleBuffer.writeNat(noSymbol.position)
   //}
     Position.current += 1

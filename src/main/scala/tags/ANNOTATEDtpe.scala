@@ -20,7 +20,6 @@ import scala.reflect.internal.pickling._
 case class AnnotatedTpe(valueMember: ValueMember, annotInfo: AnnotInfo) {
 
   def write(myPickleBuffer: PickleBuffer) = {
-  //  val args = List(valueMember.typeRefPosition, Position.current + 1, annotInfo.position)
     val argsA = List(valueMember.typeRefPosition, Position.current + 1)
     val argsB = List(valueMember.typeRefPosition, annotInfo.position)
     annotInfo.position match {

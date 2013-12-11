@@ -45,6 +45,11 @@ case class MyRecord_AnyRef(n: AnyRef)
 
 case class MyRecord_Object(o: Object)
 
+case class MyRecord_ListString(pp: List[String])
+case class MyRecord_ListInt(po: List[Int])
+
+case class MyRecord_ListListString(p: List[List[String]])
+
 
 
 
@@ -66,6 +71,10 @@ case class MyRecord_AnyAny(m1: Any, m2: Any)
 case class MyRecord_AnyRefAnyRef(n1: AnyRef, n2: AnyRef)
 
 case class MyRecord_ObjectObject(o1: Object, o2:Object)
+
+case class MyRecord_ListStringListString(p1: List[String], p2: List[String])
+case class MyRecord_StringListString(pp1: String, pp2: List[String])
+case class MyRecord_ListStringString(po1: List[String], po2: String)
 
 //triple value member
 case class MyRecord_ByteByteByte(a1: Byte, a2: Byte, a3: Byte)

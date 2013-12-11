@@ -18,16 +18,14 @@ package types
 import tags._
 import scala.reflect.internal.pickling._
 
-
-//case class TypeRefTpe_List(noSymbol: NoneSym, scala: ExtModClassRef_scala) extends Tpe{
-case class TypeRefTpe_List(noSymbol: NoneSym, scala: ExtModClassRef_scala, thisTpe_scala: ThisTpe_scala, predef: ExtModClassRef_predef, types: TypeRefTpes) extends Tpe{
+case class TypeRefTpe_List(noSymbol: NoneSym, scala: ExtModClassRef_scala, thisTpe_scala: ThisTpe_scala, predef: ExtModClassRef_predef) extends Tpe{
   var position = 0
   var polyTpePosition = 0
   var annotPos = 0
   var typeNamePosition = 0
+
   def write(myPickleBuffer: PickleBuffer) = {
     position = Position.current
-
     TypeRefTpe_generic(Position.current + 1, Position.current + 9, Position.current + 12) .writeEntry(myPickleBuffer)
     SingleTpe(Position.current + 1, Position.current + 6).write(myPickleBuffer)
     SingleTpe(Position.current + 1, Position.current + 4).write(myPickleBuffer)
@@ -41,11 +39,5 @@ case class TypeRefTpe_List(noSymbol: NoneSym, scala: ExtModClassRef_scala, thisT
     ExtRef_nested(Position.current + 1, Position.current + 2).write(myPickleBuffer)
     TypeName("List").write(myPickleBuffer)
     new ExtModClassRef_nested(Position.current - 3, scala.position).write(myPickleBuffer)
-
-
-
-    types.string.write(myPickleBuffer)
-
-
   }
 }

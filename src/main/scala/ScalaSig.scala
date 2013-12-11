@@ -23,10 +23,9 @@ import types._
 
 //takes a List of flags,  a list of class names, and a list of value member names and types
 class ScalaSig(flags: List[String], names: List[String], args: List[(String, String)]) {
-println("made a scalasig")
+
 //set up resources to supply us with the named objects we'll use to make sig entries
   val sigResources = new SigResources
-println("scalasig getting resources" + sigResources)
 //write entries
   val entries = new Entries(sigResources, flags, names, args)
 println(entries)

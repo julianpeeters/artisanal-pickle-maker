@@ -30,9 +30,12 @@ case class ProductArity(myPickleBuffer: PickleBuffer, Int: TypeRefTpe_Int) {
       PolyTpe(Int).write(myPickleBuffer)
       Int.write(myPickleBuffer)
     }
-    case i: Int => {
-      ValSym(Position.current + 1, ClassSym.position, 2097664L, i - 1).write(myPickleBuffer)
+    case i: Int => { println("productArity found a familiar type" + i)
+     ValSym(Position.current + 1, ClassSym.position, 2097664L, i - 1).write(myPickleBuffer)
       TermName("productArity").write(myPickleBuffer)
+    //  ValSym(Position.current + 1, ClassSym.position, 2097664L, Position.current + 2).write(myPickleBuffer)
+    //  TermName("productArity").write(myPickleBuffer)
+     // PolyTpe(Int).write(myPickleBuffer)
     }
   }
 

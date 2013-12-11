@@ -23,20 +23,36 @@ import scala.reflect.internal.pickling._
 
 case class CopyDefault(sigResources: SigResources, valueMembers: List[ValueMember]) {
 
+println("CD ")
+valueMembers.map(n => n.tpeName).foreach(println)
+  var valueMemberNumber = 0
   val valSymPosition = Position.current
 
   valueMembers.length match {
     case 1 => { //if there is only one value member, then:
       ValSym(Position.current + 1, ClassSym.position, 35652096L, Position.current + 2).write(sigResources.myPickleBuffer)
       TermName("copy$default$1").write(sigResources.myPickleBuffer)
+      //takes valueMembers in order for Annotation to pass the value member's position
       PolyTpe(Annotation(valueMembers(0), sigResources.typeRefTpes.annotInfo)).write(sigResources.myPickleBuffer)
       Annotation(valueMembers(0), sigResources.typeRefTpes.annotInfo).write(sigResources.myPickleBuffer)
       sigResources.typeRefTpes.uncheckedVariance.write(sigResources.myPickleBuffer)
     }
     case x if x > 1 => { //if there's more than one value member, then:
-      var valueMemberNumber = 0
-      valueMembers.foreach(vm => {
+
+
+      valueMembers.foreach(vm => { 
         valueMemberNumber += 1
+        matchType(vm)
+
+        if(sigResources.typeRefTpes.uncheckedVariance.position == 0 ) sigResources.typeRefTpes.uncheckedVariance.write(sigResources.myPickleBuffer)
+      })
+
+    }
+    case _ => println("what, no value members?")
+  }
+
+  
+        def matchType(vm: ValueMember) {
         vm.tpeName match {
 //TODO replace all these cases by using a parameterized method?
           case "Byte" => {
@@ -264,13 +280,26 @@ case class CopyDefault(sigResources: SigResources, valueMembers: List[ValueMembe
               }
             }
           }
+//          case "List[String]" => {
+          case t:String if t.startsWith("List") => {
+            sigResources.typeRefTpes.list.annotPos match {
+              case 0      => {
+                ValSym(Position.current + 1, ClassSym.position, 35652096L, Position.current + 2).write(sigResources.myPickleBuffer)
+                TermName("copy$default$" + valueMemberNumber).write(sigResources.myPickleBuffer)
+                sigResources.typeRefTpes.list.annotPos = Position.current
+                PolyTpe(Annotation(valueMembers(0), sigResources.typeRefTpes.annotInfo)).write(sigResources.myPickleBuffer)
+                Annotation(vm, sigResources.typeRefTpes.annotInfo).write(sigResources.myPickleBuffer)
+              }
+              case i: Int => {
+                ValSym(Position.current + 1, ClassSym.position, 35652096L,  sigResources.typeRefTpes.obj.annotPos).write(sigResources.myPickleBuffer)
+                TermName("copy$default$" + valueMemberNumber).write(sigResources.myPickleBuffer)
+              }
+            }
+          }
 
-        }  
-        if(sigResources.typeRefTpes.uncheckedVariance.position == 0 ) sigResources.typeRefTpes.uncheckedVariance.write(sigResources.myPickleBuffer)
-      })
-    }
-    case _ => println("what, no value members?")
-  }
 
+
+        } 
+      }
 
 }
