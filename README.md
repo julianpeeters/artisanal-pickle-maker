@@ -25,7 +25,7 @@ Thus, `scalaSig.bytes` is identical to the encoded string that would be found in
 
   _Classes_ - The generation of Scala sigs for regular and case classes *that have value members only* (signatures will not reflect user-defined defs, i.e., this doesn't yet support classes with defs!).
 
-  _Datatypes_ - All basic Scala datatypes (but see the note below on pickling)
+  _Datatypes_ - All basic Scala datatypes
 
   _Scala Version_ - Reproduces a Scala 2.10.2 and 2.10.3 signature byte-for-byte.
 

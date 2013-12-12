@@ -23,8 +23,9 @@ import scala.reflect.internal.pickling._
 
 case class CopyDefault(sigResources: SigResources, valueMembers: List[ValueMember]) {
 
-println("CD ")
 valueMembers.map(n => n.tpeName).foreach(println)
+
+
   var valueMemberNumber = 0
   val valSymPosition = Position.current
 

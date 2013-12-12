@@ -18,13 +18,11 @@ import scala.reflect.ScalaSignature
 object Main extends App {
 
 
+  val mySig = new artisinal.pickle.maker.ScalaSig(List("case class"), List("models", "MyRecord_ListStringString"), List(("po1", "List[String]"), ("po2", "String")))
 
+  //val mySig = new artisinal.pickle.maker.ScalaSig(List("case class"), List("models", "MyRecord_ListInt"), List(("po", "List[Int]")))
 
-
-
-  val mySig = new artisinal.pickle.maker.ScalaSig(List("case class"), List("models", "MyRecord_ListInt"), List(("po", "List[Int]")))
-
-  //val mySig = new artisinal.pickle.maker.ScalaSig(List("case class"), List("models", "MyRecord_ListStringListString"), List(("p1", "List[String]"), ("p2", "List[String]")))
+ //val mySig = new artisinal.pickle.maker.ScalaSig(List("case class"), List("models", "MyRecord_ListStringListString"), List(("p1", "List[String]"), ("p2", "List[String]")))
  // val mySig = new artisinal.pickle.maker.ScalaSig(List("case class"), List("models", "MyRecord_ListString"), List(("x", "List[String]")))
 
   def parseByteCodeFromAnnotation(clazz: Class[_]): Option[ByteCode] = {

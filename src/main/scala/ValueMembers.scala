@@ -31,11 +31,12 @@ import scala.reflect.internal.pickling._
 
   def writeType(typeName: String) = { 
     if (typeName.endsWith("]")) {
-      val typeNames = typeName.dropRight(1).split('[')//.map(n => n.toString)
+      val typeNames = typeName.dropRight(1).split('[')
       writeGenericTpe(matchTypes(typeNames(0)), matchTypes(typeNames(1)))
     }
     else writeNonGenericTpe(matchTypes(typeName))
   }
+
 
   def matchTypes(tpeName: String):  Tpe = { println("matching " + tpeName)
       tpeName match {
@@ -122,6 +123,7 @@ import scala.reflect.internal.pickling._
         PolyTpe(typeRef).write(myPickleBuffer)
         typeRefPosition = Position.current
         typeRef.write(myPickleBuffer)
+        
         boxedTypeRef.write(myPickleBuffer)
       }
       case 6      => {//AnyRef gets special treatement, since it's the only type defined before all other value member types
