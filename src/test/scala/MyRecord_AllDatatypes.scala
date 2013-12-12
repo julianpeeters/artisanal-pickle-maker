@@ -47,9 +47,32 @@ case class MyRecord_Object(o: Object)
 
 case class MyRecord_ListString(pp: List[String])
 case class MyRecord_ListInt(po: List[Int])
+case class MyRecord_ListByte(q: List[Byte])
+case class MyRecord_ListShort(r: List[Short])
+case class MyRecord_ListLong(s: List[Long])
+case class MyRecord_ListFloat(t: List[Float])
+case class MyRecord_ListDouble(u: List[Double])
+case class MyRecord_ListChar(v: List[Char])
 
+case class MyRecord_ListBoolean(x: List[Boolean])
+case class MyRecord_ListUnit(y: List[Unit])
+case class MyRecord_ListNull(z: List[Null])
+
+
+//////////////////////////////////////////////////////////TODO TESTS + ALL TEH LIST ONES FOR Double value members
+case class MyRecord_ListNothing(aa: List[Nothing])
+case class MyRecord_ListAny(ab: List[Any])
+case class MyRecord_ListAnyRef(ac: List[AnyRef])
+
+case class MyRecord_ListObject(ad: List[Object])
+case class MyRecord_ListUser1(ae: List[MyRec])
+case class MyRecord_ListUser2(af: List[MyRecord_User])
+
+case class MyRecord_ListListUser1(ag: List[MyRec])
+case class MyRecord_ListListUser2(ah: List[MyRecord_User])
 case class MyRecord_ListListString(p: List[List[String]])
-
+case class MyRecord_ListListInt(ai: List[List[Int]])
+/////////////////////////////////////////////////////////////////
 
 
 
