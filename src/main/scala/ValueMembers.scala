@@ -65,7 +65,7 @@ import scala.reflect.internal.pickling._
    // case "Stream" => writeTpe(TypeRefTpe_Stream) 
     //user-defined
   //  case "rec"      => {println("what could have gone wrong? "); writeTpe(typeRefTpes.string)}//TODO not right! just for debug this line
-    case x: String  => {println("value members found a user defined type " + x); (typeRefTpes.userDefined(x))}
+    case x: String  => typeRefTpes.userDefined(x)
     case _          => error("unsupported type")
     }
   }

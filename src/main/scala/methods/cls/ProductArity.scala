@@ -21,40 +21,33 @@ import tags._
 import types._
 import scala.reflect.internal.pickling._
 
-case class ProductArity(myPickleBuffer: PickleBuffer, intRef: TypeRefTpe_Int, valueMembers: List[ValueMember]) {
+
+
+case class ProductArity(myPickleBuffer: PickleBuffer, Int: TypeRefTpe_Int) {
   val valSymPosition = Position.current
-  intRef.position match {
+  Int.position match {
     case 0      => {
       ValSym(Position.current + 1, ClassSym.position, 2097664L, Position.current + 2).write(myPickleBuffer)
       TermName("productArity").write(myPickleBuffer)
-      PolyTpe(intRef).write(myPickleBuffer)
-      intRef.write(myPickleBuffer)
+      PolyTpe(Int).write(myPickleBuffer)
+      Int.write(myPickleBuffer)
     }
-    case i: Int => { println("productArity found a familiar type" + i);
-      val typeNames = valueMembers.map(vm => vm.tpeName)
-
-      if (checkBoxed(typeNames).contains("Int")) { 
+    case i: Int => {
+      //if we've written an int, but the polytpe position is still zero, then write the polytpe here
+      if (Int.polyTpePosition == 0) {
         ValSym(Position.current + 1, ClassSym.position, 2097664L, Position.current + 2).write(myPickleBuffer)
         TermName("productArity").write(myPickleBuffer)
-        PolyTpe(intRef).write(myPickleBuffer)
+        PolyTpe(Int).write(myPickleBuffer)
       }
       else {
         ValSym(Position.current + 1, ClassSym.position, 2097664L, i - 1).write(myPickleBuffer)
-        TermName("productArity").write(myPickleBuffer)
+        TermName("productArity").write(myPickleBuffer)    
       }
+
     }
   }
 
-  private def checkBoxed(typeNames: List[String]): List[Any] = {
-    typeNames.map( typeName => {
-      if (typeName.endsWith("]")) {  
-        val boxed = typeName.dropRight(1).split('[')(1).toString//takes the 2nd half of the split
-        if (boxed.endsWith("]")) checkBoxed(List(boxed))
-        else  boxed
-      }  
-    })
-  }
-
-
 
 }
+
+

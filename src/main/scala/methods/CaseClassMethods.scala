@@ -31,8 +31,8 @@ class CaseClassMethods(sigResources: SigResources, valueMembers: List[ValueMembe
 
   val productArityMethod = ProductArity(
     sigResources.myPickleBuffer, 
-    sigResources.typeRefTpes.int, 
-    valueMembers)
+    sigResources.typeRefTpes.int)//, 
+    //valueMembers)
   val productElementMethod = ProductElement(
     sigResources.myPickleBuffer, 
     sigResources.typeRefTpes.any, 
