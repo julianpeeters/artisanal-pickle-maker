@@ -280,7 +280,7 @@ case class CopyDefault(sigResources: SigResources, valueMembers: List[ValueMembe
           }
           case t:String if t.startsWith("List") => {
             sigResources.typeRefTpes.list.annotPos match {
-              case 0      => {  println("first time")
+              case 0      => { 
                 ValSym(Position.current + 1, ClassSym.position, 35652096L, Position.current + 2).write(sigResources.myPickleBuffer)
                 TermName("copy$default$" + valueMemberNumber).write(sigResources.myPickleBuffer)
                 sigResources.typeRefTpes.list.annotPos = Position.current

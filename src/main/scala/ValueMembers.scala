@@ -82,7 +82,7 @@ import scala.reflect.internal.pickling._
         typeRefPosition = Position.current
         typeRef.write(myPickleBuffer)
       }
-      case 6      => {//AnyRef gets special treatement, since it's the only type defined before all other value member types
+      case 6      => {//AnyRef at pos 6 gets special treatment: it's the only type defined before all other value member types
         typeRefTpes.anyRef.polyTpePosition match {
           case 0      => {//if there is no polyTpe, write one after the termName
             polyTpePosition = Position.current + 2
@@ -103,11 +103,22 @@ import scala.reflect.internal.pickling._
 
       }
       case i: Int => {//if the type has been previously 
-        polyTpePosition = typeRef.position - 1
-        typeRefPosition = typeRef.position
-        ValSym(Position.current + 1, ClassSym.position, 692060672L, polyTpePosition).write(myPickleBuffer)
-        termNamePosition = Position.current
-        TermName(termName).write(myPickleBuffer)
+      //if we've written a given typeRef, but the polytpe position is still zero, then write the polytpe here
+        if (typeRef.polyTpePosition == 0) {
+          polyTpePosition = Position.current + 2
+          typeRefPosition = typeRef.position
+          ValSym(Position.current + 1, ClassSym.position, 692060672L, polyTpePosition).write(myPickleBuffer)
+          termNamePosition = Position.current
+          TermName(termName).write(myPickleBuffer)
+          PolyTpe(typeRef).write(myPickleBuffer)
+        }
+        else {
+          polyTpePosition = typeRef.position - 1
+          typeRefPosition = typeRef.position
+          ValSym(Position.current + 1, ClassSym.position, 692060672L, polyTpePosition).write(myPickleBuffer)
+          termNamePosition = Position.current
+          TermName(termName).write(myPickleBuffer) 
+        }
       }
     }
   }
@@ -125,26 +136,6 @@ import scala.reflect.internal.pickling._
         typeRef.write(myPickleBuffer)
         
         boxedTypeRef.write(myPickleBuffer)
-      }
-      case 6      => {//AnyRef gets special treatement, since it's the only type defined before all other value member types
-        typeRefTpes.anyRef.polyTpePosition match {
-          case 0      => {//if there is no polyTpe, write one after the termName
-            polyTpePosition = Position.current + 2
-            typeRefPosition = typeRef.position 
-            ValSym(Position.current + 1, ClassSym.position, 692060672L, polyTpePosition).write(myPickleBuffer)
-            termNamePosition = Position.current
-            TermName(termName).write(myPickleBuffer)
-            PolyTpe(typeRef).write(myPickleBuffer)
-          }
-          case i: Int => {
-            polyTpePosition = i
-            typeRefPosition = typeRef.position 
-            ValSym(Position.current + 1, ClassSym.position, 692060672L, polyTpePosition).write(myPickleBuffer)
-            termNamePosition = Position.current
-            TermName(termName).write(myPickleBuffer)
-          }
-        }  
-
       }
       case i: Int => {//if the type has been previously 
         polyTpePosition = typeRef.position - 1
