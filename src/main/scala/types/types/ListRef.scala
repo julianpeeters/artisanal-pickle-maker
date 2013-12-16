@@ -26,7 +26,11 @@ case class TypeRefTpe_List(noSymbol: NoneSym, scala: ExtModClassRef_scala, thisT
 
   def write(myPickleBuffer: PickleBuffer) = {
     position = Position.current
+
     TypeRefTpe_generic(Position.current + 1, Position.current + 9, Position.current + 12) .writeEntry(myPickleBuffer)
+  //  if (boxedType.position == 0) TypeRefTpe_generic(Position.current + 1, Position.current + 9, Position.current + 12).writeEntry(myPickleBuffer)
+  //  else TypeRefTpe_generic(Position.current + 1, Position.current + 9, boxedType.position).writeEntry(myPickleBuffer)
+
     SingleTpe(Position.current + 1, Position.current + 6).write(myPickleBuffer)
     SingleTpe(Position.current + 1, Position.current + 4).write(myPickleBuffer)
     val thisTpe_root = ThisTpe_root()

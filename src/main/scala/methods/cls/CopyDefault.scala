@@ -23,9 +23,6 @@ import scala.reflect.internal.pickling._
 
 case class CopyDefault(sigResources: SigResources, valueMembers: List[ValueMember]) {
 
-valueMembers.map(n => n.tpeName).foreach(println)
-
-
   var valueMemberNumber = 0
   val valSymPosition = Position.current
 
@@ -43,7 +40,7 @@ valueMembers.map(n => n.tpeName).foreach(println)
 
       valueMembers.foreach(vm => { 
         valueMemberNumber += 1
-        matchType(vm)
+        writeType(vm)
 
         if(sigResources.typeRefTpes.uncheckedVariance.position == 0 ) sigResources.typeRefTpes.uncheckedVariance.write(sigResources.myPickleBuffer)
       })
@@ -53,7 +50,7 @@ valueMembers.map(n => n.tpeName).foreach(println)
   }
 
   
-        def matchType(vm: ValueMember) {
+        def writeType(vm: ValueMember) {
         vm.tpeName match {
 //TODO replace all these cases by using a parameterized method?
           case "Byte" => {
@@ -281,10 +278,9 @@ valueMembers.map(n => n.tpeName).foreach(println)
               }
             }
           }
-//          case "List[String]" => {
           case t:String if t.startsWith("List") => {
             sigResources.typeRefTpes.list.annotPos match {
-              case 0      => {
+              case 0      => {  println("first time")
                 ValSym(Position.current + 1, ClassSym.position, 35652096L, Position.current + 2).write(sigResources.myPickleBuffer)
                 TermName("copy$default$" + valueMemberNumber).write(sigResources.myPickleBuffer)
                 sigResources.typeRefTpes.list.annotPos = Position.current
@@ -292,7 +288,7 @@ valueMembers.map(n => n.tpeName).foreach(println)
                 Annotation(vm, sigResources.typeRefTpes.annotInfo).write(sigResources.myPickleBuffer)
               }
               case i: Int => {
-                ValSym(Position.current + 1, ClassSym.position, 35652096L,  sigResources.typeRefTpes.obj.annotPos).write(sigResources.myPickleBuffer)
+                ValSym(Position.current + 1, ClassSym.position, 35652096L, sigResources.typeRefTpes.list.annotPos).write(sigResources.myPickleBuffer)
                 TermName("copy$default$" + valueMemberNumber).write(sigResources.myPickleBuffer)
               }
             }

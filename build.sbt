@@ -12,7 +12,7 @@ scalaVersion := "2.10.3"
 libraryDependencies ++= Seq( 
   "org.specs2" %% "specs2" % "2.2" % "test",
   "com.novus" %% "salat" % "1.9.4" ,//% "test",
-  "org.scala-lang" % "scala-compiler" % "2.10.2"
+  "org.scala-lang" % "scala-compiler" % "2.10.3"
 )
 
 publishMavenStyle := true
