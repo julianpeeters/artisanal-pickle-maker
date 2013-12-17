@@ -280,14 +280,14 @@ case class CopyDefault(sigResources: SigResources, valueMembers: List[ValueMembe
           }
           case t:String if t.startsWith("List") => {
             sigResources.typeRefTpes.list.annotPos match {
-              case 0      => { 
+              case 0      => { println("FRESH")
                 ValSym(Position.current + 1, ClassSym.position, 35652096L, Position.current + 2).write(sigResources.myPickleBuffer)
                 TermName("copy$default$" + valueMemberNumber).write(sigResources.myPickleBuffer)
                 sigResources.typeRefTpes.list.annotPos = Position.current
                 PolyTpe(Annotation(valueMembers(0), sigResources.typeRefTpes.annotInfo)).write(sigResources.myPickleBuffer)
                 Annotation(vm, sigResources.typeRefTpes.annotInfo).write(sigResources.myPickleBuffer)
               }
-              case i: Int => {
+              case i: Int => { println("FAMILIAR")
                 ValSym(Position.current + 1, ClassSym.position, 35652096L, sigResources.typeRefTpes.list.annotPos).write(sigResources.myPickleBuffer)
                 TermName("copy$default$" + valueMemberNumber).write(sigResources.myPickleBuffer)
               }

@@ -134,8 +134,8 @@ import scala.reflect.internal.pickling._
         PolyTpe(typeRef).write(myPickleBuffer)
         typeRefPosition = Position.current
         typeRef.write(myPickleBuffer)
-        
-        boxedTypeRef.write(myPickleBuffer)
+        println("Boxed tupe pos " + boxedTypeRef.position )
+        if (boxedTypeRef.position == 0) boxedTypeRef.write(myPickleBuffer)
       }
       case i: Int => {//if the type has been previously 
         polyTpePosition = typeRef.position - 1
