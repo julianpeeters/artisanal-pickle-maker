@@ -17,6 +17,9 @@ package artisinal.pickle.maker
 import tags._
 import types._
 import scala.reflect.internal.pickling._
+import scala.collection.JavaConversions.JConcurrentMapWrapper
+import java.util.concurrent.ConcurrentHashMap
+
 
  class ValueMember(myPickleBuffer: PickleBuffer, termName: String, typeName: String, typeRefTpes: TypeRefTpes){
   val tpeName = typeName
@@ -24,15 +27,26 @@ import scala.reflect.internal.pickling._
   var typeRefPosition = 0
   var termNamePosition = 0
 
+
+println("GETTING BOXED " + getBoxed(typeName))
+
   writeType(typeName)
   ValSym(Position.current + 1, ClassSym.position, 554172420L, typeRefPosition).write(myPickleBuffer)
   TermName(termName + " ").write(myPickleBuffer)
 
+//a map for storing generic- and user-defined- types (the other basic scala datatypes are stored as vals, predefined in TypeRefTpes, imported here and matched to in `matchTypes` below)
+ //  val tpes: scala.collection.concurrent.Map[String, Tpe] = scala.collection.convert.Wrappers.JConcurrentMapWrapper(new ConcurrentHashMap[String, Tpe]())
+
+
+  def getBoxed(typeName: String) = {
+    typeName.dropWhile( c => (c != '[') ).drop(1).dropRight(1)
+  }
 
   def writeType(typeName: String) = { 
     if (typeName.endsWith("]")) {
       val typeNames = typeName.dropRight(1).split('[')
-      writeGenericTpe(matchTypes(typeNames(0)), matchTypes(typeNames(1)))
+//      writeGenericTpe(matchTypes(typeNames(0)), matchTypes(typeNames(1)))
+      writeGenericTpe(matchTypes(typeName), matchTypes(typeNames(1)))
     }
     else writeNonGenericTpe(matchTypes(typeName))
   }
@@ -59,13 +73,26 @@ import scala.reflect.internal.pickling._
     //generics
     case "Option"   => typeRefTpes.option
     case "Iterator" => typeRefTpes.iterator
-    case "List"     => typeRefTpes.list
+//    case "List"     => typeRefTpes.list
+//    case "List"     => typeRefTpes.list(typeRefTpes.string)
+
+    case a: String if a.startsWith("List")     => { println(typeRefTpes.list(matchTypes(getBoxed(a)))); 
+
+      val g = TypeStore.types.get("List")
+      if (g.isDefined) {
+        g.get
+      }
+      else {
+///      TypeRefTpe_List(noneSym, extModClassRefs.scala, thisTpes.scala, extModClassRefs.predef, boxedType)
+         typeRefTpes.list(matchTypes(getBoxed(a)))
+      }
+    }
 
    // case "List[String]" => {println("VM found a list STring"); typeRefTpes.list}
    // case "Stream" => writeTpe(TypeRefTpe_Stream) 
     //user-defined
   //  case "rec"      => {println("what could have gone wrong? "); writeTpe(typeRefTpes.string)}//TODO not right! just for debug this line
-    case x: String  => typeRefTpes.userDefined(x)
+    case x: String  => {println("USER DEFINED ");typeRefTpes.userDefined(x)}
     case _          => error("unsupported type")
     }
   }
@@ -124,18 +151,27 @@ import scala.reflect.internal.pickling._
   }
 
   //For types that take type parameters
-  def writeGenericTpe[X<: Tpe, Y <: Tpe](typeRef:X, boxedTypeRef: Y) = {//if type is previous value member's, ref previous member's polytype
+  def writeGenericTpe[X<: Tpe, Y <: Tpe](typeRef:X, boxedTypeRef: Y) = {//if type is previous value member's, ref previous member's polytype  
+println(typeRef.position)
     typeRef.position match { //polytpe position is determined by TypeRef position (all types but AnyRef follow a polytpe)
       case 0      => { //if it doesn't exist, write it next
+
+        if (typeRef.position == 0) { 
         polyTpePosition = Position.current + 2
         ValSym(Position.current + 1, ClassSym.position, 692060672L, polyTpePosition).write(myPickleBuffer)
         termNamePosition = Position.current
         TermName(termName).write(myPickleBuffer)
         PolyTpe(typeRef).write(myPickleBuffer)
         typeRefPosition = Position.current
+        typeRef.position = Position.current
+
+println("   " + typeRef.position)
         typeRef.write(myPickleBuffer)
         println("Boxed tupe pos " + boxedTypeRef.position )
+}
+//
         if (boxedTypeRef.position == 0) boxedTypeRef.write(myPickleBuffer)
+//boxedTypeRef.write(myPickleBuffer)
       }
       case i: Int => {//if the type has been previously 
         polyTpePosition = typeRef.position - 1

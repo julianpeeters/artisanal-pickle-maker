@@ -26,9 +26,10 @@ class ScalaSig(flags: List[String], names: List[String], args: List[(String, Str
 
 //set up resources to supply us with the named objects we'll use to make sig entries
   val sigResources = new SigResources
+
 //write entries
   val entries = new Entries(sigResources, flags, names, args)
-println(entries)
+
 //after writing entries, how many were written?
   val entriesNumber = Position.current
 
@@ -42,4 +43,7 @@ println(entries)
 
 //reset position keeper
   Position.current = 0
+
+//reset list of generated types 
+  TypeStore.types.clear()
 }
