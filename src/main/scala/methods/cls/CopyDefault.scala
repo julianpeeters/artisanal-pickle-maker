@@ -278,9 +278,9 @@ case class CopyDefault(sigResources: SigResources, valueMembers: List[ValueMembe
               }
             }
           }
-          case tpe: String if tpe.startsWith("List[") => {   println("DOPY DEFAULT SEES A LIST" +tpe + " " +  TypeStore.types )
-            val g = TypeStore.types.get("List")
-            if (g.isDefined) { println("AND IT WAS ALREADY DEFINED")
+          case listType: String if listType.startsWith("List[") => {   
+            val g = TypeStore.types.get(listType)
+            if (g.isDefined) {
               val listTypeRef = g.get
               listTypeRef.annotPos match {
                 case 0      => { 
@@ -291,17 +291,9 @@ case class CopyDefault(sigResources: SigResources, valueMembers: List[ValueMembe
                   Annotation(vm, sigResources.typeRefTpes.annotInfo).write(sigResources.myPickleBuffer)
                 }
                 case i: Int => { 
-             //     ValSym(Position.current + 1, ClassSym.position, 35652096L, listTypeRef.annotPos).write(sigResources.myPickleBuffer)
-                  ValSym(Position.current + 1, ClassSym.position, 35652096L, Position.current + 2).write(sigResources.myPickleBuffer)
+                  ValSym(Position.current + 1, ClassSym.position, 35652096L, listTypeRef.annotPos).write(sigResources.myPickleBuffer)
                   TermName("copy$default$" + valueMemberNumber).write(sigResources.myPickleBuffer)
-
-
-
-                  PolyTpe(Annotation(valueMembers(0), sigResources.typeRefTpes.annotInfo)).write(sigResources.myPickleBuffer)
-                  Annotation(vm, sigResources.typeRefTpes.annotInfo).write(sigResources.myPickleBuffer)
-
-                  }
-
+                }
               } 
             }
           }

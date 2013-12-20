@@ -74,7 +74,7 @@ import java.util.concurrent.ConcurrentHashMap
         g.get
       }
       else { //println("ELSE "  + typeRefTpes.protoList.position )
-   //      typeRefTpes.protoList.write(myPickleBuffer)
+       //  typeRefTpes.listNoBoxed.write(myPickleBuffer)
 //println("ELSE "  + typeRefTpes.protoList.position )
          typeRefTpes.list(matchTypes(getBoxed(x)))
       }
@@ -155,9 +155,9 @@ import java.util.concurrent.ConcurrentHashMap
   def writeGenericTpe[X<: Tpe, Y <: Tpe](typeRef:X, boxedTypeRef: Y) = {//if type is previous value member's, ref previous member's polytype  
 
     typeRef.position match { //polytpe position is determined by TypeRef position (all types but AnyRef follow a polytpe)
-      case 0      => { //if it doesn't exist, write it next
+      case 0      => { println("ARE WE REALLY?" + TypeStore.types)//if it doesn't exist, write it next
 
-        if (typeRef.position == 0) { 
+        if (typeRef.position == 0) { println("ARE WE REALLY? FRESH")
           polyTpePosition = Position.current + 2
           ValSym(Position.current + 1, ClassSym.position, 692060672L, polyTpePosition).write(myPickleBuffer)
           termNamePosition = Position.current
@@ -171,7 +171,7 @@ import java.util.concurrent.ConcurrentHashMap
 
         if (boxedTypeRef.position == 0) boxedTypeRef.write(myPickleBuffer)
       }
-      case i: Int => {//if the type has been previously 
+      case i: Int => {println("ARE WE REALLY?FAMILIAR")//if the type has been previously 
         polyTpePosition = typeRef.position - 1
         typeRefPosition = typeRef.position
         ValSym(Position.current + 1, ClassSym.position, 692060672L, polyTpePosition).write(myPickleBuffer)

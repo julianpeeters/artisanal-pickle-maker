@@ -58,7 +58,7 @@ class TypeRefTpes(thisTpes: ThisTpes, extModClassRefs: ExtModClassRefs) {
 
 //collections
   def stream(boxedType: Tpe) = TypeRefTpe_Stream(extModClassRefs.scala)
- // def protoList              =  TypeRefTpe_ProtoList()//to keep track of the first list written, indepenent of the boxed type
+  def listNoBoxed            =  TypeRefTpe_ListNoBoxed()//to keep track of the first list written, indepenent of the boxed type
   def list(boxedType: Tpe)   =  TypeRefTpe_List(noneSym, extModClassRefs.scala, thisTpes.scala, extModClassRefs.predef, boxedType)
 
 //user-defined classes
