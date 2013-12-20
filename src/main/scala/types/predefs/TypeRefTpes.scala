@@ -38,10 +38,6 @@ class TypeRefTpes(thisTpes: ThisTpes, extModClassRefs: ExtModClassRefs) {
   val any = TypeRefTpe_Any(thisTpes.scala, extModClassRefs.scala)
   val anyRef = TypeRefTpe_AnyRef(thisTpes.scala, extModClassRefs.scala)
 
-//misc
-  val noneSym = NoneSym()
-  val annotInfo = AnnotInfo()
-
 //more datatypes
   val obj = TypeRefTpe_Object(thisTpes.scala, thisTpes.lang, extModClassRefs.lang, extModClassRefs.java)
   val option = TypeRefTpe_Option(thisTpes.scala, extModClassRefs.scala)
@@ -52,16 +48,18 @@ class TypeRefTpes(thisTpes: ThisTpes, extModClassRefs: ExtModClassRefs) {
   val serializable = TypeRefTpe_Serializable(thisTpes.scala, extModClassRefs.scala)
   val uncheckedVariance = TypeRefTpe_UncheckedVariance(extModClassRefs.unchecked, extModClassRefs.annotation, extModClassRefs.scala)
 
-//collections
-  val stream = TypeRefTpe_Stream(extModClassRefs.scala)
-  //val list = TypeRefTpe_List(noneSym, extModClassRefs.scala)
-//  val list = TypeRefTpe_List(noneSym, extModClassRefs.scala, thisTpes.scala, extModClassRefs.predef, this)
-  def list(boxedType: Tpe) =  TypeRefTpe_List(noneSym, extModClassRefs.scala, thisTpes.scala, extModClassRefs.predef, boxedType)
-
+//misc
+  val noneSym = NoneSym()
+  val annotInfo = AnnotInfo()
 
 //this class
   val modelsMyRecord = TypeRefTpe_modelsMyRecord(thisTpes.owner)
   val moduleClass = TypeRefTpe_moduleClass(thisTpes.owner)
+
+//collections
+  def stream(boxedType: Tpe) = TypeRefTpe_Stream(extModClassRefs.scala)
+ // def protoList              =  TypeRefTpe_ProtoList()//to keep track of the first list written, indepenent of the boxed type
+  def list(boxedType: Tpe)   =  TypeRefTpe_List(noneSym, extModClassRefs.scala, thisTpes.scala, extModClassRefs.predef, boxedType)
 
 //user-defined classes
   def userDefined(x: String) = TypeRefTpe_userDefined(x, thisTpes.owner, extModClassRefs )

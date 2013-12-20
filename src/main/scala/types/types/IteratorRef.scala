@@ -22,6 +22,9 @@ case class TypeRefTpe_Iterator(thisTpe_collection: ThisTpe_collection, Any: Type
   var position = 0
   var polyTpePosition = 0
   var annotPos = 0
+
+  val typeName = "Iterator"
+
   def write(myPickleBuffer: PickleBuffer) = {
     position = Position.current
 

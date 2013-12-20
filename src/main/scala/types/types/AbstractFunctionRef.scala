@@ -21,6 +21,10 @@ import scala.reflect.internal.pickling._
 case class TypeRefTpe_AbstractFunction(valueMembers: List[ValueMember], modelsMyRecord: TypeRefTpe_modelsMyRecord, thisTpe_runtime: ThisTpe_runtime, runtime: ExtModClassRef_runtime, scala: ExtModClassRef_scala) extends Tpe {
   var position = 0
   var polyTpePosition = 0
+  var annotPos = 0
+
+  val typeName = "AbstractFunction"
+
   def write(myPickleBuffer: PickleBuffer) = {
     position = Position.current
     TypeRefTpe_function(Position.current + 1, Position.current + 4, valueMembers.map(_.typeRefPosition), modelsMyRecord.position).writeEntry(myPickleBuffer)

@@ -19,6 +19,10 @@ import scala.reflect.internal.pickling._
 
 trait Tpe {
   var polyTpePosition: Int
+  var annotPos: Int
   var position: Int
+
+  val typeName: String
+
   def write(myPickleBuffer: PickleBuffer): Unit
 }

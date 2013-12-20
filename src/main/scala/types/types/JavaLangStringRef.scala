@@ -22,6 +22,9 @@ case class TypeRefTpe_javaLangString(thisTpes: ThisTpes) extends Tpe{
   var position = 0
   var polyTpePosition = 0
   var annotPos = 0
+
+  val typeName = "javaLangString"
+
   def write(myPickleBuffer: PickleBuffer) = {
     position = Position.current
     thisTpes.lang.position match {

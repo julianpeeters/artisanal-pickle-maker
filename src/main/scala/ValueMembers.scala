@@ -27,15 +27,9 @@ import java.util.concurrent.ConcurrentHashMap
   var typeRefPosition = 0
   var termNamePosition = 0
 
-
-println("GETTING BOXED " + getBoxed(typeName))
-
   writeType(typeName)
   ValSym(Position.current + 1, ClassSym.position, 554172420L, typeRefPosition).write(myPickleBuffer)
   TermName(termName + " ").write(myPickleBuffer)
-
-//a map for storing generic- and user-defined- types (the other basic scala datatypes are stored as vals, predefined in TypeRefTpes, imported here and matched to in `matchTypes` below)
- //  val tpes: scala.collection.concurrent.Map[String, Tpe] = scala.collection.convert.Wrappers.JConcurrentMapWrapper(new ConcurrentHashMap[String, Tpe]())
 
 
   def getBoxed(typeName: String) = {
@@ -45,7 +39,6 @@ println("GETTING BOXED " + getBoxed(typeName))
   def writeType(typeName: String) = { 
     if (typeName.endsWith("]")) {
       val typeNames = typeName.dropRight(1).split('[')
-//      writeGenericTpe(matchTypes(typeNames(0)), matchTypes(typeNames(1)))
       writeGenericTpe(matchTypes(typeName), matchTypes(typeNames(1)))
     }
     else writeNonGenericTpe(matchTypes(typeName))
@@ -73,18 +66,17 @@ println("GETTING BOXED " + getBoxed(typeName))
     //generics
     case "Option"   => typeRefTpes.option
     case "Iterator" => typeRefTpes.iterator
-//    case "List"     => typeRefTpes.list
-//    case "List"     => typeRefTpes.list(typeRefTpes.string)
 
-    case a: String if a.startsWith("List")     => { println(typeRefTpes.list(matchTypes(getBoxed(a)))); 
 
-      val g = TypeStore.types.get("List")
-      if (g.isDefined) {
+    case x: String if x.startsWith("List[")     => { 
+      val g = TypeStore.types.get(x)
+      if (g.isDefined) { println("WAS DEFINED " + TypeStore.types)
         g.get
       }
-      else {
-///      TypeRefTpe_List(noneSym, extModClassRefs.scala, thisTpes.scala, extModClassRefs.predef, boxedType)
-         typeRefTpes.list(matchTypes(getBoxed(a)))
+      else { //println("ELSE "  + typeRefTpes.protoList.position )
+   //      typeRefTpes.protoList.write(myPickleBuffer)
+//println("ELSE "  + typeRefTpes.protoList.position )
+         typeRefTpes.list(matchTypes(getBoxed(x)))
       }
     }
 
@@ -92,7 +84,16 @@ println("GETTING BOXED " + getBoxed(typeName))
    // case "Stream" => writeTpe(TypeRefTpe_Stream) 
     //user-defined
   //  case "rec"      => {println("what could have gone wrong? "); writeTpe(typeRefTpes.string)}//TODO not right! just for debug this line
-    case x: String  => {println("USER DEFINED ");typeRefTpes.userDefined(x)}
+   // case x: String  => {println("USER DEFINED ");typeRefTpes.userDefined(x)}
+    case x: String    => { println("USER DEFINED " ); println(TypeStore.types)
+      val g = TypeStore.types.get(x)
+      if (g.isDefined) { println("was defined  ")
+        g.get
+      }
+      else {println("FRESH")
+         typeRefTpes.userDefined(x)
+      }
+    }
     case _          => error("unsupported type")
     }
   }
@@ -152,26 +153,23 @@ println("GETTING BOXED " + getBoxed(typeName))
 
   //For types that take type parameters
   def writeGenericTpe[X<: Tpe, Y <: Tpe](typeRef:X, boxedTypeRef: Y) = {//if type is previous value member's, ref previous member's polytype  
-println(typeRef.position)
+
     typeRef.position match { //polytpe position is determined by TypeRef position (all types but AnyRef follow a polytpe)
       case 0      => { //if it doesn't exist, write it next
 
         if (typeRef.position == 0) { 
-        polyTpePosition = Position.current + 2
-        ValSym(Position.current + 1, ClassSym.position, 692060672L, polyTpePosition).write(myPickleBuffer)
-        termNamePosition = Position.current
-        TermName(termName).write(myPickleBuffer)
-        PolyTpe(typeRef).write(myPickleBuffer)
-        typeRefPosition = Position.current
-        typeRef.position = Position.current
+          polyTpePosition = Position.current + 2
+          ValSym(Position.current + 1, ClassSym.position, 692060672L, polyTpePosition).write(myPickleBuffer)
+          termNamePosition = Position.current
+          TermName(termName).write(myPickleBuffer)
+          PolyTpe(typeRef).write(myPickleBuffer)
+          typeRefPosition = Position.current
+          typeRef.position = Position.current
 
-println("   " + typeRef.position)
-        typeRef.write(myPickleBuffer)
-        println("Boxed tupe pos " + boxedTypeRef.position )
-}
-//
+          typeRef.write(myPickleBuffer)
+        }
+
         if (boxedTypeRef.position == 0) boxedTypeRef.write(myPickleBuffer)
-//boxedTypeRef.write(myPickleBuffer)
       }
       case i: Int => {//if the type has been previously 
         polyTpePosition = typeRef.position - 1

@@ -37,7 +37,7 @@ class ListCharSpec extends mutable.Specification {
 
   "a ScalaSig for case class MyRecord_ListChar(v: List[Char])" should {
     "have the correct string" in {
-    val correctParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_ListDouble]).map(ScalaSigAttributeParsers.parse(_)).get
+    val correctParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_ListChar]).map(ScalaSigAttributeParsers.parse(_)).get
     val myParsedSig = parseByteCodeFromMySig(mySig).map(ScalaSigAttributeParsers.parse(_)).get
     correctParsedSig.toString === myParsedSig.toString
     }

@@ -23,6 +23,9 @@ case class TypeRefTpe_Object(thisTpe_scala: ThisTpe_scala, thisTpe_lang: ThisTpe
   var position = 0
   var polyTpePosition = 0
   var annotPos = 0
+
+  val typeName = "Object"
+
   def write(myPickleBuffer: PickleBuffer) = {
     position = Position.current
     TypeRefTpe_nonGeneric(Position.current + 1, Position.current + 6).writeEntry(myPickleBuffer)
@@ -38,6 +41,10 @@ case class TypeRefTpe_Object(thisTpe_scala: ThisTpe_scala, thisTpe_lang: ThisTpe
 case class TypeRefTpe_ObjectReadResolve(thisTpe_javaLang: ThisTpe_javaLang, lang: ExtModClassRef_lang) extends Tpe {
   var position = 0
   var polyTpePosition = 0
+  var annotPos = 0
+
+  val typeName = "ObjectReadResolve"
+
   def write(myPickleBuffer: PickleBuffer) = {
     position = Position.current
     TypeRefTpe_nonGeneric(thisTpe_javaLang.position, Position.current + 1).writeEntry(myPickleBuffer)

@@ -22,6 +22,9 @@ case class TypeRefTpe_modelsMyRecord(thisTpe_owner: ThisTpe_owner) extends Tpe {
   var position = 0
   var polyTpePosition = 0
   var annotPos = 0
+
+  val typeName = "modelsMyRecord"
+
   def write(myPickleBuffer: PickleBuffer) = {
     position = Position.current
     thisTpe_owner.position match { //write it next if it hasn't been written before

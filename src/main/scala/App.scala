@@ -16,6 +16,9 @@ import scala.reflect.ScalaSignature
 
 
 object Main extends App {
+//  val mySig = new artisinal.pickle.maker.ScalaSig(List("case class"), List("models", "MyRecord_UserUser"), List(("myRec1", "MyRec"), ("myRec2", "MyRec")))
+
+  val mySig = new artisinal.pickle.maker.ScalaSig(List("case class"), List("models", "MyRecord_ListStringListInt"), List(("ps1", "List[String]"), ("pi2", "List[Int]")))
  // val mySig = new artisinal.pickle.maker.ScalaSig(List("case class"), List("models", "MyRecord_StringListString"), List(("pp1", "String"), ("pp2", "List[String]")))
 
 
@@ -23,7 +26,7 @@ object Main extends App {
 
   //val mySig = new artisinal.pickle.maker.ScalaSig(List("case class"), List("models", "MyRecord_ListInt"), List(("po", "List[Int]")))
 
- val mySig = new artisinal.pickle.maker.ScalaSig(List("case class"), List("models", "MyRecord_ListStringListString"), List(("p1", "List[String]"), ("p2", "List[String]")))
+ //val mySig = new artisinal.pickle.maker.ScalaSig(List("case class"), List("models", "MyRecord_ListStringListString"), List(("p1", "List[String]"), ("p2", "List[String]")))
  // val mySig = new artisinal.pickle.maker.ScalaSig(List("case class"), List("models", "MyRecord_ListString"), List(("pp", "List[String]")))
 
   def parseByteCodeFromAnnotation(clazz: Class[_]): Option[ByteCode] = {
@@ -44,13 +47,13 @@ object Main extends App {
   }
 
 
-    val correctParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_ListStringListString]).map(ScalaSigAttributeParsers.parse(_)).get
+    val correctParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_ListStringListInt]).map(ScalaSigAttributeParsers.parse(_)).get
     val myParsedSig = parseByteCodeFromMySig(mySig).map(ScalaSigAttributeParsers.parse(_)).get
 
 println(correctParsedSig)
 println("+++++++++++++++++++++++++++")
 println(myParsedSig)
-println("DIFFFF" + myParsedSig.toString.diff(correctParsedSig.toString))
+//println("DIFFFF" + myParsedSig.toString.diff(correctParsedSig.toString))
  
    println( correctParsedSig.toString == myParsedSig.toString)
 

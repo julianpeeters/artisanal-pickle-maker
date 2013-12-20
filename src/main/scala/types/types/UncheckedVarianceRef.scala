@@ -21,6 +21,10 @@ import scala.reflect.internal.pickling._
 case class TypeRefTpe_UncheckedVariance(unchecked: ExtModClassRef_unchecked, annotation: ExtModClassRef_annotation, scala: ExtModClassRef_scala) extends Tpe {
   var position = 0
   var polyTpePosition = 0
+  var annotPos = 0
+
+  val typeName = "uncheckedVariance"
+
   def write(myPickleBuffer: PickleBuffer) = {
     position = Position.current 
     TypeRefTpe_nonGeneric(Position.current + 1, Position.current + 6).writeEntry(myPickleBuffer)
@@ -31,6 +35,6 @@ case class TypeRefTpe_UncheckedVariance(unchecked: ExtModClassRef_unchecked, ann
     annotation.write(myPickleBuffer, scala)
     TermName("annotation").write(myPickleBuffer)
     ExtRef_nested(Position.current + 1, Position.current - 4).write(myPickleBuffer)
-    TypeName("uncheckedVariance").write(myPickleBuffer)
+    TypeName(typeName).write(myPickleBuffer)
   }
 }

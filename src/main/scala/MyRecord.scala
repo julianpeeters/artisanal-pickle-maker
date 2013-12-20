@@ -1,8 +1,23 @@
 package models
 
+case class MyRec(x: String)
+
+
+
+case class MyRecord_ListBoolean(x: List[Boolean])
+case class MyRecord_ListUnit(y: List[Unit])
+case class MyRecord_ListNull(z: List[Null])
 
 case class MyRecord_ListString(pp: List[String])
 case class MyRecord_ListInt(po: List[Int])
 case class MyRecord_ListStringString(po1: List[String], po2: String)
 case class MyRecord_ListStringListString(p1: List[String], p2: List[String])
 case class MyRecord_StringListString(pp1: String, pp2: List[String])
+
+case class MyRecord_UserUser(myRec1: MyRec, myRec2: MyRec)
+
+
+
+case class MyRecord_ListStringListInt(ps1: List[String], pi2: List[Int])
+case class MyRecord_IntListInt(pt1: Int, pt2: List[Int])
+case class MyRecord_ListIntInt(pu1: List[Int], pu2: Int)

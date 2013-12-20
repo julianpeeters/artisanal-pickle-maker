@@ -22,6 +22,9 @@ case class TypeRefTpe_Stream(scala: ExtModClassRef_scala) extends Tpe {
   var polyTpePosition = 0
   var position = 0
   var annotPos = 0
+
+  val typeName = "Stream"
+
   def write(myPickleBuffer: PickleBuffer) = {
     position = Position.current
     TypeRefTpe_generic(Position.current + 1, Position.current + 9, Position.current + 12) 

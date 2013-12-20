@@ -22,6 +22,7 @@ case class MyRecord_AllDatatypes(
 //user-defined
 case class MyRec(x: String)
 case class MyRecord_User(myRec: MyRec)
+case class MyRecord_UserUser(myRec1: MyRec, myRec2: MyRec)
 
 //single value member
 case class MyRecord_Byte(a: Byte)
@@ -59,7 +60,7 @@ case class MyRecord_ListUnit(y: List[Unit])
 case class MyRecord_ListNull(z: List[Null])
 
 
-//////////////////////////////////////////////////////////TODO TESTS + ALL TEH LIST ONES FOR Double value members
+
 case class MyRecord_ListNothing(aa: List[Nothing])
 case class MyRecord_ListAny(ab: List[Any])
 case class MyRecord_ListAnyRef(ac: List[AnyRef])
@@ -67,9 +68,9 @@ case class MyRecord_ListAnyRef(ac: List[AnyRef])
 case class MyRecord_ListObject(ad: List[Object])
 case class MyRecord_ListUser1(ae: List[MyRec])
 case class MyRecord_ListUser2(af: List[MyRecord_User])
-
-case class MyRecord_ListListUser1(ag: List[MyRec])
-case class MyRecord_ListListUser2(ah: List[MyRecord_User])
+//////////////////////////////////////////////////////////TODO TESTS + ALL TEH LIST ONES FOR Double value members
+case class MyRecord_ListListUser1(ag: List[List[MyRec]])
+case class MyRecord_ListListUser2(ah: List[List[MyRecord_User]])
 case class MyRecord_ListListString(p: List[List[String]])
 case class MyRecord_ListListInt(ai: List[List[Int]])
 /////////////////////////////////////////////////////////////////
@@ -98,6 +99,12 @@ case class MyRecord_ObjectObject(o1: Object, o2:Object)
 case class MyRecord_ListStringListString(p1: List[String], p2: List[String])
 case class MyRecord_StringListString(pp1: String, pp2: List[String])
 case class MyRecord_ListStringString(po1: List[String], po2: String)
+case class MyRecord_ListIntListInt(pi1: List[Int], pi2: List[Int])
+
+////Need tests
+case class MyRecord_ListStringListInt(ps1: List[String], pi2: List[Int])
+case class MyRecord_IntListInt(pt1: Int, pt2: List[Int])
+case class MyRecord_ListIntInt(pu1: List[Int], pu2: Int)
 
 //triple value member
 case class MyRecord_ByteByteByte(a1: Byte, a2: Byte, a3: Byte)

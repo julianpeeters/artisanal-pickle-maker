@@ -22,6 +22,9 @@ case class TypeRefTpe_Option(thisTpe_scala: ThisTpe_scala, scala: ExtModClassRef
   var position = 0
   var polyTpePosition = 0
   var annotPos = 0
+
+  val typeName = "Option"
+
   def write(myPickleBuffer: PickleBuffer) = {
     position = Position.current
     TypeRefTpe_generic(thisTpe_scala.position, Position.current + 1, Position.current + 1).writeEntry(myPickleBuffer) 
