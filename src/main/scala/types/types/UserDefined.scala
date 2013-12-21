@@ -24,11 +24,19 @@ case class TypeRefTpe_userDefined(typeName: String, thisTpe_owner: ThisTpe_owner
   var annotPos = 0
   def write(myPickleBuffer: PickleBuffer) = {
     position = Position.current
-    TypeRefTpe_nonGeneric(Position.current + 1, Position.current + 2).writeEntry(myPickleBuffer)
-    thisTpe_owner.write(myPickleBuffer, extModClassRefs.owner) 
-    ExtRef_nested(Position.current + 1, extModClassRefs.owner.position).write(myPickleBuffer)
-    TypeName(typeName).write(myPickleBuffer)
-
+    thisTpe_owner.position match {
+      case 0 => {
+        TypeRefTpe_nonGeneric(Position.current + 1, Position.current + 2).writeEntry(myPickleBuffer)
+        thisTpe_owner.write(myPickleBuffer, extModClassRefs.owner) 
+        ExtRef_nested(Position.current + 1, extModClassRefs.owner.position).write(myPickleBuffer)
+        TypeName(typeName).write(myPickleBuffer)
+      }
+      case i => { //the "owner" thisTpe has already been written
+        TypeRefTpe_nonGeneric(i, Position.current + 1).writeEntry(myPickleBuffer)
+        ExtRef_nested(Position.current + 1, extModClassRefs.owner.position).write(myPickleBuffer)
+        TypeName(typeName).write(myPickleBuffer)
+      }
+    }
     TypeStore.accept(this)//adds this TypeRefType to the list of types
   }
 }

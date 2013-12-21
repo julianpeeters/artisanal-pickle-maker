@@ -13,8 +13,8 @@ import scala.reflect.ScalaSignature
 
 
 
-class StringListStringListStringSpec extends mutable.Specification {
-  val mySig = new ScalaSig(List("case class"), List("models", "MyRecord_StringListStringListString"), List(("sll1", "String"), ("sll2", "List[String]"), ("sll3", "List[String]")))
+class StringListStringUserListUserSpec extends mutable.Specification {
+  val mySig = new ScalaSig(List("case class"), List("models", "MyRecord_StringListStringUserListUser"), List(("mmm1", "String"), ("mmm2", "List[String]"), ("mmm3", "MyRec"), ("mmm4", "List[MyRec]"), ("mmm5", "MyRecord_User"), ("mmm6", "List[MyRecord_UserUser]")))
   def parseByteCodeFromAnnotation(clazz: Class[_]): Option[ByteCode] = {
     clazz.annotation[ScalaSignature] match {
       case Some(sig) if sig != null => {
@@ -32,9 +32,9 @@ class StringListStringListStringSpec extends mutable.Specification {
     Option(ByteCode(bytes.take(len)))   
   }
 
-  "a ScalaSig for case class MyRecord_StringListStringListString(sll1: String, sll2: List[String], sll3: List[String])" should {
+  "a ScalaSig for case class MyRecord_StringListStringUserListUser(mmm1: String, mmm2: List[String], mmm3: MyRec, mmm4: List[MyRec], mmm5: MyRecord_User, mmm6: List[MyRecord_UserUser])" should {
     "have the correct string" in {
-    val correctParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_StringListStringListString]).map(ScalaSigAttributeParsers.parse(_)).get
+    val correctParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_StringListStringUserListUser]).map(ScalaSigAttributeParsers.parse(_)).get
     val myParsedSig = parseByteCodeFromMySig(mySig).map(ScalaSigAttributeParsers.parse(_)).get
     correctParsedSig.toString === myParsedSig.toString
     }

@@ -101,10 +101,15 @@ case class MyRecord_StringListString(pp1: String, pp2: List[String])
 case class MyRecord_ListStringString(po1: List[String], po2: String)
 case class MyRecord_ListIntListInt(pi1: List[Int], pi2: List[Int])
 
-////Need tests
 case class MyRecord_ListStringListInt(ps1: List[String], pi2: List[Int])
 case class MyRecord_IntListInt(pt1: Int, pt2: List[Int])
 case class MyRecord_ListIntInt(pu1: List[Int], pu2: Int)
+
+case class MyRecord_ListUserListUser(lu1: List[MyRecord_User], lu2: List[MyRecord_User])
+case class MyRecord_UserListUser(ulu1: MyRec, ulu2: List[MyRec])
+case class MyRecord_ListUserList(luu1: List[MyRecord_User], luu2: MyRecord_User)
+
+
 
 //triple value member
 case class MyRecord_ByteByteByte(a1: Byte, a2: Byte, a3: Byte)
@@ -126,8 +131,16 @@ case class MyRecord_ObjectObjectObject(o1: Object, o2:Object, o3: Object)
 
 case class MyRecord_StringIntBoolean(x: String, y: Int, z: Boolean)
 
+case class MyRecord_ListStringListStringListString(lll1: List[String], lll2: List[String], lll3: List[String])
+case class MyRecord_ListStringListStringString(lss1: List[String], lss2: List[String], lss3: String)
+case class MyRecord_ListStringStringListString(lsl1: List[String], lsl2: String, lsl3: List[String])
+case class MyRecord_StringListStringListString(sll1: String, sll2: List[String], sll3: List[String])
+case class MyRecord_ListStringListIntListBoolean(lls1: List[String], lli2: List[Int], llb3: List[Boolean])
+
+
 //quadruple value member
 case class MyRecord_ByteByteByteByte(a1: Byte, a2: Byte, a3: Byte, a4: Byte)
+case class MyRecord_StringListStringUserListUser(mmm1:String, mmm2: List[String], mmm3:MyRec, mmm4: List[MyRec], mmm5: MyRecord_User, mmm6: List[MyRecord_UserUser])
 
 //quintuple value member
 case class MyRecord_ByteByteByteByteByte(a1: Byte, a2: Byte, a3: Byte, a4: Byte, a5: Byte)

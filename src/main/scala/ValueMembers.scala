@@ -70,12 +70,10 @@ import java.util.concurrent.ConcurrentHashMap
 
     case x: String if x.startsWith("List[")     => { 
       val g = TypeStore.types.get(x)
-      if (g.isDefined) { println("WAS DEFINED " + TypeStore.types)
+      if (g.isDefined) { println("WAS DEFINED " )//+ TypeStore.types)
         g.get
       }
-      else { //println("ELSE "  + typeRefTpes.protoList.position )
-       //  typeRefTpes.listNoBoxed.write(myPickleBuffer)
-//println("ELSE "  + typeRefTpes.protoList.position )
+      else { println("ELSE "  )
          typeRefTpes.list(matchTypes(getBoxed(x)))
       }
     }
@@ -85,7 +83,7 @@ import java.util.concurrent.ConcurrentHashMap
     //user-defined
   //  case "rec"      => {println("what could have gone wrong? "); writeTpe(typeRefTpes.string)}//TODO not right! just for debug this line
    // case x: String  => {println("USER DEFINED ");typeRefTpes.userDefined(x)}
-    case x: String    => { println("USER DEFINED " ); println(TypeStore.types)
+    case x: String    => { println("USER DEFINED "  + x);// println(TypeStore.types)
       val g = TypeStore.types.get(x)
       if (g.isDefined) { println("was defined  ")
         g.get
@@ -154,10 +152,13 @@ import java.util.concurrent.ConcurrentHashMap
   //For types that take type parameters
   def writeGenericTpe[X<: Tpe, Y <: Tpe](typeRef:X, boxedTypeRef: Y) = {//if type is previous value member's, ref previous member's polytype  
 
-    typeRef.position match { //polytpe position is determined by TypeRef position (all types but AnyRef follow a polytpe)
-      case 0      => { println("ARE WE REALLY?" + TypeStore.types)//if it doesn't exist, write it next
 
-        if (typeRef.position == 0) { println("ARE WE REALLY? FRESH")
+//maybe change to a get from typestore?s
+
+    typeRef.position match { //polytpe position is determined by TypeRef position (all types but AnyRef follow a polytpe)
+      case 0      => { println("ARE WE REALLY?" + typeRef.position + " "+ TypeStore.types)//if it doesn't exist, write it next
+
+        if (typeRef.position == 0) {
           polyTpePosition = Position.current + 2
           ValSym(Position.current + 1, ClassSym.position, 692060672L, polyTpePosition).write(myPickleBuffer)
           termNamePosition = Position.current
