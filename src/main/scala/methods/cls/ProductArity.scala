@@ -32,9 +32,9 @@ case class ProductArity(myPickleBuffer: PickleBuffer, Int: TypeRefTpe_Int) {
       PolyTpe(Int).write(myPickleBuffer)
       Int.write(myPickleBuffer)
     }
-    case i: Int => { println("PA")
+    case i: Int => { 
       //if we've written an int, but the polytpe position is still zero, then write the polytpe here
-      if (Int.polyTpePosition == 0) { println("PA IF")
+      if (Int.polyTpePosition == 0) {
         ValSym(Position.current + 1, ClassSym.position, 2097664L, Position.current + 2).write(myPickleBuffer)
         TermName("productArity").write(myPickleBuffer)
         PolyTpe(Int).write(myPickleBuffer)

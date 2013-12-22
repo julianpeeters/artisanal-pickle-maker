@@ -32,28 +32,29 @@ case class TypeRefTpe_ListNoBoxed extends Tpe{
   }
 }
 
-case class TypeRefTpe_List(noSymbol: NoneSym, scalaExt: ExtModClassRef_scala, thisTpe_scala: ThisTpe_scala, predef: ExtModClassRef_predef, boxedType: Tpe) extends Tpe{
+case class TypeRefTpe_List(noSymbol: NoneSym, scalaExt: ExtModClassRef_scala, thisTpe_scala: ThisTpe_scala, predef: ExtModClassRef_predef, boxedTypeRef: Tpe) extends Tpe{
   var position = 0
   var polyTpePosition = 0
   var annotPos = 0
   var typeNamePosition = 0
 
-  val typeName = "List[" + boxedType.typeName + "]"
+  val typeName = "List[" + boxedTypeRef.typeName + "]"
 
   def write(myPickleBuffer: PickleBuffer) = {
     position = Position.current
-
-    val g = TypeStore.types.get("List")
-    if (g.isDefined) {println("NOT HERE? " + typeName) //previously defined types just need to be referenced
-      if (boxedType.position == 0) {println("HEREH!");TypeRefTpe_generic(g.get.position -11, g.get.position -3 , Position.current + 1).writeEntry(myPickleBuffer)}
-
-      else {println("GUess NOt????"); TypeRefTpe_generic(g.get.position -11, g.get.position -3 , boxedType.position).writeEntry(myPickleBuffer)}
+    val g = TypeStore.types.get("List") //if the base type for lists has already been written
+    if (g.isDefined) {//previously defined types just need to be referenced
+      boxedTypeRef.position match {
+        case 0 => TypeRefTpe_generic(g.get.position -11, g.get.position -3 , Position.current + 1).writeEntry(myPickleBuffer)
+        case i => TypeRefTpe_generic(g.get.position -11, g.get.position -3 , boxedTypeRef.position).writeEntry(myPickleBuffer)
+      }
     }
-    else {  
+    else { //if the type hasn't been written yet write it now
+      boxedTypeRef.position match {
+        case 0 => TypeRefTpe_generic(Position.current + 1, Position.current + 9, Position.current + 12).writeEntry(myPickleBuffer)
+        case i => TypeRefTpe_generic(Position.current + 1, Position.current + 9, boxedTypeRef.position).writeEntry(myPickleBuffer) 
+      }
 
-      if (boxedType.position == 0) TypeRefTpe_generic(Position.current + 1, Position.current + 9, Position.current + 12).writeEntry(myPickleBuffer)
-      else TypeRefTpe_generic(Position.current + 1, Position.current + 9, boxedType.position).writeEntry(myPickleBuffer) 
-    
       SingleTpe(Position.current + 1, Position.current + 6).write(myPickleBuffer)
       SingleTpe(Position.current + 1, Position.current + 4).write(myPickleBuffer)
       val thisTpe_root = ThisTpe_root()
@@ -67,10 +68,13 @@ case class TypeRefTpe_List(noSymbol: NoneSym, scalaExt: ExtModClassRef_scala, th
       TypeName("List").write(myPickleBuffer)
       new ExtModClassRef_nested(Position.current - 3, scalaExt.position).write(myPickleBuffer)
     }
+    //add the new types to the typestore
     val baseListTpe = TypeRefTpe_ListNoBoxed()
     baseListTpe.write(myPickleBuffer)
     TypeStore.accept(this)//add the new TypeRefType to the list of types
     TypeStore.accept(baseListTpe)//and add the base list type to the list of types
-  }
 
+    //finally, write the boxed type 
+    if (boxedTypeRef.position == 0) boxedTypeRef.write(myPickleBuffer)
+  }
 }

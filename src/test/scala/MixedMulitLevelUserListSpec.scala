@@ -13,11 +13,11 @@ import scala.reflect.ScalaSignature
 
 
 
-class ListListStringSpec extends mutable.Specification {
+class MixedMulitLevelUserListSpec extends mutable.Specification {
 
 
 
-  val mySig = new artisinal.pickle.maker.ScalaSig(List("case class"), List("models", "MyRecord_ListListString"), List(("p", "List[List[String]]")))
+  val mySig = new artisinal.pickle.maker.ScalaSig(List("case class"), List("models", "MyRecord_MixedMulitLevelUserList"), List(("s1", "List[List[String]]"), ("s2", "String"), ("s3", "List[MyRecord_User]"), ("s4", "MyRecord_User"), ("s5", "List[List[List[List[Object]]]]")))
 
   def parseByteCodeFromAnnotation(clazz: Class[_]): Option[ByteCode] = {
     clazz.annotation[ScalaSignature] match {
@@ -36,9 +36,9 @@ class ListListStringSpec extends mutable.Specification {
     Option(ByteCode(bytes.take(len)))   
   }
 
-  "a ScalaSig for case class MyRecord_ListListString(p: List[List[String]])" should {
+  "a ScalaSig for case class MyRecord_MixedMulitLevelUserList(s1: List[List[String]], s2: String, s3: List[MyRecord_User], s4: MyRecord_User, s5: List[List[List[List[Object]]]])" should {
     "have the correct string" in {
-    val correctParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_ListListString]).map(ScalaSigAttributeParsers.parse(_)).get
+    val correctParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_MixedMulitLevelUserList]).map(ScalaSigAttributeParsers.parse(_)).get
     val myParsedSig = parseByteCodeFromMySig(mySig).map(ScalaSigAttributeParsers.parse(_)).get
     correctParsedSig.toString === myParsedSig.toString
     }

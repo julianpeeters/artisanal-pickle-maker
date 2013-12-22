@@ -23,22 +23,22 @@ import types._
 
 class Entries(sigResources: SigResources, flags: List[String], names: List[String], args: List[(String, String)]) {
 
-println("atp made an Entries ")
-//write the class info
+  //write the class info
   val classInfo = ClassInfo(sigResources, flags, names)
-println(classInfo)
-//write the value members
+
+  //write the value members
   val valueMembers = args.map(arg => new ValueMember(sigResources.myPickleBuffer, arg._1, arg._2, sigResources.typeRefTpes))
-println(valueMembers)
-//write the <init> method
+
+  //write the <init> method
   val initMethod = Init(sigResources, valueMembers)
-println(initMethod)
-//then we're done unless there are flags
+
+  //then we're done unless there are flags
   if (flags.contains("case class")) {
-//write the class methods that case classes give us for free
+
+    //write the class methods that case classes give us for free
     val caseClassMethods = new CaseClassMethods(sigResources, valueMembers)
 
-//write module  (i.e. companion object methods) that we get for free with a case class
+    //write module  (i.e. companion object methods) that we get for free with a case class
     val moduleSig = new ModuleSig(sigResources, names, valueMembers, initMethod, caseClassMethods)
   }
 }

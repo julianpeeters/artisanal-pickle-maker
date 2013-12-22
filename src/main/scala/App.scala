@@ -19,8 +19,8 @@ object Main extends App {
  // val mySig = new artisinal.pickle.maker.ScalaSig(List("case class"), List("models", "MyRecord_ListUserListUser"), List(("lu1", "List[MyRecord_User]"), ("lu2", "List[MyRecord_User]")))
  // val mySig = new artisinal.pickle.maker.ScalaSig(List("case class"), List("models", "MyRecord_StringListStringUserListUser"), List( ("mmm4", "List[MyRec]"), ("mmm5", "MyRecord_User")))
 
-
-  val mySig = new artisinal.pickle.maker.ScalaSig(List("case class"), List("models", "MyRecord_ListIntInt"), List(("pu1", "List[Int]"), ("pu2", "Int")))
+  val mySig = new artisinal.pickle.maker.ScalaSig(List("case class"), List("models", "MyRecord_ListListString"), List(("p", "List[List[String]]")))
+ // val mySig = new artisinal.pickle.maker.ScalaSig(List("case class"), List("models", "MyRecord_ListIntInt"), List(("pu1", "List[Int]"), ("pu2", "Int")))
 
   def parseByteCodeFromAnnotation(clazz: Class[_]): Option[ByteCode] = {
     clazz.annotation[ScalaSignature] match {
@@ -40,7 +40,7 @@ object Main extends App {
   }
 
 
-    val correctParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_ListIntInt]).map(ScalaSigAttributeParsers.parse(_)).get
+    val correctParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_ListListString]).map(ScalaSigAttributeParsers.parse(_)).get
 //    val correctParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_StringListStringUserListUser]).map(ScalaSigAttributeParsers.parse(_)).get
     val myParsedSig = parseByteCodeFromMySig(mySig).map(ScalaSigAttributeParsers.parse(_)).get
 

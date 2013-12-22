@@ -28,3 +28,8 @@ case class MyRecord_ListUserUser(luu1: List[MyRecord_User], luu2: MyRecord_User)
 case class MyRecord_ListStringListInt(ps1: List[String], pi2: List[Int])
 case class MyRecord_IntListInt(pt1: Int, pt2: List[Int])
 case class MyRecord_ListIntInt(pu1: List[Int], pu2: Int)
+
+case class MyRecord_ListListUser1(ag: List[List[MyRec]])
+case class MyRecord_ListListUser2(ah: List[List[MyRecord_User]])
+case class MyRecord_ListListString(p: List[List[String]])
+case class MyRecord_ListListInt(ai: List[List[Int]])

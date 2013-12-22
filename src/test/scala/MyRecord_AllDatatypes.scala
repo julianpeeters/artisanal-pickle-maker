@@ -74,7 +74,7 @@ case class MyRecord_ListListUser2(ah: List[List[MyRecord_User]])
 case class MyRecord_ListListString(p: List[List[String]])
 case class MyRecord_ListListInt(ai: List[List[Int]])
 /////////////////////////////////////////////////////////////////
-
+case class MyRecord_ListListListString(r: List[List[List[String]]])
 
 
 
@@ -108,6 +108,8 @@ case class MyRecord_ListIntInt(pu1: List[Int], pu2: Int)
 case class MyRecord_ListUserListUser(lu1: List[MyRecord_User], lu2: List[MyRecord_User])
 case class MyRecord_UserListUser(ulu1: MyRec, ulu2: List[MyRec])
 case class MyRecord_ListUserList(luu1: List[MyRecord_User], luu2: MyRecord_User)
+
+case class MyRecord_ListListStringListListString(r1: List[List[String]], r2: List[List[String]])
 
 
 
@@ -143,4 +145,5 @@ case class MyRecord_ByteByteByteByte(a1: Byte, a2: Byte, a3: Byte, a4: Byte)
 case class MyRecord_StringListStringUserListUser(mmm1:String, mmm2: List[String], mmm3:MyRec, mmm4: List[MyRec], mmm5: MyRecord_User, mmm6: List[MyRecord_UserUser])
 
 //quintuple value member
+case class MyRecord_MixedMulitLevelUserList(s1: List[List[String]], s2: String, s3: List[MyRecord_User], s4: MyRecord_User, s5: List[List[List[List[Object]]]])
 case class MyRecord_ByteByteByteByteByte(a1: Byte, a2: Byte, a3: Byte, a4: Byte, a5: Byte)

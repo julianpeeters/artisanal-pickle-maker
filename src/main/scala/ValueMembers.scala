@@ -21,7 +21,7 @@ import scala.collection.JavaConversions.JConcurrentMapWrapper
 import java.util.concurrent.ConcurrentHashMap
 
 
- class ValueMember(myPickleBuffer: PickleBuffer, termName: String, typeName: String, typeRefTpes: TypeRefTpes){
+class ValueMember(myPickleBuffer: PickleBuffer, termName: String, typeName: String, typeRefTpes: TypeRefTpes){
   val tpeName = typeName
   var polyTpePosition = 0
   var typeRefPosition = 0
@@ -38,63 +38,51 @@ import java.util.concurrent.ConcurrentHashMap
 
   def writeType(typeName: String) = { 
     if (typeName.endsWith("]")) {
-      val typeNames = typeName.dropRight(1).split('[')
-      writeGenericTpe(matchTypes(typeName), matchTypes(typeNames(1)))
+      val boxedTypeName = getBoxed(typeName)
+      writeGenericTpe(matchTypes(typeName), matchTypes(boxedTypeName))//pass the matched entire type and the boxed
     }
     else writeNonGenericTpe(matchTypes(typeName))
   }
 
 
-  def matchTypes(tpeName: String):  Tpe = { println("matching " + tpeName)
-      tpeName match {
-    //basic data types
-    case "Byte"     => typeRefTpes.byte
-    case "Short"    => typeRefTpes.short
-    case "Int"      => typeRefTpes.int
-    case "Long"     => typeRefTpes.long
-    case "Float"    => typeRefTpes.float
-    case "Double"   => typeRefTpes.double
-    case "Char"     => typeRefTpes.char
-    case "String"   => typeRefTpes.string
-    case "Boolean"  => typeRefTpes.boolean
-    case "Unit"     => typeRefTpes.unit
-    case "Null"     => typeRefTpes.nul
-    case "Nothing"  => typeRefTpes.nothing 
-    case "Any"      => typeRefTpes.any 
-    case "AnyRef"   => typeRefTpes.anyRef
-    case "Object"   => typeRefTpes.obj 
-    //generics
-    case "Option"   => typeRefTpes.option
-    case "Iterator" => typeRefTpes.iterator
 
+  def matchTypes(tpeName: String):  Tpe = { 
 
-    case x: String if x.startsWith("List[")     => { 
-      val g = TypeStore.types.get(x)
-      if (g.isDefined) { println("WAS DEFINED " )//+ TypeStore.types)
-        g.get
-      }
-      else { println("ELSE "  )
-         typeRefTpes.list(matchTypes(getBoxed(x)))
-      }
-    }
+    tpeName match {
+      //basic data types
+      case "Byte"     => typeRefTpes.byte
+      case "Short"    => typeRefTpes.short
+      case "Int"      => typeRefTpes.int
+      case "Long"     => typeRefTpes.long
+      case "Float"    => typeRefTpes.float
+      case "Double"   => typeRefTpes.double
+      case "Char"     => typeRefTpes.char
+      case "String"   => typeRefTpes.string
+      case "Boolean"  => typeRefTpes.boolean
+      case "Unit"     => typeRefTpes.unit
+      case "Null"     => typeRefTpes.nul
+      case "Nothing"  => typeRefTpes.nothing 
+      case "Any"      => typeRefTpes.any 
+      case "AnyRef"   => typeRefTpes.anyRef
+      case "Object"   => typeRefTpes.obj 
+      //generics
+    //case "Option"   => typeRefTpes.option
+   // case "Iterator" => typeRefTpes.iterator
 
-   // case "List[String]" => {println("VM found a list STring"); typeRefTpes.list}
-   // case "Stream" => writeTpe(TypeRefTpe_Stream) 
-    //user-defined
-  //  case "rec"      => {println("what could have gone wrong? "); writeTpe(typeRefTpes.string)}//TODO not right! just for debug this line
-   // case x: String  => {println("USER DEFINED ");typeRefTpes.userDefined(x)}
-    case x: String    => { println("USER DEFINED "  + x);// println(TypeStore.types)
-      val g = TypeStore.types.get(x)
-      if (g.isDefined) { println("was defined  ")
-        g.get
+      //collections, generics, and user-defined types
+      case typeName: String => {
+        val tpe = TypeStore.types.get(typeName)
+        if (tpe.isDefined) tpe.get
+        else {  
+          typeName match {
+            case x if x.startsWith("List[") =>  typeRefTpes.list(matchTypes(getBoxed(x)))
+            case x   /*User Defined*/       =>  typeRefTpes.userDefined(x)
+          }
+        }
       }
-      else {println("FRESH")
-         typeRefTpes.userDefined(x)
-      }
-    }
-    case _          => error("unsupported type")
     }
   }
+
 
   //For types without type parameters
   def writeNonGenericTpe[X <: Tpe](typeRef:X) = {//if type is previous value member's, ref previous member's polytype
@@ -152,11 +140,8 @@ import java.util.concurrent.ConcurrentHashMap
   //For types that take type parameters
   def writeGenericTpe[X<: Tpe, Y <: Tpe](typeRef:X, boxedTypeRef: Y) = {//if type is previous value member's, ref previous member's polytype  
 
-
-//maybe change to a get from typestore?s
-
     typeRef.position match { //polytpe position is determined by TypeRef position (all types but AnyRef follow a polytpe)
-      case 0      => { println("ARE WE REALLY?" + typeRef.position + " "+ TypeStore.types)//if it doesn't exist, write it next
+      case 0      => { //if it doesn't exist, write it next
 
         if (typeRef.position == 0) {
           polyTpePosition = Position.current + 2
@@ -170,9 +155,8 @@ import java.util.concurrent.ConcurrentHashMap
           typeRef.write(myPickleBuffer)
         }
 
-        if (boxedTypeRef.position == 0) boxedTypeRef.write(myPickleBuffer)
       }
-      case i: Int => {println("ARE WE REALLY?FAMILIAR")//if the type has been previously 
+      case i: Int => {//if the type has been previously 
         polyTpePosition = typeRef.position - 1
         typeRefPosition = typeRef.position
         ValSym(Position.current + 1, ClassSym.position, 692060672L, polyTpePosition).write(myPickleBuffer)

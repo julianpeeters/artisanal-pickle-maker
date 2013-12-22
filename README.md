@@ -17,15 +17,15 @@ Get an `artisinal.pickle.maker.ScalaSig` with:
 `scalaSig.bytes` gives the encoded bytes as a UTF-8 String. This is the normal storage format of a natural pickled Scala signature.
 
 Thus, `scalaSig.bytes` is identical to the encoded string that would be found in the `ScalaSignature` annotation of the conventionally defined class:
-        package models
-        case class MyRecord(x: String, y: Int)
+        `package models
+        case class MyRecord(x: String, y: Int)`
 
 ##Currently supports:##
   Are you generating or modifying Scala classes with ASM or another bytecode engineering library? Then add an updated pickled sig and make your class whole!
 
   _Classes_ - The generation of Scala sigs for regular and case classes *that have value members only* (signatures will not reflect user-defined defs, i.e., this doesn't yet support classes with defs!).
 
-  _Datatypes_ - All basic Scala datatypes
+  _Datatypes_ - All basic Scala datatypes, lists, and user-defined datatypes
 
   _Scala Version_ - Reproduces a Scala 2.10.2 and 2.10.3 signature byte-for-byte.
 
@@ -33,9 +33,11 @@ Thus, `scalaSig.bytes` is identical to the encoded string that would be found in
 
 ##In the future:##
 
-  _Datatypes_ - Support for collections.
+  _Datatypes_ - Support for more collections besides just `List`.
 
   _Method Members_ - Support for user defined defs(?).
+
+  _Extension_ - Support for flags that allow arbitrary extension(?)
 
   _Classes_ - Support for flags other than "case class"(?).
 
