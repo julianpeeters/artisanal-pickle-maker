@@ -33,3 +33,10 @@ case class MyRecord_ListListUser1(ag: List[List[MyRec]])
 case class MyRecord_ListListUser2(ah: List[List[MyRecord_User]])
 case class MyRecord_ListListString(p: List[List[String]])
 case class MyRecord_ListListInt(ai: List[List[Int]])
+
+case class MyRecord_OptionString(oa: Option[String])
+
+
+case class MyRecord_StringOptionString(oa1: String, oa2: Option[String])
+case class MyRecord_OptionStringString(ob1: Option[String], ob2: String)
+case class MyRecord_OptionStringOptionInt(oc1: Option[String], oc2: Option[Int])

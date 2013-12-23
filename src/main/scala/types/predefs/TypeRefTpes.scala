@@ -40,8 +40,7 @@ class TypeRefTpes(thisTpes: ThisTpes, extModClassRefs: ExtModClassRefs) {
 
 //more datatypes
   val obj = TypeRefTpe_Object(thisTpes.scala, thisTpes.lang, extModClassRefs.lang, extModClassRefs.java)
-  val option = TypeRefTpe_Option(thisTpes.scala, extModClassRefs.scala)
-  val iterator = TypeRefTpe_Iterator(thisTpes.collection, any, extModClassRefs.collection, extModClassRefs.scala)
+//val option = TypeRefTpe_Option(thisTpes.scala, extModClassRefs.scala)
   val javaLangString = TypeRefTpe_javaLangString(thisTpes)
   val objectReadResolve = TypeRefTpe_ObjectReadResolve(thisTpes.javaLang, extModClassRefs.lang)
   val product = TypeRefTpe_Product(thisTpes.scala, extModClassRefs.scala)
@@ -56,8 +55,14 @@ class TypeRefTpes(thisTpes: ThisTpes, extModClassRefs: ExtModClassRefs) {
   val modelsMyRecord = TypeRefTpe_modelsMyRecord(thisTpes.owner)
   val moduleClass = TypeRefTpe_moduleClass(thisTpes.owner)
 
-//collections
+//generics
+  def optionNoBoxed          =  TypeRefTpe_OptionNoBoxed()
+  def option(boxedType: Tpe) = TypeRefTpe_Option(thisTpes.scala, extModClassRefs.scala, boxedType)
+ // def option(boxedType: Tpe) = TypeRefTpe_Option(thisTpes.scala, extModClassRefs.scala)
+
   def stream(boxedType: Tpe) = TypeRefTpe_Stream(extModClassRefs.scala)
+  val iterator = TypeRefTpe_Iterator(thisTpes.collection, any, extModClassRefs.collection, extModClassRefs.scala)
+
   def listNoBoxed            =  TypeRefTpe_ListNoBoxed()//to keep track of the first list written, indepenent of the boxed type
   def list(boxedType: Tpe)   =  TypeRefTpe_List(noneSym, extModClassRefs.scala, thisTpes.scala, extModClassRefs.predef, boxedType)
 

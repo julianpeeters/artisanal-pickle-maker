@@ -18,17 +18,59 @@ package types
 import tags._
 import scala.reflect.internal.pickling._
 
-case class TypeRefTpe_Option(thisTpe_scala: ThisTpe_scala, scala: ExtModClassRef_scala) extends Tpe {
+case class TypeRefTpe_OptionNoBoxed extends Tpe{
   var position = 0
   var polyTpePosition = 0
   var annotPos = 0
+  var typeNamePosition = 0
 
   val typeName = "Option"
 
   def write(myPickleBuffer: PickleBuffer) = {
     position = Position.current
-    TypeRefTpe_generic(thisTpe_scala.position, Position.current + 1, Position.current + 1).writeEntry(myPickleBuffer) 
+  }
+}
+
+
+case class TypeRefTpe_Option(thisTpe_scala: ThisTpe_scala, scala: ExtModClassRef_scala, boxedTypeRef: Tpe) extends Tpe {
+
+  var position = 0
+  var polyTpePosition = 0
+  var annotPos = 0
+
+  val typeName = "Option[" + boxedTypeRef.typeName + "]"
+
+  def write(myPickleBuffer: PickleBuffer) = { println("ref write option")
+    position = Position.current
+
+    val g = TypeStore.types.get("Option") //if the base type for lists has already been written
+    if (g.isDefined) { println("was definged")//previously defined types just need to be referenced
+
+      boxedTypeRef.position match {
+        case 0 => TypeRefTpe_generic(g.get.position -3, g.get.position -3 , Position.current + 1 ).writeEntry(myPickleBuffer)
+
+        case i => TypeRefTpe_generic(thisTpe_scala.position, g.get.position -3 , boxedTypeRef.position).writeEntry(myPickleBuffer)
+      }
+    }
+    else { println("not defined " + boxedTypeRef.position)//if the type hasn't been written yet write it now
+      boxedTypeRef.position match {
+        case 0 => TypeRefTpe_generic(thisTpe_scala.position, Position.current + 1, Position.current + 3).writeEntry(myPickleBuffer)
+
+//        case i => TypeRefTpe_generic(thisTpe_scala.position, g.get.position -3 , boxedTypeRef.position).writeEntry(myPickleBuffer)
+        case i => TypeRefTpe_generic(thisTpe_scala.position, Position.current + 1 , boxedTypeRef.position).writeEntry(myPickleBuffer)
+      //  case _ => error("")
+      }
     ExtRef_nested(Position.current + 1, scala.position).write(myPickleBuffer)
-    TypeName("Nothing").write(myPickleBuffer)
+    TypeName("Option").write(myPickleBuffer)
+    }
+
+    //add the new types to the typestore
+    val baseOptionTpe = TypeRefTpe_OptionNoBoxed()
+    baseOptionTpe.write(myPickleBuffer)
+    TypeStore.accept(this)//add the new TypeRefType to the list of types
+    TypeStore.accept(baseOptionTpe)//and add the base list type to the list of types
+
+    //finally, write the boxed type 
+    if (boxedTypeRef.position == 0) boxedTypeRef.write(myPickleBuffer)
   }
 }

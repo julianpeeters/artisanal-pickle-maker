@@ -31,7 +31,6 @@ class ValueMember(myPickleBuffer: PickleBuffer, termName: String, typeName: Stri
   ValSym(Position.current + 1, ClassSym.position, 554172420L, typeRefPosition).write(myPickleBuffer)
   TermName(termName + " ").write(myPickleBuffer)
 
-
   def getBoxed(typeName: String) = {
     typeName.dropWhile( c => (c != '[') ).drop(1).dropRight(1)
   }
@@ -44,10 +43,7 @@ class ValueMember(myPickleBuffer: PickleBuffer, termName: String, typeName: Stri
     else writeNonGenericTpe(matchTypes(typeName))
   }
 
-
-
-  def matchTypes(tpeName: String):  Tpe = { 
-
+  def matchTypes(tpeName: String):  Tpe = { println("match type " + tpeName)
     tpeName match {
       //basic data types
       case "Byte"     => typeRefTpes.byte
@@ -76,10 +72,12 @@ class ValueMember(myPickleBuffer: PickleBuffer, termName: String, typeName: Stri
         else {  
           typeName match {
             case x if x.startsWith("List[") =>  typeRefTpes.list(matchTypes(getBoxed(x)))
+            case x if x.startsWith("Option[") =>  {println("VM found an option "  + x);typeRefTpes.option(matchTypes(getBoxed(x)))}//(matchTypes(getBoxed(x)))
             case x   /*User Defined*/       =>  typeRefTpes.userDefined(x)
           }
         }
       }
+      case _ => error("Not a String: types must be defined with strings")
     }
   }
 

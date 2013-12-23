@@ -60,6 +60,8 @@ case class MyRecord_ListUnit(y: List[Unit])
 case class MyRecord_ListNull(z: List[Null])
 
 
+case class MyRecord_OptionString(oa: Option[String])
+
 
 case class MyRecord_ListNothing(aa: List[Nothing])
 case class MyRecord_ListAny(ab: List[Any])
@@ -111,7 +113,9 @@ case class MyRecord_ListUserList(luu1: List[MyRecord_User], luu2: MyRecord_User)
 
 case class MyRecord_ListListStringListListString(r1: List[List[String]], r2: List[List[String]])
 
-
+case class MyRecord_StringOptionString(oa1: String, oa2: Option[String])
+case class MyRecord_OptionStringString(ob1: Option[String], ob2: String)
+case class MyRecord_OptionStringOptionInt(oc1: Option[String], oc2: Option[Int])
 
 //triple value member
 case class MyRecord_ByteByteByte(a1: Byte, a2: Byte, a3: Byte)

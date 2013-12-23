@@ -13,11 +13,11 @@ import scala.reflect.ScalaSignature
 
 
 
-class OptionStringSpec extends mutable.Specification {
+class OptionStringOptionIntSpec extends mutable.Specification {
 
 
 
-  val mySig = new artisinal.pickle.maker.ScalaSig(List("case class"), List("models", "MyRecord_OptionString"), List(("oa", "Option[String]")))
+  val mySig = new artisinal.pickle.maker.ScalaSig(List("case class"), List("models", "MyRecord_OptionStringOptionInt"), List(("oc1", "Option[String]"), ("oc2", "Option[Int]")))
 
   def parseByteCodeFromAnnotation(clazz: Class[_]): Option[ByteCode] = {
     clazz.annotation[ScalaSignature] match {
@@ -36,9 +36,9 @@ class OptionStringSpec extends mutable.Specification {
     Option(ByteCode(bytes.take(len)))   
   }
 
-  "a ScalaSig for case class MyRecord_OptionString(oa: Option[String])" should {
+  "a ScalaSig for case class MyRecord_OptionStringOptionInt(oc1: Option[String], oc2: Option[Int])" should {
     "have the correct string" in {
-    val correctParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_OptionString]).map(ScalaSigAttributeParsers.parse(_)).get
+    val correctParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_OptionStringOptionInt]).map(ScalaSigAttributeParsers.parse(_)).get
     val myParsedSig = parseByteCodeFromMySig(mySig).map(ScalaSigAttributeParsers.parse(_)).get
     correctParsedSig.toString === myParsedSig.toString
     }

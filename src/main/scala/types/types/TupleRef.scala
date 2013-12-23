@@ -18,7 +18,7 @@ package types
 import tags._
 import scala.reflect.internal.pickling._
 
-case class TypeRefTpe_Tuple(valueMembers: List[ValueMember], thisTpe_scala: ThisTpe_scala, scala: ExtModClassRef_scala) extends Tpe {
+case class TypeRefTpe_Tuple( thisTpe_scala: ThisTpe_scala, scala: ExtModClassRef_scala,  valueMembers:List[ValueMember]) extends Tpe {
   var position = 0
   var polyTpePosition = 0
   var annotPos = 0
