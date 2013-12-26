@@ -70,15 +70,21 @@ case class MyRecord_ListAnyRef(ac: List[AnyRef])
 case class MyRecord_ListObject(ad: List[Object])
 case class MyRecord_ListUser1(ae: List[MyRec])
 case class MyRecord_ListUser2(af: List[MyRecord_User])
-//////////////////////////////////////////////////////////TODO TESTS + ALL TEH LIST ONES FOR Double value members
+
 case class MyRecord_ListListUser1(ag: List[List[MyRec]])
 case class MyRecord_ListListUser2(ah: List[List[MyRecord_User]])
 case class MyRecord_ListListString(p: List[List[String]])
 case class MyRecord_ListListInt(ai: List[List[Int]])
-/////////////////////////////////////////////////////////////////
+
 case class MyRecord_ListListListString(r: List[List[List[String]]])
 
-
+case class MyRecord_OptionUser(oa: Option[MyRecord_User])
+case class MyRecord_OptionOptionString(oa: Option[Option[String]])
+case class MyRecord_OptionOptionOptionString(oa: Option[Option[Option[String]]])
+case class MyRecord_OptionListString(oa: Option[List[String]])
+case class MyRecord_ListOptionString(oa: List[Option[String]])
+case class MyRecord_ListOptionUser_(oa: List[Option[MyRecord_User]])
+case class MyRecord_OptionListUser(oa: Option[List[MyRecord_User]])
 
 //double value member
 case class MyRecord_ByteByte(a1: Byte, a2: Byte)
@@ -116,6 +122,14 @@ case class MyRecord_ListListStringListListString(r1: List[List[String]], r2: Lis
 case class MyRecord_StringOptionString(oa1: String, oa2: Option[String])
 case class MyRecord_OptionStringString(ob1: Option[String], ob2: String)
 case class MyRecord_OptionStringOptionInt(oc1: Option[String], oc2: Option[Int])
+case class MyRecord_OptionListUserListOptionUser(oa1: Option[List[MyRecord_User]], oa2: List[Option[MyRecord_User]])
+case class MyRecord_OptionUserListUser(oc1: Option[MyRecord_User], oc2: List[MyRecord_User])
+case class MyRecord_UserOptionUser(oc1: MyRecord_User, oc2: Option[MyRecord_User])
+case class MyRecord_OptionListIntListOptionInt(oa1: Option[List[Int]], oa2: List[Option[Int]])
+case class MyRecord_OptionListIntListOptionString(oa1: Option[List[Int]], oa2: List[Option[String]])
+case class MyRecord_OptionListUserListUser(oa1: Option[List[MyRecord_User]], oa2: List[MyRecord_User])
+case class MyRecord_OptionListUserUser(oa1: Option[List[MyRecord_User]], oa2: MyRecord_User)
+case class MyRecord_OptionListStringOptionList(oa1: Option[List[String]], oa2: Option[List[String]])
 
 //triple value member
 case class MyRecord_ByteByteByte(a1: Byte, a2: Byte, a3: Byte)
@@ -144,10 +158,13 @@ case class MyRecord_StringListStringListString(sll1: String, sll2: List[String],
 case class MyRecord_ListStringListIntListBoolean(lls1: List[String], lli2: List[Int], llb3: List[Boolean])
 
 
+
 //quadruple value member
 case class MyRecord_ByteByteByteByte(a1: Byte, a2: Byte, a3: Byte, a4: Byte)
 case class MyRecord_StringListStringUserListUser(mmm1:String, mmm2: List[String], mmm3:MyRec, mmm4: List[MyRec], mmm5: MyRecord_User, mmm6: List[MyRecord_UserUser])
 
 //quintuple value member
+case class MyRecord_ListOptionUser(cc1: String, cc2: List[String], cc3: Option[String], cc4: Option[List[MyRecord_User]], cc5: List[Option[MyRecord_User]])
+
 case class MyRecord_MixedMulitLevelUserList(s1: List[List[String]], s2: String, s3: List[MyRecord_User], s4: MyRecord_User, s5: List[List[List[List[Object]]]])
 case class MyRecord_ByteByteByteByteByte(a1: Byte, a2: Byte, a3: Byte, a4: Byte, a5: Byte)

@@ -47,7 +47,7 @@ case class Unapply(sigResources: SigResources, valueMembers: List[ValueMember], 
     case x if x > 1 =>{ // if there is more than 1 value member, have the option's typereftpe ref TupleRef
       if (optionTypeRef.isDefined) {  
         MethodTpe(List(Position.current + 1, Position.current + 5)).write(sigResources.myPickleBuffer)
-        TypeRefTpe_unapplyOption(sigResources.thisTpes.scala.position, optionTypeRef.get.position -2, Position.current + 1).writeEntry(sigResources.myPickleBuffer)
+        TypeRefTpe_unapplyOption(sigResources.thisTpes.scala.position, optionTypeRef.get.position - 2, Position.current + 1).writeEntry(sigResources.myPickleBuffer)
         TypeRefTpe_Tuple(sigResources.thisTpes.scala, sigResources.extModClassRefs.scala, valueMembers).write(sigResources.myPickleBuffer)
       }
       else {

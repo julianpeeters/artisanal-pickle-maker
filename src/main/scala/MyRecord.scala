@@ -11,6 +11,7 @@ case class MyRecord_ListBoolean(x: List[Boolean])
 case class MyRecord_ListUnit(y: List[Unit])
 case class MyRecord_ListNull(z: List[Null])
 
+case class MyRecord_ListIntListInt(pi1: List[Int], pi2: List[Int])
 case class MyRecord_ListString(pp: List[String])
 case class MyRecord_ListInt(po: List[Int])
 case class MyRecord_ListStringString(po1: List[String], po2: String)
@@ -40,3 +41,10 @@ case class MyRecord_OptionString(oa: Option[String])
 case class MyRecord_StringOptionString(oa1: String, oa2: Option[String])
 case class MyRecord_OptionStringString(ob1: Option[String], ob2: String)
 case class MyRecord_OptionStringOptionInt(oc1: Option[String], oc2: Option[Int])
+case class MyRecord_UserOptionUser(oc1: MyRecord_User, oc2: Option[MyRecord_User])
+case class MyRecord_ListOptionUser_(oa: List[Option[MyRecord_User]])
+case class MyRecord_OptionListIntListOptionInt(oa1: Option[List[Int]], oa2: List[Option[Int]])
+
+ case class MyRecord_OptionListUserListUser(oa1: Option[List[MyRecord_User]], oa2: List[MyRecord_User])
+
+case class MyRecord_ListOptionUser( cc3: Option[String], cc4: Option[List[MyRecord_User]], cc5: List[Option[MyRecord_User]])

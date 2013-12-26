@@ -43,7 +43,7 @@ class ValueMember(myPickleBuffer: PickleBuffer, termName: String, typeName: Stri
     else writeNonGenericTpe(matchTypes(typeName))
   }
 
-  def matchTypes(tpeName: String):  Tpe = { println("match type " + tpeName)
+  def matchTypes(tpeName: String):  Tpe = { println("match type " + tpeName + " " + TypeStore.types)
     tpeName match {
       //basic data types
       case "Byte"     => typeRefTpes.byte
@@ -66,14 +66,16 @@ class ValueMember(myPickleBuffer: PickleBuffer, termName: String, typeName: Stri
    // case "Iterator" => typeRefTpes.iterator
 
       //collections, generics, and user-defined types
-      case typeName: String => {
-        val tpe = TypeStore.types.get(typeName)
-        if (tpe.isDefined) tpe.get
+      case i: String => { println(i)
+//        val tpe = TypeStore.types.get(typeName)
+        val tpe = TypeStore.types.get(tpeName)
+//tpe.get
+        if (tpe.isDefined) { println("was defined" + tpe.get.typeName); tpe.get}
         else {  
-          typeName match {
-            case x if x.startsWith("List[") =>  typeRefTpes.list(matchTypes(getBoxed(x)))
-            case x if x.startsWith("Option[") =>  {println("VM found an option "  + x);typeRefTpes.option(matchTypes(getBoxed(x)))}//(matchTypes(getBoxed(x)))
-            case x   /*User Defined*/       =>  typeRefTpes.userDefined(x)
+          i match {
+            case x if x.startsWith("List[") =>  {println("vm found a list "+ x); typeRefTpes.list(typeName, matchTypes(getBoxed(x)))}
+           case x if x.startsWith("Option[") =>  {println("VM found an option "  + x);typeRefTpes.option(matchTypes(getBoxed(x)))}//(matchTypes(getBoxed(x)))
+            case x   /*User Defined*/       =>  {println("vm found a user def "  + x); typeRefTpes.userDefined(x)}
           }
         }
       }
@@ -85,7 +87,7 @@ class ValueMember(myPickleBuffer: PickleBuffer, termName: String, typeName: Stri
   //For types without type parameters
   def writeNonGenericTpe[X <: Tpe](typeRef:X) = {//if type is previous value member's, ref previous member's polytype
     typeRef.position match { //polytpe position is determined by TypeRef position (all types but AnyRef follow a polytpe)
-      case 0      => { //if it doesn't exist, write it next
+      case 0      => { println("++++++++++++++++++")//if it doesn't exist, write it next
         polyTpePosition = Position.current + 2
         ValSym(Position.current + 1, ClassSym.position, 692060672L, polyTpePosition).write(myPickleBuffer)
         termNamePosition = Position.current
@@ -114,7 +116,7 @@ class ValueMember(myPickleBuffer: PickleBuffer, termName: String, typeName: Stri
         }  
 
       }
-      case i: Int => {//if the type has been previously 
+      case i: Int => {println("##")//if the type has been previously 
       //if we've written a given typeRef, but the polytpe position is still zero, then write the polytpe here
         if (typeRef.polyTpePosition == 0) {
           polyTpePosition = Position.current + 2
@@ -137,11 +139,12 @@ class ValueMember(myPickleBuffer: PickleBuffer, termName: String, typeName: Stri
 
   //For types that take type parameters
   def writeGenericTpe[X<: Tpe, Y <: Tpe](typeRef:X, boxedTypeRef: Y) = {//if type is previous value member's, ref previous member's polytype  
-
+println("WRITING GENERIC " + typeRef + " " + boxedTypeRef )
+println(typeRef.position)
     typeRef.position match { //polytpe position is determined by TypeRef position (all types but AnyRef follow a polytpe)
-      case 0      => { //if it doesn't exist, write it next
+      case 0      => {println("**") //if it doesn't exist, write it next
 
-        if (typeRef.position == 0) {
+       // if (typeRef.position == 0) { println ("H")
           polyTpePosition = Position.current + 2
           ValSym(Position.current + 1, ClassSym.position, 692060672L, polyTpePosition).write(myPickleBuffer)
           termNamePosition = Position.current
@@ -151,15 +154,19 @@ class ValueMember(myPickleBuffer: PickleBuffer, termName: String, typeName: Stri
           typeRef.position = Position.current
 
           typeRef.write(myPickleBuffer)
-        }
+       // }
 
       }
-      case i: Int => {//if the type has been previously 
+      case i: Int => { println("i " +  termName)//if the type has been previously 
         polyTpePosition = typeRef.position - 1
         typeRefPosition = typeRef.position
+
         ValSym(Position.current + 1, ClassSym.position, 692060672L, polyTpePosition).write(myPickleBuffer)
+       // ValSym(Position.current + 1, ClassSym.position, 692060672L, Position.current + 2).write(myPickleBuffer)
         termNamePosition = Position.current
         TermName(termName).write(myPickleBuffer)
+
+        //  PolyTpe(typeRef).write(myPickleBuffer)
       }
     }
   }

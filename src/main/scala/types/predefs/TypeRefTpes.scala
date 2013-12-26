@@ -57,6 +57,7 @@ class TypeRefTpes(thisTpes: ThisTpes, extModClassRefs: ExtModClassRefs) {
 
 //generics
   def optionNoBoxed          =  TypeRefTpe_OptionNoBoxed()
+ // def option(valueMemberName: String, boxedType: Tpe) = TypeRefTpe_Option(thisTpes.scala, extModClassRefs.scala, valueMemberName, boxedType)
   def option(boxedType: Tpe) = TypeRefTpe_Option(thisTpes.scala, extModClassRefs.scala, boxedType)
  // def option(boxedType: Tpe) = TypeRefTpe_Option(thisTpes.scala, extModClassRefs.scala)
 
@@ -64,10 +65,10 @@ class TypeRefTpes(thisTpes: ThisTpes, extModClassRefs: ExtModClassRefs) {
   val iterator = TypeRefTpe_Iterator(thisTpes.collection, any, extModClassRefs.collection, extModClassRefs.scala)
 
   def listNoBoxed            =  TypeRefTpe_ListNoBoxed()//to keep track of the first list written, indepenent of the boxed type
-  def list(boxedType: Tpe)   =  TypeRefTpe_List(noneSym, extModClassRefs.scala, thisTpes.scala, extModClassRefs.predef, boxedType)
+  def list(valueMemberName: String, boxedType: Tpe)   =  TypeRefTpe_List(noneSym, extModClassRefs.scala, thisTpes.scala, extModClassRefs.predef, valueMemberName, boxedType)
 
 //user-defined classes
-  def userDefined(x: String) = TypeRefTpe_userDefined(x, thisTpes.owner, extModClassRefs )
+  def userDefined(typeName: String) = TypeRefTpe_userDefined(typeName, thisTpes.owner, extModClassRefs )
 
 
 
