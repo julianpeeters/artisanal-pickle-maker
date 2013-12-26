@@ -44,6 +44,7 @@ class ScalaSig(flags: List[String], names: List[String], args: List[(String, Str
 //reset position keeper
   Position.current = 0
 
-//reset list of generated types 
+//reset maps of generated types 
   TypeStore.types.clear()
+  ValueMemberStore.valueMembers.clear()
 }

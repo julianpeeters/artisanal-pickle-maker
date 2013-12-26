@@ -42,12 +42,8 @@ case class TypeRefTpe_Option(thisTpe_scala: ThisTpe_scala, scala: ExtModClassRef
 
   def write(myPickleBuffer: PickleBuffer) = { 
     position = Position.current
-println("Option! " + boxedTypeRef.typeName )
     val g = TypeStore.types.get("Option") //if the base type for lists has already been written
-    if (g.isDefined) { println("Option Ref was defined " + g.get.typeName)//previously defined types just need to be referenced
-
-
-
+    if (g.isDefined) { //previously defined types just need to be referenced
 
       boxedTypeRef.position match {
         case 0 => { //if the boxed type hasn't been written yet, write it next
@@ -56,7 +52,7 @@ println("Option! " + boxedTypeRef.typeName )
         case i: Int => TypeRefTpe_generic(thisTpe_scala.position, g.get.position - 2 , boxedTypeRef.position).writeEntry(myPickleBuffer)
       }
     }
-    else { println("base option not yet defined, boxed type: " + boxedTypeRef.position)//if the type hasn't been written yet write it now
+    else { //if the type hasn't been written yet write it now
       boxedTypeRef.position match {
         case 0 => TypeRefTpe_generic(thisTpe_scala.position, Position.current + 1, Position.current + 3).writeEntry(myPickleBuffer)
         case i => TypeRefTpe_generic(thisTpe_scala.position, Position.current + 1 , boxedTypeRef.position).writeEntry(myPickleBuffer)
@@ -70,7 +66,6 @@ println("Option! " + boxedTypeRef.typeName )
     baseOptionTpe.write(myPickleBuffer)
     TypeStore.accept(this)//add the new TypeRefType to the list of types
     TypeStore.accept(baseOptionTpe)//and add the base list type to the list of types
-    //if (typeName == valueMemberName) TypeStore.accept(this)//add the new TypeRefType to the list of types
 
     //finally, write the boxed type 
     if (boxedTypeRef.position == 0) boxedTypeRef.write(myPickleBuffer)

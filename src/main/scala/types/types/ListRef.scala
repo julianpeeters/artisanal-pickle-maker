@@ -38,21 +38,18 @@ case class TypeRefTpe_List(noSymbol: NoneSym, scalaExt: ExtModClassRef_scala, th
   var annotPos = 0
   var typeNamePosition = 0
 
-
-println("LIST REF " + valueMemberName + "        " + boxedTypeRef.position)
-
   val typeName = "List[" + boxedTypeRef.typeName + "]"
 
   def write(myPickleBuffer: PickleBuffer) = {
     position = Position.current
     val g = TypeStore.types.get("List") //if the base type for lists has already been written
-    if (g.isDefined) {println("WAAWWA")//previously defined types just need to be referenced
+    if (g.isDefined) {//previously defined types just need to be referenced
       boxedTypeRef.position match {
         case 0 => TypeRefTpe_generic(g.get.position -11, g.get.position -3 , Position.current + 1).writeEntry(myPickleBuffer)
         case i => TypeRefTpe_generic(g.get.position -11, g.get.position -3 , boxedTypeRef.position).writeEntry(myPickleBuffer)
       }
     }
-    else { println("[][][][")//if the type hasn't been written yet write it now
+    else { //if the type hasn't been written yet write it now
       boxedTypeRef.position match {
         case 0 => TypeRefTpe_generic(Position.current + 1, Position.current + 9, Position.current + 12).writeEntry(myPickleBuffer)
         case i => TypeRefTpe_generic(Position.current + 1, Position.current + 9, boxedTypeRef.position).writeEntry(myPickleBuffer) 
@@ -71,21 +68,16 @@ println("LIST REF " + valueMemberName + "        " + boxedTypeRef.position)
       TypeName("List").write(myPickleBuffer)
       new ExtModClassRef_nested(Position.current - 3, scalaExt.position).write(myPickleBuffer)
     }
+
     //add the new types to the typestore
     val baseListTpe = TypeRefTpe_ListNoBoxed()
     baseListTpe.write(myPickleBuffer)
     TypeStore.accept(baseListTpe)//and add the base list type to the list of types
-    if (typeName == valueMemberName) TypeStore.accept(this)//add the new TypeRefType to the list of types
-  //  TypeStore.accept(this)//add the new TypeRefType to the list of types
+    TypeStore.accept(this)//add the new TypeRefType to the list of types
 
     //finally, write the boxed type 
-  //  val h = TypeStore.types.get(boxedTypeRef.typeName) //if the base type for lists has already been written
-  //  if (h.isDefined) {println("was defined")}
-//else     boxedTypeRef.write(myPickleBuffer)
-
-println("list ref check boxed type pos " +boxedTypeRef.typeName + " "+  boxedTypeRef.position)
-
     if (boxedTypeRef.position == 0) boxedTypeRef.write(myPickleBuffer)
+
 
   }
 }
