@@ -1,4 +1,4 @@
-package artisinal.pickle.maker 
+package artisanal.pickle.maker 
 import models._
 
 import org.specs2._
@@ -17,7 +17,7 @@ class OptionListStringOptionListStringSpec extends mutable.Specification {
 
 
 
-  val mySig = new artisinal.pickle.maker.ScalaSig(List("case class"), List("models", "MyRecord_OptionListStringOptionList"), List(("oa1", "Option[List[String]]"), ("oa2", "Option[List[String]]")))
+  val mySig = new artisanal.pickle.maker.ScalaSig(List("case class"), List("models", "MyRecord_OptionListStringOptionList"), List(("oa1", "Option[List[String]]"), ("oa2", "Option[List[String]]")))
 
   def parseByteCodeFromAnnotation(clazz: Class[_]): Option[ByteCode] = {
     clazz.annotation[ScalaSignature] match {
@@ -30,7 +30,7 @@ class OptionListStringOptionListStringSpec extends mutable.Specification {
     }
   }
 
-  def parseByteCodeFromMySig(sig: artisinal.pickle.maker.ScalaSig): Option[ByteCode] = {
+  def parseByteCodeFromMySig(sig: artisanal.pickle.maker.ScalaSig): Option[ByteCode] = {
     val bytes = sig.bytes.getBytes("UTF-8")
     val len = ByteCodecs.decode(bytes)
     Option(ByteCode(bytes.take(len)))   

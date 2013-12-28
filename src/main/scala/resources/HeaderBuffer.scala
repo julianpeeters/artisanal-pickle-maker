@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package artisinal.pickle.maker 
+package artisanal.pickle.maker 
 import scala.reflect.internal.pickling._
 
 class HB {

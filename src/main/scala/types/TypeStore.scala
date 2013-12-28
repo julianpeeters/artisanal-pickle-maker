@@ -1,4 +1,4 @@
-package artisinal.pickle.maker 
+package artisanal.pickle.maker 
 package types
 import tags._
 import scala.reflect.internal.pickling._

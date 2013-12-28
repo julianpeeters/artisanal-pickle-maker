@@ -1,4 +1,4 @@
-Artisinal-Pickle-Maker
+Artisanal-Pickle-Maker
 ======================
 
 Make your own Scala pickled signatures. 
@@ -9,9 +9,9 @@ Why? Because existing Java bytecode-engineering tools can't see or alter a pickl
 
 ##Usage:##
 Add the following dependency to your `build.sbt` file:
-`libraryDependencies += "com.julianpeeters" %% "artisinal-pickle-maker" % "0.6"`
+`libraryDependencies += "com.julianpeeters" %% "artisanal-pickle-maker" % "0.6"`
 
-Get an `artisinal.pickle.maker.ScalaSig` with:  
+Get an `artisanal.pickle.maker.ScalaSig` with:  
 `val scalaSig = new ScalaSig(List("case class"), List("models", "MyRecord"), List(("x", "String"), ("y", "Option[Int]"))`
 
 `scalaSig.bytes` gives the encoded bytes as a UTF-8 String. This is the normal storage format of a natural pickled Scala signature.

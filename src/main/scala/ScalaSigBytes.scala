@@ -18,7 +18,7 @@
 * Copyright 2007-2013 LAMP/EPFL
 * @author Martin Odersky
 */
-package artisinal.pickle.maker
+package artisanal.pickle.maker
 //package scala
 //package reflect
 //package internal

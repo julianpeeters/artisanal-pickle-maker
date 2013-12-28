@@ -1,6 +1,6 @@
 
 
-package artisinal.pickle.maker 
+package artisanal.pickle.maker 
 import models._
 
 import org.specs2._

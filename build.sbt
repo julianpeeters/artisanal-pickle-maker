@@ -1,9 +1,9 @@
 import sbt._
 import Keys._
 
-name := "artisinal-pickle-maker"
+name := "artisanal-pickle-maker"
 
-version := "0.6"
+version := "0.7-SNAPSHOT"
 
 organization := "com.julianpeeters"
 
@@ -31,12 +31,12 @@ pomIncludeRepository := { _ => false }
 
 licenses := Seq("Apache 2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0"))
 
-homepage := Some(url("https://github.com/julianpeeters/artisinal-pickle-maker"))
+homepage := Some(url("https://github.com/julianpeeters/artisanal-pickle-maker"))
 
 pomExtra := (
       <scm>
-        <url>git://github.com/julianpeeters/artisinal-pickle-maker.git</url>
-        <connection>scm:git://github.com/julianpeeters/artisinal-pickle-maker.git</connection>
+        <url>git://github.com/julianpeeters/artisanal-pickle-maker.git</url>
+        <connection>scm:git://github.com/julianpeeters/artisanal-pickle-maker.git</connection>
       </scm>
       <developers>
         <developer>
