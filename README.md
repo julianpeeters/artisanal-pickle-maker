@@ -3,7 +3,7 @@ Artisanal-Pickle-Maker
 
 Make your own Scala pickled signatures. 
 
-Takes class info as strings and gives back a pickled Scala signatures. For use with Java bytecode engineering libraries. 
+Takes class info as strings and gives back pickled Scala signatures. For use with Java bytecode engineering libraries. 
 
 Why? Because existing Java bytecode-engineering tools can't see or alter a pickled Scala signature, thus the altered classes are incomplete in cases where Scala code has no Java equivalent. Artisanal-Pickle-Maker hopes to solve this by updating an altered class's Scala signtature to reflect changes made to the bytecode.
 
