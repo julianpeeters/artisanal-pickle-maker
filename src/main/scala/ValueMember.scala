@@ -43,7 +43,7 @@ class ValueMember(myPickleBuffer: PickleBuffer, termName: String, typeName: Stri
     else writeNonGenericTpe(matchTypes(typeName))
   }
 
-  def matchTypes(tpeName: String):  Tpe = { println("match type " + tpeName + " " + TypeStore.types)
+  def matchTypes(tpeName: String):  Tpe = { 
     tpeName match {
       //basic data types
       case "Byte"     => typeRefTpes.byte
@@ -62,7 +62,6 @@ class ValueMember(myPickleBuffer: PickleBuffer, termName: String, typeName: Stri
       case "AnyRef"   => typeRefTpes.anyRef
       case "Object"   => typeRefTpes.obj 
       //generics
-    //case "Option"   => typeRefTpes.option
    // case "Iterator" => typeRefTpes.iterator
 
       //collections, generics, and user-defined types
