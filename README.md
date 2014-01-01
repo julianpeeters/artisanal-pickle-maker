@@ -9,7 +9,7 @@ Why? Because existing Java bytecode-engineering tools can't see or alter a pickl
 
 ##Usage:##
 Add the following dependency to your `build.sbt` file:
-`libraryDependencies += "com.julianpeeters" %% "artisanal-pickle-maker" % "0.6"`
+`libraryDependencies += "com.julianpeeters" %% "artisanal-pickle-maker" % "0.7"`
 
 Get an `artisanal.pickle.maker.ScalaSig` with:  
 `val scalaSig = new ScalaSig(List("case class"), List("models", "MyRecord"), List(("x", "String"), ("y", "Option[Int]"))`
@@ -44,5 +44,5 @@ Thus, `scalaSig.bytes` is identical to the encoded string that would be found in
   _Integration_ - Javassist(?), ASM for dynamic case class generation.
 
 
-####PS#### I'm relatively new at all this, so any constructive advice is appreciated!
+##PS## I'm relatively new at all this, so any constructive advice is appreciated!
 -Julian
