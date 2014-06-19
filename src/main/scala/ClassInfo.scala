@@ -19,17 +19,25 @@ import types._
 import scala.reflect.internal.pickling._
 
 case class ClassInfo(sigResources: SigResources, flags: List[String], names: List[String]) {
+
 //entry 0 CLASSsym 
   ClassSym.write(sigResources.myPickleBuffer)
+
 //entry 1
   TypeName(names(1)).write(sigResources.myPickleBuffer)
+
 //entry 2 EXTMODCLASSref: the immediate enclosing package 
-  sigResources.extModClassRefs.owner.write(sigResources.myPickleBuffer)
+  sigResources.extModClassRefs.owner.write(names.length match {
+    case 1          =>  "<empty>"      //if there is only one name in the fullName list
+    case x if x > 1 =>  names(0)
+    case _          =>  sys.error("whoops, no class name?")
+  }, sigResources.myPickleBuffer)
+
 //entry 3 TERMname of Ext Mod: the immediate owner's name, i.e. the name of the immediate enclosing package
   names.length match {
-    case 1          =>  TermName("<empty>").write(sigResources.myPickleBuffer)        //if there is only one name in the fullName list
+    case 1          =>  TermName("<empty>").write(sigResources.myPickleBuffer)//if there is only one name in the fullName list
     case x if x > 1 =>  TermName(names(0)).write(sigResources.myPickleBuffer)   
-    case _          =>  println("whoops, no class name?")
+    case _          =>  sys.error("whoops, no class name?")
   }
 //entry 4 NONEsym
   sigResources.typeRefTpes.noneSym.write(sigResources.myPickleBuffer)

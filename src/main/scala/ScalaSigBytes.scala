@@ -19,9 +19,7 @@
 * @author Martin Odersky
 */
 package artisanal.pickle.maker
-//package scala
-//package reflect
-//package internal
+
 import scala.reflect.internal._
 import pickling.ByteCodecs
 import scala.annotation.tailrec

@@ -17,16 +17,16 @@ package artisanal.pickle.maker
 package tags
 import scala.reflect.internal.pickling._
 
-case class ThisTpe_scala      extends ThisTpe
-case class ThisTpe_package    extends ThisTpe
-case class ThisTpe_lang       extends ThisTpe
-case class ThisTpe_javaLang   extends ThisTpe
-case class ThisTpe_root       extends ThisTpe
-case class ThisTpe_noSymbol   extends ThisTpe
-case class ThisTpe_unchecked  extends ThisTpe
-case class ThisTpe_collection extends ThisTpe
-case class ThisTpe_runtime    extends ThisTpe 
-case class ThisTpe_owner      extends ThisTpe_owner_
+case class ThisTpe_scala()      extends ThisTpe
+case class ThisTpe_package()    extends ThisTpe
+case class ThisTpe_lang()       extends ThisTpe
+case class ThisTpe_javaLang()   extends ThisTpe
+case class ThisTpe_root()       extends ThisTpe
+case class ThisTpe_noSymbol()   extends ThisTpe
+case class ThisTpe_unchecked()  extends ThisTpe
+case class ThisTpe_collection() extends ThisTpe
+case class ThisTpe_runtime()    extends ThisTpe 
+case class ThisTpe_owner()      extends ThisTpe_owner_
 
 class ThisTpe {
   var position = 0
@@ -48,18 +48,19 @@ class ThisTpe {
 }
 
 class ThisTpe_owner_ {
+
+var thisTypeName = ""
   var position = 0
-  def write(myPickleBuffer: PickleBuffer, owner: ExtModClassRef_owner)  =  {
+  def write(myPickleBuffer: PickleBuffer, owner: ExtModClassRef_owner, ownerName: String)  =  {
+thisTypeName = "models"
     position = Position.current  
   //tag
     myPickleBuffer.writeByte(13)
   //len
-
     owner.position match {
       case 0      => if (Position.current + 1 > 127) myPickleBuffer.writeNat(2); else myPickleBuffer.writeNat(1)//TYPEREFs for types not already defined need to be added next
       case i: Int => if (owner.position > 127) myPickleBuffer.writeNat(2); else myPickleBuffer.writeNat(1)       
     }
-  //  if (Position.current + 1 > 127 || owner.position > 127) myPickleBuffer.writeNat(2); else myPickleBuffer.writeNat(1)
   //data {
     //reference to the head of the type's typereftype chain             
       owner.position match {
@@ -69,7 +70,10 @@ class ThisTpe_owner_ {
   //}
 
       Position.current += 1
+      ThisTypeStore.accept(this)
+
 
   }
+}
 
-}  
+

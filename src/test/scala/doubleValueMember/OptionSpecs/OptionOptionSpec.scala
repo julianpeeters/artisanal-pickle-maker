@@ -36,7 +36,7 @@ class OptionOptionSpec extends mutable.Specification {
   "a ScalaSig for case class MyRecord_OptionOption(p1: Option[], p2: Option[])" should {
     "have the correct string" in {
     val correctParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_OptionOption]).map(ScalaSigAttributeParsers.parse(_)).get
-    val myParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_OptionOption]).map(ScalaSigAttributeParsers.parse(_)).get
+    val myParsedSig = parseByteCodeFromMySig(mySig).map(ScalaSigAttributeParsers.parse(_)).get
  
     correctParsedSig.toString === myParsedSig.toString
     }

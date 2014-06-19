@@ -18,28 +18,30 @@ package tags
 import scala.reflect.internal.pickling._
 
 
-case class ExtModClassRef_scala extends ExtModClassRef_topLevel
-case class ExtModClassRef_owner extends ExtModClassRef_topLevel
-case class ExtModClassRef_java  extends ExtModClassRef_topLevel
+case class ExtModClassRef_scala() extends ExtModClassRef_topLevel
+case class ExtModClassRef_owner() extends ExtModClassRef_topLevel
+case class ExtModClassRef_java()  extends ExtModClassRef_topLevel
 
-case class ExtModClassRef_noSymbol  extends ExtModClassRef_nested_annot
+case class ExtModClassRef_noSymbol()  extends ExtModClassRef_nested_annot
 
-case class ExtModClassRef_predef     extends ExtModClassRef_nested_post
-case class ExtModClassRef_package    extends ExtModClassRef_nested_post
+case class ExtModClassRef_predef()     extends ExtModClassRef_nested_post
+case class ExtModClassRef_package()    extends ExtModClassRef_nested_post
 
-case class ExtModClassRef_annotation extends ExtModClassRef_nested_annot//(Position.current + 1, ExtModClassRef_scala.position)
-case class ExtModClassRef_collection extends ExtModClassRef_nested_annot//(Position.current + 1, ExtModClassRef_scala.position) 
-case class ExtModClassRef_runtime    extends ExtModClassRef_nested_annot//(Position.current + 1, ExtModClassRef_scala.position)
+case class ExtModClassRef_annotation() extends ExtModClassRef_nested_annot
+case class ExtModClassRef_collection() extends ExtModClassRef_nested_annot 
+case class ExtModClassRef_runtime()    extends ExtModClassRef_nested_annot
 
-case class ExtModClassRef_javaLang   extends ExtModClassRef_nested_javaLang//(Position.current + 1, Position.current + 2)
-case class ExtModClassRef_unchecked  extends ExtModClassRef_nested_javaLang//(Position.current + 1, Position.current + 2)
-case class ExtModClassRef_lang       extends ExtModClassRef_nested_javaLang//(Position.current + 1, Position.current + 2)
+case class ExtModClassRef_javaLang()   extends ExtModClassRef_nested_javaLang
+case class ExtModClassRef_unchecked()  extends ExtModClassRef_nested_javaLang
+case class ExtModClassRef_lang()       extends ExtModClassRef_nested_javaLang
 
-object ExtModClassRef_root       extends ExtModClassRef_root//(Position.current + 1, NoneSym.position)
+object ExtModClassRef_root       extends ExtModClassRef_root
 
 class ExtModClassRef_topLevel{
+  var ownerName = ""
   var position = 0
-  def write(myPickleBuffer: PickleBuffer)  = {
+  def write(name: String, myPickleBuffer: PickleBuffer)  = {
+    ownerName = name
     position = Position.current
   //tag
     myPickleBuffer.writeByte(10)
@@ -50,6 +52,7 @@ class ExtModClassRef_topLevel{
     myPickleBuffer.writeNat(Position.current + 1)
   //}
     Position.current += 1
+    ExtModClassRefStore.accept(this)
   }
 }
 
@@ -132,7 +135,7 @@ class ExtModClassRef_nested_javaLang{
     Position.current += 1
   }
 }
-case class ExtModClassRef_root {
+case class ExtModClassRef_root() {
   var position = 0
   def write(myPickleBuffer: PickleBuffer, noSymbol: NoneSym)  = {
     position = Position.current

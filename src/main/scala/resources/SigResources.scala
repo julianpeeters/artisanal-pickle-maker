@@ -18,7 +18,6 @@ import tags._
 import types._
 import scala.reflect.internal.pickling._
 
-
 class SigResources {
 //set up a PickleBuffer to write to
   val myPickleBuffer = new PickleBuffer(new Array[Byte](4096), 0, 0)

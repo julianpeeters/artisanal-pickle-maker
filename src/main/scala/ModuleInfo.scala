@@ -23,7 +23,7 @@ class ModuleInfo(myPickleBuffer: PickleBuffer, names: List[String], valueMembers
   names.length match {
     case 1          => TermName(names(0)).write(myPickleBuffer)
     case x if x > 1 => TermName(names(1)).write(myPickleBuffer) 
-    case _          => println("whoops, no class name?")
+    case _          => sys.error("whoops, no class name?")
   }
   moduleClass.write(myPickleBuffer)
   ClassSym_Module.write(myPickleBuffer)

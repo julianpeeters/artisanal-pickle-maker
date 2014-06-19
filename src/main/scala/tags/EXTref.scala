@@ -41,11 +41,6 @@ case class ExtRef_nested(nameRef: Int, ownerRef: Int) {
     myPickleBuffer.writeByte(9)
   //len
     myPickleBuffer.writeNat(2 + args.filter(arg => arg > 127).length)
-/*
-    if (nameRef > 127 && ownerRef > 127) myPickleBuffer.writeNat(4);  
-    else if (nameRef > 127 || ownerRef > 127) myPickleBuffer.writeNat(3);  
-    else myPickleBuffer.writeNat(2)
-*/
   //data {
     //reference to the next entry,              
      myPickleBuffer.writeNat(nameRef)

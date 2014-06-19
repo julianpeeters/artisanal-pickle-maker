@@ -13,7 +13,7 @@ import scala.reflect.ScalaSignature
 
 
 class ObjectObjectSpec extends mutable.Specification {
-  val mySig = new ScalaSig(List("case class"), List("models", "MyRecord_ObjectObject"), List(("o1", "Object"), ("o2", "Object")))
+  val mySig = new artisanal.pickle.maker.ScalaSig(List("case class"), List("models", "MyRecord_ObjectObject"), List(("o1", "Object"), ("o2", "Object")))
   def parseByteCodeFromAnnotation(clazz: Class[_]): Option[ByteCode] = {
     clazz.annotation[ScalaSignature] match {
       case Some(sig) if sig != null => {
@@ -25,17 +25,17 @@ class ObjectObjectSpec extends mutable.Specification {
     }
   }
 
-  def parseByteCodeFromMySig(sig: ScalaSig): ByteCode = {
+  def parseByteCodeFromMySig(sig: artisanal.pickle.maker.ScalaSig): Option[ByteCode] = {
     val bytes = sig.bytes.getBytes("UTF-8")
     val len = ByteCodecs.decode(bytes)
-    ByteCode(bytes.take(len))   
+    Option(ByteCode(bytes.take(len)))
   }
 
            
   "a ScalaSig for case class MyRecord_ObjectObject(o1: Object, o2: Object)" should {
     "have the correct string" in {
     val correctParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_ObjectObject]).map(ScalaSigAttributeParsers.parse(_)).get
-    val myParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_ObjectObject]).map(ScalaSigAttributeParsers.parse(_)).get
+    val myParsedSig = parseByteCodeFromMySig(mySig).map(ScalaSigAttributeParsers.parse(_)).get
  
     correctParsedSig.toString === myParsedSig.toString
     }

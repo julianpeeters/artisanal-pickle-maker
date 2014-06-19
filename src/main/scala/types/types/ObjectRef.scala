@@ -32,7 +32,7 @@ case class TypeRefTpe_Object(thisTpe_scala: ThisTpe_scala, thisTpe_lang: ThisTpe
     thisTpe_lang.write(myPickleBuffer)
     lang.write(myPickleBuffer)
     TermName("lang").write(myPickleBuffer)
-    java.write(myPickleBuffer)
+    java.write("java", myPickleBuffer)
     TermName("java").write(myPickleBuffer)
     ExtRef_nested(Position.current + 1, lang.position).write(myPickleBuffer)
     TypeName("Object").write(myPickleBuffer)

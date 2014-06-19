@@ -19,7 +19,7 @@ import tags._
 import scala.reflect.internal.pickling._
 import java.util.concurrent.ConcurrentHashMap
 
-case class TypeRefTpe_ListNoBoxed extends Tpe{
+case class TypeRefTpe_ListNoBoxed() extends Tpe{
   var position = 0
   var polyTpePosition = 0
   var annotPos = 0

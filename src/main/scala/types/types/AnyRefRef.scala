@@ -29,7 +29,7 @@ case class TypeRefTpe_AnyRef(thisTpe_scala: ThisTpe_scala, scala: ExtModClassRef
     position = Position.current
     TypeRefTpe_nonGeneric(Position.current + 1, Position.current + 4).writeEntry(myPickleBuffer)//this type, ExtRef
     thisTpe_scala.write(myPickleBuffer)
-    scala.write(myPickleBuffer)
+    scala.write("scala", myPickleBuffer)
     TermName("scala").write(myPickleBuffer)
     ExtRef_nested(Position.current + 1, scala.position).write(myPickleBuffer)
     TypeName("AnyRef").write(myPickleBuffer)

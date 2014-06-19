@@ -34,6 +34,7 @@ class ModuleSig(sigResources: SigResources, names: List[String], valueMembers: L
     sigResources.thisTpes.runtime, 
     sigResources.extModClassRefs.runtime, 
     sigResources.extModClassRefs.scala)
+
 //write Module Methods
   val moduleMethods = new ModuleMethods(sigResources, valueMembers, initMethod, caseClassMethods.toStringMethod)
 

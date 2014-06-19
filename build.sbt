@@ -3,7 +3,7 @@ import Keys._
 
 name := "artisanal-pickle-maker"
 
-version := "0.7"
+version := "0.8"
 
 organization := "com.julianpeeters"
 

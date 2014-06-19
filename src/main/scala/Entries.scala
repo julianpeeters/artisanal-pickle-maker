@@ -27,7 +27,7 @@ class Entries(sigResources: SigResources, flags: List[String], names: List[Strin
   val classInfo = ClassInfo(sigResources, flags, names)
 
   //write the value members
-  val valueMembers = args.map(arg => new ValueMember(sigResources.myPickleBuffer, arg._1, arg._2, sigResources.typeRefTpes))
+  val valueMembers = args.map(arg => new ValueMember(sigResources.myPickleBuffer, names, arg._1, arg._2, sigResources.typeRefTpes))
 
   //write the <init> method
   val initMethod = Init(sigResources, valueMembers)

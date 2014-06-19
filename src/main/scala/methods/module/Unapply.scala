@@ -58,7 +58,7 @@ case class Unapply(sigResources: SigResources, valueMembers: List[ValueMember], 
         TypeRefTpe_Tuple(sigResources.thisTpes.scala, sigResources.extModClassRefs.scala, valueMembers).write(sigResources.myPickleBuffer)
       }
     } 
-    case _          => println("Hmm. what's wrong with your value members? Do you have any?") 
+    case _          => error("Hmm. what's wrong with your value members? Do you have any?") 
   }
 
 

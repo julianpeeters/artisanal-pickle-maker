@@ -46,7 +46,7 @@ case class CopyDefault(sigResources: SigResources, valueMembers: List[ValueMembe
       })
 
     }
-    case _ => println("what, no value members?")
+    case _ => error("what, no value members?")
   }
 
   

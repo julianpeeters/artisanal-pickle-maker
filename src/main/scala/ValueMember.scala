@@ -21,7 +21,7 @@ import scala.collection.JavaConversions.JConcurrentMapWrapper
 import java.util.concurrent.ConcurrentHashMap
 
 
-class ValueMember(myPickleBuffer: PickleBuffer, termName: String, typeName: String, typeRefTpes: TypeRefTpes){
+class ValueMember(myPickleBuffer: PickleBuffer, names: List[String], termName: String, typeName: String, typeRefTpes: TypeRefTpes){
   val tpeName = typeName
   var polyTpePosition = 0
   var typeRefPosition = 0
@@ -61,19 +61,17 @@ class ValueMember(myPickleBuffer: PickleBuffer, termName: String, typeName: Stri
       case "Any"      => typeRefTpes.any 
       case "AnyRef"   => typeRefTpes.anyRef
       case "Object"   => typeRefTpes.obj 
-      //generics
-   // case "Iterator" => typeRefTpes.iterator
 
       //collections, generics, and user-defined types
       case i: String => {
         val tpe = TypeStore.types.get(tpeName)
-//tpe.get
+
         if (tpe.isDefined)  tpe.get
         else {  
           i match {
             case x if x.startsWith("List[")   => typeRefTpes.list(typeName, matchTypes(getBoxed(x)))
-            case x if x.startsWith("Option[") => typeRefTpes.option(matchTypes(getBoxed(x)))//(matchTypes(getBoxed(x)))
-            case x           /*User Defined*/ => println("vm found a user def "  + x); typeRefTpes.userDefined(x)
+            case x if x.startsWith("Option[") => typeRefTpes.option(matchTypes(getBoxed(x)))
+            case x           /*User Defined*/ => typeRefTpes.userDefined(x, names(0))
           }
         }
       }
@@ -113,8 +111,7 @@ class ValueMember(myPickleBuffer: PickleBuffer, termName: String, typeName: Stri
         }  
 
       }
-      case i: Int => {//if the type has been previously 
-      //if we've written a given typeRef, but the polytpe position is still zero, then write the polytpe here
+      case i: Int => {//if we've written a given typeRef, but the polytpe position is still zero, then write the polytpe here
         if (typeRef.polyTpePosition == 0) {
           polyTpePosition = Position.current + 2
           typeRefPosition = typeRef.position
@@ -165,7 +162,7 @@ class ValueMember(myPickleBuffer: PickleBuffer, termName: String, typeName: Stri
             PolyTpe(typeRef).write(myPickleBuffer)
           }
         }
-        else { println("%%%")
+        else {
           ValSym(Position.current + 1, ClassSym.position, 692060672L, polyTpePosition).write(myPickleBuffer)
           termNamePosition = Position.current
           TermName(termName).write(myPickleBuffer)

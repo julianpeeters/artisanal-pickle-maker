@@ -34,13 +34,13 @@ case class Init(sigResources: SigResources, valueMembers: List[ValueMember]) {
    
   val paramPositions = (1 to valueMembers.length).toList.map(vm => Position.current + 2 + vm)//use by appending a first param
 
-    sigResources.thisTpes.owner.position match {//ThisTpe_owner should already have been written if the member's type is custom and local
+    sigResources.thisTpes.owner.position match {//ThisTpe_owner already written if the member's type is custom and local
       case 0      => { 
         MethodTpe(Position.current + 1 :: paramPositions).write(sigResources.myPickleBuffer);
         sigResources.typeRefTpes.modelsMyRecord.write(sigResources.myPickleBuffer);
-        sigResources.thisTpes.owner.write(sigResources.myPickleBuffer, sigResources.extModClassRefs.owner) 
+        sigResources.thisTpes.owner.write(sigResources.myPickleBuffer, sigResources.extModClassRefs.owner, "!!!") 
       }
-      case i: Int => { // is already defined, so won't need to be defined next
+      case i: Int => {  // is already defined, so won't need to be defined next
         MethodTpe(Position.current + 1 :: (paramPositions.map(p => p - 1))).write(sigResources.myPickleBuffer); 
         sigResources.typeRefTpes.modelsMyRecord.write(sigResources.myPickleBuffer)
       }

@@ -40,7 +40,6 @@ class TypeRefTpes(thisTpes: ThisTpes, extModClassRefs: ExtModClassRefs) {
 
 //more datatypes
   val obj = TypeRefTpe_Object(thisTpes.scala, thisTpes.lang, extModClassRefs.lang, extModClassRefs.java)
-//val option = TypeRefTpe_Option(thisTpes.scala, extModClassRefs.scala)
   val javaLangString = TypeRefTpe_javaLangString(thisTpes)
   val objectReadResolve = TypeRefTpe_ObjectReadResolve(thisTpes.javaLang, extModClassRefs.lang)
   val product = TypeRefTpe_Product(thisTpes.scala, extModClassRefs.scala)
@@ -66,7 +65,8 @@ class TypeRefTpes(thisTpes: ThisTpes, extModClassRefs: ExtModClassRefs) {
   def list(valueMemberName: String, boxedType: Tpe) = TypeRefTpe_List(noneSym, extModClassRefs.scala, thisTpes.scala, extModClassRefs.predef, valueMemberName, boxedType)
 
 //user-defined classes
-  def userDefined(typeName: String) = TypeRefTpe_userDefined(typeName, thisTpes.owner, extModClassRefs )
+  def userDefined(typeName: String, ownerName: String) = TypeRefTpe_userDefined(typeName, ownerName, thisTpes.owner, extModClassRefs )
+
 
 
 

@@ -33,7 +33,7 @@ case class ProductPrefix(sigResources: SigResources) {
       sigResources.thisTpes.javaLang.write(sigResources.myPickleBuffer)
       sigResources.extModClassRefs.lang.write(sigResources.myPickleBuffer)
       TermName("lang").write(sigResources.myPickleBuffer)
-      sigResources.extModClassRefs.java.write(sigResources.myPickleBuffer)
+      sigResources.extModClassRefs.java.write("java", sigResources.myPickleBuffer)
       TermName("java").write(sigResources.myPickleBuffer)
     }
     case i: Int => {// if a java type has been written already, reference that thisTpe_javaLang position

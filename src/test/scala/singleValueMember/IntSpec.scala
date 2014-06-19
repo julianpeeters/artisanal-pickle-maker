@@ -13,7 +13,7 @@ import scala.reflect.ScalaSignature
 
 class IntSpec extends mutable.Specification {
   val mySig = new ScalaSig(List("case class"), List("models", "MyRecord_Int"), List(("c", "Int")))
-    def parseByteCodeFromAnnotation(clazz: Class[_]): Option[ByteCode] = {
+  def parseByteCodeFromAnnotation(clazz: Class[_]): Option[ByteCode] = {
     clazz.annotation[ScalaSignature] match {
       case Some(sig) if sig != null => {
         val bytes = sig.bytes.getBytes("UTF-8")

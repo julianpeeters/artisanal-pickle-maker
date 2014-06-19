@@ -18,7 +18,7 @@ package types
 import tags._
 import scala.reflect.internal.pickling._
 
-case class TypeRefTpe_OptionNoBoxed extends Tpe{
+case class TypeRefTpe_OptionNoBoxed() extends Tpe{
   var position = 0
   var polyTpePosition = 0
   var annotPos = 0

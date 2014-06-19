@@ -21,7 +21,7 @@ import scala.reflect.internal.pickling._
 import tags._
 import types._
 
-//takes a List of flags,  a list of class names, and a list of value member names and types
+//takes a List of flags,  a list of package and class, and a list of value member names and types
 class ScalaSig(flags: List[String], names: List[String], args: List[(String, String)]) {
 
 //set up resources to supply us with the named objects we'll use to make sig entries
@@ -47,4 +47,6 @@ class ScalaSig(flags: List[String], names: List[String], args: List[(String, Str
 //reset maps of generated types 
   TypeStore.types.clear()
   ValueMemberStore.valueMembers.clear()
+  ExtModClassRefStore.owners.clear()
+  ThisTypeStore.owners.clear()
 }

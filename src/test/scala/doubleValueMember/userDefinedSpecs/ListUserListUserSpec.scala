@@ -32,7 +32,7 @@ class ListUserListUserSpec extends mutable.Specification {
     Option(ByteCode(bytes.take(len)))   
   }
 
-  "a ScalaSig for case class MyRecord_User(lu1: List[MyRecord_User], lu2: List[MyRecord_User])" should {
+  "a ScalaSig for case class MyRecord_ListUserListUser(lu1: List[MyRecord_User], lu2: List[MyRecord_User])" should {
     "have the correct string" in {
     val correctParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_ListUserListUser]).map(ScalaSigAttributeParsers.parse(_)).get
     val myParsedSig = parseByteCodeFromMySig(mySig).map(ScalaSigAttributeParsers.parse(_)).get
