@@ -9,10 +9,10 @@ Why? Because existing Java bytecode-engineering tools can't see or alter a pickl
 
 ##Usage:##
 Add the following dependency to your `build.sbt` file:
-`libraryDependencies += "com.julianpeeters" %% "artisanal-pickle-maker" % "0.7"`
+`libraryDependencies += "com.julianpeeters" %% "artisanal-pickle-maker" % "0.8"`
 
 Get an `artisanal.pickle.maker.ScalaSig` with:  
-`val scalaSig = new ScalaSig(List("case class"), List("models", "MyRecord"), List(("x", "String"), ("y", "Option[Int]"))`
+`val scalaSig = new ScalaSig(List("case class"), List("mypackage", "MyRecord"), List(("x", "String"), ("y", "Option[Int]"))`
 
 `scalaSig.bytes` gives the encoded bytes as a UTF-8 String. This is the normal storage format of a natural pickled Scala signature.
 
