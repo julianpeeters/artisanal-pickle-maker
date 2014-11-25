@@ -1,9 +1,9 @@
 package artisanal.pickle.maker 
 import models._
 
-import org.specs2._
-import mutable._
-import specification._
+//import org.specs2._
+//import mutable._
+//import specification._
 
 import scala.reflect.internal.pickling.ByteCodecs
 import scala.tools.scalap.scalax.rules.scalasig._
@@ -11,9 +11,12 @@ import scala.tools.scalap.scalax.rules.scalasig._
 import com.novus.salat.annotations.util._
 import scala.reflect.ScalaSignature
 
+import collection.mutable.Stack
+import org.scalatest._
 
 
-class UserDefinedTypeSpec extends mutable.Specification {
+class UserDefinedTypeSpec extends FlatSpec with Matchers {
+//class UserDefinedTypeSpec extends mutable.Specification {
   val mySig = new ScalaSig(List("case class"), List("models", "MyRecord_User"), List(("myRec", "MyRec")))
   def parseByteCodeFromAnnotation(clazz: Class[_]): Option[ByteCode] = {
     clazz.annotation[ScalaSignature] match {
@@ -32,13 +35,14 @@ class UserDefinedTypeSpec extends mutable.Specification {
     Option(ByteCode(bytes.take(len)))   
   }
 
-  "a ScalaSig for case class MyRecord_User(myRec: MyRec)" should {
+  "a ScalaSig for case class MyRecord_User(myRec: MyRec)" should //{
     "have the correct string" in {
     val correctParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_User]).map(ScalaSigAttributeParsers.parse(_)).get
     val myParsedSig = parseByteCodeFromMySig(mySig).map(ScalaSigAttributeParsers.parse(_)).get
-    correctParsedSig.toString === myParsedSig.toString
+//    correctParsedSig.toString === myParsedSig.toString
+    correctParsedSig.toString should be (myParsedSig.toString)
     }
-  }
+ // }
 
 }
 

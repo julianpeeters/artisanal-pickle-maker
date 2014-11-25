@@ -11,6 +11,7 @@ scalaVersion := "2.10.4"
 
 libraryDependencies ++= Seq( 
   "org.specs2" %% "specs2" % "2.4" % "test",
+  "org.scalatest" %% "scalatest" % "2.2.1" % "test",
   "com.novus" %% "salat" % "1.9.9" % "test",
   "org.scala-lang" % "scala-compiler" % "2.10.4"
 )
