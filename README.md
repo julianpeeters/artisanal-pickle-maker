@@ -9,7 +9,7 @@ Why? Because existing Java bytecode-engineering tools can't see or alter a pickl
 
 ##Usage:##
 Add the following dependency to your `build.sbt` file:
-`libraryDependencies += "com.julianpeeters" %% "artisanal-pickle-maker" % "0.8"`
+`libraryDependencies += "com.julianpeeters" %% "artisanal-pickle-maker" % "0.10.0"`
 
 Get an `artisanal.pickle.maker.ScalaSig` with:  
 `val scalaSig = new ScalaSig(List("case class"), List("mypackage", "MyRecord"), List(("x", "String"), ("y", "Option[Int]"))`
@@ -23,26 +23,21 @@ Thus, `scalaSig.bytes` is identical to the encoded string that would be found in
 ##Currently supports:##
   Are you generating or modifying Scala classes with ASM or another bytecode engineering library? Then add an updated pickled sig and make your class whole!
 
-  _Classes_ - The generation of Scala sigs for regular and case classes *that have value members only* (signatures will not reflect user-defined defs, i.e., this doesn't yet support classes with defs!).
+  _Classes_ - The generation of Scala sigs for regular and case classes *that have value members only* (signatures will not reflect user-defined defs, i.e., this doesn't yet support classes with defs due to concerns of hygeine).
 
   _Datatypes_ - All basic Scala datatypes, lists, options, and user-defined datatypes
 
-  _Scala Version_ - Reproduces a Scala 2.10.2 and 2.10.3 signature byte-for-byte.
+  _Scala Version_ - Reproduces a Scala 2.11 signatures byte-for-byte (see releases for lesser version of Scala).
 
-( May serve as a signature for Scala 2.9.1 depending on how you need to use it, but be warned: some of the signature for a given class does indeed differ between versions.)
 
 ##In the future:##
 
-  _Datatypes_ - Support for more collections besides just `List`.
-
-  _Method Members_ - Support for user defined defs(?).
+  _Datatypes_ - Support for more collections besides just `List` and `Option`.
 
   _Extension_ - Support for flags that allow arbitrary extension(?)
 
   _Classes_ - Support for flags other than "case class"(?).
 
-  _Integration_ - Javassist(?), ASM for dynamic case class generation.
 
+##Constructive advice is appreciated!##
 
-##PS## I'm relatively new at all this, so any constructive advice is appreciated!
--Julian
