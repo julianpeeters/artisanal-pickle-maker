@@ -41,4 +41,38 @@ println(parseByteCodeFromAnnotation(classOf[MyRecord_Float]))
     }
   }
 
+
+
+
+val mySig2 = new ScalaSig(List("case class"), List("models", "MyRecord_Int"), List(("c", "Int")))
+  def parseByteCodeFromAnnotation(clazz: Class[_]): Option[ByteCode] = {
+    clazz.annotation[ScalaSignature] match {
+      case Some(sig) if sig != null => {
+        val bytes = sig.bytes.getBytes("UTF-8")
+        val len = ByteCodecs.decode(bytes)
+        Option(ByteCode(bytes.take(len)))
+      }
+      case _ => None
+    }
+  }
+/*
+  def parseByteCodeFromMySig(sig: ScalaSig): Option[ByteCode] = {
+    val bytes = sig.bytes.getBytes("UTF-8")
+    val len = ByteCodecs.decode(bytes)
+    Option(ByteCode(bytes.take(len)))   
+  }
+*/
+  "a ScalaSig for case class MyRecord_Int(i: Int)" should {
+    "have the correct string" in {
+    val correctParsedSig2 = parseByteCodeFromAnnotation(classOf[MyRecord_Int]).map(ScalaSigAttributeParsers.parse(_)).get
+    val myParsedSig2 = parseByteCodeFromMySig(mySig2).map(ScalaSigAttributeParsers.parse(_)).get
+ 
+    correctParsedSig2.toString === myParsedSig2.toString
+    }
+  }
+
+
+
+
+
 }
