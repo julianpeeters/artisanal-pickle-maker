@@ -10,6 +10,7 @@ import scala.tools.scalap.scalax.rules.scalasig._
 
 import com.novus.salat.annotations.util._
 import scala.reflect.ScalaSignature
+
 class FloatSpec extends mutable.Specification {
   val mySig = new ScalaSig(List("case class"), List("models", "MyRecord_Float"), List(("e", "Float")))
   def parseByteCodeFromAnnotation(clazz: Class[_]): Option[ByteCode] = {
@@ -32,6 +33,7 @@ class FloatSpec extends mutable.Specification {
 
   "a ScalaSig for case class MyRecord_Float(e: Float)" should {
     "have the correct string" in {
+println(parseByteCodeFromAnnotation(classOf[MyRecord_Float]))
     val correctParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_Float]).map(ScalaSigAttributeParsers.parse(_)).get
     val myParsedSig = parseByteCodeFromMySig(mySig).map(ScalaSigAttributeParsers.parse(_)).get
  
