@@ -17,7 +17,7 @@ package artisanal.pickle.maker
 package tags
 import scala.reflect.internal.pickling._
 
-case class AnnotInfo {
+case class AnnotInfo() {
   var position = 0
   def write(myPickleBuffer: PickleBuffer)  = {
     position = Position.current

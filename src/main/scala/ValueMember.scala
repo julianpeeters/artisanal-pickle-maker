@@ -17,8 +17,7 @@ package artisanal.pickle.maker
 import tags._
 import types._
 import scala.reflect.internal.pickling._
-import scala.collection.JavaConversions.JConcurrentMapWrapper
-import java.util.concurrent.ConcurrentHashMap
+
 
 
 class ValueMember(myPickleBuffer: PickleBuffer, names: List[String], termName: String, typeName: String, typeRefTpes: TypeRefTpes){

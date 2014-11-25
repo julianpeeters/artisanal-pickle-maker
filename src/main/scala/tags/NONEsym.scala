@@ -17,7 +17,7 @@ package artisanal.pickle.maker
 package tags
 import scala.reflect.internal.pickling._
 
-case class NoneSym {
+case class NoneSym() {
   var position = 0
   def write(myPickleBuffer: PickleBuffer)  = {
     position = Position.current

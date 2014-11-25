@@ -3,16 +3,16 @@ import Keys._
 
 name := "artisanal-pickle-maker"
 
-version := "0.9.0"
+version := "0.10.0"
 
 organization := "com.julianpeeters"
 
-scalaVersion := "2.10.4"
+scalaVersion := "2.11.4"
 
 libraryDependencies ++= Seq( 
   "org.specs2" %% "specs2" % "2.4" % "test",
   "com.novus" %% "salat" % "1.9.9" % "test",
-  "org.scala-lang" % "scala-compiler" % "2.10.4"
+  "org.scala-lang" % "scala-compiler" % "2.11.4"
 )
 
 publishMavenStyle := true

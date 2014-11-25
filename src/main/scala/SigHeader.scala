@@ -18,7 +18,7 @@ import scala.reflect.internal.pickling._
 import PickleFormat._
 
 
-case class SigHeader {
+case class SigHeader() {
   val hB = new HB
 //write version
   //Version
