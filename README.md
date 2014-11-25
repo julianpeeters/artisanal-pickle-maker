@@ -27,7 +27,7 @@ Thus, `scalaSig.bytes` is identical to the encoded string that would be found in
 
   _Datatypes_ - All basic Scala datatypes, lists, options, and user-defined datatypes
 
-  _Scala Version_ - Reproduces a Scala 2.11 signatures byte-for-byte (see releases for lesser version of Scala).
+  _Scala Version_ - Reproduces a Scala 2.11 signatures byte-for-byte (see releases for lesser versions of Scala).
 
 
 ##In the future:##
