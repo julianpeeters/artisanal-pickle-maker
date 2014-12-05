@@ -12,7 +12,7 @@ import com.novus.salat.annotations.util._
 import scala.reflect.ScalaSignature
 
 class FloatSpec extends mutable.Specification { sequential
- // val mySig = new ScalaSig(List("case class"), List("models", "MyRecord_Float"), List(("e", "Float")))
+  val mySigx = new ScalaSig(List("case class"), List("models", "MyRecord_Float"), List(("e", "Float")))
 /*
   def parseByteCodeFromAnnotation(clazz: Class[_]): Option[ByteCode] = {
     clazz.annotation[ScalaSignature] match {
