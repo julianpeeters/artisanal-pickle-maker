@@ -85,13 +85,14 @@ class FloatSpec extends mutable.Specification { sequential
 
 class DoubleSpec extends mutable.Specification { sequential
 
-  val mySig = new ScalaSig(List("case class"), List("models", "MyRecord_Double"), List(("f", "Double")))
+
 
   "a ScalaSig for case class MyRecord_Double(f: Double)" should {
     "have the correct string" in {
+  val mySig = new ScalaSig(List("case class"), List("models", "MyRecord_Double"), List(("f", "Double")))
     val correctParsedSig = SigParser.parseByteCodeFromAnnotation(classOf[MyRecord_Double]).map(ScalaSigAttributeParsers.parse(_)).get
     val myParsedSig = SigParser.parseByteCodeFromMySig(mySig).map(ScalaSigAttributeParsers.parse(_)).get
- 
+ //2 === 2
    correctParsedSig.toString === myParsedSig.toString
     }
   }
