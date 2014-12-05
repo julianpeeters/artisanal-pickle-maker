@@ -92,7 +92,7 @@ class DoubleSpec extends mutable.Specification {
     val correctParsedSig = SigParser.parseByteCodeFromAnnotation(classOf[MyRecord_Double]).map(ScalaSigAttributeParsers.parse(_)).get
     val myParsedSig = SigParser.parseByteCodeFromMySig(mySig).map(ScalaSigAttributeParsers.parse(_)).get
  
-   correctParsedSig === myParsedSig
+   correctParsedSig.toString === myParsedSig.toString
     }
   }
 
