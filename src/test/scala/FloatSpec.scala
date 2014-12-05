@@ -64,7 +64,7 @@ println(SigParser.parseByteCodeFromAnnotation(classOf[MyRecord_Float]))
     Option(ByteCode(bytes.take(len)))   
   }
 */
-
+/*
   val mySig2 = new ScalaSig(List("case class"), List("models", "MyRecord_Int"), List(("c", "Int")))
 
   "a ScalaSig for case class MyRecord_Int(i: Int)" should {
@@ -77,13 +77,12 @@ println(SigParser.parseByteCodeFromAnnotation(classOf[MyRecord_Float]))
   }
 
 
-
-
+*/
 
 }
 
 
-/*
+
 class DoubleSpec extends mutable.Specification {
 
   val mySig = new ScalaSig(List("case class"), List("models", "MyRecord_Double"), List(("f", "Double")))
@@ -99,4 +98,4 @@ class DoubleSpec extends mutable.Specification {
 
 }
 
-*/
+
