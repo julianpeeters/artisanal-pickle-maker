@@ -1,0 +1,133 @@
+[0m[[31merror[0m] [0m   'ScalaSig version 5.0[0m
+[0m[[31merror[0m] [0m   0:	ClassSymbol(MyRecord_Double, owner=models, flags=40, info=5 ,None)[0m
+[0m[[31merror[0m] [0m   1:	MyRecord_Double[0m
+[0m[[31merror[0m] [0m   2:	models[0m
+[0m[[31merror[0m] [0m   3:	models[0m
+[0m[[31merror[0m] [0m   4:	NoSymbol[0m
+[0m[[31merror[0m] [0m   5:	ClassInfoType(ClassSymbol(MyRecord_Double, owner=models, flags=40, info=5 ,None),List(TypeRefType(ThisType(scala),scala.AnyRef,List()), TypeRefType(ThisType(scala),scala.Product,List()), TypeRefType(ThisType(scala),scala.Serializable,List())))[0m
+[0m[[31merror[0m] [0m   6:	TypeRefType(ThisType(scala),scala.AnyRef,List())[0m
+[0m[[31merror[0m] [0m   7:	ThisType(scala)[0m
+[0m[[31merror[0m] [0m   8:	scala[0m
+[0m[[31merror[0m] [0m   9:	scala[0m
+[0m[[31merror[0m] [0m   10:	scala.AnyRef[0m
+[0m[[31merror[0m] [0m   11:	AnyRef[0m
+[0m[[31merror[0m] [0m   12:	TypeRefType(ThisType(scala),scala.Product,List())[0m
+[0m[[31merror[0m] [0m   13:	scala.Product[0m
+[0m[[31merror[0m] [0m   14:	Product[0m
+[0m[[31merror[0m] [0m   15:	TypeRefType(ThisType(scala),scala.Serializable,List())[0m
+[0m[[31merror[0m] [0m   16:	scala.Serializable[0m
+[0m[[31merror[0m] [0m   17:	Serializable[0m
+[0m[[31merror[0m] [0m   18:	MethodSymbol(f, owner=0, flags=29400200, info=20 ,None)[0m
+[0m[[31merror[0m] [0m   19:	f[0m
+[0m[[31merror[0m] [0m   20:	NullaryMethodType(TypeRefType(ThisType(scala),scala.Double,List()))[0m
+[0m[[31merror[0m] [0m   21:	TypeRefType(ThisType(scala),scala.Double,List())[0m
+[0m[[31merror[0m] [0m   22:	scala.Double[0m
+[0m[[31merror[0m] [0m   23:	Double[0m
+[0m[[31merror[0m] [0m   24:	MethodSymbol(f , owner=0, flags=21080004, info=21 ,None)[0m
+[0m[[31merror[0m] [0m   25:	f [0m
+[0m[[31merror[0m] [0m   26:	MethodSymbol(<init>, owner=0, flags=200, info=28 ,None)[0m
+[0m[[31merror[0m] [0m   27:	<init>[0m
+[0m[[31merror[0m] [0m   28:	MethodType(TypeRefType(ThisType(models),ClassSymbol(MyRecord_Double, owner=models, flags=40, info=5 ,None),List()),List(MethodSymbol(f, owner=26, flags=2000, info=21 ,None)))[0m
+[0m[[31merror[0m] [0m   29:	TypeRefType(ThisType(models),ClassSymbol(MyRecord_Double, owner=models, flags=40, info=5 ,None),List())[0m
+[0m[[31merror[0m] [0m   30:	ThisType(models)[0m
+[0m[[31merror[0m] [0m   31:	MethodSymbol(f, owner=26, flags=2000, info=21 ,None)[0m
+[0m[[31merror[0m] [0m   32:	MethodSymbol(copy, owner=0, flags=200200, info=34 ,None)[0m
+[0m[[31merror[0m] [0m   33:	copy[0m
+[0m[[31merror[0m] [0m   34:	MethodType(TypeRefType(ThisType(models),ClassSymbol(MyRecord_Double, owner=models, flags=40, info=5 ,None),List()),List(MethodSymbol(f, owner=32, flags=2002000, info=21 ,None)))[0m
+[0m[[31merror[0m] [0m   35:	MethodSymbol(f, owner=32, flags=2002000, info=21 ,None)[0m
+[0m[[31merror[0m] [0m   36:	MethodSymbol(copy$default$1, owner=0, flags=2200200, info=38 ,None)[0m
+[0m[[31merror[0m] [0m   37:	copy$default$1[0m
+[0m[[31merror[0m] [0m   38:	NullaryMethodType(AnnotatedType(TypeRefType(ThisType(scala),scala.Double,List()),List(40)))[0m
+[0m[[31merror[0m] [0m   39:	AnnotatedType(TypeRefType(ThisType(scala),scala.Double,List()),List(40))[0m
+[0m[[31merror[0m] [0m   40:	AnnotInfo(List(41))[0m
+[0m[[31merror[0m] [0m   41:	TypeRefType(ThisType(scala.annotation.unchecked),scala.annotation.unchecked.uncheckedVariance,List())[0m
+[0m[[31merror[0m] [0m   42:	ThisType(scala.annotation.unchecked)[0m
+[0m[[31merror[0m] [0m   43:	scala.annotation.unchecked[0m
+[0m[[31merror[0m] [0m   44:	unchecked[0m
+[0m[[31merror[0m] [0m   45:	scala.annotation[0m
+[0m[[31merror[0m] [0m   46:	annotation[0m
+[0m[[31merror[0m] [0m   47:	scala.annotation.unchecked.uncheckedVariance[0m
+[0m[[31merror[0m] [0m   48:	uncheckedVariance[0m
+[0m[[31merror[0m] [0m   49:	MethodSymbol(productPrefix, owner=0, flags=200220, info=51 ,None)[0m
+[0m[[31merror[0m] [0m   50:	productPrefix[0m
+[0m[[31merror[0m] [0m   51:	NullaryMethodType(TypeRefType(ThisType(java.lang),java.lang.String,List()))[0m
+[0m[[31merror[0m] [0m   52:	TypeRefType(ThisType(java.lang),java.lang.String,List())[0m
+[0m[[31merror[0m] [0m   53:	ThisType(java.lang)[0m
+[0m[[31merror[0m] [0m   54:	java.lang[0m
+[0m[[31merror[0m] [0m   55:	lang[0m
+[0m[[31merror[0m] [0m   56:	java[0m
+[0m[[31merror[0m] [0m   57:	java[0m
+[0m[[31merror[0m] [0m   58:	java.lang.String[0m
+[0m[[31merror[0m] [0m   59:	String[0m
+[0m[[31merror[0m] [0m   60:	MethodSymbol(productArity, owner=0, flags=200200, info=62 ,None)[0m
+[0m[[31merror[0m] [0m   61:	productArity[0m
+[0m[[31merror[0m] [0m   62:	NullaryMethodType(TypeRefType(ThisType(scala),scala.Int,List()))[0m
+[0m[[31merror[0m] [0m   63:	TypeRefType(ThisType(scala),scala.Int,List())[0m
+[0m[[31merror[0m] [0m   64:	scala.Int[0m
+[0m[[31merror[0m] [0m   65:	Int[0m
+[0m[[31merror[0m] [0m   66:	MethodSymbol(productElement, owner=0, flags=200200, info=68 ,None)[0m
+[0m[[31merror[0m] [0m   67:	productElement[0m
+[0m[[31merror[0m] [0m   68:	MethodType(TypeRefType(ThisType(scala),scala.Any,List()),List(MethodSymbol(x$1, owner=66, flags=202000, info=63 ,None)))[0m
+[0m[[31merror[0m] [0m   69:	TypeRefType(ThisType(scala),scala.Any,List())[0m
+[0m[[31merror[0m] [0m   70:	scala.Any[0m
+[0m[[31merror[0m] [0m   71:	Any[0m
+[0m[[31merror[0m] [0m   72:	MethodSymbol(x$1, owner=66, flags=202000, info=63 ,None)[0m
+[0m[[31merror[0m] [0m   73:	x$1[0m
+[0m[[31merror[0m] [0m   74:	MethodSymbol(productIterator, owner=0, flags=200220, info=76 ,None)[0m
+[0m[[31merror[0m] [0m   75:	productIterator[0m
+[0m[[31merror[0m] [0m   76:	NullaryMethodType(TypeRefType(ThisType(scala.collection),scala.collection.Iterator,List(TypeRefType(ThisType(scala),scala.Any,List()))))[0m
+[0m[[31merror[0m] [0m   77:	TypeRefType(ThisType(scala.collection),scala.collection.Iterator,List(TypeRefType(ThisType(scala),scala.Any,List())))[0m
+[0m[[31merror[0m] [0m   78:	ThisType(scala.collection)[0m
+[0m[[31merror[0m] [0m   79:	scala.collection[0m
+[0m[[31merror[0m] [0m   80:	collection[0m
+[0m[[31merror[0m] [0m   81:	scala.collection.Iterator[0m
+[0m[[31merror[0m] [0m   82:	Iterator[0m
+[0m[[31merror[0m] [0m   83:	MethodSymbol(canEqual, owner=0, flags=200200, info=85 ,None)[0m
+[0m[[31merror[0m] [0m   84:	canEqual[0m
+[0m[[31merror[0m] [0m   85:	MethodType(TypeRefType(ThisType(scala),scala.Boolean,List()),List(MethodSymbol(x$1, owner=83, flags=202000, info=69 ,None)))[0m
+[0m[[31merror[0m] [0m   86:	TypeRefType(ThisType(scala),scala.Boolean,List())[0m
+[0m[[31merror[0m] [0m   87:	scala.Boolean[0m
+[0m[[31merror[0m] [0m   88:	Boolean[0m
+[0m[[31merror[0m] [0m   89:	MethodSymbol(x$1, owner=83, flags=202000, info=69 ,None)[0m
+[0m[[31merror[0m] [0m   90:	MethodSymbol(hashCode, owner=0, flags=200220, info=92 ,None)[0m
+[0m[[31merror[0m] [0m   91:	hashCode[0m
+[0m[[31merror[0m] [0m   92:	MethodType(TypeRefType(ThisType(scala),scala.Int,List()),List())[0m
+[0m[[31merror[0m] [0m   93:	MethodSymbol(toString, owner=0, flags=200220, info=95 ,None)[0m
+[0m[[31merror[0m] [0m   94:	toString[0m
+[0m[[31merror[0m] [0m   95:	MethodType(TypeRefType(ThisType(java.lang),java.lang.String,List()),List())[0m
+[0m[[31merror[0m] [0m   96:	MethodSymbol(equals, owner=0, flags=200220, info=98 ,None)[0m
+[0m[[31merror[0m] [0m   97:	equals[0m
+[0m[[31merror[0m] [0m   98:	MethodType(TypeRefType(ThisType(scala),scala.Boolean,List()),List(MethodSymbol(x$1, owner=96, flags=202000, info=69 ,None)))[0m
+[0m[[31merror[0m] [0m   99:	MethodSymbol(x$1, owner=96, flags=202000, info=69 ,None)[0m
+[0m[[31merror[0m] [0m   100:	ObjectSymbol(MyRecord_Double, owner=models, flags=200400, info=102 )[0m
+[0m[[31merror[0m] [0m   101:	MyRecord_Double[0m
+[0m[[31merror[0m] [0m   102:	TypeRefType(ThisType(models),ClassSymbol(MyRecord_Double, owner=models, flags=200400, info=104 ,None),List())[0m
+[0m[[31merror[0m] [0m   103:	ClassSymbol(MyRecord_Double, owner=models, flags=200400, info=104 ,None)[0m
+[0m[[31merror[0m] [0m   104:	ClassInfoType(ClassSymbol(MyRecord_Double, owner=models, flags=200400, info=104 ,None),List(TypeRefType(ThisType(scala.runtime),scala.runtime.AbstractFunction1,List(TypeRefType(ThisType(scala),scala.Double,List()), TypeRefType(ThisType(models),ClassSymbol(MyRecord_Double, owner=models, flags=40, info=5 ,None),List()))), TypeRefType(ThisType(scala),scala.Serializable,List())))[0m
+[0m[[31merror[0m] [0m   105:	TypeRefType(ThisType(scala.runtime),scala.runtime.AbstractFunction1,List(TypeRefType(ThisType(scala),scala.Double,List()), TypeRefType(ThisType(models),ClassSymbol(MyRecord_Double, owner=models, flags=40, info=5 ,None),List())))[0m
+[0m[[31merror[0m] [0m   106:	ThisType(scala.runtime)[0m
+[0m[[31merror[0m] [0m   107:	scala.runtime[0m
+[0m[[31merror[0m] [0m   108:	runtime[0m
+[0m[[31merror[0m] [0m   109:	scala.runtime.AbstractFunction1[0m
+[0m[[31merror[0m] [0m   110:	AbstractFunction1[0m
+[0m[[31merror[0m] [0m   111:	MethodSymbol(<init>, owner=103, flags=200, info=112 ,None)[0m
+[0m[[31merror[0m] [0m   112:	MethodType(TypeRefType(ThisType(models),ClassSymbol(MyRecord_Double, owner=models, flags=200400, info=104 ,None),List()),List())[0m
+[0m[[31merror[0m] [0m   113:	MethodSymbol(toString, owner=103, flags=200222, info=95 ,None)[0m
+[0m[[31merror[0m] [0m   114:	MethodSymbol(apply, owner=103, flags=200240, info=116 ,None)[0m
+[0m[[31merror[0m] [0m   115:	apply[0m
+[0m[[31merror[0m] [0m   116:	MethodType(TypeRefType(ThisType(models),ClassSymbol(MyRecord_Double, owner=models, flags=40, info=5 ,None),List()),List(MethodSymbol(f, owner=114, flags=2000, info=21 ,None)))[0m
+[0m[[31merror[0m] [0m   117:	MethodSymbol(f, owner=114, flags=2000, info=21 ,None)[0m
+[0m[[31merror[0m] [0m   118:	MethodSymbol(unapply, owner=103, flags=200240, info=120 ,None)[0m
+[0m[[31merror[0m] [0m   119:	unapply[0m
+[0m[[31merror[0m] [0m   120:	MethodType(TypeRefType(ThisType(scala),scala.Option,List(TypeRefType(ThisType(scala),scala.Double,List()))),List(MethodSymbol(x$0, owner=118, flags=202000, info=29 ,None)))[0m
+[0m[[31merror[0m] [0m   121:	TypeRefType(ThisType(scala),scala.Option,List(TypeRefType(ThisType(scala),scala.Double,List())))[0m
+[0m[[31merror[0m] [0m   122:	scala.Option[0m
+[0m[[31merror[0m] [0m   123:	Option[0m
+[0m[[31merror[0m] [0m   124:	MethodSymbol(x$0, owner=118, flags=202000, info=29 ,None)[0m
+[0m[[31merror[0m] [0m   125:	x$0[0m
+[0m[[31merror[0m] [0m   126:	MethodSymbol(readResolve, owner=103, flags=200204, info=128 ,None)[0m
+[0m[[31merror[0m] [0m   127:	readResolve[0m
+[0m[[31merror[0m] [0m   128:	MethodType(TypeRefType(ThisType(java.lang),java.lang.Object,List()),List())[0m
+[0m[[31merror[0m] [0m   129:	TypeRefType(ThisType(java.lang),java.lang.Object,List())[0m
+[0m[[31merror[0m] [0m   130:	java.lang.Object[0m
+[0m[[31merror[0m] [0m   131:	Object: scala.tools.scalap.scalax.rules.scalasig.ScalaSig'
