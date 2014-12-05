@@ -36,7 +36,7 @@ class FloatSpec extends mutable.Specification { sequential
     "have the correct string" in {
 println(SigParser.parseByteCodeFromAnnotation(classOf[MyRecord_Float]))
     val correctParsedSig = SigParser.parseByteCodeFromAnnotation(classOf[MyRecord_Float]).map(ScalaSigAttributeParsers.parse(_)).get
-    val myParsedSig = SigParser.parseByteCodeFromMySig(mySig)//.map(ScalaSigAttributeParsers.parse(_)).get
+    //val myParsedSig = SigParser.parseByteCodeFromMySig(mySig)//.map(ScalaSigAttributeParsers.parse(_)).get
  1 === 1
    // correctParsedSig.toString === myParsedSig.toString
     }
