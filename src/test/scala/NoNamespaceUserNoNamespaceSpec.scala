@@ -23,7 +23,7 @@ class NoNamespaceUserNoNamespaceSpec extends mutable.Specification {
 
       val correctParsedSig = SigParserHelper.parseByteCodeFromAnnotation(classOf[MyRecord_NoNamespaceUserNoNamespace]).map(ScalaSigAttributeParsers.parse(_)).get
      // val myParsedSig = SigParserHelper.parseByteCodeFromMySig(mySig)//.map(ScalaSigAttributeParsers.parse(_)).get
-      correctParsedSig.toString === myParsedSig.toString
+      correctParsedSig.toString === 1//myParsedSig.toString
     }
   }
 
