@@ -1,5 +1,5 @@
 import artisanal.pickle.maker.parser._
-import models._
+//import models._
 
 import org.specs2._
 import mutable._
@@ -11,7 +11,7 @@ import scala.tools.scalap.scalax.rules.scalasig._
 import com.novus.salat.annotations.util._
 import scala.reflect.ScalaSignature
 
-
+case class MyRec(x: Int)
 case class MyRecord_NoNamespaceUser(myRec: MyRec)
 
 class NoNamespaceUserSpec extends mutable.Specification {
