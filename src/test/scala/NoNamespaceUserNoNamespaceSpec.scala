@@ -19,7 +19,7 @@ class NoNamespaceUserNoNamespaceSpec extends mutable.Specification {
   "a ScalaSig for case class MyRecord_User(myRec: MyRec)" should {
     "have the correct string" in {
 
-   //   val mySig = new artisanal.pickle.maker.ScalaSig(List("case class"), List("<empty>", "MyRecord_NoNamespaceUserNoNamespace"), List(("myRec", "MyRec")))
+      val mySig2 = new artisanal.pickle.maker.ScalaSig(List("case class"), List("<empty>", "MyRecord_NoNamespaceUserNoNamespace"), List(("myRec", "MyRec")))
 
     //  val correctParsedSig = SigParserHelper.parseByteCodeFromAnnotation(classOf[MyRecord_NoNamespaceUserNoNamespace]).map(ScalaSigAttributeParsers.parse(_)).get
      // val myParsedSig = SigParserHelper.parseByteCodeFromMySig(mySig)//.map(ScalaSigAttributeParsers.parse(_)).get
