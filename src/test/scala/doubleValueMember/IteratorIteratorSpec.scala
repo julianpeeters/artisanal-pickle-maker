@@ -1,5 +1,6 @@
 package artisanal.pickle.maker 
 import models._
+import parser._
 
 import org.specs2._
 import mutable._
@@ -14,7 +15,7 @@ import scala.reflect.ScalaSignature
 class IteratorIteratorSpec extends mutable.Specification {
 /*
   val mySig = new ScalaSig(List("case class"), List("models", "MyRecord_IteratorIterator"), List(("b", "Iterator"), ("", "Iterator")))
-  def parseByteCodeFromAnnotation(clazz: Class[_]): Option[ByteCode] = {
+  def SigParserHelper.parseByteCodeFromAnnotation(clazz: Class[_]): Option[ByteCode] = {
     clazz.annotation[ScalaSignature] match {
       case Some(sig) if sig != null => {
         val bytes = sig.bytes.getBytes("UTF-8")
@@ -25,7 +26,7 @@ class IteratorIteratorSpec extends mutable.Specification {
     }
   }
 
-  def parseByteCodeFromMySig(sig: ScalaSig): Option[ByteCode] = {
+  def SigParserHelper.parseByteCodeFromMySig(sig: ScalaSig): Option[ByteCode] = {
     val bytes = sig.bytes.getBytes("UTF-8")
     val len = ByteCodecs.decode(bytes)
     Option(ByteCode(bytes.take(len)))
@@ -34,8 +35,8 @@ class IteratorIteratorSpec extends mutable.Specification {
 
   "a ScalaSig for case class MyRecord_IteratorIterator(a: Iterator, a2: Iterator)" should {
     "have the correct string" in {
-    val correctParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_IteratorIterator]).map(ScalaSigAttributeParsers.parse(_)).get
-    val myParsedSig = parseByteCodeFromMySig(mySig).map(ScalaSigAttributeParsers.parse(_)).get
+    val correctParsedSig = SigParserHelper.parseByteCodeFromAnnotation(classOf[MyRecord_IteratorIterator]).map(ScalaSigAttributeParsers.parse(_)).get
+    val myParsedSig = SigParserHelper.parseByteCodeFromMySig(mySig).map(ScalaSigAttributeParsers.parse(_)).get
  
     correctParsedSig.toString === myParsedSig.toString
     }

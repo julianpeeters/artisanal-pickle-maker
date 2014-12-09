@@ -1,5 +1,6 @@
 package artisanal.pickle.maker 
 import models._
+import parser._
 
 import org.specs2._
 import mutable._
@@ -17,29 +18,16 @@ class OptionListUserListOptionUserSpec extends mutable.Specification {
 
 
 
-  val mySig = new artisanal.pickle.maker.ScalaSig(List("case class"), List("models", "MyRecord_OptionListUserListOptionUser"), List(("oa1", "Option[List[MyRecord_User]]"), ("oa2", "List[Option[MyRecord_User]]")))
 
-  def parseByteCodeFromAnnotation(clazz: Class[_]): Option[ByteCode] = {
-    clazz.annotation[ScalaSignature] match {
-      case Some(sig) if sig != null => {
-        val bytes = sig.bytes.getBytes("UTF-8")
-        val len = ByteCodecs.decode(bytes)
-        Option(ByteCode(bytes.take(len)))
-      }
-      case _ => None
-    }
-  }
-
-  def parseByteCodeFromMySig(sig: artisanal.pickle.maker.ScalaSig): Option[ByteCode] = {
-    val bytes = sig.bytes.getBytes("UTF-8")
-    val len = ByteCodecs.decode(bytes)
-    Option(ByteCode(bytes.take(len)))   
-  }
 
   "a ScalaSig for case class MyRecord_OptionListUserListOptionUser(oa1: List[Option[MyRecord_User]], oa2: List[Option[MyRecord_User]])" should {
     "have the correct string" in {
-    val correctParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_OptionListUserListOptionUser]).map(ScalaSigAttributeParsers.parse(_)).get
-    val myParsedSig = parseByteCodeFromMySig(mySig).map(ScalaSigAttributeParsers.parse(_)).get
+
+  val mySig = new artisanal.pickle.maker.ScalaSig(List("case class"), List("models", "MyRecord_OptionListUserListOptionUser"), List(("oa1", "Option[List[MyRecord_User]]"), ("oa2", "List[Option[MyRecord_User]]")))
+
+
+    val correctParsedSig = SigParserHelper.parseByteCodeFromAnnotation(classOf[MyRecord_OptionListUserListOptionUser]).map(ScalaSigAttributeParsers.parse(_)).get
+    val myParsedSig = SigParserHelper.parseByteCodeFromMySig(mySig).map(ScalaSigAttributeParsers.parse(_)).get
     correctParsedSig.toString === myParsedSig.toString
     }
   }

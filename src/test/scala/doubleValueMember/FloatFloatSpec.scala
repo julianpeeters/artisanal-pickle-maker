@@ -1,5 +1,6 @@
 package artisanal.pickle.maker 
 import models._
+import parser._
 
 import org.specs2._
 import mutable._
@@ -12,29 +13,14 @@ import com.novus.salat.annotations.util._
 import scala.reflect.ScalaSignature
 
 class FloatFloatSpec extends mutable.Specification {
-  val mySig = new ScalaSig(List("case class"), List("models", "MyRecord_FloatFloat"), List(("e1", "Float"), ("e2","Float")))
-  def parseByteCodeFromAnnotation(clazz: Class[_]): Option[ByteCode] = {
-    clazz.annotation[ScalaSignature] match {
-      case Some(sig) if sig != null => {
-        val bytes = sig.bytes.getBytes("UTF-8")
-        val len = ByteCodecs.decode(bytes)
-        Option(ByteCode(bytes.take(len)))
-      }
-      case _ => None
-    }
-  }
-
-  def parseByteCodeFromMySig(sig: ScalaSig): Option[ByteCode] = {
-    val bytes = sig.bytes.getBytes("UTF-8")
-    val len = ByteCodecs.decode(bytes)
-    Option(ByteCode(bytes.take(len)))   
-  }
 
 
   "a ScalaSig for case class MyRecord_FloatFloat(e1: Float, e2: Float)" should {
     "have the correct string" in {
-    val correctParsedSig = parseByteCodeFromAnnotation(classOf[MyRecord_FloatFloat]).map(ScalaSigAttributeParsers.parse(_)).get
-    val myParsedSig = parseByteCodeFromMySig(mySig).map(ScalaSigAttributeParsers.parse(_)).get
+  val mySig = new ScalaSig(List("case class"), List("models", "MyRecord_FloatFloat"), List(("e1", "Float"), ("e2","Float")))
+
+    val correctParsedSig = SigParserHelper.parseByteCodeFromAnnotation(classOf[MyRecord_FloatFloat]).map(ScalaSigAttributeParsers.parse(_)).get
+    val myParsedSig = SigParserHelper.parseByteCodeFromMySig(mySig).map(ScalaSigAttributeParsers.parse(_)).get
  
     correctParsedSig.toString === myParsedSig.toString
     }
