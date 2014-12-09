@@ -1,4 +1,5 @@
 import artisanal.pickle.maker.parser._
+import models._
 
 import org.specs2._
 import mutable._
