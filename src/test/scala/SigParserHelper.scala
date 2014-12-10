@@ -25,7 +25,9 @@ object SigParserHelper {
   def parseByteCodeFromMySig(sig: artisanal.pickle.maker.ScalaSig): Option[ByteCode] = {
 println("in the method: " + sig)
     val bytes = sig.bytes.getBytes("UTF-8")
+println("in method: " + bytes)
     val len = ByteCodecs.decode(bytes)
+println("in method: " + len)
     Option(ByteCode(bytes.take(len)))   
   }
 
