@@ -34,13 +34,14 @@ class ScalaSig(flags: List[String], names: List[String], args: List[(String, Str
   val entriesNumber = Position.current
 
 // get the bytes, trimming the excess 0s but leaving one 0. (Header written last so we know # entries)
-  val array = Array.concat(SigHeader().bytes, sigResources.myPickleBuffer.bytes).reverse.dropWhile(b => b == 0).reverse:+0.toByte
+  val array = Array.concat(SigHeader().bytes, sigResources.myPickleBuffer.bytes).reverse.dropWhile(b => b == 0).reverse//:+0.toByte
+
 
 //use NSC's AnnotationInfo code to pickle:
   val mySig = ScalaSigBytes(array)
   val encoded = mySig.sevenBitsMayBeZero
   val bytes =  (new String(encoded, "UTF-8"))
-println("ScalaSig mySig: " + mySig)
+//println("ScalaSig mySig: " + mySig)
 //println("ScalaSig encoded: " + encoded)
 //println("ScalaSig bytes: " + bytes)
 
