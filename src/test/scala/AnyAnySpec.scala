@@ -14,7 +14,7 @@ import scala.reflect.ScalaSignature
 
 
 class AnyAnySpec extends mutable.Specification {
-
+/*
 
   "a ScalaSig for case class MyRecord_AnyAny(m1: Any, m2: Any)" should {
     "have the correct string" in {
@@ -31,5 +31,5 @@ println("AnyAny spec real sig: " + correctParsedSig.get.bytes.map { byte => (byt
     1 === 1
     }
   }
-
+*/
 }
