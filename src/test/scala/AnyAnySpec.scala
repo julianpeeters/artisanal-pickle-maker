@@ -21,9 +21,10 @@ class AnyAnySpec extends mutable.Specification {
   val mySig = new ScalaSig(List("case class"), List("models", "MyRecord_AnyAny"), List(("m1", "Any"), ("m2", "Any")))
 //println("anyspec sig: " + mySig.bytes.length)
 val siggy =  mySig.array.map { byte => (byte & 0xff).toHexString }.mkString("[ ", " ", " ]")
-//println(siggy)
+println(siggy)
     val correctParsedSig = SigParserHelper.parseByteCodeFromAnnotation(classOf[MyRecord_AnyAny])//.map(ScalaSigAttributeParsers.parse(_)).get
 println("AnyAny spec real sig: " + correctParsedSig)
+println("AnyAny spec real sig: " + correctParsedSig.get.bytes.map { byte => (byte & 0xff).toHexString }.mkString("[ ", " ", " ]"))
     val myParsedSig = SigParserHelper.parseByteCodeFromMySig(mySig).map(println(_))//.map(ScalaSigAttributeParsers.parse(_)).get
  
 //    correctParsedSig.toString === myParsedSig.toString

@@ -20,7 +20,7 @@ object SigParserHelper {
 println("real bytes:" + bytes)
         val len = ByteCodecs.decode(bytes)
 println("real len : " + len)
-println(ByteCode(bytes.take(len)).bytes.map { byte => (byte & 0xff).toHexString }.mkString("[ ", " ", " ]"))
+//println(ByteCode(bytes.take(len)).bytes.map { byte => (byte & 0xff).toHexString }.mkString("[ ", " ", " ]"))
         Option(ByteCode(bytes.take(len)))
       }
       case _ => None
