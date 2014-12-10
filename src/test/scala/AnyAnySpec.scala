@@ -22,7 +22,7 @@ class AnyAnySpec extends mutable.Specification {
 println("anyspec sig: " + mySig)
     val correctParsedSig = SigParserHelper.parseByteCodeFromAnnotation(classOf[MyRecord_AnyAny])//.map(ScalaSigAttributeParsers.parse(_)).get
 println("AnyAny spec real sig: " + correctParsedSig)
-    val myParsedSig = SigParserHelper.parseByteCodeFromMySig(mySig).map(println(_))//.map(ScalaSigAttributeParsers.parse(_)).get
+    val myParsedSig = SigParserHelper.parseByteCodeFromMySig(mySig).map(ScalaSigAttributeParsers.parse(_)).get
  
 //    correctParsedSig.toString === myParsedSig.toString
     1 === 1
