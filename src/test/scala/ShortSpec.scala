@@ -22,7 +22,7 @@ class ShortSpec extends mutable.Specification {
   val mySig = new ScalaSig(List("case class"), List("models", "MyRecord_Short"), List(("b", "Short")))
 println("short spec sig: " + mySig)
 //    val correctParsedSig = SigParserHelper.parseByteCodeFromAnnotation(classOf[MyRecord_Short]).map(ScalaSigAttributeParsers.parse(_)).get
-    val myParsedSig = SigParserHelper.parseByteCodeFromMySig(mySig).map(ScalaSigAttributeParsers.parse(_)).get
+    val myParsedSig = SigParserHelper.parseByteCodeFromMySig(mySig)//.map(ScalaSigAttributeParsers.parse(_)).get
  1 === 1
     //correctParsedSig.toString === myParsedSig.toString
     }
