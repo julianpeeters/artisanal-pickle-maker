@@ -14,8 +14,11 @@ object SigParserHelper {
   def parseByteCodeFromAnnotation(clazz: Class[_]): Option[ByteCode] = {
     clazz.annotation[ScalaSignature] match {
       case Some(sig) if sig != null => {
+//println("parsebytecodefromannotatoin real: " + sig.bytes.getBytes("UTF-8").map { byte => (byte & 0xff).toHexString }.mkString("[ ", " ", " ]"))
+
         val bytes = sig.bytes.getBytes("UTF-8")
         val len = ByteCodecs.decode(bytes)
+println("real len : " + len)
         Option(ByteCode(bytes.take(len)))
       }
       case _ => None
