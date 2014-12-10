@@ -15,7 +15,7 @@ import scala.reflect.ScalaSignature
 
 
 class ShortSpec extends mutable.Specification {
-
+/*
 
   "a ScalaSig for case class MyRecord_Short(b: Short)" should {
     "have the correct string" in {
@@ -33,5 +33,5 @@ println("short spec real sig: " + correctParsedSig)
     //correctParsedSig.toString === myParsedSig.toString
     }
   }
-
+*/
 }
