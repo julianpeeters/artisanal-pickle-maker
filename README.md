@@ -29,6 +29,10 @@ Thus, `scalaSig.bytes` is identical to the encoded string that would be found in
         `package models`
         `case class MyRecord(x: String, y: Option[Int])`
 
+
+Warning: Not Threadsafe.
+
+
 ##Currently supports:##
   Are you generating or modifying Scala classes with ASM or another bytecode engineering library? Then add an updated pickled sig and make your class whole!
 
@@ -46,7 +50,7 @@ Thus, `scalaSig.bytes` is identical to the encoded string that would be found in
 * String
 * Boolean
 * Null
-* Nothing*
+* Nothing
 * Any
 * AnyRef
 * List
@@ -65,6 +69,7 @@ Thus, `scalaSig.bytes` is identical to the encoded string that would be found in
 
   _Classes_ - Support for flags other than "case class"(?).
 
+  _Threadsafe_ - Support parallel execution.
 
 ##Constructive advice is appreciated!##
 
