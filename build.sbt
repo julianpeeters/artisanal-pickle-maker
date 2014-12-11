@@ -15,9 +15,11 @@ libraryDependencies ++= Seq(
   "org.scala-lang" % "scala-compiler" % "2.10.4"
 )
 
-publishMavenStyle := true
+parallelExecution in Test := false
 
 publishArtifact in Test := false
+
+publishMavenStyle := true
 
 publishTo <<= version { (v: String) =>
       val nexus = "https://oss.sonatype.org/"
