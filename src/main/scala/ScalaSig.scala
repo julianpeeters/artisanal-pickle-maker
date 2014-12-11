@@ -32,9 +32,11 @@ class ScalaSig(flags: List[String], names: List[String], args: List[(String, Str
 
 //after writing entries, how many were written?
   val entriesNumber = Position.current
+println("Pos: " + Position.current)
 
 // get the bytes, trimming the excess 0s but leaving one 0. (Header written last so we know # entries)
-  val array = Array.concat(new SigHeader().bytes, sigResources.myPickleBuffer.bytes).reverse.dropWhile(b => b == 0).reverse:+0.toByte
+//  val array = Array.concat(new SigHeader().bytes, sigResources.myPickleBuffer.bytes).reverse.dropWhile(b => b == 0).reverse:+0.toByte
+val array = sigResources.myPickleBuffer.bytes.reverse.dropWhile(b => b == 0).reverse:+0.toByte
 
 
 //use NSC's AnnotationInfo code to pickle:

@@ -26,6 +26,7 @@ case class SigHeader() {
     hB.headerBuffer.writeNat(PickleFormat.MinorVersion)
 
 //write # of entries
+println(Position.current)
     hB.headerBuffer.writeNat(Position.current)
 
     val bytes = if (Position.current > 127) hB.headerBuffer.bytes.take(4); else hB.headerBuffer.bytes.take(3)
