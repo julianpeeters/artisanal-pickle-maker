@@ -15,6 +15,7 @@ import scala.reflect.ScalaSignature
 
 class AnyAnySpec extends mutable.Specification {
 
+sequential
 
   "a ScalaSig for case class MyRecord_AnyAny(m1: Any, m2: Any)" should {
     "have the correct string" in {

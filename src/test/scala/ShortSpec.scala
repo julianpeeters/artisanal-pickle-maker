@@ -16,6 +16,7 @@ import scala.reflect.ScalaSignature
 
 class ShortSpec extends mutable.Specification {
 
+sequential
 
   "a ScalaSig for case class MyRecord_Short(b: Short)" should {
     "have the correct string" in {

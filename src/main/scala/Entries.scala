@@ -28,17 +28,18 @@ class Entries(sigResources: SigResources, flags: List[String], names: List[Strin
 
   //write the value members
   val valueMembers = args.map(arg => new ValueMember(sigResources.myPickleBuffer, names, arg._1, arg._2, sigResources.typeRefTpes))
-
+println(Position.current)
   //write the <init> method
   val initMethod = Init(sigResources, valueMembers)
-
+println(Position.current)
   //then we're done unless there are flags
   if (flags.contains("case class")) {
 
     //write the class methods that case classes give us for free
     val caseClassMethods = new CaseClassMethods(sigResources, valueMembers)
-
+println(Position.current)
     //write module  (i.e. companion object methods) that we get for free with a case class
     val moduleSig = new ModuleSig(sigResources, names, valueMembers, initMethod, caseClassMethods)
+println(Position.current)
   }
 }
