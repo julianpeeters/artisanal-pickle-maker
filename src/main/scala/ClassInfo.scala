@@ -21,7 +21,7 @@ import scala.reflect.internal.pickling._
 case class ClassInfo(sigResources: SigResources, flags: List[String], names: List[String]) {
 
 //entry 0 CLASSsym 
-  ClassSym.write(sigResources.myPickleBuffer)
+ // ClassSym.write(sigResources.myPickleBuffer)
 
 //entry 1
   TypeName(names(1)).write(sigResources.myPickleBuffer)
