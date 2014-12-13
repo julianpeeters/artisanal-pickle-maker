@@ -17,10 +17,10 @@ package artisanal.pickle.maker
 package tags
 import scala.reflect.internal.pickling._
 
-case class AnnotatedTpe(valueMember: ValueMember, annotInfo: AnnotInfo) {
+case class AnnotatedTpe(currentPosition: Position, valueMember: ValueMember, annotInfo: AnnotInfo) {
 
   def write(myPickleBuffer: PickleBuffer) = {
-    val argsA = List(valueMember.typeRefPosition, Position.current + 1)
+    val argsA = List(valueMember.typeRefPosition, currentPosition.current + 1)
     val argsB = List(valueMember.typeRefPosition, annotInfo.position)
     annotInfo.position match {
       case 0      => {
@@ -33,7 +33,7 @@ case class AnnotatedTpe(valueMember: ValueMember, annotInfo: AnnotInfo) {
         //reference to the next entry, EXTMODCLASSref                 
           myPickleBuffer.writeNat(valueMember.typeRefPosition)
         //reference to 
-          myPickleBuffer.writeNat(Position.current + 1)
+          myPickleBuffer.writeNat(currentPosition.current + 1)
       } 
       case i: Int => {
       //tag
@@ -49,6 +49,6 @@ case class AnnotatedTpe(valueMember: ValueMember, annotInfo: AnnotInfo) {
       //}
       }
     }
-    Position.current += 1 
+    currentPosition.current += 1 
   } 
 }  

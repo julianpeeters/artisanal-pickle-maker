@@ -22,10 +22,16 @@ import tags._
 import types._
 
 //Write a module signature: composed of module info and module methods
-class ModuleSig(sigResources: SigResources, names: List[String], valueMembers: List[ValueMember], initMethod: Init, caseClassMethods: CaseClassMethods){
+class ModuleSig(position: Position, sigResources: SigResources, names: List[String], valueMembers: List[ValueMember], initMethod: Init, caseClassMethods: CaseClassMethods){
+
+  val classSym_Module = new ClassSym_Module(position)
+  val moduleSym = new ModuleSym(position)
 
 //Write Module Info
   val moduleInfo = new ModuleInfo(
+    position,
+    classSym_Module,
+    moduleSym,
     sigResources.myPickleBuffer, 
     names, 
     valueMembers, 
@@ -36,6 +42,6 @@ class ModuleSig(sigResources: SigResources, names: List[String], valueMembers: L
     sigResources.extModClassRefs.scala)
 
 //write Module Methods
-  val moduleMethods = new ModuleMethods(sigResources, valueMembers, initMethod, caseClassMethods.toStringMethod)
+  val moduleMethods = new ModuleMethods(position, classSym_Module, sigResources, valueMembers, initMethod, caseClassMethods.toStringMethod)
 
 }

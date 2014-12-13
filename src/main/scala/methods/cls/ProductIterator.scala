@@ -21,10 +21,10 @@ import tags._
 import types._
 import scala.reflect.internal.pickling._
 
-case class ProductIterator(myPickleBuffer: PickleBuffer, Iterator: TypeRefTpe_Iterator) {
-  val valSymPosition = Position.current
-  ValSym(Position.current + 1, ClassSym.position, 2097696L, Position.current + 2).write(myPickleBuffer)
-  TermName("productIterator").write(myPickleBuffer)
-  PolyTpe(Iterator).write(myPickleBuffer)
+case class ProductIterator(position: Position, classSym: ClassSym, myPickleBuffer: PickleBuffer, Iterator: TypeRefTpe_Iterator) {
+  val valSymPosition = position.current
+  ValSym(position, position.current + 1, classSym.position, 2097696L, position.current + 2).write(myPickleBuffer)
+  TermName(position, "productIterator").write(myPickleBuffer)
+  PolyTpe(position, Iterator).write(myPickleBuffer)
   Iterator.write(myPickleBuffer)
 }

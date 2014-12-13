@@ -21,32 +21,32 @@ import tags._
 import types._
 import scala.reflect.internal.pickling._
 
-case class Init(sigResources: SigResources, valueMembers: List[ValueMember]) {
+case class Init(position: Position, classSym: ClassSym, sigResources: SigResources, valueMembers: List[ValueMember]) {
 
   var valSymPosition = 0
   var termNamePosition = 0
-  val typeRefTpePosition = Position.current + 3
+  val typeRefTpePosition = position.current + 3
 
-  valSymPosition = Position.current
-  ValSym(Position.current + 1, ClassSym.position, 512L, Position.current + 2).write(sigResources.myPickleBuffer)
-  termNamePosition = Position.current
-  TermName("<init>").write(sigResources.myPickleBuffer)
+  valSymPosition = position.current
+  ValSym(position, position.current + 1, classSym.position, 512L, position.current + 2).write(sigResources.myPickleBuffer)
+  termNamePosition = position.current
+  TermName(position, "<init>").write(sigResources.myPickleBuffer)
    
-  val paramPositions = (1 to valueMembers.length).toList.map(vm => Position.current + 2 + vm)//use by appending a first param
+  val paramPositions = (1 to valueMembers.length).toList.map(vm => position.current + 2 + vm)//use by appending a first param
 
     sigResources.thisTpes.owner.position match {//ThisTpe_owner already written if the member's type is custom and local
       case 0      => { 
-        MethodTpe(Position.current + 1 :: paramPositions).write(sigResources.myPickleBuffer);
+        MethodTpe(position, position.current + 1 :: paramPositions).write(sigResources.myPickleBuffer);
         sigResources.typeRefTpes.modelsMyRecord.write(sigResources.myPickleBuffer);
-        sigResources.thisTpes.owner.write(sigResources.myPickleBuffer, sigResources.extModClassRefs.owner, "!!!") 
+        sigResources.thisTpes.owner.write(position, sigResources.myPickleBuffer, sigResources.extModClassRefs.owner, "!!!") 
       }
       case i: Int => {  // is already defined, so won't need to be defined next
-        MethodTpe(Position.current + 1 :: (paramPositions.map(p => p - 1))).write(sigResources.myPickleBuffer); 
+        MethodTpe(position, position.current + 1 :: (paramPositions.map(p => p - 1))).write(sigResources.myPickleBuffer); 
         sigResources.typeRefTpes.modelsMyRecord.write(sigResources.myPickleBuffer)
       }
     } 
 
-  valueMembers.foreach(vm => ValSym(vm.termNamePosition, valSymPosition, 8192L, vm.typeRefPosition).write(sigResources.myPickleBuffer))
+  valueMembers.foreach(vm => ValSym(position, vm.termNamePosition, valSymPosition, 8192L, vm.typeRefPosition).write(sigResources.myPickleBuffer))
 
   
 }

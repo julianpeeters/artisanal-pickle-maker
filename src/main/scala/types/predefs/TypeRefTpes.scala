@@ -20,52 +20,52 @@ import scala.reflect.internal.pickling._
 
 import tags._
 import types._
-class TypeRefTpes(thisTpes: ThisTpes, extModClassRefs: ExtModClassRefs) {
+class TypeRefTpes(position: Position, classSym: ClassSym, thisTpes: ThisTpes, extModClassRefs: ExtModClassRefs) {
 
 //basic scala datatypes
-  val byte = TypeRefTpe_Byte(thisTpes.scala, extModClassRefs.scala)
-  val short = TypeRefTpe_Short(thisTpes.scala, extModClassRefs.scala)
-  val int = TypeRefTpe_Int(thisTpes.scala, extModClassRefs.scala)
-  val long = TypeRefTpe_Long(thisTpes.scala, extModClassRefs.scala)
-  val float = TypeRefTpe_Float(thisTpes.scala, extModClassRefs.scala)
-  val double = TypeRefTpe_Double(thisTpes.scala, extModClassRefs.scala)
-  val char = TypeRefTpe_Char(thisTpes.scala, extModClassRefs.scala)
-  val string = TypeRefTpe_String(thisTpes.scala, extModClassRefs.scala, extModClassRefs.predef)
-  val boolean = TypeRefTpe_Boolean(thisTpes.scala, extModClassRefs.scala)
-  val unit = TypeRefTpe_Unit(thisTpes.scala, extModClassRefs.scala)
-  val nul = TypeRefTpe_Null(thisTpes.scala, extModClassRefs.scala)
-  val nothing = TypeRefTpe_Nothing(thisTpes.scala, extModClassRefs.scala)
-  val any = TypeRefTpe_Any(thisTpes.scala, extModClassRefs.scala)
-  val anyRef = TypeRefTpe_AnyRef(thisTpes.scala, extModClassRefs.scala)
+  val byte = TypeRefTpe_Byte(position, thisTpes.scala, extModClassRefs.scala)
+  val short = TypeRefTpe_Short(position, thisTpes.scala, extModClassRefs.scala)
+  val int = TypeRefTpe_Int(position, thisTpes.scala, extModClassRefs.scala)
+  val long = TypeRefTpe_Long(position, thisTpes.scala, extModClassRefs.scala)
+  val float = TypeRefTpe_Float(position, thisTpes.scala, extModClassRefs.scala)
+  val double = TypeRefTpe_Double(position, thisTpes.scala, extModClassRefs.scala)
+  val char = TypeRefTpe_Char(position, thisTpes.scala, extModClassRefs.scala)
+  val string = TypeRefTpe_String(position, thisTpes.scala, extModClassRefs.scala, extModClassRefs.predef)
+  val boolean = TypeRefTpe_Boolean(position, thisTpes.scala, extModClassRefs.scala)
+  val unit = TypeRefTpe_Unit(position, thisTpes.scala, extModClassRefs.scala)
+  val nul = TypeRefTpe_Null(position, thisTpes.scala, extModClassRefs.scala)
+  val nothing = TypeRefTpe_Nothing(position, thisTpes.scala, extModClassRefs.scala)
+  val any = TypeRefTpe_Any(position, thisTpes.scala, extModClassRefs.scala)
+  val anyRef = TypeRefTpe_AnyRef(position, thisTpes.scala, extModClassRefs.scala)
 
 //more datatypes
-  val obj = TypeRefTpe_Object(thisTpes.scala, thisTpes.lang, extModClassRefs.lang, extModClassRefs.java)
-  val javaLangString = TypeRefTpe_javaLangString(thisTpes)
-  val objectReadResolve = TypeRefTpe_ObjectReadResolve(thisTpes.javaLang, extModClassRefs.lang)
-  val product = TypeRefTpe_Product(thisTpes.scala, extModClassRefs.scala)
-  val serializable = TypeRefTpe_Serializable(thisTpes.scala, extModClassRefs.scala)
-  val uncheckedVariance = TypeRefTpe_UncheckedVariance(extModClassRefs.unchecked, extModClassRefs.annotation, extModClassRefs.scala)
+  val obj = TypeRefTpe_Object(position, thisTpes.scala, thisTpes.lang, extModClassRefs.lang, extModClassRefs.java)
+  val javaLangString = TypeRefTpe_javaLangString(position, thisTpes)
+  val objectReadResolve = TypeRefTpe_ObjectReadResolve(position, thisTpes.javaLang, extModClassRefs.lang)
+  val product = TypeRefTpe_Product(position, thisTpes.scala, extModClassRefs.scala)
+  val serializable = TypeRefTpe_Serializable(position, thisTpes.scala, extModClassRefs.scala)
+  val uncheckedVariance = TypeRefTpe_UncheckedVariance(position, extModClassRefs.unchecked, extModClassRefs.annotation, extModClassRefs.scala)
 
 //misc
   val noneSym = NoneSym()
-  val annotInfo = AnnotInfo()
+  val annotInfo = AnnotInfo(position)
 
 //this class
-  val modelsMyRecord = TypeRefTpe_modelsMyRecord(thisTpes.owner)
-  val moduleClass = TypeRefTpe_moduleClass(thisTpes.owner)
+  val modelsMyRecord = TypeRefTpe_modelsMyRecord(position, classSym, thisTpes.owner)
+  val moduleClass = TypeRefTpe_moduleClass(position, thisTpes.owner)
 
 //generics
-  def optionNoBoxed          =  TypeRefTpe_OptionNoBoxed()
-  def option(boxedType: Tpe) = TypeRefTpe_Option(thisTpes.scala, extModClassRefs.scala, boxedType)
+  def optionNoBoxed          =  TypeRefTpe_OptionNoBoxed(position)
+  def option(boxedType: Tpe) = TypeRefTpe_Option(position, thisTpes.scala, extModClassRefs.scala, boxedType)
 
-  def stream(boxedType: Tpe) = TypeRefTpe_Stream(extModClassRefs.scala)
-  val iterator = TypeRefTpe_Iterator(thisTpes.collection, any, extModClassRefs.collection, extModClassRefs.scala)
+  def stream(boxedType: Tpe) = TypeRefTpe_Stream(position, extModClassRefs.scala)
+  val iterator = TypeRefTpe_Iterator(position, thisTpes.collection, any, extModClassRefs.collection, extModClassRefs.scala)
 
-  def listNoBoxed            =  TypeRefTpe_ListNoBoxed()//to keep track of the first list written, indepenent of the boxed type
-  def list(valueMemberName: String, boxedType: Tpe) = TypeRefTpe_List(noneSym, extModClassRefs.scala, thisTpes.scala, extModClassRefs.predef, valueMemberName, boxedType)
+  def listNoBoxed            =  TypeRefTpe_ListNoBoxed(position)//to keep track of the first list written, indepenent of the boxed type
+  def list(valueMemberName: String, boxedType: Tpe) = TypeRefTpe_List(position, noneSym, extModClassRefs.scala, thisTpes.scala, extModClassRefs.predef, valueMemberName, boxedType)
 
 //user-defined classes
-  def userDefined(typeName: String, ownerName: String) = TypeRefTpe_userDefined(typeName, ownerName, thisTpes.owner, extModClassRefs )
+  def userDefined(typeName: String, ownerName: String) = TypeRefTpe_userDefined(position, typeName, ownerName, thisTpes.owner, extModClassRefs )
 
 
 

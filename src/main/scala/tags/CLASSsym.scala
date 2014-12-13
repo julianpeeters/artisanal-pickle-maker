@@ -17,10 +17,10 @@ package artisanal.pickle.maker
 package tags
 import scala.reflect.internal.pickling._
 
-object ClassSym {
+case class ClassSym(currentPosition: Position) {
   var position = 0
   def write(myPickleBuffer: PickleBuffer) = {
-    position = Position.current
+    position = currentPosition.current
   //tag
       myPickleBuffer.writeByte(6)
   //len
@@ -30,8 +30,8 @@ object ClassSym {
       myPickleBuffer.writeByte(1)
 
     //reference to the owner of the class
-      new ExtModClassRef_topLevel_class(Position.current + 3).position match {
-        case 0      => myPickleBuffer.writeNat(Position.current + 2)//TYPEREFs for types not already defined need to be added next
+      new ExtModClassRef_topLevel_class(currentPosition.current + 3).position match {
+        case 0      => myPickleBuffer.writeNat(currentPosition.current + 2)//TYPEREFs for types not already defined need to be added next
         case i: Int => myPickleBuffer.writeNat(i)//should point to "models" if this is for a Salat and Play2 App
       }
 
@@ -40,7 +40,7 @@ object ClassSym {
     //reference to entry 5, the class info 
       myPickleBuffer.writeNat(5)
 
-      Position.current += 1
+      currentPosition.current += 1
   }
 }
 

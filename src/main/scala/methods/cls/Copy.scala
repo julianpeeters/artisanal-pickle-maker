@@ -21,13 +21,13 @@ import tags._
 import types._
 import scala.reflect.internal.pickling._
 
-case class Copy(sigResources: SigResources, valueMembers: List[ValueMember]) {
+case class Copy(position: Position, classSym: ClassSym, sigResources: SigResources, valueMembers: List[ValueMember]) {
 
-  val valSymPosition = Position.current
-  ValSym(Position.current + 1, ClassSym.position, 2097664L, Position.current + 2).write(sigResources.myPickleBuffer)
-  TermName("copy").write(sigResources.myPickleBuffer)
+  val valSymPosition = position.current
+  ValSym(position, position.current + 1, classSym.position, 2097664L, position.current + 2).write(sigResources.myPickleBuffer)
+  TermName(position, "copy").write(sigResources.myPickleBuffer)
 
 
-  MethodTpe(List(sigResources.typeRefTpes.modelsMyRecord.position)++(Position.current + 1 until Position.current + 1 + valueMembers.length)).write(sigResources.myPickleBuffer)
-  valueMembers.foreach(m => ValSym(m.termNamePosition, valSymPosition, 33562624L, m.typeRefPosition).write(sigResources.myPickleBuffer))
+  MethodTpe(position, List(sigResources.typeRefTpes.modelsMyRecord.position)++(position.current + 1 until position.current + 1 + valueMembers.length)).write(sigResources.myPickleBuffer)
+  valueMembers.foreach(m => ValSym(position, m.termNamePosition, valSymPosition, 33562624L, m.typeRefPosition).write(sigResources.myPickleBuffer))
 }

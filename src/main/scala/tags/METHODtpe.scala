@@ -17,10 +17,10 @@ package artisanal.pickle.maker
 package tags
 import scala.reflect.internal.pickling._
 
-case class MethodTpe(typeRefs: List[Int]) {
+case class MethodTpe(currentPosition: Position, typeRefs: List[Int]) {
   var position = 0
   def write(myPickleBuffer: PickleBuffer) = {
-    position = Position.current
+    position = currentPosition.current
   //tag
     myPickleBuffer.writeByte(20)
   //len
@@ -29,6 +29,6 @@ case class MethodTpe(typeRefs: List[Int]) {
     //write type references
     typeRefs.foreach(tr => myPickleBuffer.writeNat(tr))
 
-    Position.current += 1
+    currentPosition.current += 1
   }
 }

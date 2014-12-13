@@ -18,7 +18,7 @@ package types
 import tags._
 import scala.reflect.internal.pickling._
 
-case class TypeRefTpe_String(thisTpe_scala: ThisTpe_scala, scala: ExtModClassRef_scala, predef: ExtModClassRef_predef) extends Tpe {
+case class TypeRefTpe_String(currentPosition: Position, thisTpe_scala: ThisTpe_scala, scala: ExtModClassRef_scala, predef: ExtModClassRef_predef) extends Tpe {
 
   var position = 0
   var polyTpePosition = 0
@@ -28,15 +28,15 @@ case class TypeRefTpe_String(thisTpe_scala: ThisTpe_scala, scala: ExtModClassRef
   val typeName = "String"
 
   def write(myPickleBuffer: PickleBuffer) = {
-    position = Position.current
-    TypeRefTpe_nonGeneric(Position.current + 1, Position.current + 4).writeEntry(myPickleBuffer)
-    SingleTpe(thisTpe_scala.position, Position.current + 1).write(myPickleBuffer) 
-    ExtRef_nested(Position.current + 1, scala.position).write(myPickleBuffer)
-    TermName("Predef").write(myPickleBuffer)
-    ExtRef_nested(Position.current + 1, Position.current + 2).write(myPickleBuffer)
-    typeNamePosition = Position.current
-    TypeName("String").write(myPickleBuffer)
-    predef.write(myPickleBuffer, scala)
+    position = currentPosition.current
+    TypeRefTpe_nonGeneric(currentPosition, currentPosition.current + 1, currentPosition.current + 4).writeEntry(myPickleBuffer)
+    SingleTpe(currentPosition, thisTpe_scala.position, currentPosition.current + 1).write(myPickleBuffer) 
+    ExtRef_nested(currentPosition, currentPosition.current + 1, scala.position).write(myPickleBuffer)
+    TermName(currentPosition, "Predef").write(myPickleBuffer)
+    ExtRef_nested(currentPosition, currentPosition.current + 1, currentPosition.current + 2).write(myPickleBuffer)
+    typeNamePosition = currentPosition.current
+    TypeName(currentPosition, "String").write(myPickleBuffer)
+    predef.write(currentPosition, myPickleBuffer, scala)
   }
 
 }

@@ -18,15 +18,26 @@ import tags._
 import types._
 import scala.reflect.internal.pickling._
 
-class ModuleInfo(myPickleBuffer: PickleBuffer, names: List[String], valueMembers: List[ValueMember], moduleClass: TypeRefTpe_moduleClass, modelsMyRecord: TypeRefTpe_modelsMyRecord, thisTpe_runtime: ThisTpe_runtime, runtime: ExtModClassRef_runtime, scala: ExtModClassRef_scala) {
-  ModuleSym.write(myPickleBuffer)
+class ModuleInfo(currentPosition: Position, 
+  classSym_Module: ClassSym_Module,
+  moduleSym: ModuleSym,
+  myPickleBuffer: PickleBuffer,
+  names: List[String], 
+  valueMembers: List[ValueMember],
+  moduleClass: TypeRefTpe_moduleClass, 
+  modelsMyRecord: TypeRefTpe_modelsMyRecord, 
+  thisTpe_runtime: ThisTpe_runtime, 
+  runtime: ExtModClassRef_runtime, 
+  scala: ExtModClassRef_scala) {
+
+  moduleSym.write(myPickleBuffer)
   names.length match {
-    case 1          => TermName(names(0)).write(myPickleBuffer)
-    case x if x > 1 => TermName(names(1)).write(myPickleBuffer) 
+    case 1          => TermName(currentPosition, names(0)).write(myPickleBuffer)
+    case x if x > 1 => TermName(currentPosition, names(1)).write(myPickleBuffer) 
     case _          => sys.error("whoops, no class name?")
   }
   moduleClass.write(myPickleBuffer)
-  ClassSym_Module.write(myPickleBuffer)
-  ClassInfoTpe_Module(valueMembers, modelsMyRecord, thisTpe_runtime, runtime, scala).write(myPickleBuffer)
-  TypeRefTpe_AbstractFunction(valueMembers, modelsMyRecord, thisTpe_runtime, runtime, scala).write(myPickleBuffer)
+  classSym_Module.write(myPickleBuffer)
+  ClassInfoTpe_Module(currentPosition, classSym_Module, valueMembers, modelsMyRecord, thisTpe_runtime, runtime, scala).write(myPickleBuffer)
+  TypeRefTpe_AbstractFunction(currentPosition, valueMembers, modelsMyRecord, thisTpe_runtime, runtime, scala).write(myPickleBuffer)
 }

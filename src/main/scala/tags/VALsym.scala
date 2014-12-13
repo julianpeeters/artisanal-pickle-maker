@@ -18,7 +18,7 @@ package tags
 import scala.math._
 import scala.reflect.internal.pickling._
 
-case class ValSym(termNamePos: Int, classSymPos: Int, flags: Long, typeRefPos: Int) {
+case class ValSym(currentPosition: Position, termNamePos: Int, classSymPos: Int, flags: Long, typeRefPos: Int) {
   val args = List(termNamePos, classSymPos, flags, typeRefPos)
   def write(myPickleBuffer: PickleBuffer)  = {
 
@@ -37,7 +37,7 @@ case class ValSym(termNamePos: Int, classSymPos: Int, flags: Long, typeRefPos: I
       myPickleBuffer.writeLongNat(flags)
     //reference 
       myPickleBuffer.writeNat(typeRefPos)
-    Position.current += 1
+    currentPosition.current += 1
 
 
   }

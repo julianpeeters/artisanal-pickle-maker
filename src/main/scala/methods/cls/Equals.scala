@@ -21,10 +21,10 @@ import tags._
 import types._
 import scala.reflect.internal.pickling._
 
-case class Equals(myPickleBuffer: PickleBuffer, productElement: ProductElement, Boolean: TypeRefTpe_Boolean, Any: TypeRefTpe_Any) {
-  val valSymPosition = Position.current
-  ValSym(Position.current + 1, ClassSym.position, 2097696L, Position.current + 2).write(myPickleBuffer) 
-  TermName("equals").write(myPickleBuffer)
-  MethodTpe(List(Boolean.position, Position.current + 1)).write(myPickleBuffer)
-  ValSym(productElement.termNamex1Position, valSymPosition, 2105344L, Any.position).write(myPickleBuffer)
+case class Equals(position: Position, classSym: ClassSym, myPickleBuffer: PickleBuffer, productElement: ProductElement, Boolean: TypeRefTpe_Boolean, Any: TypeRefTpe_Any) {
+  val valSymPosition = position.current
+  ValSym(position, position.current + 1, classSym.position, 2097696L, position.current + 2).write(myPickleBuffer) 
+  TermName(position, "equals").write(myPickleBuffer)
+  MethodTpe(position, List(Boolean.position, position.current + 1)).write(myPickleBuffer)
+  ValSym(position, productElement.termNamex1Position, valSymPosition, 2105344L, Any.position).write(myPickleBuffer)
 }

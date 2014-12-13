@@ -18,7 +18,7 @@ package types
 import tags._
 import scala.reflect.internal.pickling._
 
-case class Annotation(valueMember: ValueMember, annotInfo: AnnotInfo) extends Tpe {
+case class Annotation(currentPosition: Position, valueMember: ValueMember, annotInfo: AnnotInfo) extends Tpe {
   var position = 0
   var polyTpePosition = 0
   var annotPos = 0
@@ -26,9 +26,9 @@ case class Annotation(valueMember: ValueMember, annotInfo: AnnotInfo) extends Tp
   val typeName = "Annotation"
 
   def write(myPickleBuffer: PickleBuffer) = {
-    position = Position.current
-    polyTpePosition = Position.current - 1
-    AnnotatedTpe(valueMember, annotInfo).write(myPickleBuffer)
+    position = currentPosition.current
+    polyTpePosition = currentPosition.current - 1
+    AnnotatedTpe(currentPosition, valueMember, annotInfo).write(myPickleBuffer)
     annotInfo.position match {
       case 0 => annotInfo.write(myPickleBuffer)
       case _ =>

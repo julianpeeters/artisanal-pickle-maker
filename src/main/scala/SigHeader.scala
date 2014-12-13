@@ -18,7 +18,7 @@ import scala.reflect.internal.pickling._
 import PickleFormat._
 
 
-case class SigHeader() {
+case class SigHeader(position: Position) {
   val hB = new HB
 //write version
   //Version
@@ -26,8 +26,8 @@ case class SigHeader() {
     hB.headerBuffer.writeNat(PickleFormat.MinorVersion)
 
 //write # of entries
-println("_____________________" + Position.current)
-    hB.headerBuffer.writeNat(Position.current)
+println("_____________________" + position.current)
+    hB.headerBuffer.writeNat(position.current)
 
-    val bytes = if (Position.current > 127) hB.headerBuffer.bytes.take(4); else hB.headerBuffer.bytes.take(3)
+    val bytes = if (position.current > 127) hB.headerBuffer.bytes.take(4); else hB.headerBuffer.bytes.take(3)
 }

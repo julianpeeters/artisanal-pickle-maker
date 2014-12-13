@@ -18,7 +18,7 @@ package types
 import tags._
 import scala.reflect.internal.pickling._
 
-case class TypeRefTpe_UncheckedVariance(unchecked: ExtModClassRef_unchecked, annotation: ExtModClassRef_annotation, scala: ExtModClassRef_scala) extends Tpe {
+case class TypeRefTpe_UncheckedVariance(currentPosition: Position, unchecked: ExtModClassRef_unchecked, annotation: ExtModClassRef_annotation, scala: ExtModClassRef_scala) extends Tpe {
   var position = 0
   var polyTpePosition = 0
   var annotPos = 0
@@ -26,15 +26,15 @@ case class TypeRefTpe_UncheckedVariance(unchecked: ExtModClassRef_unchecked, ann
   val typeName = "uncheckedVariance"
 
   def write(myPickleBuffer: PickleBuffer) = {
-    position = Position.current 
-    TypeRefTpe_nonGeneric(Position.current + 1, Position.current + 6).writeEntry(myPickleBuffer)
+    position = currentPosition.current 
+    TypeRefTpe_nonGeneric(currentPosition, currentPosition.current + 1, currentPosition.current + 6).writeEntry(myPickleBuffer)
     val thisTpe_unchecked = ThisTpe_unchecked()
-    thisTpe_unchecked.write(myPickleBuffer)
-    unchecked.write(myPickleBuffer)
-    TermName("unchecked").write(myPickleBuffer)
-    annotation.write(myPickleBuffer, scala)
-    TermName("annotation").write(myPickleBuffer)
-    ExtRef_nested(Position.current + 1, Position.current - 4).write(myPickleBuffer)
-    TypeName(typeName).write(myPickleBuffer)
+    thisTpe_unchecked.write(currentPosition, myPickleBuffer)
+    unchecked.write(currentPosition, myPickleBuffer)
+    TermName(currentPosition, "unchecked").write(myPickleBuffer)
+    annotation.write(currentPosition, myPickleBuffer, scala)
+    TermName(currentPosition, "annotation").write(myPickleBuffer)
+    ExtRef_nested(currentPosition, currentPosition.current + 1, currentPosition.current - 4).write(myPickleBuffer)
+    TypeName(currentPosition, typeName).write(myPickleBuffer)
   }
 }

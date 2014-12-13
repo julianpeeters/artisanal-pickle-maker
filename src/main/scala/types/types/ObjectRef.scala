@@ -19,7 +19,7 @@ import tags._
 import scala.reflect.internal.pickling._
 
 
-case class TypeRefTpe_Object(thisTpe_scala: ThisTpe_scala, thisTpe_lang: ThisTpe_lang, lang: ExtModClassRef_lang, java: ExtModClassRef_java) extends Tpe {
+case class TypeRefTpe_Object(currentPosition: Position, thisTpe_scala: ThisTpe_scala, thisTpe_lang: ThisTpe_lang, lang: ExtModClassRef_lang, java: ExtModClassRef_java) extends Tpe {
   var position = 0
   var polyTpePosition = 0
   var annotPos = 0
@@ -27,18 +27,18 @@ case class TypeRefTpe_Object(thisTpe_scala: ThisTpe_scala, thisTpe_lang: ThisTpe
   val typeName = "Object"
 
   def write(myPickleBuffer: PickleBuffer) = {
-    position = Position.current
-    TypeRefTpe_nonGeneric(Position.current + 1, Position.current + 6).writeEntry(myPickleBuffer)
-    thisTpe_lang.write(myPickleBuffer)
-    lang.write(myPickleBuffer)
-    TermName("lang").write(myPickleBuffer)
-    java.write("java", myPickleBuffer)
-    TermName("java").write(myPickleBuffer)
-    ExtRef_nested(Position.current + 1, lang.position).write(myPickleBuffer)
-    TypeName("Object").write(myPickleBuffer)
+    position = currentPosition.current
+    TypeRefTpe_nonGeneric(currentPosition, currentPosition.current + 1, currentPosition.current + 6).writeEntry(myPickleBuffer)
+    thisTpe_lang.write(currentPosition, myPickleBuffer)
+    lang.write(currentPosition, myPickleBuffer)
+    TermName(currentPosition, "lang").write(myPickleBuffer)
+    java.write(currentPosition, "java", myPickleBuffer)
+    TermName(currentPosition, "java").write(myPickleBuffer)
+    ExtRef_nested(currentPosition, currentPosition.current + 1, lang.position).write(myPickleBuffer)
+    TypeName(currentPosition, "Object").write(myPickleBuffer)
   }
 }
-case class TypeRefTpe_ObjectReadResolve(thisTpe_javaLang: ThisTpe_javaLang, lang: ExtModClassRef_lang) extends Tpe {
+case class TypeRefTpe_ObjectReadResolve(currentPosition: Position, thisTpe_javaLang: ThisTpe_javaLang, lang: ExtModClassRef_lang) extends Tpe {
   var position = 0
   var polyTpePosition = 0
   var annotPos = 0
@@ -46,9 +46,9 @@ case class TypeRefTpe_ObjectReadResolve(thisTpe_javaLang: ThisTpe_javaLang, lang
   val typeName = "ObjectReadResolve"
 
   def write(myPickleBuffer: PickleBuffer) = {
-    position = Position.current
-    TypeRefTpe_nonGeneric(thisTpe_javaLang.position, Position.current + 1).writeEntry(myPickleBuffer)
-    ExtRef_nested(Position.current + 1, lang.position).write(myPickleBuffer)
-    TypeName("Object").write(myPickleBuffer)
+    position = currentPosition.current
+    TypeRefTpe_nonGeneric(currentPosition, thisTpe_javaLang.position, currentPosition.current + 1).writeEntry(myPickleBuffer)
+    ExtRef_nested(currentPosition, currentPosition.current + 1, lang.position).write(myPickleBuffer)
+    TypeName(currentPosition, "Object").write(myPickleBuffer)
   }
 }

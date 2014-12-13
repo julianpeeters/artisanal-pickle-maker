@@ -18,7 +18,7 @@ package types
 import tags._
 import scala.reflect.internal.pickling._
 
-case class TypeRefTpe_moduleClass(thisTpe_owner: ThisTpe_owner) extends Tpe {
+case class TypeRefTpe_moduleClass(currentPosition: Position, thisTpe_owner: ThisTpe_owner) extends Tpe {
   var position = 0
   var polyTpePosition = 0
   var annotPos = 0
@@ -26,7 +26,7 @@ case class TypeRefTpe_moduleClass(thisTpe_owner: ThisTpe_owner) extends Tpe {
   val typeName = "moduleClass"
 
   def write(myPickleBuffer: PickleBuffer) = {
-    position = Position.current
-    TypeRefTpe_nonGeneric(thisTpe_owner.position, Position.current + 1).writeEntry(myPickleBuffer)
+    position = currentPosition.current
+    TypeRefTpe_nonGeneric(currentPosition, thisTpe_owner.position, currentPosition.current + 1).writeEntry(myPickleBuffer)
   }
 }

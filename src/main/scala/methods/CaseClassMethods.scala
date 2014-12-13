@@ -21,36 +21,52 @@ import scala.reflect.internal.pickling._
 import tags._
 import types._
 
-class CaseClassMethods(sigResources: SigResources, valueMembers: List[ValueMember]) {
+class CaseClassMethods(position: Position, classSym: ClassSym, sigResources: SigResources, valueMembers: List[ValueMember]) {
+
 //write class methods that we get for free with a case class
-  val copyMethod = Copy(sigResources, valueMembers)
 
-  val copyDefaultMethod = CopyDefault(sigResources, valueMembers)
+  val copyMethod = Copy(position,     classSym,sigResources, valueMembers)
 
-  val productPrefixMethod = ProductPrefix(sigResources)
+  val copyDefaultMethod = CopyDefault(position, classSym, sigResources, valueMembers)
+
+  val productPrefixMethod = ProductPrefix(position, classSym, sigResources)
 
   val productArityMethod = ProductArity(
+    position, 
+    classSym,
     sigResources.myPickleBuffer, 
     sigResources.typeRefTpes.int)
   val productElementMethod = ProductElement(
+    position, 
+    classSym,
     sigResources.myPickleBuffer, 
     sigResources.typeRefTpes.any, 
     sigResources.typeRefTpes.int)
   val productIteratorMethod = ProductIterator(
+    position, 
+    classSym,
     sigResources.myPickleBuffer, 
     sigResources.typeRefTpes.iterator)
   val canEqualMethod = CanEqual(
+    position, 
+    classSym,
     sigResources.myPickleBuffer, 
     productElementMethod, 
     sigResources.typeRefTpes.boolean, 
     sigResources.typeRefTpes.any)
   val hashCodeMethod = HashCode(
+    position, 
+    classSym,
     sigResources.myPickleBuffer, 
     sigResources.typeRefTpes.int)
   val toStringMethod = ToString(
+    position,
+    classSym,
     sigResources.myPickleBuffer, 
     sigResources.typeRefTpes.javaLangString)
   val equalsMethod  = Equals(
+    position, 
+    classSym,
     sigResources.myPickleBuffer, 
     productElementMethod, 
     sigResources.typeRefTpes.boolean, 

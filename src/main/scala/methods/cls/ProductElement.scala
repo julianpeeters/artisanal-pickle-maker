@@ -21,18 +21,18 @@ import tags._
 import types._
 import scala.reflect.internal.pickling._
 
-case class ProductElement(myPickleBuffer: PickleBuffer, Any: TypeRefTpe_Any, Int: TypeRefTpe_Int) {
-  val valSymPosition = Position.current
-  ValSym(Position.current + 1, ClassSym.position, 2097664L, Position.current + 2).write(myPickleBuffer)
-  TermName("productElement").write(myPickleBuffer)
+case class ProductElement(position: Position, classSym: ClassSym, myPickleBuffer: PickleBuffer, Any: TypeRefTpe_Any, Int: TypeRefTpe_Int) {
+  val valSymPosition = position.current
+  ValSym(position, position.current + 1, classSym.position, 2097664L, position.current + 2).write(myPickleBuffer)
+  TermName(position, "productElement").write(myPickleBuffer)
   Any.position match {
     case 0      => { 
-      MethodTpe(List(Position.current + 1, Position.current + 4)).write(myPickleBuffer)
+      MethodTpe(position, List(position.current + 1, position.current + 4)).write(myPickleBuffer)
       Any.write(myPickleBuffer)
     }
-    case i: Int => MethodTpe(List(i, Position.current + 1)).write(myPickleBuffer)
+    case i: Int => MethodTpe(position, List(i, position.current + 1)).write(myPickleBuffer)
   }
-  ValSym(Position.current + 1, valSymPosition, 2105344L, Int.position).write(myPickleBuffer)
-  val termNamex1Position = Position.current
-  TermName("x$1").write(myPickleBuffer)
+  ValSym(position, position.current + 1, valSymPosition, 2105344L, Int.position).write(myPickleBuffer)
+  val termNamex1Position = position.current
+  TermName(position, "x$1").write(myPickleBuffer)
 }

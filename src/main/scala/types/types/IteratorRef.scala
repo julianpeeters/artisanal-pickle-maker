@@ -18,7 +18,7 @@ package types
 import tags._
 import scala.reflect.internal.pickling._
 
-case class TypeRefTpe_Iterator(thisTpe_collection: ThisTpe_collection, Any: TypeRefTpe_Any, collection: ExtModClassRef_collection, scala: ExtModClassRef_scala) extends Tpe{
+case class TypeRefTpe_Iterator(currentPosition: Position, thisTpe_collection: ThisTpe_collection, Any: TypeRefTpe_Any, collection: ExtModClassRef_collection, scala: ExtModClassRef_scala) extends Tpe{
   var position = 0
   var polyTpePosition = 0
   var annotPos = 0
@@ -26,13 +26,13 @@ case class TypeRefTpe_Iterator(thisTpe_collection: ThisTpe_collection, Any: Type
   val typeName = "Iterator"
 
   def write(myPickleBuffer: PickleBuffer) = {
-    position = Position.current
+    position = currentPosition.current
 
-    TypeRefTpe_generic(Position.current + 1, Position.current + 4, Any.position).writeEntry(myPickleBuffer)
-    thisTpe_collection.write(myPickleBuffer)
-    collection.write(myPickleBuffer, scala)
-    TermName("collection").write(myPickleBuffer)
-    ExtRef_nested(Position.current + 1, collection.position).write(myPickleBuffer)
-    TypeName("Iterator").write(myPickleBuffer)
+    TypeRefTpe_generic(currentPosition, currentPosition.current + 1, currentPosition.current + 4, Any.position).writeEntry(myPickleBuffer)
+    thisTpe_collection.write(currentPosition, myPickleBuffer)
+    collection.write(currentPosition, myPickleBuffer, scala)
+    TermName(currentPosition, "collection").write(myPickleBuffer)
+    ExtRef_nested(currentPosition, currentPosition.current + 1, collection.position).write(myPickleBuffer)
+    TypeName(currentPosition, "Iterator").write(myPickleBuffer)
   }
 }

@@ -18,7 +18,7 @@ package types
 import tags._
 import scala.reflect.internal.pickling._
 
-case class TypeRefTpe_javaLangString(thisTpes: ThisTpes) extends Tpe{
+case class TypeRefTpe_javaLangString(currentPosition: Position, thisTpes: ThisTpes) extends Tpe{
   var position = 0
   var polyTpePosition = 0
   var annotPos = 0
@@ -26,10 +26,10 @@ case class TypeRefTpe_javaLangString(thisTpes: ThisTpes) extends Tpe{
   val typeName = "javaLangString"
 
   def write(myPickleBuffer: PickleBuffer) = {
-    position = Position.current
+    position = currentPosition.current
     thisTpes.lang.position match {
-      case 0 => TypeRefTpe_nonGeneric(Position.current + 1, Position.current + 6).writeEntry(myPickleBuffer)
-      case i: Int => TypeRefTpe_nonGeneric(thisTpes.lang.position, Position.current + 1).writeEntry(myPickleBuffer)
+      case 0 => TypeRefTpe_nonGeneric(currentPosition, currentPosition.current + 1, currentPosition.current + 6).writeEntry(myPickleBuffer)
+      case i: Int => TypeRefTpe_nonGeneric(currentPosition, thisTpes.lang.position, currentPosition.current + 1).writeEntry(myPickleBuffer)
     }
   }
 }

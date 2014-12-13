@@ -30,20 +30,20 @@ case class ThisTpe_owner()      extends ThisTpe_owner_
 
 class ThisTpe {
   var position = 0
-  def write(myPickleBuffer: PickleBuffer)  =  {
-  position = Position.current  
+  def write(currentPosition: Position, myPickleBuffer: PickleBuffer)  =  {
+  position = currentPosition.current  
   //tag
     myPickleBuffer.writeByte(13)
   //len
-    if (Position.current + 1 > 127) myPickleBuffer.writeNat(2); else myPickleBuffer.writeNat(1)
+    if (currentPosition.current + 1 > 127) myPickleBuffer.writeNat(2); else myPickleBuffer.writeNat(1)
   //data {
     //reference to the head of the type's typereftype chain             
-      Position.current + 1 match {
-        case 0      => myPickleBuffer.writeNat(Position.current + 1)//TYPEREFs for types not already defined need to be added next
+      currentPosition.current + 1 match {
+        case 0      => myPickleBuffer.writeNat(currentPosition.current + 1)//TYPEREFs for types not already defined need to be added next
         case i: Int => myPickleBuffer.writeNat(i)       
       }
   //}
-      Position.current += 1
+      currentPosition.current += 1
   }
 }
 
@@ -51,25 +51,25 @@ class ThisTpe_owner_ {
 
 var thisTypeName = ""
   var position = 0
-  def write(myPickleBuffer: PickleBuffer, owner: ExtModClassRef_owner, ownerName: String)  =  {
+  def write(currentPosition: Position, myPickleBuffer: PickleBuffer, owner: ExtModClassRef_owner, ownerName: String)  =  {
 thisTypeName = "models"
-    position = Position.current  
+    position = currentPosition.current  
   //tag
     myPickleBuffer.writeByte(13)
   //len
     owner.position match {
-      case 0      => if (Position.current + 1 > 127) myPickleBuffer.writeNat(2); else myPickleBuffer.writeNat(1)//TYPEREFs for types not already defined need to be added next
+      case 0      => if (currentPosition.current + 1 > 127) myPickleBuffer.writeNat(2); else myPickleBuffer.writeNat(1)//TYPEREFs for types not already defined need to be added next
       case i: Int => if (owner.position > 127) myPickleBuffer.writeNat(2); else myPickleBuffer.writeNat(1)       
     }
   //data {
     //reference to the head of the type's typereftype chain             
       owner.position match {
-        case 0      => myPickleBuffer.writeNat(Position.current + 1)//TYPEREFs for types not already defined need to be added next
+        case 0      => myPickleBuffer.writeNat(currentPosition.current + 1)//TYPEREFs for types not already defined need to be added next
         case i: Int => myPickleBuffer.writeNat(i)       
       }
   //}
 
-      Position.current += 1
+      currentPosition.current += 1
       ThisTypeStore.accept(this)
 
 

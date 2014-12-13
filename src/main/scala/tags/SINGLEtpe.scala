@@ -17,7 +17,7 @@ package artisanal.pickle.maker
 package tags
 import scala.reflect.internal.pickling._
 
-case class SingleTpe(scalaRef: Int, modRef: Int) {
+case class SingleTpe(currentPosition: Position, scalaRef: Int, modRef: Int) {
   def write(myPickleBuffer: PickleBuffer)  = {
   //tag
     myPickleBuffer.writeByte(14)
@@ -31,6 +31,6 @@ case class SingleTpe(scalaRef: Int, modRef: Int) {
     //reference 
     myPickleBuffer.writeNat(modRef)
   //}
-      Position.current += 1
+      currentPosition.current += 1
   
 }}

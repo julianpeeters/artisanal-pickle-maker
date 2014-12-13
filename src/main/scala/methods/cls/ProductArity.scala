@@ -23,25 +23,25 @@ import scala.reflect.internal.pickling._
 
 
 
-case class ProductArity(myPickleBuffer: PickleBuffer, Int: TypeRefTpe_Int) {
-  val valSymPosition = Position.current
+case class ProductArity(position: Position, classSym: ClassSym, myPickleBuffer: PickleBuffer, Int: TypeRefTpe_Int) {
+  val valSymPosition = position.current
   Int.position match {
     case 0      => {
-      ValSym(Position.current + 1, ClassSym.position, 2097664L, Position.current + 2).write(myPickleBuffer)
-      TermName("productArity").write(myPickleBuffer)
-      PolyTpe(Int).write(myPickleBuffer)
+      ValSym(position, position.current + 1, classSym.position, 2097664L, position.current + 2).write(myPickleBuffer)
+      TermName(position, "productArity").write(myPickleBuffer)
+      PolyTpe(position, Int).write(myPickleBuffer)
       Int.write(myPickleBuffer)
     }
     case i: Int => { 
       //if we've written an int, but the polytpe position is still zero, then write the polytpe here
       if (Int.polyTpePosition == 0) {
-        ValSym(Position.current + 1, ClassSym.position, 2097664L, Position.current + 2).write(myPickleBuffer)
-        TermName("productArity").write(myPickleBuffer)
-        PolyTpe(Int).write(myPickleBuffer)
+        ValSym(position, position.current + 1, classSym.position, 2097664L, position.current + 2).write(myPickleBuffer)
+        TermName(position, "productArity").write(myPickleBuffer)
+        PolyTpe(position, Int).write(myPickleBuffer)
       }
       else {
-        ValSym(Position.current + 1, ClassSym.position, 2097664L, Int.polyTpePosition).write(myPickleBuffer)
-        TermName("productArity").write(myPickleBuffer)    
+        ValSym(position, position.current + 1, classSym.position, 2097664L, Int.polyTpePosition).write(myPickleBuffer)
+        TermName(position, "productArity").write(myPickleBuffer)    
       }
 
     }

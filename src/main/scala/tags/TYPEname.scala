@@ -17,7 +17,7 @@ package artisanal.pickle.maker
 package tags
 import scala.reflect.internal.pickling._
 
-case class TypeName (name: String) {
+case class TypeName (position: Position, name: String) {
   def write(myPickleBuffer: PickleBuffer) = {
   //tag
     myPickleBuffer.writeByte(2)
@@ -27,6 +27,6 @@ case class TypeName (name: String) {
     //               
       name.getBytes.foreach(b => myPickleBuffer.writeNat(b))
   //}
-      Position.current += 1
+      position.current += 1
   }
 }

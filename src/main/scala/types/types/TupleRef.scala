@@ -18,7 +18,7 @@ package types
 import tags._
 import scala.reflect.internal.pickling._
 
-case class TypeRefTpe_Tuple( thisTpe_scala: ThisTpe_scala, scala: ExtModClassRef_scala,  valueMembers:List[ValueMember]) extends Tpe {
+case class TypeRefTpe_Tuple(currentPosition: Position, thisTpe_scala: ThisTpe_scala, scala: ExtModClassRef_scala,  valueMembers:List[ValueMember]) extends Tpe {
   var position = 0
   var polyTpePosition = 0
   var annotPos = 0
@@ -26,9 +26,9 @@ case class TypeRefTpe_Tuple( thisTpe_scala: ThisTpe_scala, scala: ExtModClassRef
   val typeName = "Tuple"
 
   def write(myPickleBuffer: PickleBuffer) = {
-    position = Position.current
-    TypeRefTpe_tuple(thisTpe_scala.position + 1, Position.current + 1, valueMembers.map(_.typeRefPosition)).writeEntry(myPickleBuffer)
-    ExtRef_nested(Position.current + 1, scala.position).write(myPickleBuffer)
-    TypeName(typeName + valueMembers.length).write(myPickleBuffer)
+    position = currentPosition.current
+    TypeRefTpe_tuple(currentPosition, thisTpe_scala.position + 1, currentPosition.current + 1, valueMembers.map(_.typeRefPosition)).writeEntry(myPickleBuffer)
+    ExtRef_nested(currentPosition, currentPosition.current + 1, scala.position).write(myPickleBuffer)
+    TypeName(currentPosition, typeName + valueMembers.length).write(myPickleBuffer)
   }
 }

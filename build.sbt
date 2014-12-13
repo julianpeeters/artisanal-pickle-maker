@@ -15,8 +15,6 @@ libraryDependencies ++= Seq(
   "org.scala-lang" % "scala-compiler" % "2.10.4"
 )
 
-parallelExecution in Test := false
-
 publishArtifact in Test := false
 
 publishMavenStyle := true

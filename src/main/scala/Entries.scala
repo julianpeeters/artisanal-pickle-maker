@@ -21,25 +21,25 @@ import scala.reflect.internal.pickling._
 import tags._
 import types._
 
-class Entries(sigResources: SigResources, flags: List[String], names: List[String], args: List[(String, String)]) {
+class Entries(position: Position, classSym: ClassSym, sigResources: SigResources, flags: List[String], names: List[String], args: List[(String, String)]) {
 
   //write the class info
-  val classInfo = ClassInfo(sigResources, flags, names)
+  val classInfo = new ClassInfo(position, classSym, sigResources, flags, names)
 
   //write the value members
-  val valueMembers = args.map(arg => new ValueMember(sigResources.myPickleBuffer, names, arg._1, arg._2, sigResources.typeRefTpes))
-println(Position.current)
+  val valueMembers = args.map(arg => new ValueMember(position, classSym, sigResources.myPickleBuffer, names, arg._1, arg._2, sigResources.typeRefTpes))
+
   //write the <init> method
-  val initMethod = Init(sigResources, valueMembers)
-println(Position.current)
+  val initMethod = Init(position, classSym, sigResources, valueMembers)
+
   //then we're done unless there are flags
   if (flags.contains("case class")) {
 
     //write the class methods that case classes give us for free
-    val caseClassMethods = new CaseClassMethods(sigResources, valueMembers)
-println(Position.current)
+    val caseClassMethods = new CaseClassMethods(position, classSym, sigResources, valueMembers)
+
     //write module  (i.e. companion object methods) that we get for free with a case class
-    val moduleSig = new ModuleSig(sigResources, names, valueMembers, initMethod, caseClassMethods)
-println(Position.current)
+    val moduleSig = new ModuleSig(position, sigResources, names, valueMembers, initMethod, caseClassMethods)
+
   }
 }

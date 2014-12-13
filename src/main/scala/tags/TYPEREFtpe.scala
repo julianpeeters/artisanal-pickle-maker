@@ -17,7 +17,7 @@ package artisanal.pickle.maker
 package tags
 import scala.reflect.internal.pickling._
 
-case class TypeRefTpe_nonGeneric(ownerRef: Int, extRef: Int) {
+case class TypeRefTpe_nonGeneric(position: Position, ownerRef: Int, extRef: Int) {
   val args = List(ownerRef, extRef)
   def writeEntry(myPickleBuffer: PickleBuffer)  = {
   //tag
@@ -28,11 +28,11 @@ case class TypeRefTpe_nonGeneric(ownerRef: Int, extRef: Int) {
     //refs             
       args.foreach(arg => myPickleBuffer.writeNat(arg))
     //}
-      Position.current += 1
+      position.current += 1
   }
 }
 
-case class TypeRefTpe_generic(ownerRef: Int, ExtRef: Int, boxedTypeRef: Int) {
+case class TypeRefTpe_generic(position: Position, ownerRef: Int, ExtRef: Int, boxedTypeRef: Int) {
   val args = List(ownerRef, ExtRef, boxedTypeRef)
   def writeEntry(myPickleBuffer: PickleBuffer)  = {
   //tag
@@ -43,11 +43,11 @@ case class TypeRefTpe_generic(ownerRef: Int, ExtRef: Int, boxedTypeRef: Int) {
     //ref to type
       args.foreach(arg => myPickleBuffer.writeNat(arg))
   //}
-      Position.current += 1
+      position.current += 1
   }
 }
  
-case class TypeRefTpe_function(runtimeRef: Int, abstractFunctionExtRef: Int, memberTypeRefs: List[Int], modelMyRecordRef: Int) {
+case class TypeRefTpe_function(position: Position, runtimeRef: Int, abstractFunctionExtRef: Int, memberTypeRefs: List[Int], modelMyRecordRef: Int) {
   val args = runtimeRef :: abstractFunctionExtRef :: modelMyRecordRef :: memberTypeRefs
   def writeEntry(myPickleBuffer: PickleBuffer)  = {
   //tag
@@ -62,11 +62,11 @@ case class TypeRefTpe_function(runtimeRef: Int, abstractFunctionExtRef: Int, mem
       memberTypeRefs.foreach(i => myPickleBuffer.writeNat(i))
       myPickleBuffer.writeNat(modelMyRecordRef)
   //}
-      Position.current += 1
+      position.current += 1
   }
 }
 
-case class TypeRefTpe_tuple(scalaThisTpeRef: Int, tupleExtRefRef: Int, memberTypeRefs: List[Int]) {
+case class TypeRefTpe_tuple(position: Position, scalaThisTpeRef: Int, tupleExtRefRef: Int, memberTypeRefs: List[Int]) {
   val args = scalaThisTpeRef-1 :: tupleExtRefRef :: memberTypeRefs
   def writeEntry(myPickleBuffer: PickleBuffer)  = {
   //tag
@@ -76,12 +76,12 @@ case class TypeRefTpe_tuple(scalaThisTpeRef: Int, tupleExtRefRef: Int, memberTyp
   //data {
       args.foreach(arg => myPickleBuffer.writeNat(arg))
   //}
-      Position.current += 1
+      position.current += 1
   }
 } 
  
 
-case class TypeRefTpe_unapplyOption(thisTpeRef: Int, optionExtRef: Int, tupledValueMembersRef: Int) {
+case class TypeRefTpe_unapplyOption(position: Position, thisTpeRef: Int, optionExtRef: Int, tupledValueMembersRef: Int) {
   val args = List(thisTpeRef, optionExtRef, tupledValueMembersRef)
   def writeEntry(myPickleBuffer: PickleBuffer)  = {
   //tag
@@ -92,6 +92,6 @@ case class TypeRefTpe_unapplyOption(thisTpeRef: Int, optionExtRef: Int, tupledVa
     //reference to the owner, e.g. CLASSsym or "scala", an EXTMODCLASS                 
       args.foreach(arg => myPickleBuffer.writeNat(arg))
   //}
-      Position.current += 1
+      position.current += 1
   }
 } 

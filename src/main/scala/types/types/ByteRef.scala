@@ -18,7 +18,7 @@ package types
 import tags._
 import scala.reflect.internal.pickling._
 
-case class TypeRefTpe_Byte(thisTpe_scala: ThisTpe_scala, scala: ExtModClassRef_scala) extends Tpe {
+case class TypeRefTpe_Byte(currentPosition: Position, thisTpe_scala: ThisTpe_scala, scala: ExtModClassRef_scala) extends Tpe {
   var polyTpePosition = 0
   var position = 0
   var annotPos = 0
@@ -26,9 +26,9 @@ case class TypeRefTpe_Byte(thisTpe_scala: ThisTpe_scala, scala: ExtModClassRef_s
   val typeName = "Byte"
 
   def write(myPickleBuffer: PickleBuffer) = {
-    position = Position.current
-    TypeRefTpe_nonGeneric(thisTpe_scala.position, Position.current + 1).writeEntry(myPickleBuffer)
-    ExtRef_nested(Position.current + 1, scala.position).write(myPickleBuffer)
-    TypeName("Byte").write(myPickleBuffer)
+    position = currentPosition.current
+    TypeRefTpe_nonGeneric(currentPosition, thisTpe_scala.position, currentPosition.current + 1).writeEntry(myPickleBuffer)
+    ExtRef_nested(currentPosition, currentPosition.current + 1, scala.position).write(myPickleBuffer)
+    TypeName(currentPosition, "Byte").write(myPickleBuffer)
   }
 }

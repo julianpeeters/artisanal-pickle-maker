@@ -18,7 +18,7 @@ package types
 import tags._
 import scala.reflect.internal.pickling._
 
-case class TypeRefTpe_Stream(scala: ExtModClassRef_scala) extends Tpe {
+case class TypeRefTpe_Stream(currentPosition: Position, scala: ExtModClassRef_scala) extends Tpe {
   var polyTpePosition = 0
   var position = 0
   var annotPos = 0
@@ -26,17 +26,17 @@ case class TypeRefTpe_Stream(scala: ExtModClassRef_scala) extends Tpe {
   val typeName = "Stream"
 
   def write(myPickleBuffer: PickleBuffer) = {
-    position = Position.current
-    TypeRefTpe_generic(Position.current + 1, Position.current + 9, Position.current + 12) 
-    SingleTpe(Position.current + 1, Position.current + 6)
-    SingleTpe(Position.current + 1, Position.current + 4)
+    position = currentPosition.current
+    TypeRefTpe_generic(currentPosition, currentPosition.current + 1, currentPosition.current + 9, currentPosition.current + 12) 
+    SingleTpe(currentPosition, currentPosition.current + 1, currentPosition.current + 6)
+    SingleTpe(currentPosition, currentPosition.current + 1, currentPosition.current + 4)
     val thisTpe_root = ThisTpe_root
     ExtModClassRef_root
-    TermName("<root>")
-    ExtRef_topLevel(9)
-    ExtRef_nested(Position.current + 1, scala.position)
-    TermName("package")
-    ExtRef_nested(Position.current + 1, Position.current + 2)
-    TypeName("Stream")
+    TermName(currentPosition, "<root>")
+    ExtRef_topLevel(currentPosition, 9)
+    ExtRef_nested(currentPosition, currentPosition.current + 1, scala.position)
+    TermName(currentPosition, "package")
+    ExtRef_nested(currentPosition, currentPosition.current + 1, currentPosition.current + 2)
+    TypeName(currentPosition, "Stream")
   }
 }

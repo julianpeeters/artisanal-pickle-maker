@@ -16,6 +16,6 @@
 package artisanal.pickle.maker
 
 
-object Position {
+class Position {
   var current = 0
 }

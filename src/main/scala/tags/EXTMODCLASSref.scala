@@ -18,6 +18,7 @@ package tags
 import scala.reflect.internal.pickling._
 
 
+
 case class ExtModClassRef_scala() extends ExtModClassRef_topLevel
 case class ExtModClassRef_owner() extends ExtModClassRef_topLevel
 case class ExtModClassRef_java()  extends ExtModClassRef_topLevel
@@ -35,31 +36,31 @@ case class ExtModClassRef_javaLang()   extends ExtModClassRef_nested_javaLang
 case class ExtModClassRef_unchecked()  extends ExtModClassRef_nested_javaLang
 case class ExtModClassRef_lang()       extends ExtModClassRef_nested_javaLang
 
-object ExtModClassRef_root       extends ExtModClassRef_root
+object ExtModClassRef_root      extends ExtModClassRef_root 
 
-class ExtModClassRef_topLevel{
+class ExtModClassRef_topLevel(){
   var ownerName = ""
   var position = 0
-  def write(name: String, myPickleBuffer: PickleBuffer)  = {
+  def write(currentPosition: Position, name: String, myPickleBuffer: PickleBuffer)  = {
     ownerName = name
-    position = Position.current
+    position = currentPosition.current
   //tag
     myPickleBuffer.writeByte(10)
   //len
-    if (Position.current + 1 > 127) myPickleBuffer.writeNat(2);  else myPickleBuffer.writeNat(1)
+    if (currentPosition.current + 1 > 127) myPickleBuffer.writeNat(2);  else myPickleBuffer.writeNat(1)
   //data {
     //reference to the next entry, TERMname 
-    myPickleBuffer.writeNat(Position.current + 1)
+    myPickleBuffer.writeNat(currentPosition.current + 1)
   //}
-    Position.current += 1
+    currentPosition.current += 1
     ExtModClassRefStore.accept(this)
   }
 }
 
 class ExtModClassRef_nested(nestedRef: Int, topLevelRef: Int){
   var position = 0
-  def write(myPickleBuffer: PickleBuffer)  = {
-    position = Position.current
+  def write(currentPosition: Position, myPickleBuffer: PickleBuffer)  = {
+    position = currentPosition.current
   //tag
     myPickleBuffer.writeByte(10)
   //len
@@ -72,91 +73,91 @@ class ExtModClassRef_nested(nestedRef: Int, topLevelRef: Int){
     //reference to the next entry, TERMname 
     myPickleBuffer.writeNat(topLevelRef)
   //}
-    Position.current += 1
+    currentPosition.current += 1
   }
 }
 
 class ExtModClassRef_nested_post{
   var position = 0
-  def write(myPickleBuffer: PickleBuffer, scala: ExtModClassRef_scala)  = {
-    position = Position.current
+  def write(currentPosition: Position, myPickleBuffer: PickleBuffer, scala: ExtModClassRef_scala)  = {
+    position = currentPosition.current
   //tag
     myPickleBuffer.writeByte(10)
   //len
-    if ((Position.current - 3) > 127 && scala.position > 127) myPickleBuffer.writeNat(4);  
-    else if ((Position.current - 3) > 127 || scala.position > 127) myPickleBuffer.writeNat(3);  
+    if ((currentPosition.current - 3) > 127 && scala.position > 127) myPickleBuffer.writeNat(4);  
+    else if ((currentPosition.current - 3) > 127 || scala.position > 127) myPickleBuffer.writeNat(3);  
     else myPickleBuffer.writeNat(2)
   //data {
     //reference to the next entry, TERMname 
-    myPickleBuffer.writeNat(Position.current - 3)
+    myPickleBuffer.writeNat(currentPosition.current - 3)
     //reference to the next entry, TERMname 
     myPickleBuffer.writeNat(scala.position)
   //}
-    Position.current += 1
+    currentPosition.current += 1
   }
 }
 
-class ExtModClassRef_nested_annot{
+class ExtModClassRef_nested_annot(){
   var position = 0
-  def write(myPickleBuffer: PickleBuffer, scala: ExtModClassRef_scala)  = {
-    position = Position.current
+  def write(currentPosition: Position, myPickleBuffer: PickleBuffer, scala: ExtModClassRef_scala)  = {
+    position = currentPosition.current
   //tag
     myPickleBuffer.writeByte(10)
   //len
-    if ((Position.current + 1) > 127 && scala.position > 127) myPickleBuffer.writeNat(4);  
-    else if ((Position.current + 1) > 127 || scala.position > 127) myPickleBuffer.writeNat(3);  
+    if ((currentPosition.current + 1) > 127 && scala.position > 127) myPickleBuffer.writeNat(4);  
+    else if ((currentPosition.current + 1) > 127 || scala.position > 127) myPickleBuffer.writeNat(3);  
     else myPickleBuffer.writeNat(2)
   //data {
     //reference to the next entry, TERMname 
-    myPickleBuffer.writeNat(Position.current + 1)
+    myPickleBuffer.writeNat(currentPosition.current + 1)
     //reference to the next entry, TERMname 
     myPickleBuffer.writeNat(scala.position)
   //}
-    Position.current += 1
+    currentPosition.current += 1
   }
 }
 
-class ExtModClassRef_nested_javaLang{
+ class ExtModClassRef_nested_javaLang(){
   var position = 0
-  def write(myPickleBuffer: PickleBuffer)  = {
-    position = Position.current
+  def write(currentPosition: Position, myPickleBuffer: PickleBuffer)  = {
+    position = currentPosition.current
   //tag
     myPickleBuffer.writeByte(10)
   //len
-    if ((Position.current + 1) > 127 && Position.current + 2 > 127) myPickleBuffer.writeNat(4);  
-    else if ((Position.current + 1) > 127 || Position.current + 2 > 127) myPickleBuffer.writeNat(3);  
+    if ((currentPosition.current + 1) > 127 && currentPosition.current + 2 > 127) myPickleBuffer.writeNat(4);  
+    else if ((currentPosition.current + 1) > 127 || currentPosition.current + 2 > 127) myPickleBuffer.writeNat(3);  
     else myPickleBuffer.writeNat(2)
   //data {
     //reference to the next entry, TERMname 
-    myPickleBuffer.writeNat(Position.current + 1)
+    myPickleBuffer.writeNat(currentPosition.current + 1)
     //reference to the next entry, TERMname 
-    myPickleBuffer.writeNat(Position.current + 2)
+    myPickleBuffer.writeNat(currentPosition.current + 2)
   //}
-    Position.current += 1
+    currentPosition.current += 1
   }
 }
 case class ExtModClassRef_root() {
   var position = 0
-  def write(myPickleBuffer: PickleBuffer, noSymbol: NoneSym)  = {
-    position = Position.current
+  def write(currentPosition: Position, myPickleBuffer: PickleBuffer, noSymbol: NoneSym)  = {
+    position = currentPosition.current
   //tag
     myPickleBuffer.writeByte(10)
   //len 
-     if ((Position.current + 1) > 127 ) myPickleBuffer.writeNat(3);  
+     if ((currentPosition.current + 1) > 127 ) myPickleBuffer.writeNat(3);  
     else myPickleBuffer.writeNat(2)
   //data {
     //reference to the next entry, TERMname 
-    myPickleBuffer.writeNat(Position.current + 1)
+    myPickleBuffer.writeNat(currentPosition.current + 1)
     //reference to the next entry, TERMname
     myPickleBuffer.writeNat(noSymbol.position)
   //}
-    Position.current += 1
+    currentPosition.current += 1
   }
 }
 class ExtModClassRef_topLevel_class(ref: Int){
   var position = 0
-  def write(myPickleBuffer: PickleBuffer)  = {
-    position = Position.current
+  def write(currentPosition: Position, myPickleBuffer: PickleBuffer)  = {
+    position = currentPosition.current
   //tag
     myPickleBuffer.writeByte(10)
   //len
@@ -165,6 +166,6 @@ class ExtModClassRef_topLevel_class(ref: Int){
     //reference to the next entry, TERMname 
     myPickleBuffer.writeNat(ref)
   //}
-    Position.current += 1
+    currentPosition.current += 1
   }
 }

@@ -22,11 +22,11 @@ import tags._
 import types._
 
 
-class ModuleMethods(sigResources: SigResources, valueMembers: List[ValueMember], initMethod: Init, toStringMethod: ToString) {
-  val initMethod_Module = Init_Module(sigResources, initMethod)
+class ModuleMethods(position: Position, classSym_Module: ClassSym_Module, sigResources: SigResources, valueMembers: List[ValueMember], initMethod: Init, toStringMethod: ToString) {
 
-  val toStringMethod_Module = ToString_Module(sigResources, valueMembers, toStringMethod)
-  val applyMethod = Apply(sigResources, valueMembers, initMethod)
-  val UnapplyMethod = Unapply(sigResources, valueMembers, initMethod)
-  val readResolveMethod = ReadResolve(sigResources)
+  val initMethod_Module = Init_Module(position, classSym_Module, sigResources, initMethod)
+  val toStringMethod_Module = ToString_Module(position, classSym_Module, sigResources, valueMembers, toStringMethod)
+  val applyMethod = Apply(position, classSym_Module, sigResources, valueMembers, initMethod)
+  val UnapplyMethod = Unapply(position, classSym_Module, sigResources, valueMembers, initMethod)
+  val readResolveMethod = ReadResolve(position, classSym_Module, sigResources)
 }

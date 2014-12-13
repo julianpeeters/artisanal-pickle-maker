@@ -17,15 +17,15 @@ package artisanal.pickle.maker
 package tags
 import scala.reflect.internal.pickling._
 
-object ClassSym_Module {
+case class ClassSym_Module(currentPosition: Position) {
   var position = 0
   def write(myPickleBuffer: PickleBuffer)  = {
-    position = Position.current
+    position = currentPosition.current
   //tag
       myPickleBuffer.writeByte(6)
   //len
      // myPickleBuffer.writeNat(7)
-    if (Position.current + 1 > 127) myPickleBuffer.writeNat(8); else myPickleBuffer.writeNat(7)
+    if (currentPosition.current + 1 > 127) myPickleBuffer.writeNat(8); else myPickleBuffer.writeNat(7)
   //data {
     //reference to entry 1, the class name                 
       myPickleBuffer.writeByte(1)
@@ -35,8 +35,8 @@ object ClassSym_Module {
     //pickledflags 
       myPickleBuffer.writeLongNat(2098176L)
     //reference
-      myPickleBuffer.writeNat(Position.current + 1)
+      myPickleBuffer.writeNat(currentPosition.current + 1)
 
-      Position.current += 1
+      currentPosition.current += 1
   }
 }

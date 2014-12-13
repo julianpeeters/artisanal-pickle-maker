@@ -21,9 +21,9 @@ import tags._
 import types._
 import scala.reflect.internal.pickling._
 
-case class HashCode(myPickleBuffer: PickleBuffer, Int: TypeRefTpe_Int) {
-  val valSymPosition = Position.current
-  ValSym(Position.current + 1, ClassSym.position, 2097696L, Position.current + 2).write(myPickleBuffer)
-  TermName("hashCode").write(myPickleBuffer)
-  MethodTpe(List(Int.position)).write(myPickleBuffer)
+case class HashCode(position: Position, classSym: ClassSym, myPickleBuffer: PickleBuffer, Int: TypeRefTpe_Int) {
+  val valSymPosition = position.current
+  ValSym(position, position.current + 1, classSym.position, 2097696L, position.current + 2).write(myPickleBuffer)
+  TermName(position, "hashCode").write(myPickleBuffer)
+  MethodTpe(position, List(Int.position)).write(myPickleBuffer)
 }

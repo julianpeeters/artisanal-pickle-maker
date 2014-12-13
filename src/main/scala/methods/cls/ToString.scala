@@ -21,13 +21,13 @@ import tags._
 import types._
 import scala.reflect.internal.pickling._
 
-case class ToString(myPickleBuffer: PickleBuffer, javaLangString: TypeRefTpe_javaLangString) {
-  val valSymPosition = Position.current
-  ValSym(Position.current + 1, ClassSym.position, 2097696L, Position.current + 2).write(myPickleBuffer)
+case class ToString(position: Position, classSym: ClassSym, myPickleBuffer: PickleBuffer, javaLangString: TypeRefTpe_javaLangString) {
+  val valSymPosition = position.current
+  ValSym(position, position.current + 1, classSym.position, 2097696L, position.current + 2).write(myPickleBuffer)
 
-  val termNamePosition = Position.current
-  TermName("toString").write(myPickleBuffer)
+  val termNamePosition = position.current
+  TermName(position, "toString").write(myPickleBuffer)
 
-  val MethodTpePosition = Position.current
-  MethodTpe(List(javaLangString.position)).write(myPickleBuffer)
+  val MethodTpePosition = position.current
+  MethodTpe(position, List(javaLangString.position)).write(myPickleBuffer)
 }

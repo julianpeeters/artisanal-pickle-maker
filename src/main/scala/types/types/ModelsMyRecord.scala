@@ -18,7 +18,7 @@ package types
 import tags._
 import scala.reflect.internal.pickling._
 
-case class TypeRefTpe_modelsMyRecord(thisTpe_owner: ThisTpe_owner) extends Tpe {
+case class TypeRefTpe_modelsMyRecord(currentPosition: Position, classSym: ClassSym, thisTpe_owner: ThisTpe_owner) extends Tpe {
   var position = 0
   var polyTpePosition = 0
   var annotPos = 0
@@ -26,10 +26,10 @@ case class TypeRefTpe_modelsMyRecord(thisTpe_owner: ThisTpe_owner) extends Tpe {
   val typeName = "modelsMyRecord"
 
   def write(myPickleBuffer: PickleBuffer) = {
-    position = Position.current
+    position = currentPosition.current
     thisTpe_owner.position match { //write it next if it hasn't been written before
-      case 0      => TypeRefTpe_nonGeneric(Position.current + 1, ClassSym.position).writeEntry(myPickleBuffer)
-      case i: Int => TypeRefTpe_nonGeneric(thisTpe_owner.position, ClassSym.position).writeEntry(myPickleBuffer)
+      case 0      => TypeRefTpe_nonGeneric(currentPosition, currentPosition.current + 1, classSym.position).writeEntry(myPickleBuffer)
+      case i: Int => TypeRefTpe_nonGeneric(currentPosition, thisTpe_owner.position, classSym.position).writeEntry(myPickleBuffer)
     }
   }
 }

@@ -17,7 +17,7 @@ package artisanal.pickle.maker
 package tags
 import scala.reflect.internal.pickling._
 
-case class ExtRef_topLevel(ref: Int) {
+case class ExtRef_topLevel(position: Position, ref: Int) {
   //Write entry  EXTref
   def write(myPickleBuffer: PickleBuffer)  = {
   //tag
@@ -29,11 +29,11 @@ case class ExtRef_topLevel(ref: Int) {
     //reference               
       myPickleBuffer.writeNat(ref)
   //}
-      Position.current += 1
+      position.current += 1
   }
 }
 
-case class ExtRef_nested(nameRef: Int, ownerRef: Int) {
+case class ExtRef_nested(position: Position, nameRef: Int, ownerRef: Int) {
   val args = List(nameRef, ownerRef)
   //Write entry  EXTref
   def write(myPickleBuffer: PickleBuffer)  = {
@@ -47,6 +47,6 @@ case class ExtRef_nested(nameRef: Int, ownerRef: Int) {
     //reference to the next entry,              
      myPickleBuffer.writeNat(ownerRef)
   //}
-      Position.current += 1
+      position.current += 1
   }
 }
