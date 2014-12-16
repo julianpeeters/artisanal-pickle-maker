@@ -1,6 +1,6 @@
 Artisanal-Pickle-Maker
 ======================
-[![Build Status](https://travis-ci.org/julianpeeters/artisanal-pickle-maker.svg?branch=0.9.0)](https://travis-ci.org/julianpeeters/artisanal-pickle-maker)
+[![Build Status](https://travis-ci.org/julianpeeters/artisanal-pickle-maker.svg?branch=travis)](https://travis-ci.org/julianpeeters/artisanal-pickle-maker)
 
 Make your own Scala pickled signatures. 
 
