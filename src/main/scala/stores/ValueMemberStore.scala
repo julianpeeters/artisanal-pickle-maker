@@ -4,7 +4,7 @@ import tags._
 import scala.reflect.internal.pickling._
 import java.util.concurrent.ConcurrentHashMap
 
-case class ValueMemberStore {
+case class ValueMemberStore() {
 
    val valueMembers: scala.collection.concurrent.Map[String, ValueMember] = scala.collection.convert.Wrappers.JConcurrentMapWrapper(new ConcurrentHashMap[String, ValueMember]())
 

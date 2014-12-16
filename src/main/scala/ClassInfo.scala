@@ -23,40 +23,40 @@ case class ClassInfo(position: Position, stores: Stores, classSym: ClassSym, sig
 
 //entry 0 CLASSsym 
   classSym.write(sigResources.myPickleBuffer)
-println(position.current)
+
 //entry 1
   TypeName(position, names(1)).write(sigResources.myPickleBuffer)
-println(position.current)
+
 //entry 2 EXTMODCLASSref: the immediate enclosing package 
   sigResources.extModClassRefs.owner.write(position, stores, names.length match {
     case 1          =>  "<empty>"      //if there is only one name in the fullName list
     case x if x > 1 =>  names(0)
     case _          =>  sys.error("whoops, no class name?")
   }, sigResources.myPickleBuffer)
-println(position.current)
+
 //entry 3 TERMname of Ext Mod: the immediate owner's name, i.e. the name of the immediate enclosing package
   names.length match {
     case 1          =>  TermName(position, "<empty>").write(sigResources.myPickleBuffer)//if there is only one name in the fullName list
     case x if x > 1 =>  TermName(position, names(0)).write(sigResources.myPickleBuffer)   
     case _          =>  sys.error("whoops, no class name?")
   }
-println(position.current)
+
 //entry 4 NONEsym
   sigResources.typeRefTpes.noneSym.write(position, sigResources.myPickleBuffer)
-println(position.current)
+
 //entry 5 CLASSINFOtpe
   if (flags.contains("case class")) {
     CaseClassInfoTpe(position, classSym, sigResources.typeRefTpes.anyRef, sigResources.typeRefTpes.product, sigResources.typeRefTpes.serializable).write(sigResources.myPickleBuffer)
-println(position.current)
+
   //entry 6 TYPEREFtpe
     sigResources.typeRefTpes.anyRef.write(sigResources.myPickleBuffer)
-println(position.current)
+
   //entry 12 TYPEREFtpe: Product
     sigResources.typeRefTpes.product.write(sigResources.myPickleBuffer)
-println(position.current)
+
   //entry 15 TYPEREFtpe: Serializable
     sigResources.typeRefTpes.serializable.write(sigResources.myPickleBuffer)
-println(position.current)
+
   }
   else {
     ClassInfoTpe(position, classSym, sigResources.typeRefTpes.anyRef).write(sigResources.myPickleBuffer)

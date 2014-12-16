@@ -5,7 +5,7 @@ import types._
 import scala.reflect.internal.pickling._
 import java.util.concurrent.ConcurrentHashMap
 
-case class TypeStore {
+case class TypeStore() {
 
    val types: scala.collection.concurrent.Map[String, Tpe] = scala.collection.convert.Wrappers.JConcurrentMapWrapper(new ConcurrentHashMap[String, Tpe]())
 
