@@ -9,7 +9,7 @@ Takes class info as strings and gives back pickled Scala signatures. For use wit
 Why? Because existing Java bytecode-engineering tools can't see or alter a pickled Scala signature, thus the altered classes are incomplete in cases where Scala code has no Java equivalent. Artisanal-Pickle-Maker hopes to solve this by updating an altered class's Scala signtature to reflect changes made to the bytecode.
 
 ##Usage:##
-Available for Scala 2.10 (see branches for other supported versions).
+Available for Scala 2.10 (see branches for other supported versions). [![Build Status](https://travis-ci.org/julianpeeters/artisanal-pickle-maker.svg?branch=travis)](https://travis-ci.org/julianpeeters/artisanal-pickle-maker)
 
 Add the following dependency to your `build.sbt` file:
 
