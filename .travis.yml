@@ -5,7 +5,7 @@ scala:
 branches:
   only:
     - master
-    - scala_2.10
+    - travis
 notifications:
   email:
     recipients:
