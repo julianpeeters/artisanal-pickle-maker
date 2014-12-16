@@ -3,11 +3,11 @@ import Keys._
 
 name := "artisanal-pickle-maker"
 
-version := "0.9.1"
+version := "0.10.1"
 
 organization := "com.julianpeeters"
 
-scalaVersion := "2.10.4"
+scalaVersion := "2.11.4"
 
 libraryDependencies ++= Seq( 
   "org.specs2" %% "specs2" % "2.4" % "test",
