@@ -17,11 +17,12 @@ package artisanal.pickle.maker
 package methods
 package cls
 
+import stores._
 import tags._
 import types._
 import scala.reflect.internal.pickling._
 
-case class CopyDefault(position: Position, classSym: ClassSym, sigResources: SigResources, valueMembers: List[ValueMember]) {
+case class CopyDefault(position: Position, stores: Stores, classSym: ClassSym, sigResources: SigResources, valueMembers: List[ValueMember]) {
 
   var valueMemberNumber = 0
   val valSymPosition = position.current
@@ -279,7 +280,7 @@ case class CopyDefault(position: Position, classSym: ClassSym, sigResources: Sig
             }
           }
           case listType: String if listType.startsWith("List[") => {   
-            val g = TypeStore.types.get(listType)
+            val g = stores.typeStore.types.get(listType)
             if (g.isDefined) {
               val listTypeRef = g.get
               listTypeRef.annotPos match {
@@ -298,7 +299,7 @@ case class CopyDefault(position: Position, classSym: ClassSym, sigResources: Sig
             }
           }
           case x: String  => {   //user-defined types
-            val g = TypeStore.types.get(x)
+            val g = stores.typeStore.types.get(x)
             if (g.isDefined) {
               val listTypeRef = g.get
               listTypeRef.annotPos match {

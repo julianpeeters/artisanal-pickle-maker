@@ -15,10 +15,11 @@
  */
 package artisanal.pickle.maker
 package tags
+import stores._
 import types._
 import scala.reflect.internal.pickling._
 
-case class ClassInfoTpe_Module(currentPosition: Position, classSym_Module: ClassSym_Module, valueMembers: List[ValueMember], modelsMyRecord: TypeRefTpe_modelsMyRecord, thisTpe_runtime: ThisTpe_runtime, runtime: ExtModClassRef_runtime, scala: ExtModClassRef_scala) {
+case class ClassInfoTpe_Module(currentPosition: Position, stores: Stores, classSym_Module: ClassSym_Module, valueMembers: List[ValueMember], modelsMyRecord: TypeRefTpe_modelsMyRecord, thisTpe_runtime: ThisTpe_runtime, runtime: ExtModClassRef_runtime, scala: ExtModClassRef_scala) {
   val args = List(currentPosition.current + 1, classSym_Module.position)
   var position = 0
   def write(myPickleBuffer: PickleBuffer)  = {
@@ -31,7 +32,7 @@ case class ClassInfoTpe_Module(currentPosition: Position, classSym_Module: Class
   //reference to a ClassSym
     myPickleBuffer.writeNat(classSym_Module.position)  
   //reference to AbstractFuntion
-    TypeRefTpe_AbstractFunction(currentPosition, valueMembers, modelsMyRecord, thisTpe_runtime, runtime, scala).position match {
+    TypeRefTpe_AbstractFunction(currentPosition, stores, valueMembers, modelsMyRecord, thisTpe_runtime, runtime, scala).position match {
         case 0      => myPickleBuffer.writeNat(currentPosition.current + 1)
         case i: Int => myPickleBuffer.writeNat(i)
     }

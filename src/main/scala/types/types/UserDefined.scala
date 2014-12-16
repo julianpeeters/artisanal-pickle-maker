@@ -15,37 +15,38 @@
  */
 package artisanal.pickle.maker 
 package types
+import stores._
 import tags._
 import scala.reflect.internal.pickling._
 
-case class TypeRefTpe_userDefined(currentPosition: Position, typeName: String, ownerName: String, thisTpe_owner: ThisTpe_owner, extModClassRefs: ExtModClassRefs) extends Tpe {
+case class TypeRefTpe_userDefined(currentPosition: Position, stores: Stores, typeName: String, ownerName: String, thisTpe_owner: ThisTpe_owner, extModClassRefs: ExtModClassRefs) extends Tpe {
   var position = 0
   var polyTpePosition = 0
   var annotPos = 0
   def write(myPickleBuffer: PickleBuffer) = {
     position = currentPosition.current
-    if (ThisTypeStore.owners.get(ownerName).isDefined) { 
-        TypeRefTpe_nonGeneric(currentPosition, ThisTypeStore.owners.get(ownerName).get.position, currentPosition.current + 1).writeEntry(myPickleBuffer)
+    if (stores.thisTypeStore.owners.get(ownerName).isDefined) { 
+        TypeRefTpe_nonGeneric(currentPosition, stores.thisTypeStore.owners.get(ownerName).get.position, currentPosition.current + 1).writeEntry(myPickleBuffer)
         ExtRef_nested(currentPosition, currentPosition.current + 1, extModClassRefs.owner.position).write(myPickleBuffer)
         TypeName(currentPosition, typeName).write(myPickleBuffer)
       }
       else{ 
-          if (ExtModClassRefStore.owners.get(ownerName).isDefined) {
-            TypeRefTpe_nonGeneric(currentPosition, currentPosition.current + 1,   currentPosition.current + 2).writeEntry(myPickleBuffer)
-            thisTpe_owner.write(currentPosition, myPickleBuffer, extModClassRefs.owner, ownerName) 
-            ExtRef_nested(currentPosition, currentPosition.current + 1, ExtModClassRefStore.owners.get(ownerName).get.position).write(myPickleBuffer)
+          if (stores.extModClassRefStore.owners.get(ownerName).isDefined) {
+            TypeRefTpe_nonGeneric(currentPosition, currentPosition.current + 1, currentPosition.current + 2).writeEntry(myPickleBuffer)
+            thisTpe_owner.write(currentPosition, stores, myPickleBuffer, extModClassRefs.owner, ownerName) 
+            ExtRef_nested(currentPosition, currentPosition.current + 1, stores.extModClassRefStore.owners.get(ownerName).get.position).write(myPickleBuffer)
             TypeName(currentPosition, typeName).write(myPickleBuffer)
           }
           else { 
             TypeRefTpe_nonGeneric(currentPosition, currentPosition.current + 1, currentPosition.current + 4).writeEntry(myPickleBuffer)
-            new ThisTpe_owner_().write(currentPosition, myPickleBuffer, ExtModClassRef_owner(), ownerName) 
-            ExtModClassRef_owner().write(currentPosition, ownerName, myPickleBuffer)
+            new ThisTpe_owner_().write(currentPosition, stores, myPickleBuffer, ExtModClassRef_owner(), ownerName) 
+            ExtModClassRef_owner().write(currentPosition, stores, ownerName, myPickleBuffer)
             TermName(currentPosition, ownerName).write(myPickleBuffer)
             ExtRef_nested(currentPosition, currentPosition.current + 1, currentPosition.current - 2).write(myPickleBuffer)
             TypeName(currentPosition, typeName).write(myPickleBuffer)
           }
       }
     
-    TypeStore.accept(this) //adds this TypeRefType to the list of types
+    stores.typeStore.accept(this) //adds this TypeRefType to the list of types
   }
 }

@@ -16,12 +16,12 @@
 package artisanal.pickle.maker
 package methods
 package cls
-
+import stores._
 import tags._
 import types._
 import scala.reflect.internal.pickling._
 
-case class Init(position: Position, classSym: ClassSym, sigResources: SigResources, valueMembers: List[ValueMember]) {
+case class Init(position: Position, stores: Stores, classSym: ClassSym, sigResources: SigResources, valueMembers: List[ValueMember]) {
 
   var valSymPosition = 0
   var termNamePosition = 0
@@ -38,7 +38,7 @@ case class Init(position: Position, classSym: ClassSym, sigResources: SigResourc
       case 0      => { 
         MethodTpe(position, position.current + 1 :: paramPositions).write(sigResources.myPickleBuffer);
         sigResources.typeRefTpes.modelsMyRecord.write(sigResources.myPickleBuffer);
-        sigResources.thisTpes.owner.write(position, sigResources.myPickleBuffer, sigResources.extModClassRefs.owner, "!!!") 
+        sigResources.thisTpes.owner.write(position, stores, sigResources.myPickleBuffer, sigResources.extModClassRefs.owner, "!!!") 
       }
       case i: Int => {  // is already defined, so won't need to be defined next
         MethodTpe(position, position.current + 1 :: (paramPositions.map(p => p - 1))).write(sigResources.myPickleBuffer); 

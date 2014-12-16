@@ -15,10 +15,11 @@
  */
 package artisanal.pickle.maker 
 package types
+import stores._
 import tags._
 import scala.reflect.internal.pickling._
 
-case class TypeRefTpe_AnyRef(currentPosition: Position, thisTpe_scala: ThisTpe_scala, scala: ExtModClassRef_scala) extends Tpe {
+case class TypeRefTpe_AnyRef(currentPosition: Position, stores: Stores, thisTpe_scala: ThisTpe_scala, scala: ExtModClassRef_scala) extends Tpe {
   var polyTpePosition = 0
   var position = 0
   var annotPos = 0
@@ -28,8 +29,8 @@ case class TypeRefTpe_AnyRef(currentPosition: Position, thisTpe_scala: ThisTpe_s
   def write(myPickleBuffer: PickleBuffer) = {    
     position = currentPosition.current
     TypeRefTpe_nonGeneric(currentPosition, currentPosition.current + 1, currentPosition.current + 4).writeEntry(myPickleBuffer)//this type, ExtRef
-    thisTpe_scala.write(currentPosition, myPickleBuffer)
-    scala.write(currentPosition, "scala", myPickleBuffer)
+    thisTpe_scala.write(currentPosition, stores, myPickleBuffer)
+    scala.write(currentPosition, stores, "scala", myPickleBuffer)
     TermName(currentPosition, "scala").write(myPickleBuffer)
     ExtRef_nested(currentPosition, currentPosition.current + 1, scala.position).write(myPickleBuffer)
     TypeName(currentPosition, "AnyRef").write(myPickleBuffer)

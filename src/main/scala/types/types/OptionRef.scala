@@ -15,6 +15,7 @@
  */
 package artisanal.pickle.maker 
 package types
+import stores._
 import tags._
 import scala.reflect.internal.pickling._
 
@@ -32,7 +33,7 @@ case class TypeRefTpe_OptionNoBoxed(currentPosition: Position) extends Tpe{
 }
 
 
-case class TypeRefTpe_Option(currentPosition: Position, thisTpe_scala: ThisTpe_scala, scala: ExtModClassRef_scala, boxedTypeRef: Tpe) extends Tpe {
+case class TypeRefTpe_Option(currentPosition: Position, stores: Stores, thisTpe_scala: ThisTpe_scala, scala: ExtModClassRef_scala, boxedTypeRef: Tpe) extends Tpe {
 
   var position = 0
   var polyTpePosition = 0
@@ -42,7 +43,7 @@ case class TypeRefTpe_Option(currentPosition: Position, thisTpe_scala: ThisTpe_s
 
   def write(myPickleBuffer: PickleBuffer) = { 
     position = currentPosition.current
-    val g = TypeStore.types.get("Option") //if the base type for lists has already been written
+    val g = stores.typeStore.types.get("Option") //if the base type for lists has already been written
     if (g.isDefined) { //previously defined types just need to be referenced
 
       boxedTypeRef.position match {
@@ -64,8 +65,8 @@ case class TypeRefTpe_Option(currentPosition: Position, thisTpe_scala: ThisTpe_s
     //add the new types to the typestore
     val baseOptionTpe = TypeRefTpe_OptionNoBoxed(currentPosition)
     baseOptionTpe.write(myPickleBuffer)
-    TypeStore.accept(this)//add the new TypeRefType to the list of types
-    TypeStore.accept(baseOptionTpe)//and add the base list type to the list of types
+    stores.typeStore.accept(this)//add the new TypeRefType to the list of types
+    stores.typeStore.accept(baseOptionTpe)//and add the base list type to the list of types
 
     //finally, write the boxed type 
     if (boxedTypeRef.position == 0) boxedTypeRef.write(myPickleBuffer)

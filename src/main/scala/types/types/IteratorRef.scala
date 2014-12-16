@@ -15,10 +15,11 @@
  */
 package artisanal.pickle.maker 
 package types
+import stores._
 import tags._
 import scala.reflect.internal.pickling._
 
-case class TypeRefTpe_Iterator(currentPosition: Position, thisTpe_collection: ThisTpe_collection, Any: TypeRefTpe_Any, collection: ExtModClassRef_collection, scala: ExtModClassRef_scala) extends Tpe{
+case class TypeRefTpe_Iterator(currentPosition: Position, stores: Stores, thisTpe_collection: ThisTpe_collection, Any: TypeRefTpe_Any, collection: ExtModClassRef_collection, scala: ExtModClassRef_scala) extends Tpe{
   var position = 0
   var polyTpePosition = 0
   var annotPos = 0
@@ -29,7 +30,7 @@ case class TypeRefTpe_Iterator(currentPosition: Position, thisTpe_collection: Th
     position = currentPosition.current
 
     TypeRefTpe_generic(currentPosition, currentPosition.current + 1, currentPosition.current + 4, Any.position).writeEntry(myPickleBuffer)
-    thisTpe_collection.write(currentPosition, myPickleBuffer)
+    thisTpe_collection.write(currentPosition, stores, myPickleBuffer)
     collection.write(currentPosition, myPickleBuffer, scala)
     TermName(currentPosition, "collection").write(myPickleBuffer)
     ExtRef_nested(currentPosition, currentPosition.current + 1, collection.position).write(myPickleBuffer)

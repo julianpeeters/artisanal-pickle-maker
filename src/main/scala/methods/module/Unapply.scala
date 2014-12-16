@@ -17,19 +17,20 @@ package artisanal.pickle.maker
 package methods
 package module
 
+import stores._
 import tags._
 import types._
 import cls._
 import scala.reflect.internal.pickling._
 
-case class Unapply(position: Position, classSym_Module: ClassSym_Module, sigResources: SigResources, valueMembers: List[ValueMember], init: Init) { 
+case class Unapply(position: Position, stores: Stores, classSym_Module: ClassSym_Module, sigResources: SigResources, valueMembers: List[ValueMember], init: Init) { 
 
   val valSymPosition = position.current
   val valueMemberTypeRefPositions = valueMembers.map(vm => vm.typeRefPosition)
 
   ValSym(position, position.current + 1, classSym_Module.position, 2097728L, position.current + 2).write(sigResources.myPickleBuffer)
   TermName(position, "unapply").write(sigResources.myPickleBuffer)
-  val optionTypeRef = TypeStore.types.get("Option") //if the base type for lists has already been written
+  val optionTypeRef = stores.typeStore.types.get("Option") //if the base type for lists has already been written
 
   valueMembers.length match {
     case 1          => {  // if there is only 1 value member, have the option typereftpe ref the value member

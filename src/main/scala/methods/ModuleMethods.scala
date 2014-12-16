@@ -17,16 +17,16 @@ package artisanal.pickle.maker
 import methods.cls._
 import methods.module._
 import scala.reflect.internal.pickling._
-
+import stores._
 import tags._
 import types._
 
 
-class ModuleMethods(position: Position, classSym_Module: ClassSym_Module, sigResources: SigResources, valueMembers: List[ValueMember], initMethod: Init, toStringMethod: ToString) {
+class ModuleMethods(position: Position, stores: Stores, classSym_Module: ClassSym_Module, sigResources: SigResources, valueMembers: List[ValueMember], initMethod: Init, toStringMethod: ToString) {
 
   val initMethod_Module = Init_Module(position, classSym_Module, sigResources, initMethod)
   val toStringMethod_Module = ToString_Module(position, classSym_Module, sigResources, valueMembers, toStringMethod)
   val applyMethod = Apply(position, classSym_Module, sigResources, valueMembers, initMethod)
-  val UnapplyMethod = Unapply(position, classSym_Module, sigResources, valueMembers, initMethod)
+  val UnapplyMethod = Unapply(position, stores, classSym_Module, sigResources, valueMembers, initMethod)
   val readResolveMethod = ReadResolve(position, classSym_Module, sigResources)
 }

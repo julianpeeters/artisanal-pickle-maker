@@ -15,11 +15,12 @@
  */
 package artisanal.pickle.maker 
 package types
+import stores._
 import tags._
 import scala.reflect.internal.pickling._
 
 
-case class TypeRefTpe_Object(currentPosition: Position, thisTpe_scala: ThisTpe_scala, thisTpe_lang: ThisTpe_lang, lang: ExtModClassRef_lang, java: ExtModClassRef_java) extends Tpe {
+case class TypeRefTpe_Object(currentPosition: Position, stores: Stores, thisTpe_scala: ThisTpe_scala, thisTpe_lang: ThisTpe_lang, lang: ExtModClassRef_lang, java: ExtModClassRef_java) extends Tpe {
   var position = 0
   var polyTpePosition = 0
   var annotPos = 0
@@ -29,10 +30,10 @@ case class TypeRefTpe_Object(currentPosition: Position, thisTpe_scala: ThisTpe_s
   def write(myPickleBuffer: PickleBuffer) = {
     position = currentPosition.current
     TypeRefTpe_nonGeneric(currentPosition, currentPosition.current + 1, currentPosition.current + 6).writeEntry(myPickleBuffer)
-    thisTpe_lang.write(currentPosition, myPickleBuffer)
+    thisTpe_lang.write(currentPosition, stores, myPickleBuffer)
     lang.write(currentPosition, myPickleBuffer)
     TermName(currentPosition, "lang").write(myPickleBuffer)
-    java.write(currentPosition, "java", myPickleBuffer)
+    java.write(currentPosition, stores, "java", myPickleBuffer)
     TermName(currentPosition, "java").write(myPickleBuffer)
     ExtRef_nested(currentPosition, currentPosition.current + 1, lang.position).write(myPickleBuffer)
     TypeName(currentPosition, "Object").write(myPickleBuffer)

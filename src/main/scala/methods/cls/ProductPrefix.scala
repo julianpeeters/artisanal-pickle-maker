@@ -16,12 +16,12 @@
 package artisanal.pickle.maker
 package methods
 package cls
-
+import stores._
 import tags._
 import types._
 import scala.reflect.internal.pickling._
 
-case class ProductPrefix(position: Position, classSym: ClassSym, sigResources: SigResources) {
+case class ProductPrefix(position: Position, stores: Stores, classSym: ClassSym, sigResources: SigResources) {
 
   val valSymPosition = position.current
   ValSym(position, position.current + 1, classSym.position, 2097696L, position.current + 2).write(sigResources.myPickleBuffer)
@@ -30,10 +30,10 @@ case class ProductPrefix(position: Position, classSym: ClassSym, sigResources: S
   sigResources.thisTpes.lang.position match {
     case 0 => { //if a java type hasn't been used as a value member's type, then write the full type name
       sigResources.typeRefTpes.javaLangString.write(sigResources.myPickleBuffer)
-      sigResources.thisTpes.javaLang.write(position, sigResources.myPickleBuffer)
+      sigResources.thisTpes.javaLang.write(position, stores, sigResources.myPickleBuffer)
       sigResources.extModClassRefs.lang.write(position, sigResources.myPickleBuffer)
       TermName(position, "lang").write(sigResources.myPickleBuffer)
-      sigResources.extModClassRefs.java.write(position, "java", sigResources.myPickleBuffer)
+      sigResources.extModClassRefs.java.write(position, stores, "java", sigResources.myPickleBuffer)
       TermName(position, "java").write(sigResources.myPickleBuffer)
     }
     case i: Int => {// if a java type has been written already, reference that thisTpe_javaLang position

@@ -17,7 +17,7 @@ package artisanal.pickle.maker
 import methods.cls._
 import methods.module._
 import scala.reflect.internal.pickling._
-
+import stores._
 import tags._
 import types._
 
@@ -26,15 +26,22 @@ class ScalaSig(flags: List[String], names: List[String], args: List[(String, Str
 
 //set up a counter to keep track of the number of entries
   val position = new Position
-  
+
+//setup stores to store the generated types, classes, etc.
+  val stores = new Stores(
+    new ExtModClassRefStore,
+    new ThisTypeStore, 
+    new TypeStore, 
+    new ValueMemberStore)
+
 //setup classSym
   val classSym = new ClassSym(position)
 
 //set up resources to supply us with the named objects we'll use to make sig entries
-  val sigResources = new SigResources(position, classSym)
+  val sigResources = new SigResources(position, stores, classSym)
 
 //write entries
-  val entries = new Entries(position, classSym, sigResources, flags, names, args)
+  val entries = new Entries(position, stores, classSym, sigResources, flags, names, args)
 
 //after writing entries, how many were written?
   val entriesNumber = position.current
@@ -46,10 +53,11 @@ class ScalaSig(flags: List[String], names: List[String], args: List[(String, Str
   val mySig = ScalaSigBytes(array)
   val encoded = mySig.sevenBitsMayBeZero
   val bytes =  (new String(encoded, "UTF-8"))
-
+/*
 //reset maps of generated types 
   TypeStore.types.clear()
   ValueMemberStore.valueMembers.clear()
   ExtModClassRefStore.owners.clear()
   ThisTypeStore.owners.clear()
+*/
 }

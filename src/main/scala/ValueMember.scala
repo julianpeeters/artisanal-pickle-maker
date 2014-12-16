@@ -14,13 +14,15 @@
  * limitations under the License.
  */
 package artisanal.pickle.maker
+
+import stores._
 import tags._
 import types._
 import scala.reflect.internal.pickling._
 
 
 
-class ValueMember(position: Position, classSym: ClassSym, myPickleBuffer: PickleBuffer, names: List[String], termName: String, typeName: String, typeRefTpes: TypeRefTpes){
+class ValueMember(position: Position, stores: Stores, classSym: ClassSym, myPickleBuffer: PickleBuffer, names: List[String], termName: String, typeName: String, typeRefTpes: TypeRefTpes){
   val tpeName = typeName
   var polyTpePosition = 0
   var typeRefPosition = 0
@@ -63,7 +65,7 @@ class ValueMember(position: Position, classSym: ClassSym, myPickleBuffer: Pickle
 
       //collections, generics, and user-defined types
       case i: String => {
-        val tpe = TypeStore.types.get(tpeName)
+        val tpe = stores.typeStore.types.get(tpeName)
 
         if (tpe.isDefined)  tpe.get
         else {  
@@ -148,8 +150,8 @@ class ValueMember(position: Position, classSym: ClassSym, myPickleBuffer: Pickle
         polyTpePosition = typeRef.position - 1
         typeRefPosition = typeRef.position
 
-        if (TypeStore.types.get(boxedTypeRef.typeName).isDefined ) { 
-          if (ValueMemberStore.valueMembers.get(typeRef.typeName).isDefined ) { 
+        if (stores.typeStore.types.get(boxedTypeRef.typeName).isDefined ) { 
+          if (stores.valueMemberStore.valueMembers.get(typeRef.typeName).isDefined ) { 
             ValSym(position, position.current + 1, classSym.position, 692060672L, polyTpePosition).write(myPickleBuffer)
             termNamePosition = position.current
             TermName(position, termName).write(myPickleBuffer)
@@ -171,6 +173,6 @@ class ValueMember(position: Position, classSym: ClassSym, myPickleBuffer: Pickle
   }
 
   //keeping a list of value members so I can discern between nested types and top level value members
-  ValueMemberStore.accept(this)
+  stores.valueMemberStore.accept(this)
 
 }

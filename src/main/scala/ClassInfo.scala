@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 package artisanal.pickle.maker
+import stores._
 import tags._
 import types._
 import scala.reflect.internal.pickling._
 
-case class ClassInfo(position: Position, classSym: ClassSym, sigResources: SigResources, flags: List[String], names: List[String]) {
+case class ClassInfo(position: Position, stores: Stores, classSym: ClassSym, sigResources: SigResources, flags: List[String], names: List[String]) {
 
 //entry 0 CLASSsym 
   classSym.write(sigResources.myPickleBuffer)
@@ -27,7 +28,7 @@ println(position.current)
   TypeName(position, names(1)).write(sigResources.myPickleBuffer)
 println(position.current)
 //entry 2 EXTMODCLASSref: the immediate enclosing package 
-  sigResources.extModClassRefs.owner.write(position, names.length match {
+  sigResources.extModClassRefs.owner.write(position, stores, names.length match {
     case 1          =>  "<empty>"      //if there is only one name in the fullName list
     case x if x > 1 =>  names(0)
     case _          =>  sys.error("whoops, no class name?")

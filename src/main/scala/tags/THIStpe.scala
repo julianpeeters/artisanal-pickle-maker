@@ -15,6 +15,7 @@
  */
 package artisanal.pickle.maker
 package tags
+import stores._
 import scala.reflect.internal.pickling._
 
 case class ThisTpe_scala()      extends ThisTpe
@@ -30,8 +31,8 @@ case class ThisTpe_owner()      extends ThisTpe_owner_
 
 class ThisTpe {
   var position = 0
-  def write(currentPosition: Position, myPickleBuffer: PickleBuffer)  =  {
-  position = currentPosition.current  
+  def write(currentPosition: Position, stores: Stores, myPickleBuffer: PickleBuffer)  =  {
+    position = currentPosition.current  
   //tag
     myPickleBuffer.writeByte(13)
   //len
@@ -51,7 +52,7 @@ class ThisTpe_owner_ {
 
 var thisTypeName = ""
   var position = 0
-  def write(currentPosition: Position, myPickleBuffer: PickleBuffer, owner: ExtModClassRef_owner, ownerName: String)  =  {
+  def write(currentPosition: Position, stores: Stores, myPickleBuffer: PickleBuffer, owner: ExtModClassRef_owner, ownerName: String)  =  {
 thisTypeName = "models"
     position = currentPosition.current  
   //tag
@@ -70,7 +71,7 @@ thisTypeName = "models"
   //}
 
       currentPosition.current += 1
-      ThisTypeStore.accept(this)
+      stores.thisTypeStore.accept(this)
 
 
   }

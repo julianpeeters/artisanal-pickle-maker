@@ -15,6 +15,7 @@
  */
 package artisanal.pickle.maker
 package tags
+import stores._
 import scala.reflect.internal.pickling._
 
 
@@ -41,7 +42,7 @@ object ExtModClassRef_root      extends ExtModClassRef_root
 class ExtModClassRef_topLevel(){
   var ownerName = ""
   var position = 0
-  def write(currentPosition: Position, name: String, myPickleBuffer: PickleBuffer)  = {
+  def write(currentPosition: Position, stores: Stores, name: String, myPickleBuffer: PickleBuffer)  = {
     ownerName = name
     position = currentPosition.current
   //tag
@@ -53,7 +54,7 @@ class ExtModClassRef_topLevel(){
     myPickleBuffer.writeNat(currentPosition.current + 1)
   //}
     currentPosition.current += 1
-    ExtModClassRefStore.accept(this)
+    stores.extModClassRefStore.accept(this)
   }
 }
 

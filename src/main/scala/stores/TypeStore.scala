@@ -1,10 +1,11 @@
 package artisanal.pickle.maker 
-package types
+package stores
 import tags._
+import types._
 import scala.reflect.internal.pickling._
 import java.util.concurrent.ConcurrentHashMap
 
-object TypeStore {
+case class TypeStore {
 
    val types: scala.collection.concurrent.Map[String, Tpe] = scala.collection.convert.Wrappers.JConcurrentMapWrapper(new ConcurrentHashMap[String, Tpe]())
 

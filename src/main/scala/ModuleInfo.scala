@@ -14,11 +14,14 @@
  * limitations under the License.
  */
 package artisanal.pickle.maker 
+import stores._
 import tags._
 import types._
 import scala.reflect.internal.pickling._
 
-class ModuleInfo(currentPosition: Position, 
+class ModuleInfo(
+  currentPosition: Position,
+  stores: Stores,
   classSym_Module: ClassSym_Module,
   moduleSym: ModuleSym,
   myPickleBuffer: PickleBuffer,
@@ -38,6 +41,6 @@ class ModuleInfo(currentPosition: Position,
   }
   moduleClass.write(myPickleBuffer)
   classSym_Module.write(myPickleBuffer)
-  ClassInfoTpe_Module(currentPosition, classSym_Module, valueMembers, modelsMyRecord, thisTpe_runtime, runtime, scala).write(myPickleBuffer)
-  TypeRefTpe_AbstractFunction(currentPosition, valueMembers, modelsMyRecord, thisTpe_runtime, runtime, scala).write(myPickleBuffer)
+  ClassInfoTpe_Module(currentPosition, stores, classSym_Module, valueMembers, modelsMyRecord, thisTpe_runtime, runtime, scala).write(myPickleBuffer)
+  TypeRefTpe_AbstractFunction(currentPosition, stores, valueMembers, modelsMyRecord, thisTpe_runtime, runtime, scala).write(myPickleBuffer)
 }

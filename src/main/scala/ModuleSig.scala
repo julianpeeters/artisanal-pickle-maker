@@ -17,12 +17,12 @@ package artisanal.pickle.maker
 import methods.cls._
 import methods.module._
 import scala.reflect.internal.pickling._
-
+import stores._
 import tags._
 import types._
 
 //Write a module signature: composed of module info and module methods
-class ModuleSig(position: Position, sigResources: SigResources, names: List[String], valueMembers: List[ValueMember], initMethod: Init, caseClassMethods: CaseClassMethods){
+class ModuleSig(position: Position, stores: Stores, sigResources: SigResources, names: List[String], valueMembers: List[ValueMember], initMethod: Init, caseClassMethods: CaseClassMethods){
 
   val classSym_Module = new ClassSym_Module(position)
   val moduleSym = new ModuleSym(position)
@@ -30,6 +30,7 @@ class ModuleSig(position: Position, sigResources: SigResources, names: List[Stri
 //Write Module Info
   val moduleInfo = new ModuleInfo(
     position,
+    stores,
     classSym_Module,
     moduleSym,
     sigResources.myPickleBuffer, 
@@ -42,6 +43,6 @@ class ModuleSig(position: Position, sigResources: SigResources, names: List[Stri
     sigResources.extModClassRefs.scala)
 
 //write Module Methods
-  val moduleMethods = new ModuleMethods(position, classSym_Module, sigResources, valueMembers, initMethod, caseClassMethods.toStringMethod)
+  val moduleMethods = new ModuleMethods(position, stores, classSym_Module, sigResources, valueMembers, initMethod, caseClassMethods.toStringMethod)
 
 }

@@ -17,19 +17,19 @@ package artisanal.pickle.maker
 import methods.cls._
 import methods.module._
 import scala.reflect.internal.pickling._
-
+import stores._
 import tags._
 import types._
 
-class CaseClassMethods(position: Position, classSym: ClassSym, sigResources: SigResources, valueMembers: List[ValueMember]) {
+class CaseClassMethods(position: Position, stores: Stores, classSym: ClassSym, sigResources: SigResources, valueMembers: List[ValueMember]) {
 
 //write class methods that we get for free with a case class
 
-  val copyMethod = Copy(position,     classSym,sigResources, valueMembers)
+  val copyMethod = Copy(position, classSym,sigResources, valueMembers)
 
-  val copyDefaultMethod = CopyDefault(position, classSym, sigResources, valueMembers)
+  val copyDefaultMethod = CopyDefault(position, stores, classSym, sigResources, valueMembers)
 
-  val productPrefixMethod = ProductPrefix(position, classSym, sigResources)
+  val productPrefixMethod = ProductPrefix(position, stores, classSym, sigResources)
 
   val productArityMethod = ProductArity(
     position, 

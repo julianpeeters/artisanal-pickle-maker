@@ -15,10 +15,11 @@
  */
 package artisanal.pickle.maker 
 package types
+import stores._
 import tags._
 import scala.reflect.internal.pickling._
 
-case class TypeRefTpe_AbstractFunction(currentPosition: Position, valueMembers: List[ValueMember], modelsMyRecord: TypeRefTpe_modelsMyRecord, thisTpe_runtime: ThisTpe_runtime, runtime: ExtModClassRef_runtime, scala: ExtModClassRef_scala) extends Tpe {
+case class TypeRefTpe_AbstractFunction(currentPosition: Position, stores: Stores, valueMembers: List[ValueMember], modelsMyRecord: TypeRefTpe_modelsMyRecord, thisTpe_runtime: ThisTpe_runtime, runtime: ExtModClassRef_runtime, scala: ExtModClassRef_scala) extends Tpe {
   var position = 0
   var polyTpePosition = 0
   var annotPos = 0
@@ -28,7 +29,7 @@ case class TypeRefTpe_AbstractFunction(currentPosition: Position, valueMembers: 
   def write(myPickleBuffer: PickleBuffer) = {
     position = currentPosition.current
     TypeRefTpe_function(currentPosition, currentPosition.current + 1, currentPosition.current + 4, valueMembers.map(_.typeRefPosition), modelsMyRecord.position).writeEntry(myPickleBuffer)
-    thisTpe_runtime.write(currentPosition, myPickleBuffer)
+    thisTpe_runtime.write(currentPosition, stores, myPickleBuffer)
     runtime.write(currentPosition, myPickleBuffer, scala)
     TermName(currentPosition, "runtime").write(myPickleBuffer)
     ExtRef_nested(currentPosition, currentPosition.current + 1, currentPosition.current - 2).write(myPickleBuffer)

@@ -15,10 +15,11 @@
  */
 package artisanal.pickle.maker 
 package types
+import stores._
 import tags._
 import scala.reflect.internal.pickling._
 
-case class TypeRefTpe_UncheckedVariance(currentPosition: Position, unchecked: ExtModClassRef_unchecked, annotation: ExtModClassRef_annotation, scala: ExtModClassRef_scala) extends Tpe {
+case class TypeRefTpe_UncheckedVariance(currentPosition: Position, stores: Stores, unchecked: ExtModClassRef_unchecked, annotation: ExtModClassRef_annotation, scala: ExtModClassRef_scala) extends Tpe {
   var position = 0
   var polyTpePosition = 0
   var annotPos = 0
@@ -29,7 +30,7 @@ case class TypeRefTpe_UncheckedVariance(currentPosition: Position, unchecked: Ex
     position = currentPosition.current 
     TypeRefTpe_nonGeneric(currentPosition, currentPosition.current + 1, currentPosition.current + 6).writeEntry(myPickleBuffer)
     val thisTpe_unchecked = ThisTpe_unchecked()
-    thisTpe_unchecked.write(currentPosition, myPickleBuffer)
+    thisTpe_unchecked.write(currentPosition, stores, myPickleBuffer)
     unchecked.write(currentPosition, myPickleBuffer)
     TermName(currentPosition, "unchecked").write(myPickleBuffer)
     annotation.write(currentPosition, myPickleBuffer, scala)
