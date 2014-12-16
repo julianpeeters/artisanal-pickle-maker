@@ -9,12 +9,12 @@ Takes class info as strings and gives back pickled Scala signatures. For use wit
 Why? Because existing Java bytecode-engineering tools can't see or alter a pickled Scala signature, thus the altered classes are incomplete in cases where Scala code has no Java equivalent. Artisanal-Pickle-Maker hopes to solve this by updating an altered class's Scala signtature to reflect changes made to the bytecode.
 
 ##Usage:##
-Available for Scala 2.10 and 2.11 (see branches for other releases).
+Available for Scala 2.10 (see branches for other supported versions).
 
 Add the following dependency to your `build.sbt` file:
 
 
-`libraryDependencies += "com.julianpeeters" %% "artisanal-pickle-maker" % "0.9.0"`
+`libraryDependencies += "com.julianpeeters" %% "artisanal-pickle-maker" % "0.9.1"`
 
 Get an `artisanal.pickle.maker.ScalaSig` with: 
 
@@ -60,12 +60,11 @@ Thus, `scalaSig.bytes` is identical to the encoded string that would be found in
 
 ##In the future:##
 
-  _Datatypes_ - Support for more collections besides just `List` and `Option`.
+  _Datatypes_ - Support for more collections besides just `List` and `Option`
 
-  _Extension_ - Support for flags that allow arbitrary extension(?)
+  _Extension_ - Support for flags that allow arbitrary extension         (?)
 
-  _Classes_ - Support for flags other than "case class"(?).
-
+  _Classes_ - Support for flags other than "case class" (?)
 
 ##Constructive advice is appreciated!##
 

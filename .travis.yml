@@ -2,11 +2,10 @@
 language: scala
 scala:
    - 2.10.4
-   - 2.11.4
 branches:
   only:
     - master
-    - travis
+    - scala_2.10
 notifications:
   email:
     recipients:

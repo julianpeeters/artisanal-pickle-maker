@@ -3,7 +3,7 @@ import Keys._
 
 name := "artisanal-pickle-maker"
 
-version := "0.9.0"
+version := "0.9.1"
 
 organization := "com.julianpeeters"
 
@@ -12,12 +12,12 @@ scalaVersion := "2.10.4"
 libraryDependencies ++= Seq( 
   "org.specs2" %% "specs2" % "2.4" % "test",
   "com.novus" %% "salat" % "1.9.9" % "test",
-  "org.scala-lang" % "scala-compiler" % "2.10.4"
+  "org.scala-lang" % "scala-compiler" % scalaVersion.value
 )
 
-publishArtifact in Test := false
-
 publishMavenStyle := true
+
+publishArtifact in Test := false
 
 publishTo <<= version { (v: String) =>
       val nexus = "https://oss.sonatype.org/"

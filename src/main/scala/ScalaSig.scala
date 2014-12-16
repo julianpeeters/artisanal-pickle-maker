@@ -38,23 +38,14 @@ class ScalaSig(flags: List[String], names: List[String], args: List[(String, Str
 
 //after writing entries, how many were written?
   val entriesNumber = position.current
-println("Pos: " + position.current)
 
 // get the bytes, trimming the excess 0s but leaving one 0. (Header written last so we know # entries)
-  val array = Array.concat(new SigHeader(position).bytes, sigResources.myPickleBuffer.bytes).reverse.dropWhile(b => b == 0).reverse:+0.toByte
-//val array = sigResources.myPickleBuffer.bytes.reverse.dropWhile(b => b == 0).reverse:+0.toByte
-
+  val array = Array.concat(new SigHeader(position).bytes, sigResources.myPickleBuffer.bytes).reverse.dropWhile(b => b == 0).reverse//:+0.toByte
 
 //use NSC's AnnotationInfo code to pickle:
   val mySig = ScalaSigBytes(array)
   val encoded = mySig.sevenBitsMayBeZero
   val bytes =  (new String(encoded, "UTF-8"))
-//println("ScalaSig mySig: " + mySig)
-//println("ScalaSig encoded: " + encoded)
-//println("ScalaSig bytes: " + bytes)
-
-//reset position keeper
- // Position.current = 0
 
 //reset maps of generated types 
   TypeStore.types.clear()
